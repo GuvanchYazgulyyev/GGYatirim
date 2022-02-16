@@ -1,0 +1,274 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+/***Styles **/
+/***Inputs **/
+/***Media Queries **/
+
+.theme-dark {
+  background-color: #37466f;
+  background-image: linear-gradient(180deg, rgba(156, 98, 227, 0.5) 0%, rgba(100, 149, 254, 0.5) 100%);
+  background-blend-mode: color-burn;
+  p,
+  span,
+  label {
+    color: #e3ecff !important;
+  }
+}
+
+.theme-light {
+  background-color: #f5f6f8;
+}
+
+.light-search-form {
+  padding: 24px;
+  z-index: 100;
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 24px;
+    float: right;
+
+    input {
+      display: none;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      -webkit-transition: .4s;
+      transition: .4s;
+    }
+    .slider.round {
+
+      border-radius: 12px;
+      border: 2px solid @search-form1-slider-border-color;
+      background-color: @search-form1-slider-bg-color;
+
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 16px;
+      width: 16px;
+      left: 2px;
+      bottom: 2px;
+      background-color: @search-form1-slider-first-color;
+      -webkit-transition: .4s;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    .slider.special-before:before {
+      background-color: @search-form1-slider-last-color;
+
+    }
+    input:checked + .slider {
+      background-color: #fff;
+    }
+
+    input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+    }
+
+    input:checked + .slider:before {
+      -webkit-transform: translateX(14px);
+      -ms-transform: translateX(14px);
+      transform: translateX(14px);
+      color: @search-form1-slider-last-color;
+    }
+  }
+}
+
+/***/
+
+/**/
+.light-search-form__main {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 1fr minmax(323px, 350px);
+  -ms-grid-columns: 1fr minmax(323px, 350px);
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  align-items: stretch;
+  .caption {
+    font-family: @main-font;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+    margin: 0 0 8px;
+  }
+}
+
+.light-search-form__side-blocks {
+  .captions-block {
+    display: flex;
+    justify-content: space-between;
+    .caption_inline {
+      display: inline-block;
+      margin-right: 10px;
+    }
+
+  }
+  .inputs-block {
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr max-content;
+    -ms-grid-columns: 1fr max-content;
+    grid-column-gap: 20px;
+  }
+}
+
+.light-search-form {
+  .toggle-options {
+    margin-top: 20px;
+    padding-top: 24px;
+    border-top: 2px solid rgba(153, 161, 182, 0.24);
+    display: none;
+  }
+
+  .toggle-options__sliders {
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 22px;
+    grid-row-gap: 25px;
+    .prop-wrapper {
+      margin-bottom: -10px;
+    }
+  }
+
+  .toggle-options__selects {
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 22px;
+    grid-row-gap: 25px;
+    margin-bottom: 20px;
+  }
+
+  .apartment-features {
+    margin-top: 10px;
+    .checkboxes-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-column-gap: 20px;
+      margin-top: 10px;
+    }
+  }
+}
+
+/***Inputs**/
+
+.light-search-form {
+
+  input[type='submit'] {
+    height: 44px;
+    width: 100%;
+    text-transform: uppercase;
+    border: 2px solid @search-form-small-search-button-border-color;
+    border-radius: 4px;
+    background: @search-form-small-search-button-bg-color;
+    color: @search-form-small-search-button-text-color;
+    font-family: @secondary-font;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    position: relative;
+    display: block;
+    padding: 1px 14px;
+  }
+
+  input[type='search'] {
+    height: 44px !important;
+    border: 2px solid @search-form-small-input-border-color;
+    border-radius: 2px;
+    width: 100%;
+    padding-left: 8px;
+  }
+
+  input[type='search']::placeholder {
+    color: @search-form-small-input-placeholder-color;
+    font-family: @main-font;
+  }
+
+  input[type='search']:-moz-placeholder {
+    color: @search-form-small-input-placeholder-color;
+    font-family: @main-font;
+  }
+
+  input[type='search']:-ms-input-placeholder {
+    color: @search-form-small-input-placeholder-color;
+    font-family: @main-font;
+  }
+
+  input[type='search']::-moz-placeholder {
+    color: @search-form-small-input-placeholder-color;
+    font-family: @main-font;
+  }
+
+  input[type='search']::-webkit-input-placeholder {
+    color: @search-form-small-input-placeholder-color;
+    font-family: @main-font;
+  }
+
+  input[type='search']:focus {
+    outline-color: @search-form-small-input-focus-border-color;
+  }
+}
+
+@media (max-width: 767px) {
+  .light-search-form__main {
+
+    grid-template-columns: 1fr;
+    -ms-grid-columns: 1fr;
+    grid-row-gap: 22px;
+  }
+
+  .light-search-form {
+    .apartment-features {
+      margin-top: 10px;
+      .checkboxes-block {
+        grid-template-columns: 1fr 1fr;
+
+      }
+    }
+  }
+}
+
+@media (max-width: 519px) {
+  .light-search-form {
+    .toggle-options__selects {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (max-width: 474px) {
+  .light-search-form {
+    .toggle-options__sliders {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (max-width: 404px) {
+  .light-search-form {
+    .apartment-features {
+      .checkboxes-block {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}
+
+

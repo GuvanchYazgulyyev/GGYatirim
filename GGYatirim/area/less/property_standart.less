@@ -1,0 +1,289 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.property-standart-grid-wrapper {
+  border-radius: 2px;
+  border: 2px solid @property-standart-border-color;
+  background-color: @property-standart-bg-color;
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  margin-bottom: 15px;
+  position: relative;
+  .image-wrapper {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .badges {
+      position: absolute;
+      top: 5%;
+      left: 1%;
+      p {
+        display: inline-block;
+        padding: 10px;
+        margin-right: 10px;
+        font-family: @secondary-font;
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.24px;
+        margin-bottom: 0;
+      }
+
+    }
+  }
+  .information-wrapper {
+    padding: 20px 20px 0 24px;
+    .property-type {
+      color: @property-standart-property-type-color;
+      font-family: @secondary-font;
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin: 0;
+    }
+    .property-title {
+      margin-top: 4px;
+      margin-bottom: 7px;
+      color: @property-standart-property-title-color;
+      font-family: @main-font;
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .apartment-address {
+      padding-top: 7px;
+      .address {
+        color: @property-standart-address-text-color;
+        font-family: @main-font;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.44px;
+      }
+      i {
+        font-size: 16px;
+        position: relative;
+        top: 3px;
+        color: @property-standart-address-icon-color;
+      }
+    }
+    .apartment-values {
+      position: relative;
+      margin-top: 9px;
+      padding-top: 6px;
+      border-top: 1px solid #99a1b6;
+      span {
+        color: @property-standart-value-span-color;
+        font-family: @main-font;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.44px;
+      }
+      span + span:before {
+        padding: 8px;
+        color: @property-standart-value-breadcrumb-color;
+        content: "/\00a0";
+      }
+    }
+    .apartment-info {
+      margin: 10px 0 20px;
+      display: grid;
+      display: -ms-grid;
+      grid-template-columns: max-content max-content;
+      -ms-grid-columns: max-content max-content;
+      justify-content: space-between;
+      .apartment-price {
+        display: inline-block;
+        position: relative;
+        .price-big {
+          color: @property-standart-big-price-text-color;
+          font-family: @main-font;
+          font-size: 20px;
+          font-weight: 600;
+          letter-spacing: 0.4px;
+          margin: 0;
+
+        }
+        .price-small {
+          color: @property-standart-small-price-text-color;
+          font-family: @main-font;
+          font-size: 14px;
+          line-height: 22px;
+          letter-spacing: 0.44px;
+          margin: 0;
+        }
+      }
+      .icons {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap-reverse;
+        .icons-style {
+          border: 2px solid @property-standart-icons-border-color;
+          padding: 11px;
+          background: @property-standart-icons-bg-color;
+          border-radius: 100%;
+          font-size: 16px;
+          color: @property-standart-icons-color;
+        }
+
+        a:hover .icons-style {
+          box-shadow: 0 1px 10px @property-standart-icons-hover-shadow;
+          background-color: @property-standart-icons-hover-bg-color;
+          color: @property-standart-icons-hover-text-color;
+          text-decoration: none;
+        }
+        .heart {
+          margin: auto 0;
+          i:before {
+            content: '\E87E';
+          }
+          i.active:before {
+            content: '\E87D';
+            color: @property-standart-heart-active-color;
+          }
+        }
+        .clone {
+          margin: auto 10px auto 0;
+          i:before {
+            content: "\E3E0";
+          }
+        }
+        a.clone:hover {
+          i:before {
+            content: "\E02E";
+          }
+        }
+      }
+    }
+
+  }
+  .apartment-manager {
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    background: @property-standart-manager-bg-color;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+    grid-gap: 10px;
+    align-items: center;
+    border-top: 2px solid rgba(153, 161, 182, 0.08);
+    display: -ms-grid;
+    -ms-grid-columns: max-content max-content;
+
+    .manager-wrap {
+      display: flex;
+      .manager-icon {
+        margin: auto;
+        position: relative;
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        img {
+          object-fit: cover;
+          height: 100%;
+          width: 100%;
+          border-radius: 50%;
+        }
+        .online-status {
+          position: absolute;
+          top: 10%;
+          width: 8px;
+          height: 8px;
+          box-shadow: 0 0 10px #cddc39;
+          background-color: #cddc39;
+          border-radius: 50px;
+        }
+
+      }
+      .agency-icon {
+        margin: auto;
+        position: relative;
+        height: 40px;
+        width: 40px;
+        img {
+          object-fit: contain;
+          height: 100%;
+          width: 100%;
+        }
+      }
+      .manager-name {
+        color: @property-standart-manager-name-text-color;
+        font-family: @main-font;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.44px;
+        margin: auto 0 auto 16px;
+      }
+
+    }
+
+    .manager-wrap.agency-show {
+      .manager-icon {
+        display: none;
+      }
+    }
+    .manager-wrap.agent-show {
+      .agency-icon {
+        display: none;
+      }
+    }
+    .calendar {
+
+      i {
+        color: @property-standart-calendar-icon-color;
+        position: relative;
+        top: 3px;
+        font-size: 16px;
+      }
+      span {
+        color: @property-standart-calendar-text-color;
+        font-family: @main-font;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.44px;
+      }
+    }
+
+  }
+}
+
+@media (max-width: 650px) {
+  .property-standart-grid-wrapper {
+    border-radius: 2px;
+    border: 2px solid @property-standart-border-color;
+    background-color: @property-standart-bg-color;
+    display: grid;
+    grid-template-columns: 1fr;
+    .information-wrapper {
+
+      grid-row: 2
+    }
+    .apartment-manager {
+      grid-row: 3;
+    }
+  }
+
+}
+
+@media (max-width: 425px) {
+  .property-standart-grid-wrapper {
+    .apartment-manager {
+      grid-template-columns: 1fr;
+      grid-column-gap: 15px;
+      > * {
+        margin: auto;
+      }
+    }
+  }
+}

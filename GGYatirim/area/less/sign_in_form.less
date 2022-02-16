@@ -1,0 +1,153 @@
+#signin-wrap{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 999;
+    background-color: #fdfdfd;
+    opacity: 0.99;
+    display: none;
+}
+.sign-in-form {
+    display: block;
+    font-size: 0;
+    max-width: 770px;
+    width: 100%;
+    margin: auto auto;
+    box-shadow: 0 1px 20px rgba(55, 70, 111, 0.16);
+    border-radius: 2px;
+    border: 2px solid #eff0f3;
+    background-color: #ffffff;
+    padding: 30px 0 0 30px;
+}
+.sign-in-form h3 {
+    color: #37466f;
+    font-family: "Open Sans";
+    font-size: 20px;
+    margin: 0;
+    padding-bottom: 24px;
+    display: inline-block;
+}
+.sign-in-form p {
+    color: #525252;
+    font-family: "Open Sans";
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+    margin-bottom: 26px;
+}
+.sign-in-form img {
+    width: 100%;
+}
+.sign-in-form .left-wrap {
+    width: 50%;
+    display: inline-block;
+}
+.sign-in-form .right-wrap {
+    width: 50%;
+    display: inline-block;
+    text-align: right;
+    vertical-align: bottom;
+    padding-left: 20px;
+}
+.sign-in-form input {
+    width: 100%;
+    height: 40px;
+    border-radius: 2px;
+    border: 2px solid #f7f8f9;
+    background-color: #ffffff;
+    color: #99a1b6;
+    font-family: "Open Sans";
+    font-size: 14px;
+    letter-spacing: 0.44px;
+    margin-bottom: 16px;
+    padding: 0px 17px;
+}
+.sign-in-form .left-wrap > a {
+    color: #6495fe;
+    font-family: "Montserrat";
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+.sign-in-form .buttons-wrap {
+    padding-bottom: 45px;
+}
+.sign-in-form .buttons-wrap > a {
+    height: 40px;
+    border-radius: 2px;
+    text-align: center;
+    color: #ffffff;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    display: inline-block;
+    padding: 10px 0px;
+    text-decoration: none;
+}
+.sign-in-form .buttons-wrap .sign {
+    border: 2px solid #9cbbfe;
+    background-color: #6495fe;
+    margin-right: 24px;
+    width: 166px;
+}
+.sign-in-form .buttons-wrap .create {
+    border: 2px solid rgba(153, 161, 182, 0.08);
+    background-color: #f7f7f7;
+    color: #527efd;
+    width: 178px;
+}
+.sign-in-form input[type='password'] {
+    margin-bottom: 26px;
+}
+.sign-in-form button {
+    background: transparent;
+    border: none;
+    float: right;
+}
+.sign-in-form button i {
+    color: #99a1b6;
+    font-size: 16px;
+}
+.sign-in-form .wrap {
+    padding-right: 30px;
+}
+.sign-in-form ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #99a1b6;
+}
+.sign-in-form ::-moz-placeholder { /* Firefox 19+ */
+  color: #99a1b6;
+}
+.sign-in-form ::-ms-input-placeholder { /* IE 10+ */
+  color: #99a1b6;
+}
+.sign-in-formp ::-moz-placeholder { /* Firefox 18- */
+  color: #99a1b6;
+}
+@media(max-width: 991px) {
+    .sign-in-form input[type=password] {
+        margin-bottom: 16px;
+    }
+    .sign-in-form .buttons-wrap .sign,
+    .sign-in-form .buttons-wrap .create {
+        margin: 0px;
+        width: 100%;
+    }
+}
+@media(max-width: 650px) { 
+    .sign-in-form .right-wrap {
+        display: none;
+    }
+    .sign-in-form .left-wrap {
+        width: 100%;
+    }
+    .sign-in-form .left-wrap {
+        padding-right: 30px;
+    }
+}

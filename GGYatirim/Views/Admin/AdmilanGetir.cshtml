@@ -1,0 +1,290 @@
+﻿@model GGYatirim.Models.Sinif.Dbilan
+@{
+    ViewBag.Title = "AdmilanGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<!--İaln Getir Kımsı Alındı     id="submit" class="js-content-blocks"-->
+
+
+<div style="padding:50px;">
+    <div class="submit-wrapper">
+        <h1 class="account-header-top">Yeni İlan Ekle</h1>
+        @*<div class="submit-content">
+            @Html.Action("AdmYeniilanPart", "Admin")*@
+
+
+            @using (Html.BeginForm("AdmilanGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="submit-property-wild-block">
+                    <div class="general-property-info">
+                        <h2 class="submit-property__block-header">Genel ilan bilgisi</h2>
+                        <div class="prop-type">
+                            <p class="input-header">Kısa Başlık (Zorunlu)</p>
+                            @Html.TextBoxFor(x => x.EmlakTipi, new { @class = "form-control" })
+
+
+                        </div>
+
+
+                        <div class="select-type">
+                            <p class="input-header">Tip</p>
+                            @Html.DropDownListFor(x => x.EmlakTipIDD, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control", @style = "background: #fff; border-bottom: 1px solid #ebc858;  margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height:50px;" })
+
+                        </div>
+                        <div class="select-status">
+                            <p class="input-header">Durum</p>
+                            @Html.DropDownListFor(x => x.ilanDurumIDD, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control", @style = "background: #fff; border-bottom: 1px solid #ebc858;  margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height:50px;" })
+
+                        </div>
+                        <div class="select-label">
+                            <p class="input-header">Konum (Şehir)</p>
+                            @Html.DropDownListFor(x => x.KonumIDD, (List<SelectListItem>)ViewBag.dgr5, new { @class = "form-control", @style = "background: #fff; border-bottom: 1px solid #ebc858;  margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height:50px;" })
+                            <input type="text" name="ilanNo" readonly hidden="" value="@ViewBag.takipkod" /> <br />
+
+                        </div>
+                        <div class="prop-type">
+                            <p class="input-header">Site Adı</p>
+                            @Html.TextBoxFor(x => x.SiteAdi, new { @class = "form-control" })
+
+                        </div>
+
+
+                        <div class="location">
+                            <p class="input-header">Google Map Adresi</p>
+                            @Html.TextBoxFor(x => x.GoogleMapAdres, new { @class = "form-control" })
+
+                        </div>
+
+                        <div class="map-btn">
+                            <button class="button-secondary">Google Map Adresini Seçiniz</button>
+                        </div>
+
+                        <div class="price-full">
+                            <div class="select-label">
+                                <p class="input-header">Özellik</p>
+                                @Html.DropDownListFor(x => x.ilanOzellikIDD, (List<SelectListItem>)ViewBag.dgr4, new { @class = "form-control", @style = "background: #fff; border-bottom: 1px solid #ebc858;  margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height:50px;" })
+
+                            </div>
+                        </div>
+                        <div class="prop-type">
+                            <p class="input-header">Tam Adres (Zorunlu)</p>
+                            @Html.TextBoxFor(x => x.TamAdres, new { @class = "form-control" })
+                        </div>
+
+
+
+                    </div>
+
+                    <!--property img drag and drop start-->
+                    <div class="property-img-drag-drop">
+                        <h2 class="submit-property__block-header">İlan resimleri</h2>
+                        <div class="styling-file-input">
+                            <label>
+                                <span class="drag-span">(Vitrin Resim) Resimleri buraya sürükleyip bırakın veya</span>
+                                <span class="select-span">Fotograf Seçiniz</span>
+                                <input class="style-file-input" id="File" name="File" type="file">
+                            </label>
+                        </div>
+
+
+                        <div class="styling-file-input">
+                            <label>
+                                <span class="drag-span"> Resimleri buraya sürükleyip bırakın veya</span>
+                                <span class="select-span">Fotograf Seçiniz</span>
+                                <input class="style-file-input" name="CokluResim" multiple="true" type="file">
+                            </label>
+                        </div>
+
+
+
+
+
+
+                        <div class="image-miniatures-grid">
+                            @foreach (var item in Model.DbilanGallery.Where(k => k.İlanIDD == Model.ilanID))
+                            {
+                                <div class="image-miniature">
+                                    <img src="@item.URL" name="File" alt="image">
+                                    @*<div class="mask">
+                                            <i class="material-icons mask-controls">done</i>
+                                            <i class="material-icons mask-controls">close</i>
+                                        </div>*@
+                                </div>
+                            }
+
+
+
+                        </div>
+                    </div>
+
+                    <!--property img drag and drop end-->
+                    <!--property description textarea start-->
+                    <div class="description-textarea">
+                        <h2 class="submit-property__block-header">Açıklama</h2>
+                        @Html.TextAreaFor(x => x.Aciklama, 10, 10, new { @class = "form-control" })
+
+                        @*<textarea id="editor" name="Aciklama" rows="8" placeholder="Açıklama Ekleyiniz!" autofocus></textarea>*@
+
+                    </div>
+                    <!--property description textarea end-->
+                    <!--property details start-->
+
+                    <div class="property-details-block">
+                        <h2 class="submit-property__block-header">Detaylar</h2>
+                        <div class="prop-id">
+                            <p class="input-header">Tam Fiyat ₺</p>
+                            @Html.TextBoxFor(x => x.TamFiyat, new { @class = "form-control", type = "number" })
+
+
+                        </div>
+                        <div class="prop-size">
+                            <p class="input-header">Metre Kare Fiyatı ₺</p>
+                            @Html.TextBoxFor(x => x.MetreKareFiyat, new { @class = "form-control", type = "number" })
+
+
+                        </div>
+                        <div class="prop-year">
+                            <p class="input-header">Kuruluş Yılı (Bina Yaşı)</p>
+                            @Html.TextBoxFor(x => x.KurulusYili, new { @class = "form-control", type = "number" })
+                        </div>
+                        <div class="prop-land-area">
+                            <p class="input-header">Arazi Alanı</p>
+                            @Html.TextBoxFor(x => x.AraziAlanı, new { @class = "form-control", type = "number" })
+                        </div>
+                        <div class="">
+                            <p class="input-header">Aidat</p>
+                            @Html.TextBoxFor(x => x.Aidat, new { @class = "form-control", type = "number" })
+                        </div>
+
+                        <div class="prop-add-size">
+                            <p class="input-header">Ek Alan Boyutu</p>
+                            @Html.TextBoxFor(x => x.AlanBoyutu, new { @class = "form-control" })
+                        </div>
+
+                        <div>
+                            <p class="input-header">Bulunduğu Kat</p>
+                            @Html.TextBoxFor(x => x.BulunduguKat, new { @class = "form-control" })
+                        </div>
+
+                        <div>
+                            <p class="input-header">Isıtma</p>
+                            @Html.TextBoxFor(x => x.isitma, new { @class = "form-control" })
+                        </div>
+
+                        <div>
+                            <p class="input-header">Kullanım Durumu</p>
+                            @Html.TextBoxFor(x => x.KullanimDurumu, new { @class = "form-control" })
+                        </div>
+
+                        <div>
+                            <p class="input-header">Tapu Durumu</p>
+                            @Html.TextBoxFor(x => x.TapuDurumu, new { @class = "form-control" })
+                        </div>
+                        <div>
+                            <p class="input-header">Zemin Etüdü</p>
+                            @Html.TextBoxFor(x => x.ZeminEtudu, new { @class = "form-control" })
+                        </div>
+                        <div>
+                            <p class="input-header">Yapının Durumu</p>
+                            @Html.TextBoxFor(x => x.YapininDurumu, new { @class = "form-control" })
+                        </div>
+                        <div>
+                            <p class="input-header">Kat Sayısı</p>
+                            @Html.TextBoxFor(x => x.KatSayisi, new { @class = "form-control" })
+                        </div>
+
+
+                        <div class="select-type">
+                            <p class="input-header">Eşyalı</p>
+                            @Html.TextBoxFor(x => x.Esyali, new { @class = "form-control" })
+
+                        </div>
+
+
+
+                        <div class="select-type">
+                            <p class="input-header">Site İçersinde</p>
+                            @Html.TextBoxFor(x => x.Siteicerisinde, new { @class = "form-control" })
+
+                        </div>
+
+                        <div class="select-type">
+                            <p class="input-header">Krediye Uygun</p>
+                            @Html.TextBoxFor(x => x.KrediyeUygun, new { @class = "form-control" })
+
+                        </div>
+
+                        <div class="select-type">
+                            <p class="input-header">Takas</p>
+                            @Html.TextBoxFor(x => x.Takasli, new { @class = "form-control" })
+
+                        </div>
+
+                        <div class="select-type">
+                            <p class="input-header">Yakıt Tipi</p>
+                            @Html.TextBoxFor(x => x.YakitTipi, new { @class = "form-control" })
+
+                        </div>
+
+                        <div class="select-type">
+                            <p class="input-header">Balkon</p>
+                            @Html.TextBoxFor(x => x.Balkon, new { @class = "form-control" })
+
+                        </div>
+
+                        <div class="select-type">
+                            <p class="input-header">Banyo</p>
+                            @Html.TextBoxFor(x => x.Banyo, new { @class = "form-control" })
+
+                        </div>
+
+                        <div class="select-type">
+                            <p class="input-header">Garaj</p>
+                            @Html.TextBoxFor(x => x.Garaj, new { @class = "form-control" })
+
+                        </div>
+
+
+
+                        <div class="select-type">
+                            <p class="input-header">Oda Sayısı</p>
+                            @Html.TextBoxFor(x => x.OdaSayisi, new { @class = "form-control" })
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+
+                    <div class="private-note">
+                        <h2 class="submit-property__block-header">Özel Not (İstege Bağlı)</h2>
+                        @Html.TextAreaFor(x => x.OzelNor, 6, 6, new { @class = "form-control" })
+                    </div>
+
+                    @*<div class="submit-property-btns">
+                            <div>
+                                <a href="#" class="button-link-normal button-link-normal__single-icon">
+                                    <i class="material-icons">flag</i>
+                                </a>
+
+                                <a href="#" class="button-link-normal">
+                                    Önizlem Yap
+                                </a>
+                            </div>
+
+                        </div>*@
+                    @Html.HiddenFor(x => x.ilanID)
+                    <input type="submit" class="button-link-normal" style="background-color:springgreen; color:black;" value="İlanı Ekle" />
+
+                </div>
+
+            }
+        @*</div>*@
+    </div>
+</div>
+

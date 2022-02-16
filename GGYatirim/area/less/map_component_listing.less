@@ -1,0 +1,202 @@
+.map_component_listing {
+    position: relative;
+}
+.map_component_listing .apartment-image {
+    position: relative;
+    height: 100%;
+}
+.map_component_listing .listing-wrapper {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    max-width: 830px;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, .9);
+    width: 100%;
+    bottom: 0px;
+    overflow-y: auto;
+}
+.map_component_listing .apartment-image {
+    position: relative;
+    height: 100%;
+}
+.map_component_listing .badge-wrapper {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+}
+.map_component_listing .badge-wrapper > div {
+    display: inline-block;
+    margin: 0px 10px 10px 0px;
+}
+.map_component_listing .badge-wrapper > div:last-child {
+    margin-right: 0px;
+}
+.map_component_listing img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.map_component_listing .name-wrap h2 {
+    color: #37466f;
+    font-family: "Open Sans";
+    font-size: 20px;
+    margin: 0;
+    padding-bottom: 20px;
+}
+.map_component_listing .name-wrap a {
+    color: #6495fe;
+    font-family: Montserrat;
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    padding-bottom: 4px;
+}
+.map_component_listing .property-info {
+    text-align-last: justify;
+}
+.map_component_listing .property-info.body {
+    padding-bottom: 10px;
+}
+.map_component_listing .property-info.body > div {
+    vertical-align: top;
+    color: #99a1b6;
+    font-family: Montserrat;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: .4px;
+    padding-bottom: 10px;
+}
+.map_component_listing .property-info > div > span {
+    display: block;
+    color: #37466f;
+    font-family: "Open Sans";
+    font-size: 14px;
+    letter-spacing: .28px;
+    padding-top: 4px;
+}
+.map_component_listing .property-info > div {
+    display: inline-block;
+    max-width: 55px;
+    width: 100%;
+}
+.map_component_listing .apartment-details-btn {
+    position: relative;
+    height: 100%;
+}
+.map_component_listing .apartment-details-btn > div {
+    position: absolute;
+    bottom: 20px;
+    right: 10px;
+}
+.map_component_listing .apartment-details-btn a {
+    display: inline-block;
+    vertical-align: bottom;
+}
+.map_component_listing .row.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+}
+.map_component_listing .details-button {
+    border-radius: 20px;
+    color: #527efd;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    padding: 12px 20px 13px 20px;
+    background: #f7f7f7;
+}
+.map_component_listing .apartment-details-btn .icons-style {
+    border: 2px solid #f7f7f7;
+    padding: 11px;
+    background: #f7f7f7;
+    border-radius: 100%;
+    font-size: 16px;
+    color: #99a1b6;
+    margin-right: 12px;
+}
+.map_component_listing .apartment-details-btn .clone i:before {
+    content: "\E3E0";
+}
+.map_component_listing .name-wrap {
+    padding-top: 20px;
+}
+.map_component_listing .listings-elements-wrap {
+    border-radius: 2px;
+    border: 2px solid #eff0f3;
+    overflow: hidden;
+}
+.map_component_listing .listings-elements-wrap .item {
+    border-bottom: 2px solid #eff0f3;
+}
+.map_component_listing .listings-elements-wrap .item:last-child {
+    border: none;
+}
+@media(max-width: 1199px) {
+    .map_component_listing .apartment-details-btn .icons-style {
+        display: none;
+    }
+    .map_component_listing .apartment-details-btn .details-button {
+        background: none;
+        padding: 0px;
+    }
+    .map_component_listing .row.row-eq-height { 
+        display: block;
+    }
+}
+@media(max-width: 991px) {
+    .map_component_listing .apartment-details-btn .icons-style {
+        display: block;
+    }
+    .map_component_listing .apartment-details-btn .details-button {
+        padding: 12px 20px 13px 20px;
+        background: #f7f7f7;
+    }
+    .map_component_listing .apartment-details-btn {
+        text-align: right;
+    }
+    .map_component_listing .apartment-details-btn .icons-style {
+        margin-bottom: 10px;
+    }
+}
+@media(max-width: 767px) {
+    .map_component_listing .apartment-details-btn > div {
+        position: relative;
+        bottom: 0px;
+        right: 0px;
+    } 
+    .map_component_listing .header-wrap {
+        display: none;
+    }
+    .map_component_listing .name-wrap {
+        padding: 20px 20px 0px 20px;
+    }
+    .map_component_listing .property-info.body {
+        padding: 0px 20px 10px 20px;
+    }
+    .map_component_listing .apartment-details-btn .icons-style {
+        margin: 0px;
+    }
+    .map_component_listing .apartment-details-btn {
+        text-align: left;
+        padding: 0px 20px 20px;
+    }
+    .map_component_listing .apartment-details-btn a:first-child {
+        margin-right: 20px;
+    }
+    .map_component_listing-wrap .nav-tabs > li:last-child {
+        margin: 0px;
+    }
+}
+@media(max-width: 375px) {
+    .map_component_listing .legend .legend-item {
+        margin: 0;
+        width: 49%;
+    }
+}

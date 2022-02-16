@@ -1,0 +1,103 @@
+.mortage-calculator {
+    padding: 22px;
+    border-radius: 2px;
+    border: 2px solid #eff0f3;
+    background-color: #f5f6f8;
+}
+.mortage-calculator h3 {
+    color: #37466f;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+    margin-bottom: 16px;
+    line-height: 1;
+}
+.mortage-calculator form > input {
+    width: 100%;
+    color: #99a1b6;
+    font-family: "Open Sans";
+    font-size: 14px;
+    letter-spacing: 0.44px;
+    margin-bottom: 16px;
+    padding: 12px 16px;
+    line-height: 16px;
+    border-radius: 2px;
+    border: 2px solid #f7f8f9;
+    background-color: #ffffff;
+    height: 44px;
+}
+.mortage-calculator .selectize-input > input {
+    width: 150px !important;
+}
+.mortage-calculator .selectize-input {
+    padding: 12px 16px;
+}
+.mortage-calculator .selectize-input:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 40px;
+    bottom: 0px;
+    width: 2px;
+    background-color: rgba(153, 161, 182, 0.16);
+}
+.mortage-calculator .selectize-input.dropdown-active:before {
+    left: auto;
+    height: 100%;
+}
+.mortage-calculator button {
+    border-radius: 2px;
+    border: 2px solid #9cbbfe;
+    background-color: #6495fe;
+    color: #ffffff;
+    font-family: "Montserrat";
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 13px 0 12px 0;
+    width: 100%;
+    text-align: center;
+}
+.mortage-calculator .wrapper {
+    position: relative;
+    margin-bottom: 16px;
+}
+.mortage-calculator ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #99a1b6;
+}
+.mortage-calculator ::-moz-placeholder { /* Firefox 19+ */
+  color: #99a1b6;
+}
+.mortage-calculator ::-ms-input-placeholder { /* IE 10+ */
+  color: #99a1b6;
+}
+.mortage-calculator ::-moz-placeholder { /* Firefox 18- */
+  color: #99a1b6;
+}
+@media (max-width:450px) {
+    .mortage-calculator {
+        padding: 30px 0 0;
+        border-bottom: none;
+    } 
+    .mortage-calculator h3 {
+        padding: 0 24px 32px;
+        margin: 0;
+    }
+    .mortage-calculator form > input {
+        border: none;
+        border-bottom: 2px solid #f7f8f9;
+        margin: 0;
+        height: 50px;
+    }
+    .mortage-calculator button {
+        border: none;
+    }
+    .mortage-calculator .wrapper {
+        margin: 0;
+    }
+    .mortage-calculator .selectize-input {
+        border: none;
+    }
+}

@@ -1,0 +1,288 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.property-element-wrapper {
+  border-radius: 2px;
+  border: 2px solid @property-element-wrapper-border-color;
+  background-color: @property-element-wrapper-bg-color;
+  padding: 22px;
+  margin-bottom: 30px;
+  .property-header {
+    padding: 13px 13px 12px 13px;
+    background-color: @property-element-wrapper-header-bg-color;
+    border-radius: 2px;
+    border: 2px solid @property-element-wrapper-header-border-color;
+    margin-bottom: 10px;
+    .small-badge {
+      height: 16px;
+      width: 16px;
+      display: inline-block;
+      position: relative;
+      top: 2px;
+      margin-right: 5px;
+      & .flag {
+        display: none;
+      }
+      &.country {
+        .flag {
+          display: block;
+          height: 100%;
+          width: 100%;
+          border-radius: 100%;
+          position: relative;
+          top: 1px;
+          object-fit: contain;
+        }
+      }
+    }
+    .badge-sale {
+      background: @property-element-wrapper-badge-sale-color;
+    }
+    .badge-rent {
+      background: @property-element-wrapper-badge-rent-color;
+    }
+    .badge-new {
+      background: @property-element-wrapper-badge-new-color;
+    }
+    .badge-reused {
+      background: @property-element-wrapper-badge-reused-color;
+    }
+    .badge-featured {
+      background: @property-element-wrapper-badge-featured-color;
+    }
+    .badge-hot {
+      background: @property-element-wrapper-badge-hot-color;
+    }
+    .property {
+      color: @property-element-wrapper-head-property-color;
+      font-family: "Montserrat";
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.29px;
+    }
+    .count {
+      float: right;
+      color: @property-element-wrapper-head-count-color;
+      font-family: "Open Sans";
+      font-size: 12px;
+      letter-spacing: 0.38px;
+      padding-top: 2px;
+    }
+
+  }
+  .property-element {
+    padding: 13px 13px 12px 13px;
+    border-radius: 2px;
+    border: 2px solid @property-element-wrapper-prop-element-border-color;
+    margin-top: 10px;
+    .property {
+      color: @property-element-wrapper-prop-property-color;
+      font-family: "Montserrat";
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .count {
+      float: right;
+      color: @property-element-wrapper-prop-count-color;
+      font-family: "Open Sans";
+      font-size: 12px;
+      letter-spacing: 0.38px;
+      padding-top: 2px;
+    }
+  }
+  a:hover {
+    text-decoration: none;
+  }
+  a:hover .property-element {
+    border-radius: 2px;
+    border: 2px solid @property-element-wrapper-prop-hover-border-color;
+    background-color: @property-element-wrapper-prop-hover-bg-color;
+    .property,
+    .count {
+      color: @property-element-wrapper-prop-hover-text-color;
+    }
+  }
+}
+
+.property-grid-home-bar-wrapper {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: row;
+  .home-bar-info {
+    display: flex;
+    align-items: center;
+    i {
+      font-size: 16px;
+      padding: 12px;
+      border-radius: 100%;
+      background-color: @property-grid-icon-bg-color;
+      margin-right: 20px;
+      color: @property-grid-icon-color;
+    }
+    span {
+      color: @property-grid-text-color;
+      font-family: "Montserrat";
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      word-break: normal;
+    }
+  }
+
+  .home-bar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    a {
+      display: inline-block;
+      padding: 12px 20px 11px 20px;
+      border-radius: 20px;
+      background-color: @property-grid-btn-bg-color;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: @property-grid-btn-text-color;
+      font-family: "Montserrat";
+      font-weight: 400;
+      letter-spacing: 0.4px;
+    }
+    a:hover {
+      box-shadow: 0 1px 10px @property-grid-btn-hover-shadow;
+      background-color: @property-grid-btn-hover-bg-color;
+      color: @property-grid-btn-hover-text-color;
+      text-decoration: none;
+    }
+  }
+
+  .links-block {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    a {
+      color: #6495fe;
+      font-family: "Montserrat";
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      /* Text style for "Commercial" */
+      letter-spacing: 0.4px;
+    }
+    a + a:before {
+      content: '';
+      margin-right: 18px;
+      margin-left: 18px;
+      position: relative;
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      background-color: rgba(219, 219, 219, 0.5);
+    }
+  }
+}
+
+.property-grid-home-bar-wrapper.hidebutton {
+  .home-bar-btn {
+    display: none;
+  }
+}
+
+.property-grid-home-bar-wrapper.hidelinks {
+  .links-block {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .property-grid-home-bar-wrapper.hidebutton {
+    flex-direction: column;
+    .home-bar-info {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .links-block {
+      justify-content: center;
+    }
+  }
+
+}
+
+@media (max-width: 715px) {
+  .property-grid-home-bar-wrapper.hidebutton {
+    .links-block {
+      div {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 10px;
+        width: 100%;
+        a:before {
+          content: '';
+          margin-right: 18px;
+          position: relative;
+          display: inline-block;
+          width: 9px;
+          height: 9px;
+          background-color: rgba(219, 219, 219, .5);
+        }
+        a + a:before {
+          margin-left: 0;
+          margin-right: 18px;
+        }
+      }
+    }
+
+  }
+}
+
+@media (max-width: 522px) {
+  .property-grid-home-bar-wrapper.hidebutton {
+    .links-block {
+      justify-content: center;
+      div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
+        width: inherit;
+      }
+    }
+
+  }
+}
+
+@media (max-width: 550px) {
+  .property-grid-home-bar-wrapper.hidelinks {
+    flex-direction: column;
+    .home-bar-info {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .home-bar-btn {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 355px) {
+  .property-grid-home-bar-wrapper.hidebutton {
+    .links-block {
+      justify-content: center;
+      div {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 10px;
+        width: inherit;
+      }
+    }
+
+  }
+}

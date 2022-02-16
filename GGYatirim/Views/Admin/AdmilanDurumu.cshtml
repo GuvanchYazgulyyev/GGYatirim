@@ -1,0 +1,29 @@
+﻿@using GGYatirim.Models.Sinif
+@model List<DbilanDurum> 
+@{
+    ViewBag.Title = "AdmilanDurumu";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div style="width:50%" ; class="col-md-4 table table-hover">
+    <h3>İlan Durumunu Belirt</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>İlan Durumu (Ornk: Satılık)</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.ilanDurumAd</td>
+                <td><a href="~/Admin/AdmilanDurumuSil/@x.ilanDurumID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.ilanDurumAd ')" class="btn btn-danger"> <i class="fas fa-trash"></i></a></td>
+                <td><a href="~/Admin/AdmilanDurumuGetir/@x.ilanDurumID" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Admin/AdmilanDurumuEkle/" class="btn btn-success">Yeni İlan Durumu Ekle</a>
+
+</div>
+

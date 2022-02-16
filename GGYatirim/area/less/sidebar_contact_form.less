@@ -1,0 +1,152 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.sidebar-contact-form {
+  border-radius: 2px;
+  border: 2px solid @sidebar-contact-form-border-color;
+  background-color: @sidebar-contact-form-bg-color;
+  padding: 24px;
+  h2 {
+    color: @sidebar-contact-form-header-color;
+    font-family: @main-font;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 16px;
+  }
+  p {
+    opacity: 0.8;
+    color: @sidebar-contact-form-text-color;
+    font-family: @main-font;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+    margin-bottom: 20px;
+  }
+}
+
+#contact-sidebar {
+  .input-wrapper {
+    position: relative;
+  }
+  input {
+    display: block;
+    width: 100%;
+    border-radius: 2px;
+    border: 2px solid @sidebar-contact-form-input-border-color;
+    background-color: @sidebar-contact-form-input-bg-color;
+    height: 40px;
+    padding-left: 16px;
+  }
+
+  textarea {
+    display: block;
+    width: 100%;
+    border-radius: 2px;
+    border: 2px solid @sidebar-contact-form-input-border-color;
+    background-color: @sidebar-contact-form-input-bg-color;
+    height: 128px;
+    padding-left: 16px;
+    padding-top: 8px;
+  }
+
+  input::placeholder {
+    color: @sidebar-contact-form-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+
+  input::-moz-placeholder {
+    color: @sidebar-contact-form-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+  input:-moz-placeholder {
+    color: @sidebar-contact-form-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+  input:-ms-input-placeholder {
+    color: @sidebar-contact-form-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+
+  input::-webkit-input-placeholder {
+    color: @sidebar-contact-form-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline-color: @sidebar-contact-form-input-outline-color;
+  }
+  textarea::placeholder {
+    color: @sidebar-contact-form-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+
+  input[required] + label:before {
+    content: "";
+    font-size: 20px;
+  }
+
+  input[required] + label {
+    position: absolute;
+    top: 13%;
+    right: 2%;
+  }
+
+  input[required]:not(:focus):valid + label:before {
+    content: "\E5CA";
+    font-family: "Material Icons";
+    color: @sidebar-contact-form-valid-input-label-color;
+  }
+
+  input[required]:focus:not(:placeholder-shown):invalid + label:before {
+    color: @sidebar-contact-form-invalid-input-label-color;
+    content: '\E5CD';
+    font-family: "Material Icons";
+  }
+
+  input[required]:not(:placeholder-shown):invalid + label:before {
+    color: @sidebar-contact-form-invalid-input-label-color;
+    content: '\E5CD';
+    font-family: "Material Icons";
+  }
+
+  input[type="submit"] {
+    text-align: center;
+    height: 40px;
+    border-radius: 2px;
+    border: 2px solid @sidebar-contact-form-button-border-color;
+    background-color: @sidebar-contact-form-button-bg-color;
+    color: @sidebar-contact-form-button-text-color;
+    font-family: @secondary-font;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  .m-b-16 {
+    margin-bottom: 16px;
+  }
+
+  .m-b-24 {
+    margin-bottom: 24px;
+  }
+
+}

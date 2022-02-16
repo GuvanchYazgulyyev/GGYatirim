@@ -1,0 +1,666 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+#submit {
+  width: 100%;
+  position: relative;
+  padding: 24px;
+}
+
+.submit-wrapper {
+  input {
+    width: 100%;
+  }
+  .submit-content {
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: 25% 75%;
+    -ms-grid-columns: 25% 75%;
+    align-items: start;
+    .property-block {
+      .apartment-manager {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 20px 20px 5px;
+        .manager-wrap {
+          margin-bottom: 15px;
+        }
+        .calendar {
+          margin-bottom: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) and (min-width: 1000px) {
+  .submit-wrapper {
+    .submit-content {
+      .property-block {
+        .apartment-manager > * {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1200px) {
+  .submit-wrapper {
+    .submit-content {
+
+      grid-template-columns: 30% 70%;
+      -ms-grid-columns: 30% 70%;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .submit-wrapper {
+    .submit-content {
+
+      grid-template-columns: 100%;
+      -ms-grid-columns: 100%;
+    }
+  }
+
+  .submit-property-wild-block {
+    padding-left: 0;
+  }
+}
+
+.submit-property-wild-block {
+  padding-left: 15px;
+  .general-property-info,
+  .property-img-drag-drop,
+  .description-textarea,
+  .property-features-block,
+  .private-note,
+  .property-details-block {
+    padding: 22px;
+    border-radius: 2px;
+    border: 2px solid #eff0f3;
+    background-color: #f5f6f8;
+    margin-bottom: 32px;
+  }
+
+  .input-header {
+    color: #525252;
+    font-family: @main-font;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+    margin: 0 0 6px;
+
+  }
+
+  .submit-property__block-header {
+    color: #37466f;
+    font-family: @main-font;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 20px;
+  }
+}
+
+.general-property-info {
+  .submit-property__block-header {
+    margin-bottom: 0;
+  }
+}
+
+.property-details-block > .submit-property__block-header {
+  margin-bottom: 0;
+}
+
+/**General property info **/
+.general-property-info {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: repeat(6, 1fr);
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 22px;
+  grid-row-gap: 20px;
+
+  .submit-property__block-header {
+    grid-column-start: 1;
+    grid-column-end: 7;
+  }
+
+  .prop-type {
+    grid-column-start: 1;
+    grid-column-end: 7;
+  }
+
+  .select-type,
+  .select-label,
+  .select-status {
+    grid-row: 3;
+  }
+
+  .select-type {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .select-status {
+    grid-column-start: 3;
+    grid-column-end: 5;
+  }
+
+  .select-label {
+    grid-column-start: 5;
+    grid-column-end: 7;
+  }
+
+  .location,
+  .map-btn {
+    grid-row: 4;
+  }
+
+  .location {
+    grid-column-start: 1;
+    grid-column-end: 5;
+  }
+
+  .map-btn {
+    grid-column-start: 5;
+    grid-column-end: 7;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+  }
+
+  .price-full,
+  .price-value {
+    grid-row: 5;
+  }
+
+  .price-full {
+    grid-column-start: 1;
+    grid-column-end: 4;
+  }
+
+  .price-value {
+    grid-column-start: 4;
+    grid-column-end: 7;
+  }
+
+}
+
+@media (max-width: 620px) {
+  .general-property-info {
+    .select-label {
+      grid-column-start: 1;
+      grid-column-end: 4;
+      grid-row: 4;
+
+    }
+    .select-type {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+
+    .select-status {
+      grid-column-start: 4;
+      grid-column-end: 7;
+    }
+
+    .location,
+    .map-btn {
+      grid-row: unset;
+    }
+
+    .location {
+      grid-column-start: 1;
+      grid-column-end: 7;
+      grid-row: 5;
+    }
+    .map-btn {
+      grid-column-start: 1;
+      grid-column-end: 7;
+      grid-row: 6;
+    }
+
+    .price-full,
+    .price-value {
+      grid-row: 7;
+    }
+  }
+
+}
+
+@media (max-width: 480px) {
+  .general-property-info {
+    grid-template-columns: 1fr;
+    .submit-property__block-header,
+    .prop-type,
+    .select-type,
+    .select-label,
+    .select-status,
+    .location,
+    .map-btn,
+    .price-full,
+    .price-value {
+      grid-column: 1;
+      grid-row: auto;
+    }
+
+  }
+
+}
+
+/*****************************************************************************/
+
+/***Property features **/
+.property-features-block {
+  .checkboxes-block {
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-column-gap: 10px;
+
+  }
+}
+
+@media (min-width: 1000px) and(max-width: 1200px) {
+  .property-features-block {
+    .checkboxes-block {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .property-features-block {
+    .checkboxes-block {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .property-features-block {
+    .checkboxes-block {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 390px) {
+  .property-features-block {
+    .checkboxes-block {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+/**************************************************************************/
+
+/***Property details **/
+
+.property-details-block {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: repeat(6, 1fr);
+  -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-column-gap: 22px;
+  grid-row-gap: 20px;
+
+  .prop-wrapper {
+    span {
+      color: #525252;
+      font-family: @main-font;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: .44px;
+    }
+  }
+
+  .submit-property__block-header {
+    grid-column-start: 1;
+    grid-column-end: 7;
+  }
+
+  .prop-id,
+  .prop-size,
+  .prop-year {
+    grid-row: 2;
+  }
+
+  .prop-id {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .prop-size {
+    grid-column-start: 3;
+    grid-column-end: 5;
+  }
+
+  .prop-year {
+    grid-column-start: 5;
+    grid-column-end: 7;
+  }
+
+  .prop-land-area,
+  .prop-add-size {
+    grid-row: 3;
+  }
+
+  .prop-land-area {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .prop-add-size {
+    grid-column-start: 3;
+    grid-column-end: 5;
+  }
+
+  .prop-bathrooms,
+  .prop-bedrooms,
+  .prop-garages {
+    grid-row: 4;
+  }
+
+  .prop-bathrooms {
+    grid-column-start: 1;
+    grid-column-end: 3;
+  }
+
+  .prop-bedrooms {
+    grid-column-start: 3;
+    grid-column-end: 5;
+  }
+
+  .prop-garages {
+    grid-column-start: 5;
+    grid-column-end: 7;
+  }
+
+  .additional-details {
+    border-top: 1px solid #99a1b6;
+    grid-column-start: 1;
+    grid-column-end: 7;
+    padding-top: 21px;
+    i {
+      font-size: 16px;
+      padding: 12px;
+      border-radius: 2px;
+      border: 2px solid #eff0f3;
+      background-color: #fff;
+      color: #99a1b6;
+      cursor: pointer;
+    }
+    button {
+      margin-top: 20px;
+    }
+  }
+
+  .additional-details_components {
+    display: grid;
+    grid-column-gap: 16px;
+    grid-template-columns: 44px 23% 1fr;
+  }
+
+}
+
+@media (max-width: 768px) {
+  .property-details-block {
+    .additional-details_components {
+      grid-template-columns: 44px 1fr 1fr;
+    }
+  }
+}
+
+@media (max-width: 660px) {
+  .property-details-block {
+    .prop-bathrooms,
+    .prop-bedrooms,
+    .prop-garages {
+      grid-row: auto;
+    }
+
+    .prop-bathrooms {
+      grid-column-start: 1;
+      grid-column-end: 7;
+    }
+
+    .prop-bedrooms {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+
+    .prop-garages {
+      grid-column-start: 4;
+      grid-column-end: 7;
+    }
+
+    .prop-land-area {
+      grid-column-start: 1;
+      grid-column-end: 4;
+    }
+
+    .prop-add-size {
+      grid-column-start: 4;
+      grid-column-end: 7;
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .property-details-block {
+
+    grid-template-columns: 1fr;
+
+    .submit-property__block-header,
+    .prop-id,
+    .prop-size,
+    .prop-year,
+    .prop-land-area,
+    .prop-add-size,
+    .prop-bathrooms,
+    .prop-bedrooms,
+    .prop-garages,
+    .additional-details {
+      grid-column: 1;
+      grid-row: auto;
+    }
+
+  }
+}
+
+/*********************************************/
+
+/******** Property images  ***/
+.property-img-drag-drop {
+  position: relative;
+  .styling-file-input {
+    display: flex;
+    height: 160px;
+    background-color: #fff;
+    position: relative;
+    label {
+      margin: auto auto;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      .drag-span {
+        color: #525252;
+        font-family: @main-font;
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: 0.5px;
+        margin: auto 10px auto auto;
+      }
+
+      .select-span {
+        cursor: pointer;
+        border-radius: 20px;
+        background-color: #6495fe;
+        color: #ffffff;
+        font-family: @secondary-font;
+        font-size: 12px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        display: inline-block;
+        padding: 12px;
+        margin: auto auto auto 0;
+
+      }
+    }
+  }
+
+  .image-miniatures-grid {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 148px;
+    grid-auto-rows: 148px;
+    grid-column-gap: 20px;
+    grid-row-gap: 15px;
+    .image-miniature {
+      position: relative;
+      border-radius: 2px;
+      border: 2px solid #eff0f3;
+      background-color: #ffffff;
+      padding: 12px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .mask {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+      }
+    }
+
+    .mask-controls {
+      cursor: pointer;
+      padding: 12px;
+      border-radius: 50%;
+      font-size: 16px;
+      color: #99a1b6;
+      background-color: #f7f7f7;
+      opacity: 0.8;
+      &:hover {
+        color: #fff;
+        box-shadow: 0 1px 10px rgba(100, 149, 254, .5);
+        background-color: #6495fe;
+      }
+    }
+
+    .mask-controls:first-of-type {
+      margin: auto 24px auto auto;
+    }
+    .mask-controls:last-of-type {
+      margin: auto auto auto 0;
+    }
+
+  }
+}
+
+.style-file-input {
+  cursor: inherit;
+  display: block;
+  /* font-size: 999px; */
+  filter: alpha(opacity=0);
+  min-height: 100%;
+  min-width: 100%;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  text-align: right;
+  top: 0;
+}
+
+@media (max-width: 650px) {
+  .property-img-drag-drop {
+    .image-miniatures-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 475px) {
+  .property-img-drag-drop {
+    .styling-file-input {
+      label {
+        flex-direction: column;
+        .drag-span {
+          margin: auto auto 15px auto;
+        }
+        .select-span {
+          margin: auto;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 375px) {
+  .property-img-drag-drop {
+    .image-miniatures-grid {
+      grid-template-columns: 100%;
+    }
+  }
+}
+
+/***Submit property btns ***/
+
+.submit-property-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-radius: 2px;
+  border: 2px solid #eff0f3;
+  background-color: #ffffff;
+  padding: 22px;
+  div {
+    display: flex;
+    a:first-of-type {
+      margin-right: 15px;
+    }
+  }
+}
+
+@media (max-width: 550px) {
+  .submit-property-btns {
+    flex-direction: column;
+    div {
+      margin-bottom: 20px;
+      a:first-of-type {
+        margin: auto 15px auto auto;
+      }
+      a:last-of-type {
+        margin: auto auto auto 0;
+      }
+    }
+  }
+}
+
+@media (max-width: 368px) {
+  .submit-property-btns {
+    div {
+      flex-direction: column;
+      a:first-of-type {
+        margin: auto auto 20px;
+      }
+      a:last-of-type {
+        margin: auto auto;
+      }
+    }
+  }
+}

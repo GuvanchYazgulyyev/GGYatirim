@@ -1,0 +1,76 @@
+﻿@model GGYatirim.Models.Sinif.DbiletisimForm
+@{
+    ViewBag.Title = "iletisim";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<!-- this component using page_title_simple less file -->
+<div class="page-title-simple m-b-30">
+    <div class="container">
+        <h1>Bize Bir Satır Bırakın!</h1>
+    </div>
+</div>
+
+<div class="container ">
+    <div class="row">
+        <div class="col-md-8 m-b-30">
+            <!--CONTACT MAP LIGHT BEGIN-->
+            @Html.Action("iletisimBilgi", "Home")
+
+
+            <!--CONTACT MAP LIGHT END-->
+        </div>
+        <div class="col-md-4">
+            <div>
+                <h3 style="background-color:red;color:#FFF;">@ViewBag.Kontrol</h3>
+            </div>
+            <div class="sidebar-contact-form">
+                <h2>Bize Mesaj Bırakın!s</h2>
+                <p>
+                    Did not find the answer to your question? Ask your question through this form and we will reply to our e-mail as
+                    soon as possible.
+                </p>
+                @using (Html.BeginForm("iletisim", "Home", FormMethod.Post))
+                {
+                    <form id="contact-sidebar">
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="input-wrapper m-b-16">
+                            <label>Ad Soyad</label><br />
+                            @Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })<br />
+                            @Html.ValidationMessageFor(x => x.AdSoyad, "", new { @style = "color:red" })
+
+                        </div>
+                        <div class="input-wrapper m-b-16">
+                            <label>E-Posta</label><br />
+                            @Html.TextBoxFor(x => x.EPosta, new { @class = "form-control" })<br />
+                            @Html.ValidationMessageFor(x => x.EPosta, "", new { @style = "color:red" })
+
+                        </div>
+                        <div class="input-wrapper m-b-16">
+                            <label>Telefon</label><br />
+                            @Html.TextBoxFor(x => x.Tel, new { @class = "form-control" })<br />
+                            @Html.ValidationMessageFor(x => x.Konu, "", new { @style = "color:red" })
+
+                        </div>
+                        <div class="input-wrapper m-b-16">
+                            <label>Konu</label><br />
+                            @Html.TextBoxFor(x => x.Konu, new { @class = "form-control" })<br />
+                            @Html.ValidationMessageFor(x => x.Konu, "", new { @style = "color:red" })
+                        </div>
+                        @*<textarea form="contact-sidebar" placeholder="Your message" class="m-b-24"></textarea>*@
+                        <label>Mesajınız</label><br />
+                        @Html.TextAreaFor(x => x.Mesaj,6,6, new { @class = "m-b-24" })<br />
+                        @Html.ValidationMessageFor(x => x.Mesaj, "", new { @style = "color:red", @class = "m-b-24" })
+                        <input type="submit" class="btn btn-info" value="Mesaj Gönder">
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+

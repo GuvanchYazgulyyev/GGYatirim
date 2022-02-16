@@ -1,0 +1,58 @@
+﻿@model GGYatirim.Models.Sinif.DbBlog
+@{
+    ViewBag.Title = "AdmBlogEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="col-md-10 col-sm-12 col-xs-12">
+
+    <h2>Yeni Blog Ekle</h2>
+
+    @using (Html.BeginForm("AdmBlogEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <form class="form-group" method="post">
+            <b>Başlık</b>
+            @*@Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })*@
+            @Html.TextBoxFor(k => k.Baslik, new { @class = "form-control", required = true })
+            <br />
+
+            <b>İçerik 1</b>
+            @Html.TextAreaFor(x => x.icerik1, 6, 6, new { @class = "form-control", required = true })
+            <br />
+
+
+            <b>İçerik 2</b>
+            @Html.TextAreaFor(x => x.icerik2, 6, 6, new { @class = "form-control", required = true })
+            <br />
+
+            <b>İçerik 3</b>
+            @Html.TextAreaFor(x => x.icerik3, 6, 6, new { @class = "form-control", required = true })
+            <br />
+
+
+
+
+            <b>
+                E-Posta
+            </b>
+            @Html.TextBoxFor(x => x.EPosta, new { @class = "form-control", required = true })
+            @*<input type="text" name="EPosta" maxlength="50" required="" class="form-control" />*@
+
+            <b>Resim</b>
+            @*@Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })*@
+            <input type="file" name="File" id="File" value="Resim Seçiniz" />
+            <br />
+            <br />
+
+
+            @Html.HiddenFor(x => x.BlogID)
+            <br />
+            @*@Html.MathCaptcha()*@
+
+            <button class="btn btn-success">Yeni Blog Ekle</button>
+
+        </form>
+    }
+</div>
+

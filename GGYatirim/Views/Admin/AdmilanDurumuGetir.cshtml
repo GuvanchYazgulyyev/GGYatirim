@@ -1,0 +1,36 @@
+﻿@model GGYatirim.Models.Sinif.DbilanDurum
+@{
+    ViewBag.Title = "AdmilanDurumuGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h3>İlan Durum Güncelle</h3>
+
+<div style="width:50%" ; class="col-md-4 table table-hover">
+    @using (Html.BeginForm("AdmilanDurumuGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+
+        <form class="form-group" method="post">
+
+            İlan Durum Ad
+            @Html.TextBoxFor(x => x.ilanDurumAd, new { @class = "form-control" })
+
+
+
+            @Html.HiddenFor(x => x.ilanDurumID)
+            <br />
+
+            <button class="btn btn-success">Değişikliği Kaydet</button>
+
+        </form>
+
+
+
+
+
+    }
+
+
+    </div>

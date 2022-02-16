@@ -1,0 +1,39 @@
+{
+  "name": "area",
+  "description": "area",
+  "main": "",
+  "authors": [
+    "andriyahevskyi <warrior3598@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "bootstrap": "bootstrap4#^3.3.7"
+  },
+  "devDependencies": {
+    "jquery": "^3.2.1",
+    "font-awesome": "fontawesome#^4.7.0",
+    "font-awesome-animation": "^0.0.10",
+    "ion.rangeSlider": "ionrangeslider#^2.2.0",
+    "mdi": "^2.0.46",
+    "owl.carousel": "^2.2.1",
+    "chartist": "^0.11.0",
+    "selectize": "^0.12.4",
+    "js-marker-clusterer": "*",
+    "jquery-mousewheel": "^3.1.13",
+    "progressbar.js": "^1.0.1",
+    "simditor": "^2.3.13"
+  },
+  "resolutions": {
+    "jquery": "^3.2.1"
+  }
+}

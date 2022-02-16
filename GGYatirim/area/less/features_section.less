@@ -1,0 +1,97 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.features-section {
+  background: url("../images/features-bg.png") 100% 0 no-repeat #f7f7f7;
+  background-size: cover;
+  background-position-x: center;
+  margin-bottom: 82px;
+  .grid-container{
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: minmax(265px,440px);
+    -ms-grid-columns: 440px;
+    justify-content: end;
+    -ms-grid-column-align: end;
+    grid-row-gap: 40px;
+    margin-top: 120px;
+    margin-bottom: 40px;
+    div{
+      position: relative;
+      h2{
+        color: @features-section-header-color;
+        font-family: "Open Sans";
+        font-size: 20px;
+        font-weight: 600;
+         margin: .67em 70px;
+      }
+      i{
+        font-size: 16px;
+        margin-left: 0px;
+        position: absolute;
+        padding: 12px;
+        border-radius: 100%;
+        background-color: @features-section-icon-bg-color;
+        color: @features-section-icon-color;
+        top: 5px;
+      }
+      p{
+        color: @features-section-text-color;
+        font-family: "Open Sans";
+        font-size: 16px;
+        line-height: 26px;
+        letter-spacing: 0.5px;
+      }
+      *{
+        margin-left: 70px;
+      }
+    }
+    div:nth-child(1){
+      grid-row-start: 1;
+      grid-row-end: auto;
+      -ms-grid-row: 1;
+    }
+    div:nth-child(2){
+      grid-row-start: 2;
+      grid-row-end: auto;
+      -ms-grid-row: 2;
+    }
+    div:nth-child(3){
+      grid-row-start: 3;
+      grid-row-end: auto;
+      -ms-grid-row: 3;
+    }
+  }
+}
+
+
+
+@media (max-width: 992px){
+  .features-section .grid-container{
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 40px;
+
+  }
+
+  .features-section{
+    background: #f7f7f7;
+  }
+}
+
+@media(min-width: 993px) and (max-width: 1200px){
+  .features-section{
+    background-position-x: -355px;
+  }
+}
+
+@media(min-width: 1201px) and(max-width: 1300px){
+  .features-section{
+    background-position-x: -298px;
+  }
+}

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.DbBlog>
+@{
+    ViewBag.Title = "BlogDetay";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+    <div class="page-title-simple m-b-30">
+        @foreach (var k in Model)
+        {
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="/">Ana Sayfa </a>
+                </li>
+                <li>
+                    <a href="/Home/BlogDetay/@k.BlogID">Blog Detay</a>
+                </li>
+            </ul>
+            <h1>@k.Baslik</h1>
+        </div>
+        }
+        
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-7">
+                @foreach (var x in Model)
+                {
+                <div class="single-post post-type m-b-30">
+                    <div class="info-wrap">
+                        <a href="/Home/BlogDetay/@x.BlogID"><i class="fa fa-calendar-check-o"></i>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</a>
+                        <a href="/Home/BlogDetay/@x.BlogID"><i class="fa fa-user-circle"></i>@x.YazarAdSoyad</a>
+                        <a href="/Home/BlogDetay/@x.BlogID"><i class="fa fa-envelope"></i>@x.EPosta</a>
+                    </div>
+                    <p>@x.icerik1</p>
+                    <img class="full-width" src="@x.Resim" alt="blog-image">
+                    <p>@x.icerik2</p>
+                    <p>@x.icerik3</p>
+                  
+                </div>
+                }
+                
+
+                
+
+            
+            </div>
+
+
+
+
+
+            <div class="col-lg-4 col-md-5">
+                
+             
+
+                <div class="sidebar-recent-posts m-b-30">
+                    <div class="widget widget_recent_entries">
+                        <div class="recent-news">
+                            <h6>
+                                Yakın zamanda Gönderilenler
+                            </h6>   
+                            @Html.Action("BlogicdetayPartial")
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,25 @@
+﻿@model GGYatirim.Models.Sinif.DbilanOzellik
+@{
+    ViewBag.Title = "AdmilanOzellikEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2> İlan Özellik Ekle</h2>
+<div class="col-md-8">
+    @using (Html.BeginForm("AdmilanOzellikEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <form class="form-group" method="post">
+
+            İlan Özellik Ad
+            @Html.TextBoxFor(x => x.OzellikAd, new { @class = "form-control" })
+
+
+            @Html.HiddenFor(x => x.ilanOzellikID)
+
+            <button class="button border with-icon">Yeni İlan Özellik Ekle</button>
+
+        </form>
+    }
+</div>
+

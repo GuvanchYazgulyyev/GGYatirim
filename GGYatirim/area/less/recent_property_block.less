@@ -1,0 +1,644 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+/**HOme bar style begin **/
+.recent-property-block .home-bar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: row;
+  margin-bottom: 40px;
+  .home-bar-info {
+    display: flex;
+    align-items: center;
+    i {
+      font-size: 16px;
+      padding: 12px;
+      border-radius: 100%;
+      background-color: @home-bar-icon-bg-color;
+      margin-right: 20px;
+      color: @home-bar-icon-color;
+    }
+    span {
+      color: @home-bar-text-color;
+      font-family: @secondary-font;
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      word-break: normal;
+    }
+  }
+
+  .home-bar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    a {
+      display: inline-block;
+      padding: 12px 20px 11px 20px;
+      border-radius: 20px;
+      background-color: @home-bar-btn-bg-color;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: @home-bar-btn-text-color;
+      font-family: @secondary-font;
+      font-weight: 400;
+      letter-spacing: 0.4px;
+    }
+    a:hover {
+      box-shadow: 0 1px 10px @home-bar-btn-hover-shadow;
+      background-color: @home-bar-btn-hover-bg-color;
+      color: @home-bar-btn-hover-text-color;
+      text-decoration: none;
+    }
+  }
+
+  .links-block {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    a {
+      color: #6495fe;
+      font-family: @secondary-font;
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      /* Text style for "Commercial" */
+      letter-spacing: 0.4px;
+    }
+    a + a:before {
+      content: '';
+      margin-right: 18px;
+      margin-left: 18px;
+      position: relative;
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      background-color: rgba(219, 219, 219, 0.5);
+    }
+  }
+}
+
+.recent-property-block .home-bar-wrapper.hidebutton {
+  .home-bar-btn {
+    display: none;
+  }
+}
+
+.recent-property-block .home-bar-wrapper.hidelinks {
+  .links-block {
+    display: none;
+  }
+}
+
+/**Home bar style end **/
+
+/**Property block and arrows style begin **/
+
+.recent-property-block .property-block {
+  width: 100%;
+  height: 100%;
+  background-color: @property-block-bg-color;
+  position: relative;
+  border: 2px solid @property-block-border-color;
+  border-radius: 2px;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  /**Apartment header begin **/
+  .property-type {
+    color: @property-block-property-type-color;
+    font-family: @secondary-font;
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin: 0;
+  }
+  .property-title {
+    margin-top: 4px;
+    margin-bottom: 7px;
+    color: @property-block-property-title-color;
+    font-family: @main-font;
+    font-size: 20px;
+    font-weight: 600;
+  }
+  .apartment-address {
+    padding-top: 7px;
+    padding-bottom: 17px;
+    i {
+      font-size: 16px;
+      position: relative;
+      top: 3px;
+      color: @property-block-address-icon-color;
+    }
+    .address {
+      color: @property-block-address-text-color;
+      font-family: @main-font;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0.44px;
+    }
+  }
+  /**Apartment Header end **/
+  /**Apartment Image Begin **/
+  .apartment-image {
+    position: relative;
+    height: 214px;
+    margin-left: -20px;
+    margin-right: -20px;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .badges {
+      position: absolute;
+      top: 10%;
+      left: 5%;
+      p {
+        display: inline-block;
+        padding: 10px;
+        margin-right: 10px;
+        font-family: @secondary-font;
+        font-size: 10px;
+        font-weight: 400;
+        line-height: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.24px;
+        margin-bottom: 0;
+      }
+      /*.featured {
+        background: @property-block-badge-featured-text-color;
+        color: @property-block-badge-text-color;
+      }
+      .rent {
+        background: @property-block-badge-rent-text-color;
+        color: @property-block-badge-text-color;
+      }
+      .sale {
+        background: @property-block-badge-sale-text-color;
+        color: @property-block-badge-text-color;
+      }*/
+    }
+  }
+  /**Apartment Image End **/
+  /**Apartment values and price begin **/
+  .apartment-values {
+    position: relative;
+    margin-top: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #99a1b6;
+    span {
+      color: @property-block-value-span-color;
+      font-family: @main-font;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0.44px;
+    }
+    span + span:before {
+      padding: 8px;
+      color: @property-block-value-breadcrumb-color;
+      content: "/\00a0";
+    }
+
+  }
+  .apartment-info {
+    padding: 12px 0;
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: max-content max-content;
+    -ms-grid-columns: max-content max-content;
+    justify-content: space-between;
+    .apartment-price {
+      display: inline-block;
+      position: relative;
+      .price-big {
+        color: @property-block-big-price-text-color;
+        font-family: @main-font;
+        font-size: 20px;
+        font-weight: 600;
+        letter-spacing: 0.4px;
+        margin: 0;
+      }
+      .price-small {
+        color: @property-block-small-price-text-color;
+        font-family: @main-font;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.44px;
+        margin: 0;
+      }
+    }
+    .icons {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap-reverse;
+      .heart {
+        margin: auto 0;
+      }
+      .clone {
+        margin: auto 10px auto 0;
+      }
+      .icons-style {
+        border: 2px solid @property-block-icons-border-color;
+        padding: 11px;
+        background: @property-block-icons-bg-color;
+        border-radius: 100%;
+        font-size: 16px;
+        color: @property-block-icons-color;
+      }
+      .heart i:before {
+        content: '\E87E';
+      }
+      .heart i.active:before {
+        content: '\E87D';
+        color: @property-block-heart-active-color;
+      }
+      .clone i:before {
+        content: "\E3E0";
+      }
+      a.clone:hover i:before {
+        content: "\E02E";
+      }
+      a:hover .icons-style {
+        box-shadow: 0 1px 10px @property-block-icons-hover-shadow;
+        background-color: @property-block-icons-hover-bg-color;
+        color: @property-block-icons-hover-text-color;
+      }
+    }
+  }
+  /**Apartment values and price end **/
+  /**Apartment manager begin**/
+  .apartment-manager {
+    clear: both;
+    background: @property-block-manager-bg-color;
+    padding: 20px;
+    margin-left: -20px;
+    margin-right: -20px;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+    grid-gap: 10px;
+    align-items: center;
+    border-top: 2px solid rgba(153, 161, 182, 0.08);
+    display: -ms-grid;
+    -ms-grid-columns: max-content max-content;
+    .manager-icon {
+      position: relative;
+      height: 40px;
+      width: 40px;
+      margin: auto 0;
+      img {
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+        border-radius: 50%;
+      }
+      .online-status {
+        position: absolute;
+        top: 10%;
+        width: 8px;
+        height: 8px;
+        box-shadow: 0 0 10px #cddc39;
+        background-color: #cddc39;
+        border-radius: 50px;
+      }
+
+    }
+    .manager-wrap {
+      display: flex;
+      .manager-name {
+        color: @property-block-manager-name-text-color;
+        font-family: @main-font;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.44px;
+        margin: auto 0 auto 16px;
+      }
+
+    }
+    .calendar {
+      i {
+        color: @property-block-calendar-icon-color;
+        position: relative;
+        top: 3px;
+        font-size: 16px;
+      }
+      span {
+        color: @property-block-calendar-span-color;
+        font-family: @main-font;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.44px;
+      }
+    }
+
+  }
+  /**Apartment manager end **/
+}
+
+.recent-property-block .arrow-block {
+  display: grid;
+  grid-template-columns: 140px 1fr 200px;
+  display: -ms-grid;
+  -ms-grid-columns: 140px 1fr 200px;
+  .arrow-wrapper {
+    grid-column: 1;
+    -ms-grid-column: 1;
+    display: flex;
+    margin: auto 0;
+    a {
+      margin-right: 20px;
+      i {
+        font-size: 16px;
+        font-weight: 600;
+        padding: 12px;
+        background-color: @arrow-block-arrow-bg-color;
+        border-radius: 100%;
+        color: @arrow-block-arrow-color;
+
+      }
+    }
+    a:hover {
+      i {
+        background-color: @arrow-block-arrow-hover-bg-color;
+        color: @arrow-block-arrow-hover-color;
+        box-shadow: 0 1px 10px @arrow-block-arrow-hover-shadow-color;
+      }
+    }
+  }
+  .span-wrapper {
+    grid-column: 2;
+    -ms-grid-column: 2;
+    display: flex;
+    margin: auto 0;
+
+    span {
+      display: inline-block;
+      color: @arrow-block-span-color;
+      font-family: @secondary-font;
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+  }
+  .button-wrapper {
+    grid-column: 3;
+    -ms-grid-column: 3;
+    display: flex;
+    margin: auto 0;
+    flex-direction: row-reverse;
+    a {
+      display: inline-block;
+      padding: 12px 20px 11px 20px;
+      border-radius: 20px;
+      background-color: @arrow-block-button-bg-color;
+      color: @arrow-block-button-color;
+      font-family: @secondary-font;
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    a:hover {
+      text-decoration: none;
+      background-color: @arrow-block-button-hover-bg-color;
+      color: @arrow-block-button-hover-color;
+      box-shadow: 0 1px 10px @arrow-block-button-hover-shadow-color;
+
+    }
+  }
+}
+
+.recent-property-block .arrow-block.hidebutton,
+.recent-property-block .arrow-block.hidespan {
+  grid-template-columns: 140px 1fr;
+  -ms-grid-columns: 140px 1fr;
+}
+
+.recent-property-block .arrow-block.hidebutton {
+  .button-wrapper {
+    display: none;
+  }
+}
+
+.recent-property-block .arrow-block.hidespan {
+  .span-wrapper {
+    display: none;
+  }
+}
+
+/***end **/
+
+/**Media queries for home bar begin **/
+
+@media (max-width: 1200px) {
+  .recent-property-block .home-bar-wrapper.hidebutton {
+    flex-direction: column;
+    .home-bar-info {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .links-block {
+      justify-content: center;
+    }
+  }
+
+}
+
+@media (max-width: 715px) {
+  .recent-property-block .home-bar-wrapper.hidebutton {
+    .links-block {
+      div {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 10px;
+        width: 100%;
+        a:before {
+          content: '';
+          margin-right: 18px;
+          position: relative;
+          display: inline-block;
+          width: 9px;
+          height: 9px;
+          background-color: rgba(219, 219, 219, .5);
+        }
+        a + a:before {
+          margin-left: 0;
+          margin-right: 18px;
+        }
+      }
+    }
+
+  }
+}
+
+@media (max-width: 522px) {
+  .recent-property-block .home-bar-wrapper.hidebutton {
+    .links-block {
+      justify-content: center;
+      div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
+        width: inherit;
+      }
+    }
+
+  }
+}
+
+@media (max-width: 550px) {
+  .recent-property-block .home-bar-wrapper.hidelinks {
+    flex-direction: column;
+    .home-bar-info {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .home-bar-btn {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 355px) {
+  .recent-property-block .home-bar-wrapper.hidebutton {
+    .links-block {
+      justify-content: center;
+      div {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 10px;
+        width: inherit;
+      }
+    }
+
+  }
+}
+
+/**Media queries for home bar end **/
+
+/**Media queries for property block and arrows begin **/
+
+@media (min-width: 1000px) and (max-width: 1200px) {
+  .recent-property-block .property-block {
+    .apartment-manager {
+        grid-template-columns: 1fr;
+        -ms-grid-columns: 1fr;
+        grid-column-gap: 15px;
+        > * {
+          margin: auto;
+        }
+      }
+
+  }
+}
+
+@media (max-width: 500px) {
+  .recent-property-block .arrow-block {
+    grid-template-columns: 1fr 1fr;
+    grid-row-gap: 20px;
+    -ms-grid-columns: 1fr 1fr;
+    .arrow-wrapper {
+      grid-row: 2;
+      grid-column-start: 1;
+      grid-column-end: 3;
+      -ms-grid-row: 2;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 3;
+      justify-content: space-between;
+      .a {
+        margin-right: 0;
+      }
+    }
+    .span-wrapper {
+      grid-row: 1;
+      grid-column: 1;
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+      span {
+        font-size: 15px;
+        word-break: normal;
+      }
+    }
+    .button-wrapper {
+      grid-column: 2;
+      grid-row: 1;
+      -ms-grid-column: 2;
+      -ms-grid-row: 1;
+    }
+  }
+
+  .recent-property-block .arrow-block.hidebutton {
+    grid-template-columns: 1fr 2fr;
+    -ms-grid-columns: 1fr 2fr;
+    grid-column-gap: 10px;
+    .arrow-wrapper {
+      grid-row: 1;
+      grid-column: 1;
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+      justify-content: space-between;
+    }
+    .span-wrapper {
+      grid-row: 1;
+      grid-column: 2;
+      -ms-grid-row: 1;
+      -ms-grid-column: 2;
+    }
+  }
+
+  .recent-property-block .arrow-block.hidespan {
+    grid-template-columns: 1fr 2fr;
+    -ms-grid-columns: 1fr 2fr;
+    grid-column-gap: 10px;
+    .arrow-wrapper {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 3;
+      grid-row: 1;
+      -ms-grid-row: 1;
+      justify-content: space-between;
+      a.arrow-next {
+        margin: 0;
+      }
+    }
+    .button-wrapper {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      -ms-grid-column: 1;
+      -ms-grid-column-span: 3;
+      grid-row: 1;
+      -ms-grid-row: 1;
+      -ms-grid-column: 1;
+      a {
+        margin: auto;
+      }
+
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .recent-property-block .property-block {
+    .apartment-manager {
+      grid-template-columns: 1fr;
+      -ms-grid-columns: 1fr;
+      grid-column-gap: 15px;
+      > * {
+        margin: auto;
+      }
+    }
+  }
+}

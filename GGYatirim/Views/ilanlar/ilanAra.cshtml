@@ -1,0 +1,34 @@
+﻿@using GGYatirim.Models.Sinif
+@model List<Dbilan>
+
+
+
+<form id="search-form-2" method="get">
+    <div class="property-search">
+        <div class="main-apartment-search-options">
+
+            @using (Html.BeginForm("ilanAra", "ilanlar", FormMethod.Get))
+            {
+
+
+                <div class="options-wrapper-main">
+                    <div class="wrapper search-property">
+                        <input type="text" class="property-searchinput" name="p" placeholder="İlan No Giriniz">
+                    </div>
+
+
+               
+
+                    <div class="wrapper button-wrap">
+                        <button class="property-button">Ara</button>
+                    </div>
+                </div>
+            }
+
+        </div>
+
+
+
+    </div>
+</form>
+

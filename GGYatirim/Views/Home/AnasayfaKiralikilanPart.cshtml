@@ -1,0 +1,62 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.Dbilan>
+
+
+@foreach (var x in Model)
+{
+    if (x.ilanDurumIDD == 2)
+    {
+        <div class="standart-grid-wrapper">
+            <div class="image-wrapper">
+                <img src="@x.VitrinResims" alt="apartment">
+                <div class="badges">
+                    <p class="featured">Featured</p>
+                    <p class="rent">@x.DbilanDurum.ilanDurumAd</p>
+                    <p class="sale">For sale</p>
+                </div>
+            </div>
+            <div class="information-wrapper">
+
+                <p class="property-type">Apartment</p>
+                <p class="property-title">Ample apartment at last floor</p>
+                <div class="apartment-address">
+                    <i class="material-icons">place</i>
+                    <span class="address">153 Adriana Mews Suite 247</span>
+                </div>
+                <div class="apartment-values">
+                    <span>Beds: 4</span>
+                    <span>Bath: 4 </span>
+                    <span>Sq Ft: 2100</span>
+                </div>
+                <div class="apartment-info">
+                    <div class="apartment-price">
+                        <p class="price-big">&#163;1.245.000</p>
+                        <p class="price-small">&#163;1,800/sq ft</p>
+                    </div>
+                    <div class="icons">
+                        <a href="#" class="details-button">Details</a>
+                        <a href="#" class="clone"> <i class="material-icons icons-style"></i></a>
+                        <a href="#" class="heart"><i class="material-icons icons-style"></i></a>
+
+
+                    </div>
+                </div>
+                <div class="apartment-manager">
+                    <div class="manager-wrap">
+                        <div class="manager-icon">
+                            <a href="#chat"> <img src="@x.VitrinResim" alt="userpic"></a>
+                            <div class="online-status"></div>
+                        </div>
+
+                        <span class="manager-name">Eleanor French</span>
+                    </div>
+                    <div class="calendar">
+                        <i class="material-icons">insert_invitation</i>
+                        <span> 2 days ago</span>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    }
+}

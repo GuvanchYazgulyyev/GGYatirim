@@ -1,0 +1,96 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+
+.call-to-action-section-2 {
+  background-color: @call-to-action-2-bg-color;
+  padding: 64px 0 64px;
+}
+
+.call-to-action-section-2 h2 {
+  color: @call-to-action-2-header-color;
+  font-family: @main-font;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.call-to-action-section-2 {
+  a {
+    display: inline-block;
+    font-family: @secondary-font;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 12px 20px 13px 20px;
+    border-radius: 20px;
+
+  }
+  .sign-in {
+    margin-right: 20px;
+    color: @call-to-action-2-signin-text-color;
+    background-color: @call-to-action-2-signin-bg-color;
+  }
+  .create-account {
+    color: @call-to-action-2-create-text-color;
+    background-color: @call-to-action-2-create-bg-color;
+
+  }
+
+  .sign-in:hover {
+    color: @call-to-action-2-signin-hover-text-color;
+    box-shadow: 0 1px 10px @call-to-action-2-signin-hover-shadow-color;
+    background-color: @call-to-action-2-signin-hover-bg-color;
+  }
+
+  .create-account:hover {
+    box-shadow: 0 1px 10px @call-to-action-2-create-hover-shadow-color;
+    background-color: @call-to-action-2-create-hover-bg-color;
+    color: @call-to-action-2-create-hover-text-color;
+
+  }
+}
+
+.call-to-action-section-2 a:hover {
+  text-decoration: none;
+}
+
+.call-to-action-section-2 .action-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.call-to-action-section-2 .action-wrapper .slogan-wrap {
+  display: flex;
+  margin: auto 0;
+  flex: 2;
+}
+
+.call-to-action-section-2 .action-wrapper .button-wrap {
+  display: flex;
+  margin: auto;
+}
+
+@media (max-width: 767px) {
+  .call-to-action-section-2 .action-wrapper {
+    flex-direction: column;
+  }
+
+  .call-to-action-section-2 .action-wrapper .slogan-wrap {
+    margin: auto;
+    word-break: normal;
+  }
+
+  .call-to-action-section-2 .action-wrapper .button-wrap a {
+    margin-top: 20px;
+  }
+
+}

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.DbBlog>
+
+
+@foreach (var x in Model)
+{
+    <div class="post-item item">
+        <div class="post-item-author">
+
+            <div class="manager-icon">
+                <a href="#chat"> <img src="@x.YazarResim" alt="Kullanıcı Resim"></a>
+                <div class="online-status"></div>
+            </div>
+            <a href="/Home/BlogDetay/@x.BlogID" class="author">@x.YazarAdSoyad</a>
+            <a href="/Home/BlogDetay/@x.BlogID" class="category">
+                <i class="fa fa-calendar"></i>
+                <span>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</span>
+            </a>
+
+
+            <a href="/Home/BlogDetay/@x.BlogID" class="category">
+                <i class="fa fa-list"></i>
+                <span>Blog Başlığı</span>
+            </a>
+
+
+        </div>
+        <div class="post-item-content">
+            <h1>@x.Baslik</h1>
+            <img src="@x.Resim" alt="post-image">
+            @if (x.icerik1.Length > 300)
+            {
+                <p>
+                    @x.icerik1.Substring(0, 300) ...
+                </p>
+            }
+            else
+            {
+                <p>
+                    @x.icerik1
+                </p>
+            }
+            <div>
+                <a href="/Home/BlogDetay/@x.BlogID" class="read-more">Detay</a>
+                <a href="#" class="share"><i class="fa fa-share">Paylaş</i></a>
+            </div>
+        </div>
+    </div>
+}
+

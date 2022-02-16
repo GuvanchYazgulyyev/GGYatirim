@@ -1,0 +1,83 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.account-page {
+  display: flex;
+  flex-direction: row;
+
+  .account-page-wild_block {
+    display: flex;
+    flex-grow: 1;
+    width: calc(100% - 320px);
+  }
+}
+
+#dashboard,
+#favorites,
+#property,
+#empty {
+  position: relative;
+  width: 100%;
+  padding: 24px;
+}
+
+.dashboard-wrapper {
+  width: 100%;
+  position: relative;
+
+}
+
+.wrapper-empty {
+  display: flex;
+  height: 100%;
+  img {
+    margin: auto;
+  }
+}
+
+.account-header-top {
+  color: #37466f;
+  font-family: @main-font;
+  font-size: 20px;
+  font-weight: 600;
+  border-bottom: 2px solid rgba(153, 161, 182, 0.24);
+  padding-bottom: 29px;
+}
+
+.account-block-wrapper {
+  border-radius: 2px;
+  border: 2px solid #eff0f3;
+  background-color: #fff;
+  padding: 22px;
+}
+
+.account-block-header {
+  color: #37466f;
+  font-family: @main-font;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 16px;
+}
+
+@media (max-width: 1024px) {
+  .account-page {
+    flex-direction: column;
+    .account-page-wild_block {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 650px) {
+  .wrapper-empty {
+    img {
+      width: 290px;
+      object-fit: cover;
+    }
+  }
+}

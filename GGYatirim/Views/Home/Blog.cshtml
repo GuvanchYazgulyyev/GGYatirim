@@ -1,0 +1,96 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.DbBlog>
+@{
+    ViewBag.Title = "Blog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+    <div class="page-title-simple m-b-30">
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="/">Ana Sayfa</a>
+                </li>
+                <li>
+                    <a href="#">Blog</a>
+                </li>
+            </ul>
+            <h1>Güncel Makaleler</h1>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <div class="row">
+          
+            <div class="col-lg-8 col-md-7">
+                @foreach (var x in Model)
+                {
+                    <div class="post-item item m-b-30">
+                        <div class="post-item-author">
+
+                            <div class="manager-icon">
+                                <a href="#chat"> <img src="@x.YazarResim" alt="Kullanıcı Resim"></a>
+                                <div class="online-status"></div>
+                            </div>
+                            <a href="#" class="author">@x.YazarAdSoyad</a>
+                            <a href="#" class="category">
+                                <i class="fa fa-calendar"></i>
+                                <span>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</span>
+                            </a>
+
+
+                            <a href="#" class="category">
+                                <i class="fa fa-list"></i>
+                                <span>Blog Başlığı</span>
+                            </a>
+
+
+                        </div>
+                        <div class="post-item-content">
+                            <h1>@x.Baslik</h1>
+                            <img src="@x.Resim" alt="post-image">
+                            @if (x.icerik1.Length > 300)
+                            {
+                                <p>
+                                    @x.icerik1.Substring(0, 300) ...
+                                </p>
+                            }
+                            else
+                            {
+                                <p>
+                                    @x.icerik1
+                                </p>
+                            }
+                            <div>
+                                <a href="/Home/BlogDetay/@x.BlogID" class="read-more">Detay</a>
+                                <a href="#" class="share"><i class="fa fa-share">Paylaş</i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+                </div>
+         
+            
+            <div class="col-lg-4 col-md-5">
+        
+                <div class="sidebar-recent-posts m-b-30">
+                    <div class="widget widget_recent_entries">
+                        <div class="recent-news">
+                            <h6> Yakın zamanda Gönderilenler</h6>
+                            @Html.Action("BlogicdetayPartial")
+                        </div>
+                    </div>
+                </div>
+
+                
+
+               
+            </div>
+        </div>
+        
+    </div>
+

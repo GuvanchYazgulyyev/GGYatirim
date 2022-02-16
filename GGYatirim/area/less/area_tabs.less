@@ -1,0 +1,74 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.area-tab-header {
+  text-decoration: none;
+  padding: 0;
+  margin-bottom: 20px;
+
+  li {
+    display: inline-block;
+    margin: 0;
+    a {
+      display: inline-block;
+      color: @area-tabs-tab-color;
+      font-family: @secondary-font;
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-right: 40px;
+      padding-bottom: 20px;
+    }
+    a:hover {
+      border-bottom: 2px solid @area-tabs-tab-hover-border-color;
+      text-decoration: none;
+    }
+    a:visited,
+    a:focus {
+      text-decoration: none;
+    }
+
+    a.active-tab {
+      border-bottom: 2px solid @area-tabs-tab-active-border-color;
+      color: @area-tabs-tab-active-tab-color;
+    }
+
+  }
+
+}
+
+.area-tab-content {
+  position: relative;
+  margin-bottom: 20px;
+  .item.active {
+    display: block;
+    transition: opacity, transform 2s;
+    z-index: 100;
+    width: 100%;
+    opacity: 1;
+    animation: move 0.5s 1 linear;
+  }
+
+  @keyframes move {
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+  .item {
+    display: none;
+    opacity: 0;
+    transition: opacity, transform 2s;
+  }
+
+}

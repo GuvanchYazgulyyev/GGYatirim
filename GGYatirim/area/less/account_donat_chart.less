@@ -1,0 +1,95 @@
+.acoount-donat-chart {
+    border-radius: 2px;
+    border: 2px solid #eff0f3;
+    background-color: #f5f6f8;
+    padding: 22px 22px 25px;
+    overflow: hidden;
+}
+.acoount-donat-chart h3 {
+    color: #37466f;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 18px;
+    margin-top: 0px;
+}
+.acoount-donat-chart .wrapper-circle {
+    border-radius: 2px;
+    border: 2px solid #eff0f3;
+    background-color: #ffffff;
+    padding: 20px;
+    display: inline-block;
+    width: 48%;
+    margin-bottom: 24px;
+}
+.acoount-donat-chart .wrapper-circle.right {
+    float: right;
+}
+.acoount-donat-chart .circle-item { 
+    width: 100%; 
+    position: relative;
+}
+.acoount-donat-chart .circle-item .circle-bar { 
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+}
+.acoount-donat-chart .circle-item > * { 
+    display: inline-block; 
+    vertical-align: middle; 
+}
+.acoount-donat-chart * > svg > path{
+    stroke:#6495fe;
+}
+.acoount-donat-chart .circle-bar-background {
+    width: 40px;
+    height: 40px;
+    border: 2px solid #6495fe; 
+    border-radius:100%; 
+    position: absolute; 
+    left: 0px; 
+    opacity:0.2;
+}
+.acoount-donat-chart .circle-item .text {
+    color: #525252;
+    font-family: "Open Sans";
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+}
+.acoount-donat-chart .wrapper-circle.right.add a {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+    text-align: center;
+    position: relative;
+    background-color: #f7f7f7;
+    border-radius: 100%;
+}
+.acoount-donat-chart .wrapper-circle.right.add a i {
+    font-size: 16px;
+    color: #99a1b6;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+}
+@media (max-width:600px) {
+    .acoount-donat-chart .wrapper-circle {
+        width: 100%;
+        margin-bottom: 0px;
+        border: none;
+        border-bottom: 2px solid #eff0f3;
+    }
+}
+@media (max-width: 375px) {
+    .acoount-donat-chart {
+        padding: 22px 0px 0px;
+    }
+    .acoount-donat-chart .wrapper-circle:last-child {
+        border: none;
+    }
+    .acoount-donat-chart h3 {
+        padding: 0px 20px;
+    }
+}

@@ -1,0 +1,70 @@
+﻿@model GGYatirim.Models.Sinif.DbTemsilci
+@{
+    ViewBag.Title = "AdmTemsilciGetr";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="col-md-10 col-sm-12 col-xs-12">
+
+    <h3>Temsilci Sayfasını Güncelle</h3>
+
+    @using (Html.BeginForm("AdmTemsilciGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div id="div-boyut">
+            <label><b>Ad Soyad</b></label>
+            @Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })
+        </div>
+        <div>
+            <label><b>Telefon</b></label>
+            @Html.TextBoxFor(x => x.Tel, new { @class = "form-control" })
+        </div>
+        <div>
+            <label><b>E-Posta</b></label>
+            @Html.TextBoxFor(x => x.EPosta, new { @class = "form-control" })
+        </div>
+        <div>
+            <label><b>Makam</b></label>
+            @Html.TextBoxFor(x => x.Makam, new { @class = "form-control" })
+        </div>
+
+        <div>
+            <label><b>Resim</b></label>
+            <input type="file" id="File" name="File" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" class="form-control" />
+        </div>
+
+
+         <div>
+            <label><b>İnstagram</b></label>
+            @Html.TextBoxFor(x => x.instagram, new { @class = "form-control" })
+        </div>
+
+        <div>
+            <label><b>Facebook</b></label>
+            @Html.TextBoxFor(x => x.Facebook, new { @class = "form-control" })
+        </div>
+         <div>
+            <label><b>Tweetter</b></label>
+            @Html.TextBoxFor(x => x.Twetter, new { @class = "form-control" })
+        </div>
+
+       <div>
+            <label><b>Web Site</b></label>
+            @Html.TextBoxFor(x => x.WebSite, new { @class = "form-control" })
+        </div>
+
+       
+        <div>
+            @Html.HiddenFor(x => x.TemsilciID)
+        </div>
+        <div>
+            <br />
+            <br />
+            <button class="btn btn-success" style="background-color:cornflowerblue">Değişiklikleri Kaydet</button>
+
+        </div>
+
+
+    }
+</div>
+

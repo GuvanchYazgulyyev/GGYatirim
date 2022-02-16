@@ -1,0 +1,101 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.contact-form-container {
+  background: url("../images/contact-form2-bg.png") 100% 0 no-repeat #f7f7f7;
+  background-size: cover;
+  padding: 100px 0px;
+  margin-top: 60px;
+}
+
+.contact-form-container h2 {
+  color: @contact-form-2-header-color;
+  font-family: "Open Sans";
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  margin-top: 0;
+}
+
+.contact-form-container p {
+  color: @contact-form-text-color;
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 38px;
+}
+
+.contact-form-container input,
+.contact-form-container textarea {
+  border-radius: 2px;
+  border: 2px solid @contact-form-2-input-border-color;
+  background-color: @contact-form-2-input-bg-color;
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+
+}
+
+.contact-form-container textarea {
+  height: 128px;
+}
+
+.contact-form-container input:focus,
+.contact-form-container textarea:focus {
+  border-radius: 2px;
+  border: 2px solid @contact-form-2-input-focus-border-color;
+  outline-color: @contact-form-2-input-focus-border-color;
+}
+
+.contact-form-container input:last-child {
+  margin-bottom: 0px;
+  color: @contact-form-button-text-color;
+  font-family: "Montserrat";
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border-radius: 2px;
+  border: 2px solid @contact-form-2-button-border-color;
+  background-color: @contact-form-2-button-bg-color;
+}
+
+.contact-form-container input::-webkit-input-placeholder,
+.contact-form-container textarea::-webkit-input-placeholder {
+  color: @contact-form-2-input-placeholder-color;
+  font-family: "Open Sans";
+  font-size: 14px;
+  letter-spacing: 0.44px;
+  text-transform: capitalize;
+}
+
+.contact-form-container input::-moz-placeholder,
+.contact-form-container textarea::-moz-placeholder {
+  color: @contact-form-2-input-placeholder-color;
+  font-family: "Open Sans";
+  font-size: 14px;
+  letter-spacing: 0.44px;
+  text-transform: capitalize;
+}
+
+.contact-form-container input:-ms-input-placeholder,
+.contact-form-container textarea:-ms-input-placeholder {
+  color: @contact-form-2-input-placeholder-color;
+  font-family: "Open Sans";
+  font-size: 14px;
+  letter-spacing: 0.44px;
+  text-transform: capitalize;
+}
+
+@media (max-width: 1023px) {
+  .contact-form-container {
+    background: #f7f7f7;
+    text-transform: capitalize;
+  }
+}

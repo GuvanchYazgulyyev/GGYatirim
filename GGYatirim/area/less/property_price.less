@@ -1,0 +1,127 @@
+.property-price {
+    display: inline-block;
+    width: 100%;
+    font-size: 0;
+    padding: 31px 24px 28px 24px;
+    border-radius: 2px;
+    border: 2px solid #eff0f3;
+    background-color: #ffffff;
+}
+.property-price .full-price {
+    color: #37466f;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 400;
+}
+.property-price .price-per {
+    color: #525252;
+    font-family: "Roboto";
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+}
+.property-price div > div > span {
+    margin-right: 9px;
+}
+.property-price > div { 
+    display: inline-block;
+    vertical-align: middle;
+}
+.property-price .price {
+    width: 30%;
+} 
+.property-price .buttons-wrap {
+    width: 70%;
+    text-align: right;
+}
+.property-price .buttons-wrap a.heart, 
+.property-price .buttons-wrap a.compare {
+    width: 40px;
+    height: 40px;
+    background-color: #f7f7f7;
+    margin-right: 16px;
+    text-align: center;
+    color: #99a1b6;
+    display: inline-block;
+    border-radius: 100%;
+    padding-top: 9px;
+    position: relative;
+    text-decoration: none;
+    vertical-align: middle;
+}
+.property-price .buttons-wrap a.heart:before {
+    font-family: 'Material Icons';
+    content: '\E87E';
+    font-size: 16px;
+}
+.property-price .buttons-wrap a.heart.active:before {
+    content: "\E87D";
+    color: #fc226e;
+}
+.property-price .buttons-wrap a.compare:before { 
+    font-family: 'Material Icons';
+    content: "\E3E0";
+    font-size: 16px;
+}
+.property-price .buttons-wrap a.compare.active:before { 
+    content: "\E3D2";
+    color: #6495fe;
+}
+.property-price .buttons-wrap a.contact {
+    height: 40px;
+    border-radius: 20px;
+    background-color: #f7f7f7;
+    text-align: center;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    color: #527efd;
+    padding: 13px 21px 12px 20px;
+    line-height: 1;
+    text-decoration: none;
+    vertical-align: middle;
+    margin-left: 4px;
+}
+.property-price .buttons-wrap a.contact:hover {
+    box-shadow: 0 1px 10px rgba(100, 149, 254, 0.5);
+    background-color: #6495fe;
+    color: #fff;
+}
+@media (max-width: 550px) {
+    .property-price .buttons-wrap a.contact {
+        background-color: transparent;
+        height: auto;
+        padding: 0;
+        font-size: 14px;
+    }
+    .property-price .buttons-wrap a.contact:hover {
+        background-color: none;
+        box-shadow: none;
+    }
+    .property-price .buttons-wrap a.compare, 
+    .property-price .buttons-wrap a.heart {
+        width: auto;
+        height: auto;
+        background-color: transparent;
+        padding: 0;
+    }
+    .property-price .buttons-wrap a.compare.active:before, 
+    .property-price .buttons-wrap a.heart.active:before,
+    .property-price .buttons-wrap a.compare:before, 
+    .property-price .buttons-wrap a.heart:before {
+        font-size: 18px;
+    }
+}
+@media (max-width: 450px) { 
+    .property-price .buttons-wrap {
+        width: 100%;
+        margin-top: 15px;
+        text-align: left;
+    }
+    .property-price .price {
+        width: 100%;
+    }
+}

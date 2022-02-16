@@ -1,0 +1,31 @@
+﻿@*@using GGYatirim.Models.Sinif
+@model List<ResimDeneme>*@ 
+@model IEnumerable<GGYatirim.Models.Sinif.ResimDeneme>
+@{
+    ViewBag.Title = "AdmResim";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div style="width:80%" class="col-md-12 table table-hover">
+    <h3>Yeni Resim Ekle</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Resim Ad</th>
+            <th>İlan</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td><img src="@x.ResimAd" width="90px;"  /></td>
+                <td>@x.ialnlarDeneme.ialnAd</td>
+                <td><a href="~/Admin/AdmResimSil/@x.ResimID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.ResimAd ')" class="btn btn-danger"> <i class="fas fa-trash"></i></a></td>
+                <td><a href="~/Admin/AdmResimGetir/@x.ResimID" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Admin/AdmResimEkle/" class="btn btn-success">Yeni Resim Ekle</a>
+
+</div>
+

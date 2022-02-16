@@ -1,0 +1,205 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.agent-block-wrapper {
+  border-radius: 2px;
+  border: 2px solid @agent-block-border-color;
+  background-color: @agent-block-bg-color;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  grid-column-gap: 21px;
+  grid-row-gap: 21px;
+  padding: 24px;
+}
+
+.agent-block-agent-information {
+  h2 {
+    color: @agent-block-agent-name-color;
+    font-family: @main-font;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0;
+  }
+  p {
+    color: @agent-block-agent-district-color;
+    font-family: @main-font;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+    margin: 3px 0 24px;
+  }
+
+  .agent-contacts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 10px;
+    .information-column {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      grid-row-gap: 10px;
+      grid-column-gap: 10px;
+      i {
+        margin-right: 8px;
+        color: @agent-block-agent-contacts-type-icon-color;
+        font-size: 16px;
+        height: 16px;
+        width: 16px;
+      }
+      span {
+        color: @agent-block-agent-contacts-type-color;
+        font-family: @main-font;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.44px;
+        .fa-phone {
+          font-size: 16px;
+        }
+        .fa-skype {
+          font-size: 16px;
+        }
+        .fa-envelope {
+          font-size: 15px;
+        }
+        .fa-comment {
+          font-size: 15px;
+        }
+        .fa-lg {
+          font-size: 1.33333333em;
+          line-height: 0.5em;
+          width: unset;
+        }
+      }
+
+      .values {
+        color: @agent-block-agent-contacts-value-color;
+        word-break: break-all;
+      }
+    }
+  }
+  .agent-links {
+    margin: 27px 0 0;
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr max-content;
+    -ms-grid-columns: 1fr max-content;
+    grid-row-gap: 15px;
+    .icons__item:hover {
+      text-decoration: none;
+      color: @agent-block-social-icons-hover-text-color;
+      box-shadow: 0 1px 10px @agent-block-social-icons-hover-shadow;
+      background-color: @agent-block-social-icons-hover-bg-color;
+    }
+
+    .icons__item {
+      width: 40px;
+      height: 40px;
+      color: @agent-block-social-icons-text-color;
+      font-size: 17px;
+      background-color: @agent-block-social-icons-bg-color;
+      border-radius: 100%;
+      display: inline-block;
+      text-align: center;
+      padding: 12px 0 12px 0;
+      line-height: 1px;
+      margin-right: 16px;
+    }
+
+
+    .icon-link {
+      padding: 12px 17px 11px 17px;
+      border-radius: 20px;
+      background-color: @agent-block-social-icons-bg-color;
+      display: flex;
+      i {
+        font-size: 16px;
+        position: relative;
+        margin: auto 12px auto 0;
+        color: @agent-block-social-icons-text-color;
+        top: 0;
+      }
+      span {
+        display: inline-block;
+        color: @agent-block-social-icons-span-color;
+        font-family: @secondary-font;
+        font-size: 12px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        margin: auto 0 auto 0;
+      }
+    }
+    .icon-link:hover {
+      box-shadow: 0 1px 10px @agent-block-social-icons-hover-shadow;
+      border-radius: 20px;
+      background-color: @agent-block-social-icons-hover-bg-color;
+      text-decoration: none;
+      i {
+        color: @agent-block-social-icons-hover-text-color;
+      }
+      span {
+        color: @agent-block-social-icons-hover-text-color;
+      }
+    }
+  }
+
+}
+
+.agent-block-agent-img {
+  .image-wrap {
+    position: relative;
+    img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+    .agent-status {
+      position: absolute;
+      top: 10%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .agent-block-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .agent-block-agent-information {
+    .agent-contacts {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (max-width: 439px) {
+  .agent-block-agent-information {
+    .agent-links {
+      grid-template-columns: 1fr;
+      -ms-grid-columns: 1fr;
+      .social {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        flex-direction: row;
+      }
+      .icon-link {
+        float: none;
+        i {
+          margin: auto 10px auto auto;
+        }
+        span {
+          margin: auto auto auto 0;
+        }
+
+      }
+    }
+  }
+}

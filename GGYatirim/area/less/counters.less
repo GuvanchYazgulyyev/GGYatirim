@@ -1,0 +1,98 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+/*@counters-icon-color: #ffffff;
+@counters-icon-bg-color: #37466f;
+@counters-number-color: #ffffff;
+@counters-text-color: #ffffff;
+@counters-light-icon-color: #ffffff;
+@counters-light-icon-bg-color: #6495fe;
+@counters-light-number-color: #6495fe;
+@counters-light-text-color: #525252;*/
+
+.counters-wrapper.light-counters {
+  background: url("../images/counters-bg-light.png") 100% 0 no-repeat;
+  .counter-element {
+    .i {
+      i {
+        background-color: @counters-light-icon-bg-color;
+        color: @counters-light-icon-color;
+      }
+    }
+    .data {
+      .number {
+        color: @counters-light-number-color;
+      }
+      span {
+        color: @counters-light-text-color;
+      }
+    }
+  }
+}
+
+.counters-wrapper {
+  background: url("../images/counters-bg.png") 100% 0 no-repeat;
+  padding: 124px 0 84px;
+  background-size: cover;
+  .counter-element {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    .i {
+      display: inline-block;
+      position: relative;
+      top: 14px;
+      margin-right: 10px;
+      i {
+        padding: 12px;
+        font-size: 16px;
+        border-radius: 100%;
+        background-color: @counters-icon-bg-color;
+        color: @counters-icon-color;
+      }
+    }
+    .data {
+      display: inline-block;
+      position: relative;
+      width: 75%;
+      .number {
+        color: @counters-number-color;
+        font-family: @secondary-font;
+        font-size: 48px;
+        font-weight: 400;
+        margin-bottom: 0;
+      }
+      span {
+        color: @counters-text-color;
+        font-family: @main-font;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.44px;
+        word-break: normal;
+      }
+    }
+  }
+}
+
+@media (max-width: 772px) {
+
+  .counters-wrapper {
+    padding: 75px 0;
+    .counter-element {
+      flex-direction: column;
+      margin: 15px auto;
+      .i,
+      .data {
+        margin: 10px auto;
+      }
+      .data {
+        text-align: center;
+      }
+    }
+  }
+
+}

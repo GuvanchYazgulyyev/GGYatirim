@@ -1,0 +1,124 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.chat-users {
+  background-color: #ffffff;
+  width: 370px;
+  border-right: 2px solid rgba(153, 161, 182, .16);
+}
+
+.chat-users .input-wrapper {
+  width: 100%;
+  display: inline-block;
+  position: relative;
+  padding: 24px;
+  border-bottom: 2px solid rgba(153, 161, 182, .16);
+  input {
+    height: 40px;
+    width: 100%;
+    padding-left: 56px;
+    border-radius: 2px;
+    border: 2px solid @search-simple-icon-input-border-color;
+    background-color: @search-simple-icon-input-bg-color;
+    outline-color: @search-simple-icon-input-outline-color;
+    box-sizing: border-box;
+  }
+
+  label {
+    position: absolute;
+    left: 40px;
+    top: 33px;
+    height: 20px;
+    border-right: 1px solid @search-simple-icon-icon-border-color;
+    margin: 0;
+    font-weight: unset;
+
+  }
+
+  label:before {
+    content: '\E312';
+    font-size: 16px;
+    color: @search-simple-icon-icon-color;
+    font-family: "Material Icons";
+    margin: 0 13px 0 0;
+  }
+}
+
+.chat-users {
+  input:focus {
+    box-shadow: 0 1px 10px @search-simple-icon-input-focus-shadow-color;
+    border-color: @search-simple-icon-input-focus-border-color;
+  }
+}
+
+.chat-users input:focus ~ label:before,
+label {
+  color: @search-simple-icon-input-focus-icon-color;
+}
+
+.chat-user-item {
+  display: block;
+  border-top: 1px solid rgba(153, 161, 182, 0.24);
+  border-bottom: none;
+  margin-right: -2px;
+  .chat-user {
+    display: flex;
+    flex-direction: row;
+    padding: 20px 24px;
+    h3 {
+      margin: 0;
+      color: #37466f;
+      font-family: @main-font;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0.44px;
+    }
+    span {
+      color: #525252;
+      font-family: @main-font;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0.44px;
+      white-space: nowrap;
+    }
+    .user-avatar {
+      margin-right: 16px;
+      position: relative;
+      .agent-status {
+        position: absolute;
+        top: 2px;
+      }
+    }
+    .user-msg {
+      overflow: hidden;
+    }
+  }
+}
+
+.chat-users {
+  a:nth-child(2) {
+    border-top: none;
+  }
+}
+
+.chat-user-item:hover,
+.chat-user-item.active {
+  text-decoration: none;
+  background-image: linear-gradient(to right, rgba(100, 149, 254, 0.08) 0%, rgba(253, 253, 253, 0.08) 100%);
+  border-right: 2px solid #6495fe;
+}
+
+.chat-user-item:focus {
+  text-decoration: none;
+}
+
+@media (max-width: 1024px) {
+  .chat-users {
+    width: 100%;
+  }
+}

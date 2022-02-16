@@ -1,0 +1,227 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+.account_menu {
+  background-color: rgba(153, 161, 182, 0.16);
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 1.5s, height 1.5s;
+  width: 320px;
+
+  span {
+    opacity: 1;
+    transition: opacity 2.5s;
+    transition-delay: 1.5s;
+    visibility: visible;
+  }
+}
+
+.menu-close-class {
+  width: 88px;
+  height: auto;
+  span,
+  h2 {
+    opacity: 0;
+    transition: opacity 2s;
+    visibility: hidden;
+
+  }
+}
+
+.account_menu_categories {
+  //links style
+  a {
+    display: block;
+  }
+
+  a:hover {
+    text-decoration: none;
+    background-image: linear-gradient(270deg, rgba(253, 253, 253, 0.8) 0%, rgba(253, 253, 253, 0) 100%);
+    border-right: 2px solid #6495fe;
+  }
+
+  a:focus {
+    text-decoration: none;
+  }
+
+  a.active {
+    border-right: 2px solid #6495fe;
+    background-image: linear-gradient(270deg, rgba(253, 253, 253, 0.8) 0%, rgba(253, 253, 253, 0) 100%);
+  }
+
+  a:last-child {
+    border-top: 2px solid rgba(153, 161, 182, 0.24);
+  }
+
+  .category_item {
+    padding: 22px;
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+
+  }
+  .category_item__category-name {
+    position: relative;
+    i {
+      padding: 12px;
+      border-radius: 50%;
+      font-size: 16px;
+      color: #99a1b6;
+      background-color: #f7f7f7;
+      margin: auto 0;
+    }
+    span {
+      color: #37466f;
+      font-family: @main-font;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0.44px;
+      margin: auto 0 auto 16px;
+    }
+  }
+
+  .category_item__item-counts {
+    margin: auto 0;
+    border-radius: 20px;
+    background-color: #f7f7f7;
+    color: #6495fe;
+    font-family: @secondary-font;
+    padding: 12px 17px 11px;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    width: 50px;
+    display: block;
+    text-align: center;
+  }
+
+  .new-notification {
+    height: 8px;
+    width: 8px;
+    box-shadow: 0 0 10px #6495fe;
+    background-color: #6495fe;
+    position: absolute;
+    border-radius: 50%;
+    top: 5%;
+    display: none;
+  }
+
+}
+
+.new-notification__enabled {
+  .new-notification {
+    display: block;
+  }
+}
+
+.account_menu_agent {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  padding: 24px;
+  border-bottom: 2px solid rgba(153, 161, 182, 0.24);
+  .agent-avatar {
+    position: relative;
+    margin: auto 0;
+    .agent-status {
+      position: absolute;
+      top: 2px;
+    }
+
+  }
+  h2 {
+    margin: auto 0 auto 16px;
+    color: #37466f;
+    font-family: @main-font;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+  }
+}
+
+.js-toggle-menu:hover,
+.js-toggle-menu:focus {
+  text-decoration: none;
+}
+
+.js-toggle-menu-button {
+  display: none;
+}
+
+.js-test-toggle {
+  border-radius: 50%;
+  padding: 12px;
+  float: right;
+  margin: 24px;
+  background-color: #f7f7f7;
+  color: #99a1b6;
+  transform: rotate(0deg);
+  transition: transform 2.5s;
+  display: flex;
+  cursor: pointer;
+  &:before {
+    content: '\E5CB';
+    font-size: 16px;
+  }
+}
+
+.js-test-toggle.js-close {
+  transform: rotate(180deg);
+}
+
+.sm-visible {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .js-toggle-menu-button {
+    display: block;
+    margin: auto 0 auto auto;
+    font-size: 16px;
+  }
+
+  .js-test-toggle {
+    margin: auto 0 auto auto;
+    float: none;
+    transform: rotate(90deg)
+
+  }
+
+  .js-test-toggle.js-close {
+    transform: rotate(270deg);
+  }
+
+  .lg-visible {
+    display: none;
+  }
+
+  .sm-visible {
+    display: flex;
+  }
+
+  .account_menu {
+    height: 762px;
+    width: 100%;
+  }
+
+  .menu-close-class {
+    height: 88px;
+    width: auto;
+    span {
+      opacity: 0;
+      transition: opacity 2s;
+      visibility: hidden;
+
+    }
+    h2 {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+}

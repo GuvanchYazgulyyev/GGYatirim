@@ -1,0 +1,96 @@
+.property-share {
+    border-radius: 2px;
+    border: 2px solid #eff0f3;
+    background-color: #ffffff;
+    display: inline-block;
+    width: 100%;
+    font-size: 0;
+    padding: 24px;
+}
+.property-share .wrap {
+    display: inline-block;
+    vertical-align: middle;
+    width: 85%;
+}
+.property-share .wrap-right { 
+    display: inline-block;
+    vertical-align: middle;
+    width: 15%;
+    text-align: right;
+}
+.property-share .wrap a {
+    background-color: #f7f7f7;
+    border-radius: 20px;
+    color: #527efd;
+    font-family: "Montserrat";
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-right: 20px;
+    padding: 11px 21px 0px 18px;
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+    height: 40px
+}
+.property-share .wrap a:last-child {
+    margin: 0;
+}
+.property-share .wrap a span {
+    position: relative;
+    top: -1px;
+}
+.property-share .wrap a i {
+    font-size: 16px;
+    color: #99a1b6;
+    margin-right: 11px;
+}
+.property-share .wrap-right a {  
+    background-color: #f7f7f7;
+    border-radius: 100%;
+    text-align: center;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    text-decoration: none;
+    padding-top: 12px;
+}
+.property-share .wrap-right a i {
+    color: #99a1b6;
+    font-size: 16px;
+}
+.property-share a:hover {
+    background-color: #6495fe;
+    box-shadow: 0 1px 10px rgba(100, 149, 254, 0.5);
+    color: #ffffff;
+}
+.property-share a:hover i {
+    color: #fff;
+}
+@media (max-width: 570px) {
+    .property-share .wrap a i {
+        margin-right: 5px;
+    }
+    .property-share .wrap a {
+        padding: 11px 19px 0 15px;
+        margin-right: 10px;
+    }
+}
+@media (max-width: 570px) {
+    .property-share .wrap a {
+        background-color: transparent;
+        padding: 11px 0px 0 0px;
+        margin-right: 0;
+    }
+    .property-share {
+        text-align-last: justify;
+    }
+    .property-share .wrap-right {
+        display: none;
+    }
+    .property-share .wrap {
+        width: 100%;
+    }
+}

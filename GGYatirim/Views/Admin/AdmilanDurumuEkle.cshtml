@@ -1,0 +1,26 @@
+﻿@model GGYatirim.Models.Sinif.DbilanDurum
+@{
+    ViewBag.Title = "AdmilanDurumuEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<h2> İlan Durumu Ekle</h2>
+<div class="col-md-12">
+    @using (Html.BeginForm("AdmilanDurumuEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <form class="form-group" method="post">
+
+            İlan Durum Ad
+            @Html.TextBoxFor(x => x.ilanDurumAd, new { @class = "form-control" })
+
+
+            @Html.HiddenFor(x => x.ilanDurumID)
+
+            <button class="button border with-icon">Yeni İlan Durumus Ekle</button>
+
+        </form>
+    }
+</div>
+

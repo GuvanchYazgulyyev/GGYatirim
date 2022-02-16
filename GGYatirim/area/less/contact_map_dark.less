@@ -1,0 +1,122 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.contact-map-block-dark {
+  border-radius: 2px;
+  border: 2px solid @contact-map-block-dark-border-color;
+  background-color: @contact-map-block-dark-bg-color;
+
+}
+
+#map-small-dark {
+  height: 430px;
+}
+
+.contact-map-block-dark__info-wrap {
+  padding: 24px;
+  .contact-wrapper {
+    display: flex;
+    flex-direction: row;
+    h2 {
+      margin: 0 0 22px;
+      color: @contact-map-block-dark-header-color;
+      font-family: @main-font;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.28px;
+    }
+  }
+}
+
+.contact-map-block-dark__address-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: stretch;
+  i {
+    margin: auto 16px auto 0;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 50%;
+    color: @contact-map-block-dark-address-icon-color;
+    background-color: @contact-map-block-dark-address-icon-bg-color;
+
+  }
+  p {
+    color: @contact-map-block-dark-address-text-color;
+    font-family: @main-font;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+    margin: auto 0;
+  }
+
+}
+
+.contact-map-block-dark__phone-block {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 1fr 10fr;
+  -ms-grid-columns: 1fr 1fr;
+  grid-column-gap: 15px;
+  grid-row-gap: 8px;
+  margin-top: 22px;
+  margin-bottom: 24px;
+
+  .value {
+    color: @contact-map-block-dark_phone-block-value-color;
+    font-family: @main-font;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+  }
+
+  .title {
+    color: @contact-map-block-dark_phone-block-title-color;
+    font-family: @main-font;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+  }
+
+}
+
+.contact-map-block-dark__social-icons {
+  padding: 24px;
+  .icons__item:hover {
+    text-decoration: none;
+    color: @contact-map-block-dark-social-icons-hover-text-color;
+    box-shadow: 0 1px 10px @contact-map-block-dark-social-icons-hover-shadow;
+    background-color: @contact-map-block-dark-social-icons-hover-bg-color;
+  }
+
+  .icons__item {
+    width: 40px;
+    height: 40px;
+    color: @contact-map-block-dark-social-icons-text-color;
+    font-size: 17px;
+    background-color: @contact-map-block-dark-social-icons-bg-color;
+    border-radius: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 12px 0 12px 0;
+    line-height: 1px;
+  }
+
+  .icons__item_margin-right_small {
+    margin-right: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .contact-map-block-dark__info-wrap {
+    .contact-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

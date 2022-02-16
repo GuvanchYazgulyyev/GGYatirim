@@ -1,0 +1,76 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.about-faq-section {
+  padding-top: 101px;
+  padding-bottom: 96px;
+  border-top: 2px solid #eff0f3;
+  border-bottom: 2px solid #eff0f3;
+  /**просмотреть границы **/
+  background: #f7f7f7 url(../images/accordion-bg.png) no-repeat 100% 0;
+  background-size: cover;
+
+  p {
+    color: @about-faq-text-color;
+    font-family: "Open Sans";
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+  }
+
+  .features-wrapper {
+    margin-bottom: 36px;
+    p {
+      margin-left: 70px;
+    }
+    .features-header {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 16px;
+      i {
+        margin: auto 0;
+        font-size: 16px;
+        padding: 12px;
+        border-radius: 100%;
+        background-color: @about-faq-features-icon-bg-color;
+        color: @about-faq-features-icon-color;
+      }
+      h2 {
+        margin: auto 0 auto 30px;
+        color: @about-faq-features-header-color;
+        font-family: "Open Sans";
+        font-size: 20px;
+        font-weight: 600;
+      }
+    }
+
+  }
+  .features-wrapper.no-margin {
+    margin-bottom: 0;
+  }
+
+}
+
+
+
+.about-faq-section .accordion-first {
+  margin-bottom: 16px;
+  margin-top: 30px;
+}
+
+.about-faq-section .accordion-last {
+  margin-bottom: 31px;
+}
+
+@media (max-width: 991px) {
+  .about-faq-section {
+    .features-content {
+      margin-top: 40px;
+    }
+  }
+}

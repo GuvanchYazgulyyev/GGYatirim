@@ -1,0 +1,880 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{22C0D66B-4CCB-49AE-A700-0E6A2013B439}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GGYatirim</RootNamespace>
+    <AssemblyName>GGYatirim</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44306</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Http.Features, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Http.Features.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Http.Features.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Mvc.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNetCore.Routing.Abstractions, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNetCore.Routing.Abstractions.2.2.0\lib\netstandard2.0\Microsoft.AspNetCore.Routing.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Extensions.Configuration.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Configuration.Abstractions.6.0.0\lib\net461\Microsoft.Extensions.Configuration.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.Primitives, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.Primitives.6.0.0\lib\net461\Microsoft.Extensions.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Net.Http.Headers, Version=2.2.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Net.Http.Headers.2.2.0\lib\netstandard2.0\Microsoft.Net.Http.Headers.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.4.5.0\lib\netstandard2.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\GGKPanelController.cs" />
+    <Compile Include="Controllers\GGYPanelController.cs" />
+    <Compile Include="Controllers\HataController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ilanlarController.cs" />
+    <Compile Include="Controllers\KullaniciController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\DbAdmin.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\DbBlog.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\DbEmlakTipi.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\DbHareket.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\Dbilan.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\DbilanDurum.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\DbilanGallery.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\DbilanOzellik.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\DbiletisimBilgi.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\DbiletisimForm.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\DbKonum.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\DbKullanici.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\DbSlider.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\DbTemsilci.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\DbYetki.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\ialnlarDeneme.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\Model1.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\Model1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\Model1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\Product.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\ResimDeneme.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Sinif\sysdiagrams.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Roller\AdminRolEkle.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="area\builds\area\css\style.min.css" />
+    <Content Include="area\builds\area\fonts\fontawesome-webfont.svg" />
+    <Content Include="area\builds\area\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="area\builds\area\fonts\materialdesignicons-webfont.svg" />
+    <Content Include="area\builds\area\js\accordion.js" />
+    <Content Include="area\builds\area\js\account_chart.js" />
+    <Content Include="area\builds\area\js\account_component.js" />
+    <Content Include="area\builds\area\js\account_page.js" />
+    <Content Include="area\builds\area\js\agents_carousel.js" />
+    <Content Include="area\builds\area\js\agent_slider.js" />
+    <Content Include="area\builds\area\js\area_tabs.js" />
+    <Content Include="area\builds\area\js\chat_component.js" />
+    <Content Include="area\builds\area\js\clear_form.js" />
+    <Content Include="area\builds\area\js\coming-soon.js" />
+    <Content Include="area\builds\area\js\counters.js" />
+    <Content Include="area\builds\area\js\count_checker.js" />
+    <Content Include="area\builds\area\js\featured_carousel.js" />
+    <Content Include="area\builds\area\js\form_toggle.js" />
+    <Content Include="area\builds\area\js\header.js" />
+    <Content Include="area\builds\area\js\intro_page.js" />
+    <Content Include="area\builds\area\js\library\bootstrap.js" />
+    <Content Include="area\builds\area\js\library\chartist.min.js" />
+    <Content Include="area\builds\area\js\library\hotkeys.js" />
+    <Content Include="area\builds\area\js\library\ion.rangeSlider.min.js" />
+    <Content Include="area\builds\area\js\library\jquery.js" />
+    <Content Include="area\builds\area\js\library\jquery.mousewheel.js" />
+    <Content Include="area\builds\area\js\library\markerclusterer.js" />
+    <Content Include="area\builds\area\js\library\microplugin.js" />
+    <Content Include="area\builds\area\js\library\module.js" />
+    <Content Include="area\builds\area\js\library\owl.carousel.js" />
+    <Content Include="area\builds\area\js\library\progressbar.js" />
+    <Content Include="area\builds\area\js\library\selectize.js" />
+    <Content Include="area\builds\area\js\library\sifter.js" />
+    <Content Include="area\builds\area\js\library\simditor.js" />
+    <Content Include="area\builds\area\js\library\uploader.js" />
+    <Content Include="area\builds\area\js\main.js" />
+    <Content Include="area\builds\area\js\map_component.js" />
+    <Content Include="area\builds\area\js\one_element_slider.js" />
+    <Content Include="area\builds\area\js\pageviews_chart.js" />
+    <Content Include="area\builds\area\js\partners_small.js" />
+    <Content Include="area\builds\area\js\partner_carousel.js" />
+    <Content Include="area\builds\area\js\post_slider.js" />
+    <Content Include="area\builds\area\js\preloader.js" />
+    <Content Include="area\builds\area\js\property_carousel.js" />
+    <Content Include="area\builds\area\js\property_gallery.js" />
+    <Content Include="area\builds\area\js\property_slider.js" />
+    <Content Include="area\builds\area\js\rangeslider.js" />
+    <Content Include="area\builds\area\js\rate_article.js" />
+    <Content Include="area\builds\area\js\search_form.js" />
+    <Content Include="area\builds\area\js\search_form_slider.js" />
+    <Content Include="area\builds\area\js\service-page-size.js" />
+    <Content Include="area\builds\area\js\sign_in.js" />
+    <Content Include="area\builds\area\js\slider_text.js" />
+    <Content Include="area\builds\area\js\testimonials.js" />
+    <Content Include="area\builds\area\js\text_editor.js" />
+    <Content Include="area\builds\area\js\visible.js" />
+    <Content Include="area\css-min\area.min.css" />
+    <Content Include="area\css\area.css" />
+    <Content Include="area\css\library\bootstrap.css" />
+    <Content Include="area\css\library\chartist.min.css" />
+    <Content Include="area\css\library\font-awesome-animation.min.css" />
+    <Content Include="area\css\library\font-awesome.min.css" />
+    <Content Include="area\css\library\ion.rangeSlider.css" />
+    <Content Include="area\css\library\ion.rangeSlider.skinHTML5.css" />
+    <Content Include="area\css\library\materialdesignicons.min.css" />
+    <Content Include="area\css\library\normalize.css" />
+    <Content Include="area\css\library\owl.carousel.min.css" />
+    <Content Include="area\css\library\owl.theme.default.min.css" />
+    <Content Include="area\css\library\selectize.css" />
+    <Content Include="area\css\library\simditor.css" />
+    <Content Include="area\fonts\fontawesome-webfont.svg" />
+    <Content Include="area\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="area\fonts\materialdesignicons-webfont.svg" />
+    <Content Include="area\Gruntfile.js" />
+    <Content Include="area\grunt\bower.js" />
+    <Content Include="area\grunt\clean.js" />
+    <Content Include="area\grunt\concat.js" />
+    <Content Include="area\grunt\cssmin.js" />
+    <Content Include="area\grunt\imagemin.js" />
+    <Content Include="area\grunt\jshint.js" />
+    <Content Include="area\grunt\less.js" />
+    <Content Include="area\grunt\uglify.js" />
+    <Content Include="area\js-min\min.js" />
+    <Content Include="area\js\accordion.js" />
+    <Content Include="area\js\account_chart.js" />
+    <Content Include="area\js\account_component.js" />
+    <Content Include="area\js\account_page.js" />
+    <Content Include="area\js\agents_carousel.js" />
+    <Content Include="area\js\agent_slider.js" />
+    <Content Include="area\js\area_tabs.js" />
+    <Content Include="area\js\chat_component.js" />
+    <Content Include="area\js\clear_form.js" />
+    <Content Include="area\js\coming-soon.js" />
+    <Content Include="area\js\counters.js" />
+    <Content Include="area\js\count_checker.js" />
+    <Content Include="area\js\featured_carousel.js" />
+    <Content Include="area\js\form_toggle.js" />
+    <Content Include="area\js\header.js" />
+    <Content Include="area\js\intro_page.js" />
+    <Content Include="area\js\library\bootstrap.js" />
+    <Content Include="area\js\library\chartist.min.js" />
+    <Content Include="area\js\library\hotkeys.js" />
+    <Content Include="area\js\library\ion.rangeSlider.min.js" />
+    <Content Include="area\js\library\jquery.js" />
+    <Content Include="area\js\library\jquery.mousewheel.js" />
+    <Content Include="area\js\library\markerclusterer.js" />
+    <Content Include="area\js\library\microplugin.js" />
+    <Content Include="area\js\library\module.js" />
+    <Content Include="area\js\library\owl.carousel.js" />
+    <Content Include="area\js\library\progressbar.js" />
+    <Content Include="area\js\library\selectize.js" />
+    <Content Include="area\js\library\sifter.js" />
+    <Content Include="area\js\library\simditor.js" />
+    <Content Include="area\js\library\uploader.js" />
+    <Content Include="area\js\main.js" />
+    <Content Include="area\js\map_component.js" />
+    <Content Include="area\js\one_element_slider.js" />
+    <Content Include="area\js\pageviews_chart.js" />
+    <Content Include="area\js\partners_small.js" />
+    <Content Include="area\js\partner_carousel.js" />
+    <Content Include="area\js\post_slider.js" />
+    <Content Include="area\js\preloader.js" />
+    <Content Include="area\js\property_carousel.js" />
+    <Content Include="area\js\property_gallery.js" />
+    <Content Include="area\js\property_slider.js" />
+    <Content Include="area\js\rangeslider.js" />
+    <Content Include="area\js\rate_article.js" />
+    <Content Include="area\js\search_form.js" />
+    <Content Include="area\js\search_form_slider.js" />
+    <Content Include="area\js\service-page-size.js" />
+    <Content Include="area\js\sign_in.js" />
+    <Content Include="area\js\slider_text.js" />
+    <Content Include="area\js\testimonials.js" />
+    <Content Include="area\js\text_editor.js" />
+    <Content Include="area\js\visible.js" />
+    <Content Include="area\Resimler\agents-carousel-bg.png" />
+    <Content Include="area\Resimler\Logo Update-01.png" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\GirisYap\css\main.css" />
+    <Content Include="Content\GirisYap\css\util.css" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\HELP-US-OUT.txt" />
+    <Content Include="Content\GirisYap\fonts\Linearicons-Free-v1.0.0\icon-font.min.css" />
+    <Content Include="Content\GirisYap\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.svg" />
+    <Content Include="Content\GirisYap\fonts\montserrat\OFL.txt" />
+    <Content Include="Content\GirisYap\fonts\raleway\OFL.txt" />
+    <Content Include="Content\GirisYap\images\icons\favicon.ico" />
+    <Content Include="Content\GirisYap\images\icons\icon-google.png" />
+    <Content Include="Content\GirisYap\images\img-01.png" />
+    <Content Include="Content\GirisYap\index.html" />
+    <Content Include="Content\GirisYap\js\main.js" />
+    <Content Include="Content\GirisYap\vendor\animate\animate.css" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\js\popper.js" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\js\popper.min.js" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\js\tooltip.js" />
+    <Content Include="Content\GirisYap\vendor\css-hamburgers\hamburgers.css" />
+    <Content Include="Content\GirisYap\vendor\css-hamburgers\hamburgers.min.css" />
+    <Content Include="Content\GirisYap\vendor\jquery\jquery-3.2.1.min.js" />
+    <Content Include="Content\GirisYap\vendor\select2\select2.css" />
+    <Content Include="Content\GirisYap\vendor\select2\select2.js" />
+    <Content Include="Content\GirisYap\vendor\select2\select2.min.css" />
+    <Content Include="Content\GirisYap\vendor\select2\select2.min.js" />
+    <Content Include="Content\Images\error_page.svg" />
+    <Content Include="Content\Images\Logo Update-01.png" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\Sinif\Model1.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Model1.Context.cs</LastGenOutput>
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\Sinif\Model1.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model1.edmx</DependentUpon>
+      <LastGenOutput>Model1.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <EntityDeploy Include="Models\Sinif\Model1.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\Sinif\Model1.edmx.diagram">
+      <DependentUpon>Model1.edmx</DependentUpon>
+    </Content>
+    <Content Include="area\bower.json" />
+    <Content Include="area\builds\area\fonts\fontawesome-webfont.eot" />
+    <Content Include="area\builds\area\fonts\fontawesome-webfont.ttf" />
+    <Content Include="area\builds\area\fonts\fontawesome-webfont.woff" />
+    <Content Include="area\builds\area\fonts\fontawesome-webfont.woff2" />
+    <Content Include="area\builds\area\fonts\FontAwesome.otf" />
+    <Content Include="area\builds\area\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="area\builds\area\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="area\builds\area\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="area\builds\area\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="area\builds\area\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="area\builds\area\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="area\builds\area\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="area\builds\area\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="area\fonts\fontawesome-webfont.eot" />
+    <Content Include="area\fonts\fontawesome-webfont.ttf" />
+    <Content Include="area\fonts\fontawesome-webfont.woff" />
+    <Content Include="area\fonts\fontawesome-webfont.woff2" />
+    <Content Include="area\fonts\FontAwesome.otf" />
+    <Content Include="area\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="area\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="area\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="area\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="area\fonts\materialdesignicons-webfont.eot" />
+    <Content Include="area\fonts\materialdesignicons-webfont.ttf" />
+    <Content Include="area\fonts\materialdesignicons-webfont.woff" />
+    <Content Include="area\fonts\materialdesignicons-webfont.woff2" />
+    <Content Include="area\grunt\aliases.yaml" />
+    <Content Include="area\less-variables\area.less" />
+    <Content Include="area\less-variables\default.less" />
+    <Content Include="area\less\about_faq.less" />
+    <Content Include="area\less\accordion.less" />
+    <Content Include="area\less\account_donat_chart.less" />
+    <Content Include="area\less\account_menu.less" />
+    <Content Include="area\less\account_page.less" />
+    <Content Include="area\less\account_properties_counters_list.less" />
+    <Content Include="area\less\account_property.less" />
+    <Content Include="area\less\advertisement_block.less" />
+    <Content Include="area\less\agency_normal.less" />
+    <Content Include="area\less\agents_carousel.less" />
+    <Content Include="area\less\agent_block.less" />
+    <Content Include="area\less\agent_grid.less" />
+    <Content Include="area\less\agent_grid_fs.less" />
+    <Content Include="area\less\apartment_grid.less" />
+    <Content Include="area\less\area_tabs.less" />
+    <Content Include="area\less\arrow_block.less" />
+    <Content Include="area\less\arrow_block_final.less" />
+    <Content Include="area\less\blog_calendar.less" />
+    <Content Include="area\less\blog_post_archive.less" />
+    <Content Include="area\less\call_toaction1.less" />
+    <Content Include="area\less\call_toaction2.less" />
+    <Content Include="area\less\call_toaction3.less" />
+    <Content Include="area\less\chat_users.less" />
+    <Content Include="area\less\chat_window.less" />
+    <Content Include="area\less\city_grid.less" />
+    <Content Include="area\less\coming-soon.less" />
+    <Content Include="area\less\comments.less" />
+    <Content Include="area\less\compare_table.less" />
+    <Content Include="area\less\concat.less" />
+    <Content Include="area\less\contact_form.less" />
+    <Content Include="area\less\contact_form2.less" />
+    <Content Include="area\less\contact_map_dark.less" />
+    <Content Include="area\less\contact_map_light.less" />
+    <Content Include="area\less\counters.less" />
+    <Content Include="area\less\dark_pre_footer.less" />
+    <Content Include="area\less\error_page.less" />
+    <Content Include="area\less\faq_page.less" />
+    <Content Include="area\less\featured_carousel.less" />
+    <Content Include="area\less\features_section.less" />
+    <Content Include="area\less\footer.less" />
+    <Content Include="area\less\footer_2.less" />
+    <Content Include="area\less\header.less" />
+    <Content Include="area\less\header5.less" />
+    <Content Include="area\less\header_2.less" />
+    <Content Include="area\less\header_4.less" />
+    <Content Include="area\less\home5.less" />
+    <Content Include="area\less\home_bar.less" />
+    <Content Include="area\less\information_block_big.less" />
+    <Content Include="area\less\intro_page.less" />
+    <Content Include="area\less\landing.less" />
+    <Content Include="area\less\light_search_form.less" />
+    <Content Include="area\less\main_contact_form.less" />
+    <Content Include="area\less\map_component.less" />
+    <Content Include="area\less\map_component_listing.less" />
+    <Content Include="area\less\mortage_calculator.less" />
+    <Content Include="area\less\new_property_subscribe.less" />
+    <Content Include="area\less\new_regions.less" />
+    <Content Include="area\less\pagetitle_agency.less" />
+    <Content Include="area\less\pagetitle_agent.less" />
+    <Content Include="area\less\page_title_simple.less" />
+    <Content Include="area\less\pagination.less" />
+    <Content Include="area\less\pagination_prev_next.less" />
+    <Content Include="area\less\partners_small.less" />
+    <Content Include="area\less\partner_carousel.less" />
+    <Content Include="area\less\post_grid.less" />
+    <Content Include="area\less\preloader.less" />
+    <Content Include="area\less\property_address.less" />
+    <Content Include="area\less\property_agent.less" />
+    <Content Include="area\less\property_carousel.less" />
+    <Content Include="area\less\property_documents_simple.less" />
+    <Content Include="area\less\property_floorplans_simple.less" />
+    <Content Include="area\less\property_gallery.less" />
+    <Content Include="area\less\property_grid.less" />
+    <Content Include="area\less\property_pageviews_chart.less" />
+    <Content Include="area\less\property_price.less" />
+    <Content Include="area\less\property_share.less" />
+    <Content Include="area\less\property_similar.less" />
+    <Content Include="area\less\property_slider.less" />
+    <Content Include="area\less\property_standart.less" />
+    <Content Include="area\less\property_standart_grid.less" />
+    <Content Include="area\less\question_form_sidebar.less" />
+    <Content Include="area\less\rangeslide.less" />
+    <Content Include="area\less\rate_article.less" />
+    <Content Include="area\less\recent_property_block.less" />
+    <Content Include="area\less\search_alttype.less" />
+    <Content Include="area\less\search_form.less" />
+    <Content Include="area\less\search_form2.less" />
+    <Content Include="area\less\search_form_small.less" />
+    <Content Include="area\less\search_simple_icon.less" />
+    <Content Include="area\less\service_section.less" />
+    <Content Include="area\less\settings_window.less" />
+    <Content Include="area\less\sidebar_agency.less" />
+    <Content Include="area\less\sidebar_agent.less" />
+    <Content Include="area\less\sidebar_categories.less" />
+    <Content Include="area\less\sidebar_contact_form.less" />
+    <Content Include="area\less\sidebar_featured.less" />
+    <Content Include="area\less\sidebar_featured_agents.less" />
+    <Content Include="area\less\sidebar_property_price.less" />
+    <Content Include="area\less\sidebar_property_price_for_rent.less" />
+    <Content Include="area\less\sidebar_recent_comments.less" />
+    <Content Include="area\less\sidebar_recent_posts.less" />
+    <Content Include="area\less\sidebar_search2.less" />
+    <Content Include="area\less\sidebar_searh_results.less" />
+    <Content Include="area\less\sidebar_tags.less" />
+    <Content Include="area\less\sign_in_form.less" />
+    <Content Include="area\less\single_post.less" />
+    <Content Include="area\less\single_property_description.less" />
+    <Content Include="area\less\single_property_details.less" />
+    <Content Include="area\less\single_property_features.less" />
+    <Content Include="area\less\single_question_page.less" />
+    <Content Include="area\less\slider_form.less" />
+    <Content Include="area\less\slider_text.less" />
+    <Content Include="area\less\style.less" />
+    <Content Include="area\less\submit_property_wild_block.less" />
+    <Content Include="area\less\sub_property_pagetitle.less" />
+    <Content Include="area\less\table_property_listing.less" />
+    <Content Include="area\less\testbyAlexei.less" />
+    <Content Include="area\less\testimonials_section.less" />
+    <Content Include="area\less\testmap.less" />
+    <Content Include="area\less\top_bar.less" />
+    <Content Include="area\less\top_bar_4.less" />
+    <Content Include="area\less\under_maintenance.less" />
+    <Content Include="area\package.json" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\less\animated.less" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\less\core.less" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\less\icons.less" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\less\larger.less" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\less\list.less" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\less\path.less" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\less\variables.less" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="Content\GirisYap\fonts\font-awesome-4.7.0\scss\_variables.scss" />
+    <Content Include="Content\GirisYap\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.eot" />
+    <Content Include="Content\GirisYap\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.ttf" />
+    <Content Include="Content\GirisYap\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff" />
+    <Content Include="Content\GirisYap\fonts\Linearicons-Free-v1.0.0\WebFont\Linearicons-Free.woff2" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-Black.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-BlackItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-Bold.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-BoldItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-ExtraBold.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-ExtraBoldItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-ExtraLight.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-ExtraLightItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-Italic.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-Light.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-LightItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-Medium.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-MediumItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-Regular.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-SemiBold.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-SemiBoldItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-Thin.ttf" />
+    <Content Include="Content\GirisYap\fonts\montserrat\Montserrat-ThinItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-Black.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-Bold.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-Italic.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-Light.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-Medium.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-Regular.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-Thin.ttf" />
+    <Content Include="Content\GirisYap\fonts\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-Black.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-BlackItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-Bold.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-BoldItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-ExtraBold.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-ExtraBoldItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-ExtraLight.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-ExtraLightItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-Italic.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-Light.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-LightItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-Medium.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-MediumItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-Regular.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-SemiBold.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-SemiBoldItalic.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-Thin.ttf" />
+    <Content Include="Content\GirisYap\fonts\raleway\Raleway-ThinItalic.ttf" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Content\GirisYap\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Partials\_SliderPartial.cshtml" />
+    <Content Include="Views\Home\Partials\_FooterPartial.cshtml" />
+    <Content Include="Views\Home\YeniilanPart.cshtml" />
+    <Content Include="Views\Home\ilanDetay.cshtml" />
+    <Content Include="Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Views\Admin\AdmEmlakTipi.cshtml" />
+    <Content Include="Views\Admin\AdmEmlakTipiEkle.cshtml" />
+    <Content Include="Views\Admin\AdmEmlakTipiGetir.cshtml" />
+    <Content Include="Views\Admin\AdmilanDurumu.cshtml" />
+    <Content Include="Views\Admin\AdmilanDurumuEkle.cshtml" />
+    <Content Include="Views\Admin\AdmilanDurumuGetir.cshtml" />
+    <Content Include="Views\Admin\AdmilanOzellik.cshtml" />
+    <Content Include="Views\Admin\AdmilanOzellikEkle.cshtml" />
+    <Content Include="Views\Admin\AdmilanOzellikGetir.cshtml" />
+    <Content Include="Views\Admin\AdmiletisimBilgi.cshtml" />
+    <Content Include="Views\Admin\AdmiletisimBilgiEkle.cshtml" />
+    <Content Include="Views\Admin\AdmiletisimBilgiGetir.cshtml" />
+    <Content Include="Views\Admin\AdmiletsmGMesaj.cshtml" />
+    <Content Include="Views\Admin\AdmKonum.cshtml" />
+    <Content Include="Views\Admin\AdmKonumEkle.cshtml" />
+    <Content Include="Views\Admin\AdmKonumGetir.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Admilan.cshtml" />
+    <Content Include="Views\Admin\AdmilanEkle.cshtml" />
+    <Content Include="Views\Admin\AdmYeniilanPart.cshtml" />
+    <Content Include="Views\Hata\PageError.cshtml" />
+    <Content Include="Views\GGYPanel\Index.cshtml" />
+    <Content Include="Views\Admin\AdmilanGetir.cshtml" />
+    <Content Include="Views\Admin\Adminkullanici.cshtml" />
+    <Content Include="Views\Admin\AdminKulEkle.cshtml" />
+    <Content Include="Views\Admin\AdminKulGetr.cshtml" />
+    <Content Include="Views\Admin\AdmTemsilci.cshtml" />
+    <Content Include="Views\Admin\AdmTemsilciEkle.cshtml" />
+    <Content Include="Views\Admin\AdmTemsilciGetr.cshtml" />
+    <Content Include="Views\Home\iletisim.cshtml" />
+    <Content Include="Views\Home\iletisimBilgi.cshtml" />
+    <Content Include="Views\Admin\AdmResim.cshtml" />
+    <Content Include="Views\Admin\AdmResimEkle.cshtml" />
+    <Content Include="Views\Home\Temsilci.cshtml" />
+    <Content Include="Views\Home\PartialBlog.cshtml" />
+    <Content Include="Views\Home\Blog.cshtml" />
+    <Content Include="Views\Home\BlogDetay.cshtml" />
+    <Content Include="Views\Home\BlogicdetayPartial.cshtml" />
+    <Content Include="Views\Home\DbEmlakTipi.cshtml" />
+    <Content Include="Views\Home\DbilanDurum.cshtml" />
+    <Content Include="Views\Home\Tumilanlar.cshtml" />
+    <Content Include="Views\Home\ilanDetayPart.cshtml" />
+    <Content Include="Views\Home\ilanDetayKiralikPart.cshtml" />
+    <Content Include="Views\Home\AnasayfaKiralikilanPart.cshtml" />
+    <Content Include="Views\Home\Kiralikilan.cshtml" />
+    <Content Include="Views\Home\Satilikilan.cshtml" />
+    <Content Include="Views\ilanlar\Apartman.cshtml" />
+    <Content Include="Views\ilanlar\Daire.cshtml" />
+    <Content Include="Views\ilanlar\Arsa.cshtml" />
+    <Content Include="Views\ilanlar\Mustakil.cshtml" />
+    <Content Include="Views\ilanlar\Dubleks.cshtml" />
+    <Content Include="Views\ilanlar\Arazi.cshtml" />
+    <Content Include="Views\ilanlar\Dukkan.cshtml" />
+    <Content Include="Views\ilanlar\isyeri.cshtml" />
+    <Content Include="Views\ilanlar\Bahce.cshtml" />
+    <Content Include="Views\ilanlar\Petrolistasyon.cshtml" />
+    <Content Include="Views\ilanlar\Ciftlik.cshtml" />
+    <Content Include="Views\ilanlar\Ahir.cshtml" />
+    <Content Include="Views\ilanlar\Otomobil.cshtml" />
+    <Content Include="Views\ilanlar\Traktor.cshtml" />
+    <Content Include="Views\ilanlar\ilanAra.cshtml" />
+    <Content Include="Views\Admin\AdmSilinmisilan.cshtml" />
+    <Content Include="Views\Admin\AdmSilinmisilanDetay.cshtml" />
+    <Content Include="Views\Admin\AdmKisiilan.cshtml" />
+    <Content Include="Views\Admin\AdmKayitliKullanici.cshtml" />
+    <Content Include="Views\Admin\AdmKayitliKullaniciEkle.cshtml" />
+    <Content Include="Views\Admin\AdmKayitliKullaniciGetr.cshtml" />
+    <Content Include="Views\Admin\AdmBlog.cshtml" />
+    <Content Include="Views\Admin\AdmBlogEkle.cshtml" />
+    <Content Include="Views\Admin\AdmBlogGetr.cshtml" />
+    <Content Include="Views\Admin\AdmSilinmisMusteriler.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="ilanResimler\" />
+    <Folder Include="Views\GGKPanel\" />
+    <Folder Include="Views\Kullanici\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>50748</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44306/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Bu proje bu bilgisayarda olmayan NuGet paketlerine başvuru yapıyor. Bunları indirmek için NuGet Paket Geri Yükleme'yi kullanın. Daha fazla bilgi için, bkz. http://go.microsoft.com/fwlink/?LinkID=322105. Eksik dosya: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

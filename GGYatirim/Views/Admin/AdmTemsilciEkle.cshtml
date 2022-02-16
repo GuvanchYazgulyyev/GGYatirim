@@ -1,0 +1,77 @@
+﻿@model GGYatirim.Models.Sinif.DbTemsilci
+@{
+    ViewBag.Title = "AdmTemsilciEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-10 col-sm-12 col-xs-12">
+
+    <h2>Yeni Temsilci Ekle</h2>
+
+    @using (Html.BeginForm("AdmTemsilciEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <form class="form-group" method="post">
+            <b>Ad Soyad</b>
+            @*@Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })*@
+            @Html.TextBoxFor(k => k.AdSoyad, new { @class = "form-control", required = true })
+            <br />
+
+            <b>Telefon</b>
+            @Html.TextBoxFor(x => x.Tel, new { @class = "form-control", required = true })
+            @*<input type="text" name="Tel" required="" class="form-control" />*@
+            <br />
+            <b>
+                E-Posta
+            </b>
+            @Html.TextBoxFor(x => x.EPosta, new { @class = "form-control", required = true })
+            @*<input type="text" name="EPosta" maxlength="50" required="" class="form-control" />*@
+
+            <b>Resim</b>
+            @*@Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })*@
+            <input type="file" name="File" id="File" value="Profilinizi Seçiniz" />
+            <br />
+            <br />
+            <b>
+                Makam
+            </b>
+            @*@Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })*@
+            @Html.TextBoxFor(k => k.Makam, new { @class = "form-control" })
+            <br />
+            <b>
+                Facebook
+            </b>
+            @*@Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })*@
+            @Html.TextBoxFor(k => k.Facebook, new { @class = "form-control" })
+
+            <br />
+            <b>
+                İnstagram
+            </b>
+            @*@Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })*@
+            @Html.TextBoxFor(k => k.instagram, new { @class = "form-control" })
+
+            <br />
+            <b>
+                Tweeter
+            </b>
+            @*@Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })*@
+            @Html.TextBoxFor(k => k.Twetter, new { @class = "form-control" })
+
+            <br />
+            <b>
+                Web Site
+            </b>
+            @*@Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })*@
+            @Html.TextBoxFor(k => k.WebSite, new { @class = "form-control" })
+
+
+            @Html.HiddenFor(x => x.TemsilciID)
+            <br />
+            @*@Html.MathCaptcha()*@
+
+            <button class="btn btn-success">Yeni Kullanıcı Ekle</button>
+
+        </form>
+    }
+</div>
+

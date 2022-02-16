@@ -1,0 +1,71 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.questions-wrapper {
+  li {
+    color: @single-question-li-color;
+    font-family: @main-font;
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+  }
+
+  .answer-man-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 21px;
+    border-top: 2px solid @single-question-author-border-color;
+    .author {
+      display: flex;
+      a {
+        margin: auto 0 auto 16px;
+        color: @single-question-author-text-color;
+        font-family: @main-font;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.44px;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+      img {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+    }
+    .date {
+      margin: auto 0;
+      span {
+        color: @single-question-date-color;
+        font-family: @main-font;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.44px;
+      }
+    }
+  }
+}
+
+.questions-small-wrapper {
+  background-color: @single-question-small-wrapper-bg;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  h2 {
+    padding-left: 15px;
+    color: @single-question-h2-color;
+    font-family: @main-font;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    margin-top: 0;
+
+  }
+}

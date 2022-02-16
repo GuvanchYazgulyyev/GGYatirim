@@ -1,0 +1,190 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+@home-bar-icon-color: #99a1b6;
+@home-bar-icon-bg-color: #f7f7f7;
+@home-bar-text-color: #37466f;
+@home-bar-btn-text-color: #527efd;
+@home-bar-btn-bg-color: #f7f7f7;
+@home-bar-btn-hover-text-color: #ffffff;
+@home-bar-btn-hover-bg-color: #6495fe;
+@home-bar-btn-hover-shadow: rgba(100, 149, 254, 0.5);
+
+.home-bar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: row;
+  .home-bar-info {
+    display: flex;
+    align-items: center;
+    i {
+      font-size: 16px;
+      padding: 12px;
+      border-radius: 100%;
+      background-color: @home-bar-icon-bg-color;
+      margin-right: 20px;
+      color: @home-bar-icon-color;
+    }
+    span {
+      color: @home-bar-text-color;
+      font-family: "Montserrat";
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      word-break: normal;
+    }
+  }
+
+  .home-bar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    a {
+      display: inline-block;
+      padding: 12px 20px 11px 20px;
+      border-radius: 20px;
+      background-color: @home-bar-btn-bg-color;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: @home-bar-btn-text-color;
+      font-family: "Montserrat";
+      font-weight: 400;
+      letter-spacing: 0.4px;
+    }
+    a:hover {
+      box-shadow: 0 1px 10px @home-bar-btn-hover-shadow;
+      background-color: @home-bar-btn-hover-bg-color;
+      color: @home-bar-btn-hover-text-color;
+      text-decoration: none;
+    }
+  }
+
+  .links-block {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    a {
+      color: #6495fe;
+      font-family: "Montserrat";
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      /* Text style for "Commercial" */
+      letter-spacing: 0.4px;
+    }
+    a + a:before {
+      content: '';
+      margin-right: 18px;
+      margin-left: 18px;
+      position: relative;
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      background-color: rgba(219, 219, 219, 0.5);
+    }
+  }
+}
+
+.home-bar-wrapper.hidebutton {
+  .home-bar-btn {
+    display: none;
+  }
+}
+
+.home-bar-wrapper.hidelinks {
+  .links-block {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .home-bar-wrapper.hidebutton {
+    flex-direction: column;
+    .home-bar-info {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .links-block {
+      justify-content: center;
+    }
+  }
+
+}
+
+@media (max-width: 715px) {
+  .home-bar-wrapper.hidebutton {
+    .links-block {
+      div {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 10px;
+        width: 100%;
+        a:before {
+          content: '';
+          margin-right: 18px;
+          position: relative;
+          display: inline-block;
+          width: 9px;
+          height: 9px;
+          background-color: rgba(219, 219, 219, .5);
+        }
+        a + a:before {
+          margin-left: 0;
+          margin-right: 18px;
+        }
+      }
+    }
+
+  }
+}
+
+@media (max-width: 522px) {
+  .home-bar-wrapper.hidebutton {
+    .links-block {
+      justify-content: center;
+      div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
+        width: inherit;
+      }
+    }
+
+  }
+}
+
+@media (max-width: 550px) {
+  .home-bar-wrapper.hidelinks {
+    flex-direction: column;
+    .home-bar-info {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .home-bar-btn {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 355px) {
+  .home-bar-wrapper.hidebutton {
+    .links-block {
+      justify-content: center;
+      div {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 10px;
+        width: inherit;
+      }
+    }
+
+  }
+}

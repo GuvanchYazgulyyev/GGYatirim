@@ -1,0 +1,121 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.company-service {
+  background: url(../images/service-section-bg.png) 100% 0 no-repeat #f7f7f7;
+  background-size: cover;
+  margin-bottom: 80px;
+  padding: 60px 22px 70px 22px;
+  h2 {
+    color: @company-service-h2-color;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 32px;
+  }
+  p {
+    color: @company-service-p-color;
+    font-family: "Open Sans";
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+  }
+  .service-advantages {
+    margin-top: 24px;
+    p {
+      color: @company-service-advantages-text-color;
+      font-family: "Open Sans";
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.28px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+    .material-icons {
+      font-size: 16px;
+      padding: 12px;
+      border-radius: 50px;
+      background: @company-service-advantages-icons-bg-color;
+      color: @company-service-advantages-icons-color;
+      margin-right: 20px;
+    }
+
+  }
+  .service-last-p {
+    margin-top: 63px;
+    margin-bottom: 16px;
+  }
+  .button {
+    color: @company-service-button-color;
+    font-family: "Montserrat";
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 13px 19px 12px 19px;
+    border-radius: 20px;
+    background-color: @company-service-button-bg-color;
+    margin-right: 20px;
+    display: inline-block;
+    &:hover {
+      text-decoration: none;
+      box-shadow: 0 1px 10px @company-service-button-hover-shadow-color;
+      border-radius: 20px;
+      background-color: @company-service-button-hover-bg-color;
+      color: @company-service-button-hover-text-color;
+    }
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1299px) {
+  .company-service {
+    background-position-x: -520px;
+  }
+}
+
+@media (min-width: 1300px) and (max-width: 1399px) {
+  .company-service {
+    background-position-x: -463px;
+  }
+}
+
+@media (min-width: 1400px) and (max-width: 1549px) {
+  .company-service {
+    background-position-x: -376px;
+  }
+}
+
+@media (min-width: 1550px) and (max-width: 1599px) {
+  .company-service {
+    background-position-x: -280px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .company-service {
+    background-position-x: unset;
+  }
+}
+
+@media (max-width: 992px) {
+  .company-service {
+    background-position-x: 100px;
+  }
+
+  .company-service .service-advantages div:first-child {
+    margin-bottom: 10px;
+  }
+
+}
+
+@media (max-width: 377px) {
+  .company-service .button {
+    margin-bottom: 10px;
+  }
+
+}

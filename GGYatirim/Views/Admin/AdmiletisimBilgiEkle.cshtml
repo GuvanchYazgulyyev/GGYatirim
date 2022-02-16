@@ -1,0 +1,46 @@
+﻿@model GGYatirim.Models.Sinif.DbiletisimBilgi
+@{
+    ViewBag.Title = "AdmiletisimBilgiEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2> İletişim Bilgi Ekle</h2>
+<div class="col-md-8">
+    @using (Html.BeginForm("AdmiletisimBilgiEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+    <form class="form-group" method="post">
+
+        Sube
+        @Html.TextBoxFor(x => x.Sube, new { @class = "form-control" })
+        Adres
+        @Html.TextAreaFor(x => x.Adres, new { @class = "form-control" })
+
+        Tel
+        @Html.TextBoxFor(x => x.Tel, new { @class = "form-control" })
+
+        E Posta
+        @Html.TextBoxFor(x => x.Tel, new { @class = "form-control" })
+
+        Harita
+        @Html.TextBoxFor(x => x.Harita, new { @class = "form-control" })
+
+         Facebook
+        @Html.TextBoxFor(x => x.Harita, new { @class = "form-control" })
+
+          Twetter
+        @Html.TextBoxFor(x => x.Twetter, new { @class = "form-control" })
+
+        
+          İnstagram
+        @Html.TextBoxFor(x => x.instagram, new { @class = "form-control" })
+
+
+        @Html.HiddenFor(x => x.iletisimBilgiID)
+
+        <button class="button border with-icon">İletişim Bilgi Ekle</button>
+
+    </form>
+    }
+</div>
+

@@ -1,0 +1,78 @@
+﻿@model GGYatirim.Models.Sinif.DbKullanici
+@{
+    ViewBag.Title = "AdmKayitliKullaniciGetr";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="col-md-10 col-sm-12 col-xs-12">
+
+    <h3>Müşteri Sayfasını Güncelle</h3>
+
+    @using (Html.BeginForm("AdmKayitliKullaniciGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div id="div-boyut">
+            <label><b>Profil Resim</b></label>
+            <input type="file" id="File" name="File" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" class="form-control" />
+
+        </div>
+        <div id="div-boyut">
+            <label><b>Ad</b></label>
+            @Html.TextBoxFor(x => x.KisiAdi, new { @class = "form-control" })
+        </div>
+
+        <div id="div-boyut">
+            <label><b>Soyad</b></label>
+            @Html.TextBoxFor(x => x.KisiSoyadi, new { @class = "form-control" })
+        </div>
+
+
+        <div id="div-boyut">
+            <label><b>Meslek</b></label>
+            @Html.TextBoxFor(x => x.Meslek, new { @class = "form-control" })
+        </div>
+
+
+
+        <div>
+            <label><b>Telefon</b></label>
+            @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })
+        </div>
+        <div>
+            <label><b>E-Posta</b></label>
+            @Html.TextBoxFor(x => x.EPosta, new { @class = "form-control" })
+        </div>
+        <div>
+            <label><b>Şifre</b></label>
+            @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })
+        </div>
+        <div>
+            <label><b>Kısa Açıklama</b></label>
+            @Html.TextAreaFor(x => x.KisaAciklama, new { @class = "form-control" })
+        </div>
+        <div>
+            <label><b>Facebook</b></label>
+            @Html.TextAreaFor(x => x.Face, new { @class = "form-control" })
+        </div>
+        <div>
+            <label><b>İnstagram</b></label>
+            @Html.TextAreaFor(x => x.instagram, new { @class = "form-control" })
+        </div>
+
+        <label><b>Yetki</b></label>
+        @Html.DropDownListFor(x => x.KullaniciRolid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+
+        <div>
+            @Html.HiddenFor(x => x.KullaniciID)
+        </div>
+        <div>
+            <br />
+            <br />
+            <button class="btn btn-success" style="background-color:cornflowerblue">Değişiklikleri Kaydet</button>
+
+        </div>
+
+
+    }
+</div>

@@ -1,0 +1,49 @@
+﻿@using GGYatirim.Models.Sinif
+@model List<DbiletisimBilgi>
+
+
+
+@foreach (var x in Model)
+{
+    <div class="contact-map-block">
+        <div id="map-small-light">
+
+        </div>
+        <div class="contact-map__info-wrap">
+            <div class="contact-map-block__address-info">
+                <i class="material-icons">location_on</i>
+                <p> @x.Adres </p>
+
+            </div>
+
+            <div class="contact-map-block__phone-block">
+                <span class="title">Telefon: </span>
+                <span class="value">@x.Tel</span>
+                @*<span class="title">Skype:</span>
+                    <span class="value">area.skype</span>*@
+                <span class="title">E-Posta:</span>
+                <span class="value">@x.EPosta</span>
+
+
+            </div>
+
+            <div class="contact-map-block__social-icons">
+                <a href="@x.Facebook" class="icons__item icons__item_margin-right_small">
+                    <i class="fa fa-facebook icons" aria-hidden="true"></i>
+                </a>
+                <a href="@x.Twetter" class="icons__item icons__item_margin-right_small">
+                    <i class="fa fa-twitter icons" aria-hidden="true"></i>
+                </a>
+                @*<a href="@x.li" class="icons__item icons__item_margin-right_small">
+                        <i class="fa fa-linkedin icons" aria-hidden="true"></i>
+                    </a>*@
+                <a href="@x.instagram" class="icons__item">
+                    <i class="fa fa-instagram" aria-hidden="true"></i>
+                </a>
+
+
+            </div>
+        </div>
+
+    </div>
+}

@@ -1,0 +1,427 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.new-region-wrapper {
+  border: 2px solid @new-region-border-color;
+  background-color: @new-region-bg-color;
+  padding: 60px 0px;
+}
+
+.new-region-home-bar-wrapper {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: row;
+  .home-bar-info {
+    display: flex;
+    align-items: center;
+    i {
+      font-size: 16px;
+      padding: 12px;
+      border-radius: 100%;
+      background-color: @new-region-home-bar-icon-bg-color;
+      margin-right: 20px;
+      color: @new-region-home-bar-icon-color;
+    }
+    span {
+      color: @new-region-home-bar-text-color;
+      font-family: "Montserrat";
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      word-break: normal;
+    }
+  }
+
+  .home-bar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    a {
+      display: inline-block;
+      padding: 12px 20px 11px 20px;
+      border-radius: 20px;
+      background-color: @new-region-home-bar-btn-bg-color;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: @new-region-home-bar-btn-text-color;
+      font-family: "Montserrat";
+      font-weight: 400;
+      letter-spacing: 0.4px;
+    }
+    a:hover {
+      box-shadow: 0 1px 10px @new-region-home-bar-btn-hover-shadow;
+      background-color: @new-region-home-bar-btn-hover-bg-color;
+      color: @new-region-home-bar-btn-hover-text-color;
+      text-decoration: none;
+    }
+  }
+
+  .links-block {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    a {
+      color: #6495fe;
+      font-family: "Montserrat";
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      /* Text style for "Commercial" */
+      letter-spacing: 0.4px;
+    }
+    a + a:before {
+      content: '';
+      margin-right: 18px;
+      margin-left: 18px;
+      position: relative;
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      background-color: rgba(219, 219, 219, 0.5);
+    }
+  }
+}
+
+.new-region-home-bar-wrapper.hidebutton {
+  .home-bar-btn {
+    display: none;
+  }
+}
+
+.new-region-home-bar-wrapper.hidelinks {
+  .links-block {
+    display: none;
+  }
+}
+
+/**Small table begin **/
+
+.new-region-wrapper .region-table {
+
+  .region-element {
+    padding: 13px 13px 12px 13px;
+    border-radius: 2px;
+    border: 2px solid @new-region-region-border-color;
+    margin-top: 10px;
+  }
+
+  .region-item {
+    border-radius: 2px;
+    border: 2px solid @new-region-region-item-border-color;
+    background-color: @new-region-region-item-bg-color;
+    padding: 22px;
+    margin-bottom: 34px;
+  }
+
+  .region-name {
+    padding: 13px 13px 12px 13px;
+    background-color: @new-region-region-name-bg-color;
+    border-radius: 2px;
+    border: 2px solid @new-region-region-name-border-color;
+    margin-bottom: 10px;
+    .flag {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border-radius: 100%;
+      margin-right: 13px;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .country {
+    color: @new-region-country-color;
+    font-family: "Montserrat";
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.29px;
+  }
+
+  .city {
+    color: @new-region-city-color;
+    font-family: "Montserrat";
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  .count {
+    float: right;
+    color: @new-region-count-color;
+    font-family: "Open Sans";
+    font-size: 12px;
+    letter-spacing: 0.38px;
+    padding-top: 2px;
+  }
+
+  a:hover {
+    text-decoration: none;
+    .region-element {
+      border-radius: 2px;
+      border: 2px solid @new-region-link-hover-border-color;
+      background-color: @new-region-link-hover-bg-color;
+      .city,
+      .count {
+        color: @new-region-city-count-hover-color;
+      }
+    }
+  }
+
+}
+
+/**Small table end **/
+
+/** ***/
+
+.region-apartment {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background-color: @new-region-region-apartment-bg-color;
+  border: 2px solid @new-region-region-apartment-border-color;
+
+}
+
+.region-apartment .apartment-description {
+  padding: 20px 20px 22px 20px;
+  flex: 1;
+}
+
+.new-region-wrapper .region-apartment {
+  .apartment-image {
+    position: relative;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .badge-wrapper {
+      position: absolute;
+      top: 10%;
+      left: 5%;
+    }
+  }
+  .apartment-description {
+    h2 {
+      color: @new-region-region-apartment-header-color;
+      font-family: "Open Sans";
+      font-size: 20px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    p {
+      color: @new-region-region-apartment-text-color;
+      font-family: "Montserrat";
+      font-size: 11px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 0px;
+    }
+
+  }
+  .apartment-property-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    .apartment-table {
+      flex: 1;
+      table {
+        width: 100%;
+      }
+      th {
+        padding-right: 24px;
+        color: @new-region-region-apartment-th-color;
+        font-family: "Montserrat";
+        font-size: 11px;
+        font-weight: 400;
+        letter-spacing: 0.4px;
+      }
+      td {
+        color: @new-region-region-apartment-td-color;
+        font-family: "Open Sans";
+        font-size: 14px;
+        letter-spacing: 0.28px;
+      }
+    }
+    .apartment-details-btn {
+      display: flex;
+      .icons-style {
+        border: 2px solid @new-region-region-icons-border-color;
+        padding: 11px;
+        background: @new-region-icon-bg-color;
+        border-radius: 100%;
+        font-size: 16px;
+        color: @new-region-icon-color;
+        margin-right: 12px;
+      }
+      a.clone:hover {
+        .icons-style {
+          box-shadow: 0 1px 10px @new-region-region-clone-hover-shadow-color;
+          background-color: @new-region-region-clone-hover-bg-color;
+          color: @new-region-region-clone-hover-color;
+        }
+        i:before {
+          content: "\E02E";
+        }
+
+      }
+      .clone i:before {
+        content: "\E3E0";
+      }
+      a {
+        display: inline-block;
+        margin: auto;
+      }
+      .details-button {
+        border-radius: 20px;
+        color: #527efd;
+        font-family: "Montserrat";
+        font-size: 12px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: .4px;
+        padding: 12px 20px 13px 20px;
+        background: #f7f7f7;
+      }
+
+      .details-button:hover {
+        text-decoration: none;
+        box-shadow: 0 1px 10px @new-region-region-details-hover-shadow-color;
+        border-radius: 20px;
+        background-color: @new-region-region-details-hover-bg-color;
+        color: @new-region-region-details-hover-color;
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .new-region-wrapper .region-apartment {
+
+    .apartment-property-wrapper {
+      flex-direction: column;
+      .apartment-details-btn {
+        margin-top: 10px;
+        a {
+          margin: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 630px) {
+  .new-region-wrapper .region-apartment {
+    flex-direction: column;
+
+    .apartment-property-wrapper {
+      flex-direction: column;
+      .apartment-details-btn {
+        margin: 10px auto;
+        a {
+          margin: 0px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .new-region-home-bar-wrapper.hidebutton {
+    flex-direction: column;
+    .home-bar-info {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .links-block {
+      justify-content: center;
+    }
+  }
+
+}
+
+@media (max-width: 715px) {
+  .new-region-home-bar-wrapper.hidebutton {
+    .links-block {
+      div {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 10px;
+        width: 100%;
+        a:before {
+          content: '';
+          margin-right: 18px;
+          position: relative;
+          display: inline-block;
+          width: 9px;
+          height: 9px;
+          background-color: rgba(219, 219, 219, .5);
+        }
+        a + a:before {
+          margin-left: 0;
+          margin-right: 18px;
+        }
+      }
+    }
+
+  }
+}
+
+@media (max-width: 522px) {
+  .new-region-home-bar-wrapper.hidebutton {
+    .links-block {
+      justify-content: center;
+      div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
+        width: inherit;
+      }
+    }
+
+  }
+}
+
+@media (max-width: 550px) {
+  .new-region-home-bar-wrapper.hidelinks {
+    flex-direction: column;
+    .home-bar-info {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .home-bar-btn {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 355px) {
+  .new-region-home-bar-wrapper.hidebutton {
+    .links-block {
+      justify-content: center;
+      div {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 10px;
+        width: inherit;
+      }
+    }
+
+  }
+}

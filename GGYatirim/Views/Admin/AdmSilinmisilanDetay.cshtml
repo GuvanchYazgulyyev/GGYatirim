@@ -1,0 +1,284 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.Dbilan>
+@{
+    ViewBag.Title = "AdmSilinmisilanDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var x in Model)
+        {
+        <div class="col-lg-12 col-md-12">
+
+
+
+            <div class="property_gallery m-b-30">
+                <div class="wrapper">
+                    <!--в атрибуте data-height указать высоту, если высота не указана, то скрипт автоматически поставит 450 -->
+                    <div class="slide" data-height="450">
+                        <div class="js-image-preloader">
+                            <div>
+                                <canvas id='imagecircleback' height='100' width='100'></canvas>
+                                @*<canvas id='imagecirclemain' height='100' width='100'></canvas>*@
+
+                            </div>
+                        </div>
+                        <div class="property-status">
+                            <span class="featured">@x.EmlakTipi</span>
+                            <span class="featured">@x.DbEmlakTipi.EmlakTipAd</span>
+                            <span class="rent">@x.DbilanDurum.ilanDurumAd</span>
+                        </div>
+                        <p class="js-fullscreen-message">Press <kbd>ESC</kbd> Çıkış Modu </p>
+                    </div>
+                    <a href="#" class="js-fullscreen-btn fullscreen"> <i class="material-icons"></i></a>
+
+                    <div class="property-slides-list-wrapper">
+                        <div class="owl-carousel owl-theme">
+                            <div class="item">
+
+                                <a href="#" data-image='@x.CokluResim'>
+                                    <img src="@x.CokluResim" alt="active-slide">
+                                </a>
+                            </div>
+                            @*<div class="item">
+                            <a href="#" data-image='@x.CokluResim/@x.ilanID'>
+                                <img src="@x.CokluResim" alt="active-slide">
+                            </a>
+                        </div>*@
+
+
+                        </div>
+                    </div>
+                    <a href="#" class="nav-arrow left-arrow"><i class="fa fa-arrow-circle-right">İleri</i></a>
+                    <a href="#" class="nav-arrow right-arrow"><i class="fa fa-arrow-circle-left">Geri</i></a>
+                </div>
+            </div>
+
+
+            <div class="single-property-details m-b-30">
+                <div class="main-info">
+                    <span class="details">Detaylar</span>
+                    <span class="update">Bu Günün Tarihi: @DateTime.Today.ToString("dd/MMMM/yyyy")</span>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+                            <span>İlan No: </span>@x.ilanNo
+                        </div>
+                        <div class="wrap">
+                            <span>Yayınlanan Tarihi: </span>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+                            <span>Şehir: </span>@x.DbKonum.SehirAd
+                        </div>
+                        <div class="wrap">
+                            <span>Adres:</span>@x.TamAdres
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+                            <span>Tam Fiyatı: </span>@x.TamFiyat
+                        </div>
+                        <div class="wrap">
+                            <span>Metre Kare Fiyatı: </span>@x.MetreKareFiyat
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Özellikler-->
+            <div class="property_address m-b-30">
+                <div class="main-info">
+                    <span class="details">Özellikler</span>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+                            <span>Site Adı: </span>@x.SiteAdi
+
+                        </div>
+                        <div class="wrap">
+                            <span>Kuruluş Yılı: </span>@x.KurulusYili
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+
+                            <span>Alan Boyutu: </span>@x.AlanBoyutu
+                        </div>
+                        <div class="wrap">
+                            <span>Arazi Alanı: </span>@x.AraziAlanı
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+                            <span>Oda Sayısı: </span>@x.OdaSayisi
+                        </div>
+                        <div class="wrap">
+                            <span>Garaj: </span>@x.Garaj
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="main-info">
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+                            <span>Aidat: </span>@x.Aidat
+                        </div>
+                        <div class="wrap">
+                            <span>Bulunduğu Kat: </span>@x.BulunduguKat
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+                            <span>Kat Sayısı: </span>@x.KatSayisi
+                        </div>
+                        <div class="wrap">
+                            <span>Isıtma: </span>@x.isitma
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+                            <span>Eşyalı: </span>@x.Esyali
+                        </div>
+                        <div class="wrap">
+                            <span>Kullanım Durumu: </span>@x.KullanimDurumu
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+                <div class="main-info">
+
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+                            <span>Site İçerisinde: </span>@x.Siteicerisinde
+                        </div>
+                        <div class="wrap">
+                            <span>Krediye Uygun: </span>@x.KrediyeUygun
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+                            <span>Takas: </span>@x.Takasli
+                        </div>
+                        <div class="wrap">
+                            <span>Tapu Durumu: </span>@x.TapuDurumu
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+                            <span>Zemin Etüdü: </span>@x.ZeminEtudu
+                        </div>
+                        <div class="wrap">
+                            <span>Yapının Durumu: </span>@x.YapininDurumu
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+                            <span>Yakıt Tipi: </span>@x.YakitTipi
+                        </div>
+                        <div class="wrap">
+                            <span>Balkon: </span>@x.Balkon
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+                            <span>Banyo: </span>@x.Banyo
+                        </div>
+                        <div class="wrap">
+                            <span>Google Map Haritası: </span>@x.GoogleMapAdres
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="main-info">
+
+                </div>
+
+
+                <div class="row">
+
+
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+                            <span>Yakıt Tipi: </span>@x.YakitTipi
+                        </div>
+                        <div class="wrap">
+                            <span>Balkon: </span>@x.Balkon
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        <div class="wrap">
+                            <span>Banyo: </span>@x.Banyo
+                        </div>
+                        <div class="wrap">
+                            <span>Google Map Haritası: </span>@x.GoogleMapAdres
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="single-property-description m-b-30">
+                <h3>Açıklama</h3>
+                <p>
+                    @x.Aciklama
+                </p>
+
+
+
+                <h3>Özel Not</h3>
+                <p style="font-style:italic">
+                    @x.OzelNor
+                </p>
+            </div>
+
+
+
+
+
+        </div>
+        }
+
+
+
+        <!--İlanı Veren Kişi-->
+        
+    </div>
+</div>
+

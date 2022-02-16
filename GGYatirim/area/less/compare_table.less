@@ -1,0 +1,230 @@
+.compare-table {
+    overflow-x: scroll;
+}
+.compare-table table {
+    width: 100%;
+}
+.compare-table th {
+    background-color: #f5f6f8;
+    color: #525252;
+    font-family: "Open Sans";
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+    padding: 19px 30px;
+    font-weight: 400;
+    border: 1px solid rgba(153, 161, 182, 0.16);
+}
+.compare-table tr:first-child td {
+    text-align: left;
+    padding: 30px;
+}
+.compare-table tr td {
+    text-align: center;
+}
+.compare-table td {
+    color: #525252;
+    font-family: "Open Sans";
+    font-size: 16px;
+    line-height: 26px;
+    letter-spacing: 0.5px;
+    border: 1px solid rgba(153, 161, 182, 0.16);
+}
+.compare-table img {
+    width: 100%;
+    object-fit: cover;
+} 
+.compare-table .link {
+    color: #6495fe;
+    font-family: "Montserrat";
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    display: block;
+    text-decoration: none;
+}
+.compare-table .name {
+    color: #37466f;
+    font-family: "Open Sans";
+    font-size: 20px;
+    display: block;
+    padding-bottom: 7px;
+}
+.compare-table .place {
+    color: #525252;
+    font-family: "Open Sans";
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+    display: block;
+    padding-bottom: 20px;
+}
+.compare-table .place i {
+    color: #99a1b6;
+    font-size: 16px;
+    margin-right: 8px;
+}
+.compare-table .empty-block td {
+    background-color: #f5f6f8;
+    opacity: 0.4;
+}
+.compare-table td i {
+    font-size: 16px;
+    color: #7aba3a;
+}
+.compare-table td.negative i {
+    color: #fc226e;
+}
+.compare-table .name-smallscreen {
+    display: none;
+    float: left;
+    text-align: left;
+    font-size: 16px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+    max-width: 80%;
+}
+.compare-table .buttons-wrap {
+    display: inline-block;
+    width: 100%;
+    padding-bottom: 30px;
+}
+.compare-table .icons-wrap {
+    float: right;
+}
+.compare-table .icons-wrap .clone i:before {
+    content: "\E3E0";
+}
+.compare-table .icons-wrap .heart i:before {
+    content: '\E87E';
+}
+.compare-table .icons-wrap .icons-style {
+    border: 2px solid #f7f7f7;
+    padding: 11px;
+    background: #f7f7f7;
+    border-radius: 100%;
+    font-size: 16px;
+    color: #99a1b6;
+    display: inline-block;
+    vertical-align: middle;
+    transition: all .4ms;
+}
+.compare-table .icons-wrap a:first-child {
+    margin-right: 20px;
+} 
+.compare-table .details {
+    border-radius: 20px;
+    color: #527efd;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: .4px;
+    padding: 12px 20px 13px 20px;
+    background: #f7f7f7;
+    display: inline-block;
+    line-height: 1;
+    text-decoration: none;
+    transition: all .4ms;
+}
+.compare-table .details:hover {
+    background-color: #6495fe;
+    box-shadow: 0 1px 10px rgba(100,149,254,.5);
+    color: #fff;
+}
+.compare-table .icons-wrap a:hover .icons-style {
+    box-shadow: 0 1px 10px #6495fe;
+    background-color: #6495fe;
+    color: #f7f7f7;
+}
+.compare-table .icons-wrap a.clone.active:hover i:before {
+    color: #f7f7f7;
+    content: "\E02E";
+}
+.compare-table .icons-wrap a.heart.active:hover i:before {
+    color: #f7f7f7;
+    content: "\E87D";
+}
+.compare-table .icons-wrap a.clone:hover i:before {
+    content: "\E02E";
+}
+.compare-table .icons-wrap a.clone.active i:before {
+    content: "\E3D2";
+    color: #6495fe;
+}
+.compare-table .icons-wrap a.heart.active i:before {
+    content: "\E87D";
+    color: #fc226e;
+}
+@media (max-width: 1200px) { 
+    .compare-table .details {
+        padding: 12px 0px 13px 0px;
+        background-color: transparent;
+    }
+    .compare-table .details:hover {
+        background: transparent;
+        color: #527efd;
+        box-shadow: none;
+    }
+}
+@media (max-width: 991px) {
+    .compare-table .icons-wrap {
+        display: block;
+        float: none;
+    }
+}
+@media (max-width: 760px) {
+    .compare-table table, 
+    .compare-table thead, 
+    .compare-table tbody, 
+    .compare-table th, 
+    .compare-table td, 
+    .compare-table tr { 
+        display: block; 
+    }
+    .compare-table thead tr { 
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }	
+    .compare-table td { 
+        border: none;
+        border-bottom: 1px solid #eee; 
+        position: relative;
+        padding-left: 50%;  
+    }
+	
+    .compare-table td:before { 
+        position: absolute;
+        top: 6px;
+        left: 6px;
+        width: 45%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+    }	
+    .compare-table .name-smallscreen {
+        display: block;
+    }
+    .compare-table tr td {
+        text-align: right;
+        padding: 15px;
+        overflow: hidden;
+    }
+    .compare-table tr.empty-block {
+        display: none;
+    }
+    .compare-table .details {
+        padding: 12px 10px 13px 10px;
+        background: #f7f7f7;
+    }
+    .compare-table .details:hover {
+        background-color: #6495fe;
+        box-shadow: 0 1px 10px rgba(100,149,254,.5);
+        color: #fff;
+    }
+    .compare-table .icons-wrap {
+        float: right;
+        display: inline-block;
+    }
+}

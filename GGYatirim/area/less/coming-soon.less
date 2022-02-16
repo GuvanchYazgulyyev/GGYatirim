@@ -1,0 +1,250 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.coming-soon {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  //  height: 920px;
+
+  .icons__item:hover {
+    text-decoration: none;
+    color: @coming-soon-social-icons-hover-text-color;
+    box-shadow: 0 1px 10px @coming-soon-social-icons-hover-shadow;
+    background-color: @coming-soon-social-icons-hover-bg-color;
+  }
+
+  .icons__item {
+    width: 40px;
+    height: 40px;
+    color: @coming-soon-social-icons-text-color;
+    font-size: 17px;
+    background-color: @coming-soon-social-icons-bg-color;
+    border-radius: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 12px 0 12px 0;
+    line-height: 1px;
+  }
+
+  .icons__item_margin-right_small {
+    margin-right: 16px;
+  }
+
+  .logo-block {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .logo-block__logo {
+    margin: auto 10px auto 0;
+  }
+
+  .logo-block__title {
+    margin: auto 0;
+    color: @coming-soon-title-color;
+    font-family: @secondary-font;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+  }
+
+}
+
+.coming-soon-container {
+  background: #f7f7f7 url("../images/coming-test-bg.png") no-repeat;
+  background-size: cover;
+}
+
+.counter-wrapper {
+  margin-top: 38px;
+  padding-bottom: 40px;
+  border-bottom: 2px solid @coming-soon-counter-border-bottom-color;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: space-between;
+
+}
+
+.coming-soon__counter {
+  display: inline-flex;
+  flex-direction: column;
+
+}
+
+.coming-soon__counter_digit {
+  color: @coming-soon-counter-digit-color;
+  font-family: @secondary-font;
+  font-size: 32px;
+  font-weight: 400;
+  border-radius: 4px;
+  border: 2px solid @coming-soon-counter-digit-border-color;
+  background-color: @coming-soon-counter-digit-bg-color;
+  display: flex;
+  margin: auto;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+}
+
+.coming-soon__counter_text {
+  margin: auto;
+  color: @coming-soon-counter-text-color;
+  font-family: @secondary-font;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.coming-soon__counter_digit_number {
+  margin: auto;
+}
+
+.main-block-header {
+  color: @coming-soon-header-color;
+  font-family: @main-font;
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.main-block-paragraph {
+  color: @coming-soon-paragraph-color;
+  font-family: @main-font;
+}
+
+.main-block-paragraph_size_big {
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0.5px;
+  margin: 8px 0 0 0;
+}
+
+.main-block-paragraph_size_small {
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.44px;
+  margin: 40px 0 8px 0;
+}
+
+#notify {
+  display: flex;
+  flex-direction: row;
+
+  input[type="email"] {
+    border-radius: 2px;
+    border: 2px solid @coming-soon-input-border-color;
+    background-color: @coming-soon-input-bg-color;
+    height: 40px;
+    padding-left: 17px;
+    flex: 1;
+    margin: auto 10px auto 0;
+    outline-color: @coming-soon-input-outline-color;
+  }
+
+  input[type="submit"] {
+    color: @coming-soon-button-text-color;
+    font-family: @secondary-font;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    height: 40px;
+    border-radius: 2px;
+    border: 2px solid @coming-soon-button-border-color;
+    background-color: @coming-soon-button-bg-color;
+    padding-left: 17px;
+    padding-right: 17px;
+
+  }
+
+  input::placeholder {
+    height: 19px;
+    color: @coming-soon-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+
+  input:-moz-placeholder {
+    height: 19px;
+    color: @coming-soon-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+
+  input::-webkit-input-placeholder {
+    height: 19px;
+    color: @coming-soon-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+
+  input:-ms-input-placeholder {
+    height: 19px;
+    color: @coming-soon-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+}
+
+@media (max-width: 991px) {
+  .coming-soon-container {
+    background: #fdfdfd;
+  }
+
+  .coming-soon {
+    align-items: center;
+    padding-bottom: 40px;
+    padding-top: 40px;
+  }
+
+  .coming-soon__main-block {
+    text-align: center;
+    width: 75%;
+  }
+}
+
+@media (max-width: 500px) {
+
+  .coming-soon__main-block {
+    width: 100%;
+  }
+
+  #notify {
+    flex-direction: column;
+
+    input[type="email"] {
+      margin: auto 0;
+    }
+
+    input[type="submit"] {
+      margin-top: 10px;
+
+    }
+  }
+}
+
+@media (max-width: 425px) {
+  .coming-soon__counter {
+    width: 50%;
+    margin-bottom: 10px;
+  }
+
+}

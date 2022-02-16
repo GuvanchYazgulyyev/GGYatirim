@@ -1,0 +1,44 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.DbAdmin>
+
+@{
+    ViewBag.Title = "Adminkullanici";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+
+
+
+
+<div style="width:80%" class="col-md-12 table table-hover">
+    <h3>Yeni Yetkili Ekle</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Ad Soyad</th>
+            <th>E Posta</th>
+            <th>Tel</th>
+            <th>Şifre</th>
+            <th>Kayıt Tarihi</th>
+            <th>Yetki</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.AdSoyad</td>
+                <td>@x.EPosta</td>
+                <td>@x.Tel</td>
+                <td>@x.Sifre</td>
+                <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</td>
+                <td>@x.DbYetki.YetkiAd</td>
+                <td><a href="~/Admin/AdminKulSil/@x.AdminID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.AdSoyad ')" class="btn btn-danger"> <i class="fas fa-trash"></i></a></td>
+                <td><a href="~/Admin/AdminKulGetr/@x.AdminID" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Admin/AdminKulEkle/" class="btn btn-success">Yeni Yetkili Ekle</a>
+
+</div>

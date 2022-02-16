@@ -1,0 +1,258 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.pagetitle-agency {
+  height: 600px;
+  background-image: url("../images/pagetitle_agency.jpg");
+  background-color: @pagetitle-agency-mask-color;
+  background-blend-mode: multiply;
+  background-size: cover;
+  display: flex;
+  flex-direction: column-reverse;
+
+}
+
+.pagetitle-agency-info {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-row-gap: 10px;
+  justify-content: end;
+
+  .header-block {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 30px;
+    .logo {
+      margin-right: 20px;
+      width: 78px;
+      height: 78px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  p {
+
+    color: @pagetitle-agency-subline-color;
+    font-family: @main-font;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+    margin: 0;
+  }
+  h1 {
+
+    color: @pagetitle-agency-header-color;
+    font-family: @main-font;
+    font-size: 48px;
+    font-weight: 600;
+    margin: 0 0 0;
+  }
+  .agency-btn-block {
+    margin-bottom: 64px;
+    display: grid;
+    grid-template-columns: max-content max-content;
+    justify-content: space-between;
+
+    .icons__item:hover {
+      text-decoration: none;
+      color: @pagetitle-agency-social-icons-hover-text-color;
+      box-shadow: 0 1px 10px @pagetitle-agency-social-icons-hover-shadow;
+      background-color: @pagetitle-agency-social-icons-hover-bg-color;
+    }
+
+    .icons__item {
+      width: 40px;
+      height: 40px;
+      color: @pagetitle-agency-social-icons-text-color;
+      font-size: 17px;
+      background-color: @pagetitle-agency-social-icons-bg-color;
+      border-radius: 100%;
+      display: inline-block;
+      text-align: center;
+      padding: 12px 0 12px 0;
+      line-height: 1px;
+      margin-right: 16px;
+    }
+
+    .icon-link {
+      padding: 12px 17px 11px 17px;
+      border-radius: 20px;
+      background-color: @pagetitle-agency-social-icons-bg-color;
+      display: inline-flex;
+      i {
+        font-size: 16px;
+        position: relative;
+        margin: auto 12px auto 0;
+        color: @pagetitle-agency-social-icons-text-color;
+        top: 0;
+      }
+      span {
+        display: inline-block;
+        color: @pagetitle-agency-social-icons-span-color;
+        font-family: @secondary-font;
+        font-size: 12px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        margin: auto 0 auto 0;
+      }
+    }
+    .icon-link:first-child {
+      margin-right: 15px;
+    }
+    .icon-link:hover {
+      box-shadow: 0 1px 10px @pagetitle-agency-social-icons-hover-shadow;
+      border-radius: 20px;
+      background-color: @pagetitle-agency-social-icons-hover-bg-color;
+      text-decoration: none;
+      i {
+        color: @pagetitle-agency-social-icons-hover-text-color;
+      }
+      span {
+        color: @pagetitle-agency-social-icons-hover-text-color;
+      }
+    }
+  }
+  .agency-btn-block.chat-btn_disabled {
+    .chat_btn {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 751px) and (max-width: 1799px) {
+  .pagetitle-agency {
+    background-position-x: 90%;
+  }
+}
+
+@media (min-width: 751px) and (max-width: 767px) {
+  .pagetitle-agency {
+    .agency-btn-block.chat-btn_enabled {
+      grid-template-columns: 1fr;
+      grid-row-gap: 20px;
+      .buttons {
+        display: grid;
+        grid-template-columns: max-content max-content;
+        justify-content: space-around;
+      }
+      .social {
+        text-align: center;
+      }
+    }
+  }
+
+  .pagetitle-agency-info {
+    p {
+      text-align: center;
+    }
+  }
+
+}
+
+@media (min-width: 320px) and (max-width: 399px) {
+  .pagetitle-agency-info {
+    .agency-btn-block.chat-btn_disabled {
+      margin-bottom: 30px;
+      grid-row-gap: 15px;
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 750px) {
+  .pagetitle-agency-info {
+    .agency-btn-block.chat-btn_enabled {
+      grid-row-gap: 10px;
+      grid-template-columns: max-content max-content;
+      text-align: center;
+      .buttons {
+        display: grid;
+        grid-row-gap: 20px;
+      }
+      .icon-link:first-child {
+        margin: 0;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 598px) {
+  .pagetitle-agency-info {
+    .header-block {
+      flex-direction: column;
+      .logo {
+        margin: auto auto 20px;
+      }
+      .agency-title {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (min-width: 425px) and (max-width: 470px) {
+  .pagetitle-agency-info {
+    .agency-btn-block.chat-btn_enabled {
+      grid-template-columns: max-content 60%;
+      .social {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .icons__item:nth-child(4) {
+          margin: 0;
+        }
+        .icons__item:nth-child(n+5) {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 366px) and (max-width: 424px) {
+  .pagetitle-agency-info {
+    .agency-btn-block.chat-btn_enabled {
+      grid-template-columns: max-content 50%;
+      .social {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .icons__item:nth-child(n+4) {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 365px) {
+  .pagetitle-agency-info {
+    .agency-btn-block.chat-btn_enabled {
+      grid-template-columns: max-content 40%;
+      .social {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .icons__item:nth-child(n+3) {
+          margin-top: 20px;
+        }
+      }
+    }
+  }
+
+}

@@ -1,0 +1,109 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.testimonials {
+  background: url(../images/testimonials-bg.png) 100% 0 no-repeat #6495fe;
+  background-size: cover;
+  background-position-x: center;
+}
+
+.testimonials .testimonials-wrapper {
+  padding: 82px 0px 82px 0px;
+  position: relative;
+}
+
+.testimonials .testimonials-wrapper blockquote {
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-size: 24px;
+  font-weight: 600;
+
+  padding: 0px;
+  margin: 0px;
+  border-left: none;
+}
+
+.quote-wrapper {
+  //  height: 102px;
+  //overflow: hidden;
+}
+
+.quote-author {
+  // margin: 0 auto;
+  text-align: center;
+}
+
+.quote-author img {
+  width: 40px !important;
+  margin: 0 auto;
+}
+
+.quote::before {
+  font-family: "Material Icons";
+  content: "format_quote";
+  position: absolute;
+  font-size: 100px;
+  z-index: 1;
+  opacity: 0.4;
+  // top: -38%;
+  left: -1%;
+  color: #f7f7f7;
+  line-height: 60px;
+}
+
+.quote p {
+  position: relative;
+  z-index: 58;
+}
+
+.testimonials .owl-dots {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  margin-top: 22px !important;
+}
+
+.testimonials .owl-dots .owl-dot span {
+  width: 16px;
+  height: 16px;
+  background-color: inherit;
+  border: 2px solid #f7f7f7;
+  opacity: 0.3;
+}
+
+.testimonials .owl-dots .owl-dot.active span {
+  border: 2px solid #ffffff;
+  opacity: 1;
+  background-color: inherit;
+}
+
+.testimonials .quote-author span {
+  color: #ffffff;
+  font-family: "Open Sans";
+  font-size: 14px;
+  line-height: 22px;
+  /* Text style for "Sean Perry" */
+  letter-spacing: 0.44px;
+}
+
+.testimonials .quote-author {
+  position: relative;
+  top: 15px;
+  left: 45px;
+}
+
+.testimonials .owl-dots .owl-dot:hover span {
+  background: inherit;
+}
+
+@media (max-width: 992px) {
+  .testimonials .quote-author {
+    top: 0px;
+    left: 0px;
+  }
+}

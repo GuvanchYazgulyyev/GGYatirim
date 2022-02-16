@@ -1,0 +1,13 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.DbBlog>
+
+
+
+@foreach (var x in Model)
+{
+<div class="item">
+    <a href="#" class="name">@x.Baslik </a>
+    <div class="buttons-wrap">
+        <a href="/Home/BlogDetay/@x.BlogID" class="more">read more</a>
+    </div>
+</div>
+}

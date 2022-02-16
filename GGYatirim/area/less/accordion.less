@@ -1,0 +1,75 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.accordion {
+  border-radius: 2px;
+  border: 2px solid @about-faq-accordion-border-color;
+  background-color: @about-faq-accordion-bg-color;
+  .accordion-header {
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    margin: 22px;
+    h3 {
+      color: @about-faq-accordion-header-color;
+      font-family: "Open Sans";
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.28px;
+      margin: auto 0;
+    }
+    i {
+      font-size: 16px;
+      padding: 12px;
+      background-color: @about-faq-accordion-icon-bg-color;
+      color: @about-faq-accordion-icon-color;
+      margin: auto 20px auto 0;
+      border-radius: 100%;
+
+    }
+    i:before {
+      content: "\E145";
+    }
+    i.open:before {
+      content: "\E15B"
+    }
+  }
+
+  .accordion-header:hover {
+    h3 {
+      color: @about-faq-accordion-hover-header-color;
+    }
+    i {
+      box-shadow: 0 1px 10px @about-faq-accordion-hover-icon-shadow;
+      background-color: @about-faq-accordion-hover-icon-bg-color;
+      color: @about-faq-accordion-hover-icon-color;
+    }
+  }
+  .accordion-content {
+    border-top: 2px solid @about-faq-accordion-delimiter-content-color;
+    padding: 24px 24px 27px 80px;
+    display: none;
+  }
+
+}
+
+.accordion:hover {
+  box-shadow: 0 1px 20px @about-faq-accordion-box-shadow;
+}
+
+.accordion.open {
+  box-shadow: 0 1px 20px @about-faq-accordion-box-shadow;
+}
+
+@media (max-width: 410px) {
+  .accordion {
+    .accordion-content {
+      padding: 24px 24px 27px;
+    }
+  }
+}

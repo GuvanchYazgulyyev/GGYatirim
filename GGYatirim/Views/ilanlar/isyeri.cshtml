@@ -1,0 +1,124 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.Dbilan>
+@{
+    ViewBag.Title = "isyeri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>isyeri</h2>
+
+
+<div class="page-title-simple m-b-30">
+    <div class="container">
+        <ul>
+            <li>
+                <a href="/">Ana Sayfa</a>
+            </li>
+            <li>
+                <a href="/Home/Tumilanlar">Tüm İlanlar</a>
+            </li>
+        </ul>
+        <h1>İşyeri</h1>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+@*İşyeri İlanlar*@
+
+
+<div class="container apartment-grid-control-up for-sale">
+    <div class="arrow-block">
+
+        <div class="arrow-wrapper">
+            <a href="#" class="arrow-prev">
+                <i class="fa fa-arrow-right"></i>
+            </a>
+            <a href="#" class="arrow-next">
+                <i class="fa fa-arrow-left"></i>
+            </a>
+        </div>
+        <div class="span-wrapper">
+            <span>İşyeri</span>
+        </div>
+
+    </div>
+
+    <div class="owl-carousel owl-theme">
+
+        <div class="item">
+            <div class="row">
+
+                @foreach (var x in Model)
+                {
+
+                    if (x.EmlakTipIDD == 8)
+                    {
+                        <div class="col-md-4 col-sm-6 col-xs-12">
+
+                            <div class="property-block">
+
+                                <a href="/Home/ilanDetay/@x.ilanID" style="text-decoration:none;">
+                                    <p class="property-type">@x.DbKonum.SehirAd</p>
+                                    <p class="property-title">@x.EmlakTipi</p>
+                                </a>
+                                <div class="apartment-address">
+                                    <i class="fa fa-location-arrow"></i>
+                                    <span class="address">@x.TamAdres</span>
+                                </div>
+
+                                <div class="apartment-image">
+                                    <img src="@x.CokluResim" alt="image">
+                                    <div class="badges">
+                                        <p class="featured">@x.DbilanDurum.ilanDurumAd</p>
+                                        <p class="rent">@x.DbEmlakTipi.EmlakTipAd</p>
+                                        @*<p class="sale">For Sale</p>*@
+                                    </div>
+
+                                </div>
+
+                                <div class="apartment-values">
+                                    <span>Oda: @x.OdaSayisi</span>
+                                    <span>Banyo: @x.Banyo </span>
+                                    <span>Alan: @x.AlanBoyutu</span>
+                                </div>
+                                <div class="apartment-info">
+                                    <a href="/Home/ilanDetay/@x.ilanID" style="text-decoration:none;">
+                                        <div class="apartment-price">
+                                            <p class="price-big">@x.TamFiyat ₺</p>
+                                            <p class="price-small">Metre Kare @x.MetreKareFiyat ₺</p>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="apartment-manager">
+                                    <div class="manager-wrap">
+                                        <div class="manager-icon">
+                                            <a href="#chat"> <img src="@x.CokluResim" alt="userpic"></a>
+                                            <div class="online-status"></div>
+                                        </div>
+
+                                        <span class="manager-name">Güner Group Yatırım</span>
+                                    </div>
+                                    <div class="calendar">
+                                        <i class="fa fa-calendar"></i>
+                                        <span>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</span>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    }
+
+                }
+            </div>
+
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,84 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+#search-simple-icon {
+  display: grid;
+  grid-template-columns: 1fr max-content;
+  grid-column-gap: 18px;
+  padding: 24px;
+  border-radius: 2px;
+  border: 2px solid @search-simple-icon-border-color;
+  background-color: @search-simple-icon-bg-color;
+  .input-wrapper {
+    display: inline-block;
+    position: relative;
+    input {
+      height: 40px;
+      width: 100%;
+      padding-left: 56px;
+      border-radius: 2px;
+      border: 2px solid @search-simple-icon-input-border-color;
+      background-color: @search-simple-icon-input-bg-color;
+      outline-color: @search-simple-icon-input-outline-color;
+      box-sizing: border-box;
+    }
+
+    label {
+      position: absolute;
+      left: 17px;
+      top: 9px;
+      height: 20px;
+      border-right: 1px solid @search-simple-icon-icon-border-color;
+      margin: 0;
+      font-weight: unset;
+    }
+
+    label:before {
+      content: '\E312';
+      font-size: 16px;
+      color: @search-simple-icon-icon-color;
+      font-family: "Material Icons";
+      margin: 0 13px 0 0;
+    }
+  }
+
+  input:focus {
+    box-shadow: 0 1px 10px @search-simple-icon-input-focus-shadow-color;
+    border-color: @search-simple-icon-input-focus-border-color;
+  }
+
+  input:focus ~ label:before,
+  label {
+    color: @search-simple-icon-input-focus-icon-color;
+  }
+
+  input[type='submit'] {
+    height: 40px;
+    color: @search-simple-icon-submit-button-text-color;
+    font-family: @secondary-font;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-radius: 2px;
+    border: 2px solid @search-simple-icon-submit-button-border-color;
+    background-color: @search-simple-icon-submit-button-bg-color;
+    padding-left: 20px;
+    padding-right: 20px;
+
+  }
+}
+
+@media (max-width: 550px) {
+  #search-simple-icon {
+    grid-template-columns: 1fr;
+    grid-row-gap: 15px;
+
+  }
+
+}

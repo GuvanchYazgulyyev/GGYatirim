@@ -1,0 +1,131 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+/* 
+    Created on : 04.10.2017, 14:00:55
+    Author     : alexei
+*/
+
+.arrow-bar.hide-span .span-wrapper {
+  display: none;
+}
+
+.arrow-bar {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  display: grid;
+  grid-template-columns: 130px minmax(127px, 2fr) 130px;
+  grid-gap: 10px;
+  max-width: 1170px;
+  display: -ms-grid;
+  -ms-grid-columns: 130px minmax(127px, 2fr) 130px;
+}
+
+.arrow-bar .span-wrapper span {
+  color: #37466f;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+.arrow-bar .watch-more {
+
+  border-radius: 20px;
+  color: #527efd;
+  font-family: Montserrat;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 12px 20px 13px 20px;
+  background: #f7f7f7;
+
+}
+
+.arrow-bar .arrow-wrapper a {
+  padding: 13px 14px;
+  border-radius: 50px;
+  background: #f7f7f7;
+  margin-right: 20px;
+
+}
+
+.arrow-bar .arrow-wrapper a:hover {
+  background: #6e90fd;
+}
+
+.arrow-bar .arrow-wrapper a:hover .fa-arrow-right:before {
+  color: #f6f9fe;
+}
+
+.arrow-bar .arrow-wrapper a:hover .fa-arrow-left:before {
+  color: #f6f9fe;
+}
+
+.arrow-bar .link-wrapper a:hover {
+  box-shadow: 0 1px 10px rgba(100, 149, 254, 0.5);
+  border-radius: 20px;
+  background-color: #6495fe;
+  text-decoration: none;
+  color: #ffffff;
+}
+.arrow-bar .fa-arrow-right:before {
+    color: #99a1b6;
+    vertical-align: middle;
+}
+
+.arrow-bar .fa-arrow-left:before {
+    color: #99a1b6;
+    vertical-align: middle;
+}
+
+@media (max-width: 525px) {
+  .arrow-bar {
+    grid-template-columns: 1fr 130px;
+    grid-row-gap: 30px;
+    -ms-grid-columns: 1fr 130px;
+
+  }
+
+  .arrow-bar .arrow-wrapper {
+    grid-row: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    -ms-grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+  }
+
+  .arrow-bar .span-wrapper {
+    grid-row: 1;
+    grid-column: 1;
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+  }
+
+  .arrow-bar .link-wrapper {
+    grid-row: 1;
+    grid-column: 2;
+    -ms-grid-row: 1;
+    -ms-grid-column: 2;
+  }
+
+  .arrow-bar .arrow-wrapper .arrow-prev {
+    float: left;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .arrow-bar .arrow-wrapper .arrow-next {
+    float: right;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-right: 0px;
+  }
+}

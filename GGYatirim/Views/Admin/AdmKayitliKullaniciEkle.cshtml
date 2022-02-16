@@ -1,0 +1,76 @@
+﻿@model GGYatirim.Models.Sinif.DbKullanici
+@{
+    ViewBag.Title = "AdmKayitliKullaniciEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="col-md-10 col-sm-12 col-xs-12">
+
+    <h2>Yeni Müşteri Ekle</h2>
+
+    @using (Html.BeginForm("AdmKayitliKullaniciEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <form class="form-group" method="post">
+            <b>Profil Resim</b>
+            @*@Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })*@
+            <input type="file" id="File" name="File" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" class="form-control" />
+
+            <b>Ad</b>
+            @*@Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })*@
+            <input type="text" name="KisiAdi" maxlength="90" required="" class="form-control" />
+
+
+            <b>Soyad</b>
+            @Html.TextBoxFor(l => l.KisiSoyadi, new { @class = "form-control" })
+
+            <b>Meslek</b>
+            @Html.TextBoxFor(l => l.Meslek, new { @class = "form-control" })
+            <b>Telefon</b>
+            @*@Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })*@
+            <input type="text" name="Telefon" required="" class="form-control" />
+
+            <b>Kısa Açıklama</b>
+            @Html.TextAreaFor(l => l.KisaAciklama, new { @class = "form-control" })
+
+
+            <b>
+                E-Posta
+            </b>
+            @*</b>@Html.TextBoxFor(x => x.EPosta, new { @class = "form-control" })*@
+            <input type="text" name="EPosta" maxlength="50" required="" class="form-control" />
+
+            <b>
+                Şifre
+            </b>
+            @*@Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })*@
+            <input type="text" name="Sifre" maxlength="50" required="" class="form-control" />
+
+
+            <b>Facebook</b>
+            @Html.TextBoxFor(l => l.Face, new { @class = "form-control" })
+
+            <b>Instagram</b>
+            @Html.TextBoxFor(l => l.instagram, new { @class = "form-control" })
+
+
+            <b> Kullanıcı Yetkisi *</b>
+            @Html.DropDownListFor(x => x.KullaniciRolid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+
+
+            <input type="text" name="KullaniciNo" readonly hidden="" value="@ViewBag.takipkod" /> <br />
+
+
+
+            @Html.HiddenFor(x => x.KullaniciID)
+            <br />
+            @*@Html.MathCaptcha()*@
+
+            <button class="btn btn-success">Yeni Müşteri Ekle</button>
+
+        </form>
+    }
+</div>
+

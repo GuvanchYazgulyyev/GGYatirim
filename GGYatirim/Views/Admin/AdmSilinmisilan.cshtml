@@ -1,0 +1,34 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.Dbilan>
+@{
+    ViewBag.Title = "AdmSilinmisilan";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-10 col-sm-12 col-xs-12">
+    <h3>Silinmiş İlanlar</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Kısa Başlık</th>
+            <th>Şehir</th>
+            <th>Adres</th>
+            <th>Tam Fiyat</th>
+            <th>İlan No</th>
+            <th>Yayın Tarih</th>
+            <th>Detay</th>
+        </tr>
+
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.EmlakTipi</td>
+                <td>@x.DbKonum.SehirAd</td>
+                <td>@x.TamAdres</td>
+                <td>@x.TamFiyat</td>
+                <td>@x.ilanNo</td>
+                <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</td>
+                <td><a href="~/Admin/AdmSilinmisilanDetay/@x.ilanID#submit" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
+            </tr>
+        }
+    </table>
+
+</div>

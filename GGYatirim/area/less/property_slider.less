@@ -1,0 +1,416 @@
+.property-slider {
+  position: relative;
+  width: 100%;
+  display: block;
+  z-index: 0;
+}
+
+.property-slider img {
+  width: 100%;
+}
+
+.property-slider .nav-arrow {
+  background-color: #f7f7f7;
+  width: 40px;
+  height: 40px;
+  color: #99a1b6;
+  font-size: 16px;
+  border-radius: 100%;
+  position: absolute;
+  text-align: center;
+  padding-top: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all .4ms;
+  line-height: 1;
+}
+
+.property-slider .nav-arrow.right-arrow {
+  right: 0;
+}
+
+.property-slider .nav-arrow:hover {
+  box-shadow: 0 1px 10px rgba(100, 149, 254, 0.5);
+  background-color: #6495fe;
+  color: #fff;
+}
+
+.property-slider .property-information {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  padding-right: 10%;
+
+}
+
+.property-slider .property-information.inactive {
+  transform: translateY(0%);
+  opacity: 0;
+}
+
+.property-slider .property-information.active {
+  transform: translateY(-50%);
+  opacity: 1;
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.property-slider .property-information-block {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  position: relative;
+  border: 2px solid #eff0f3;
+  border-radius: 2px;
+  padding: 20px;
+  max-width: 366px;
+}
+
+.property-slider .property-information-block .property-type {
+  color: #6495fe;
+  font-family: Montserrat;
+  font-size: 11px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin: 0;
+}
+
+.property-slider .property-information-block .property-title {
+  margin-top: 4px;
+  margin-bottom: 16px;
+  color: #37466f;
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.property-slider .property-information-block .apartment-address {
+  padding-bottom: 11px;
+  border-bottom: 1px solid rgba(153, 161, 182, 0.16);
+  margin-bottom: 11px;
+}
+
+.property-slider .property-information-block .address {
+  color: #525252;
+  font-family: "Open Sans";
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.44px;
+}
+
+.property-slider .property-information-block .fa-map-marker:before {
+  color: #99a1b6;
+}
+
+.property-slider .apartment-image {
+  margin-bottom: 25px;
+}
+
+.property-slider .property-information-block .badges {
+
+}
+
+.property-slider .property-information-block .badges p {
+  display: inline-block;
+  padding: 10px;
+  margin-right: 10px;
+  font-family: "Montserrat";
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.24px;
+  margin-bottom: 0;
+}
+
+.property-slider .property-information-block .featured {
+  background: #9814ae;
+  color: #ffffff;
+
+}
+
+.property-slider .property-information-block .rent {
+  background: #4192f2;
+  color: #ffffff;
+}
+
+.property-slider .property-information-block .sale {
+  background: #f74c55;
+  color: #ffffff;
+}
+
+.property-slider .property-information-block .apartment-values {
+  position: relative;
+  padding-bottom: 18px;
+}
+
+.property-slider .property-information-block .apartment-values span {
+  color: #525252;
+  font-family: "Open Sans";
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.44px;
+}
+
+.property-slider .property-information-block .apartment-values span + span:before {
+  padding: 8px;
+  color: black;
+  content: "/\00a0";
+}
+
+.property-slider .property-information-block .price-big {
+  color: #37466f;
+  font-family: "Open Sans";
+  font-size: 20px;
+  letter-spacing: 0.4px;
+  margin: 0;
+}
+
+.property-slider .property-information-block .price-small {
+  color: #525252;
+  font-family: "Open Sans";
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.44px;
+  margin: 0;
+}
+
+.property-slider .property-information-block .apartment-info .icons {
+  position: relative;
+  display: inline-block;
+  width: 50%;
+  text-align: right;
+}
+
+.property-slider .property-information-block .apartment-price {
+  display: inline-block;
+  position: relative;
+  width: 50%;
+  float: left;
+}
+
+.property-slider.property-information-block .icons .icons-style {
+  border: 2px solid #F7F7F7;
+  padding: 11px;
+  background: #F7F7F7;
+  border-radius: 50px;
+
+}
+
+.property-slider .property-information-block .apartment-info a:hover .icons-style {
+  background: #f83581;
+}
+
+.property-slider .property-information-block .fa-heart-o:before {
+  color: #99a1b6;
+}
+
+.property-slider .property-information-block .icons .heart {
+  float: right;
+}
+
+.property-slider .property-information-block .icons .clone {
+  float: right;
+  margin-right: 10px;
+}
+
+.property-slider .property-information-block .fa-clone:before {
+  color: #99a1b6;
+}
+
+.property-slider .property-information-block .apartment-manager {
+  clear: both;
+  padding: 20px 0 0 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  align-items: center;
+  border-top: 2px solid rgba(153, 161, 182, 0.08);
+  display: -ms-grid;
+}
+
+.property-slider .property-information-block .manager-icon {
+  grid-row: 1;
+  grid-column: 1;
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+
+.property-slider .property-information-block .manager-wrap {
+  grid-row: 1;
+  grid-column: 2;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  padding-left: 50px;
+
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 4;
+}
+
+.property-slider .property-information-block .calendar {
+  grid-row: 1;
+  grid-column: 4;
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+}
+
+.property-slider .property-information-block .manager-icon {
+  position: relative;
+  border-radius: 50px;
+  height: 40px;
+  width: 40px;
+}
+
+.property-slider .property-information-block .online-status {
+  position: absolute;
+  top: 10%;
+  width: 8px;
+  height: 8px;
+  box-shadow: 0 0 10px #cddc39;
+  background-color: #cddc39;
+  border-radius: 50px;
+}
+
+.property-slider .property-information-block .fa-calendar:before {
+  color: #99a1b6;
+}
+
+.property-slider .property-information-block .calendar span {
+  color: #525252;
+  font-family: "Open Sans";
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.44px;
+}
+
+.property-slider .property-information-block .manager-name {
+  color: #37466f;
+  font-family: "Open Sans";
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.44px;
+}
+
+.property-slider .nav-arrow.right-arrow {
+  margin-right: 30px;
+  z-index: 8;
+}
+
+.property-slider .nav-arrow.left-arrow {
+  margin-left: 30px;
+  z-index: 8;
+}
+
+.property-slider .details-button {
+  color: #527efd;
+  font-family: "Montserrat";
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border-radius: 20px;
+  background-color: #f7f7f7;
+  padding: 13px 21px 12px 21px;
+  display: inline-block;
+}
+
+.property-slider .apartment-info {
+  padding-bottom: 18px;
+}
+
+@media (max-width: 1024px) {
+  .property-slider .property-information-block .apartment-manager {
+    display: none;
+  }
+
+  .property-slider .apartment-info {
+    padding: 0;
+  }
+}
+
+@media (max-width: 880px) {
+  .property-slider .property-information,
+  .property-slider .property-information.active {
+    position: relative;
+    transform: translateY(0%);
+    left: 0;
+    padding: 0;
+  }
+
+  .property-slider .property-information-block {
+    max-width: 100%;
+    display: inline-block;
+    font-size: 0;
+  }
+
+  .property-slider .property-information-block .property-type {
+    display: none;
+  }
+
+  .property-slider .apartment-image {
+    display: none;
+  }
+
+  .property-slider .property-information-block .apartment-address {
+    display: none;
+  }
+
+  .property-slider .property-information-block .apartment-values {
+    display: none;
+  }
+
+  .property-slider .property-information-block .apartment-price {
+    display: none;
+  }
+
+  .property-slider .property-information-block .property-title {
+    display: inline-block;
+    width: 50%;
+    margin: 0;
+    vertical-align: middle;
+  }
+
+  .property-slider .apartment-info {
+    display: inline-block;
+    width: 50%;
+    text-align: right;
+    vertical-align: middle;
+  }
+
+  .property-slider .apartment-adress {
+    display: none;
+  }
+}
+
+@media (max-width: 400px) {
+  .property-slider .nav-arrow {
+    font-size: 12px;
+    padding-top: 12px;
+    width: 35px;
+    height: 35px;
+    top: 20%;
+    transform: translateY(-20%);
+  }
+
+  .property-slider .property-information-block .property-title {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 18px;
+    font-size: 16px;
+  }
+
+  .property-slider .property-information-block .apartment-info .icons {
+    width: 100%;
+    text-align: center;
+  }
+
+  .property-slider .property-information-block .apartment-info {
+    width: 100%;
+    text-align: center;
+  }
+
+  .property-slider .details-button {
+    padding: 11px 15px 10px 15px;
+  }
+}

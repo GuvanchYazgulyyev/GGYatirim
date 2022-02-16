@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="28dec2859a9b46b8acc35e5a60aee6db" Name="Diagram1">
+        <EntityTypeShape EntityType="GYatirimModel.DbAdmin" Width="1.5" PointX="8" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="GYatirimModel.DbBlog" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GYatirimModel.DbEmlakTipi" Width="1.5" PointX="0.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GYatirimModel.Dbilan" Width="1.5" PointX="3" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GYatirimModel.DbilanDurum" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GYatirimModel.DbilanOzellik" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GYatirimModel.DbiletisimBilgi" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GYatirimModel.DbiletisimForm" Width="1.5" PointX="5.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GYatirimModel.DbKonum" Width="1.5" PointX="0.75" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="GYatirimModel.DbSlider" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GYatirimModel.DbTemsilci" Width="1.5" PointX="9.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GYatirimModel.DbYetki" Width="1.5" PointX="5.75" PointY="1.375" IsExpanded="true" />
+        <AssociationConnector Association="GYatirimModel.FK_DbAdmin_DbYetki" ManuallyRouted="false" />
+        <AssociationConnector Association="GYatirimModel.FK_Dbilan_DbEmlakTipi" ManuallyRouted="false" />
+        <AssociationConnector Association="GYatirimModel.FK_Dbilan_DbilanDurum" ManuallyRouted="false" />
+        <AssociationConnector Association="GYatirimModel.FK_Dbilan_DbilanOzellik" ManuallyRouted="false" />
+        <AssociationConnector Association="GYatirimModel.FK_Dbilan_DbKonum" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="GYatirimModel.sysdiagrams" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="GYatirimModel.DbKullanici" Width="1.5" PointX="8" PointY="11.875" />
+        <AssociationConnector Association="GYatirimModel.FK_DbKullanici_DbYetki" />
+        <EntityTypeShape EntityType="GYatirimModel.ialnlarDeneme" Width="1.5" PointX="10.375" PointY="9.875" />
+        <EntityTypeShape EntityType="GYatirimModel.Product" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="GYatirimModel.ResimDeneme" Width="1.5" PointX="12.625" PointY="9.875" />
+        <AssociationConnector Association="GYatirimModel.FK_ResimDeneme_ialnlarDeneme" />
+        <EntityTypeShape EntityType="GYatirimModel.DbilanGallery" Width="1.5" PointX="5.25" PointY="12.75" />
+        <AssociationConnector Association="GYatirimModel.FK_DbilanGallery_Dbilan" />
+        <EntityTypeShape EntityType="GYatirimModel.DbHareket" Width="1.5" PointX="12.25" PointY="6.75" />
+        <AssociationConnector Association="GYatirimModel.FK_DbHareket_Dbilan" />
+        <AssociationConnector Association="GYatirimModel.FK_DbHareket_DbKullanici" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

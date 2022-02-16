@@ -1,0 +1,288 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+.city-grid-container {
+  margin-top: 40px;
+}
+
+.city-grid-container .city-grid-header {
+  margin-bottom: 30px;
+}
+
+.city-grid-home-bar-wrapper {
+  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-direction: row;
+  .home-bar-info {
+    display: flex;
+    align-items: center;
+    i {
+      font-size: 16px;
+      padding: 12px;
+      border-radius: 100%;
+      background-color: @city-grid-home-icon-bg-color;
+      margin-right: 20px;
+      color: @city-grid-home-icon-color;
+    }
+    span {
+      color: @city-grid-home-text-color;
+      font-family: "Montserrat";
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      word-break: normal;
+    }
+  }
+
+  .home-bar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex: 1;
+    a {
+      display: inline-block;
+      padding: 12px 20px 11px 20px;
+      border-radius: 20px;
+      background-color: @city-grid-home-btn-bg-color;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: @city-grid-home-btn-text-color;
+      font-family: "Montserrat";
+      font-weight: 400;
+      letter-spacing: 0.4px;
+    }
+    a:hover {
+      box-shadow: 0 1px 10px @city-grid-home-btn-hover-shadow;
+      background-color: @city-grid-home-btn-hover-bg-color;
+      color: @city-grid-home-btn-hover-text-color;
+      text-decoration: none;
+    }
+  }
+
+  .links-block {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    a {
+      color: #6495fe;
+      font-family: "Montserrat";
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      /* Text style for "Commercial" */
+      letter-spacing: 0.4px;
+    }
+    a + a:before {
+      content: '';
+      margin-right: 18px;
+      margin-left: 18px;
+      position: relative;
+      display: inline-block;
+      width: 9px;
+      height: 9px;
+      background-color: rgba(219, 219, 219, 0.5);
+    }
+  }
+}
+
+.city-grid-home-bar-wrapper.hidebutton {
+  .home-bar-btn {
+    display: none;
+  }
+}
+
+.city-grid-home-bar-wrapper.hidelinks {
+  .links-block {
+    display: none;
+  }
+}
+
+.city-grid-container .city-grid-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-content: stretch;
+  .big-city {
+    flex-grow: 1;
+    height: 552px;
+    a {
+      height: 100%;
+    }
+  }
+  .small-city {
+    flex-grow: 1.5;
+    .small-city-wrap {
+      display: flex;
+      flex-direction: row;
+      align-content: stretch;
+      height: 50%;
+      width: 100%;
+      position: relative;
+      a {
+        width: calc(50% - 30px);
+        margin-left: 30px;
+        margin-bottom: 30px;
+      }
+    }
+    .small-city-wrap:last-child {
+      a {
+        margin-bottom: 0;
+      }
+    }
+  }
+  a {
+    border: 2px solid @city-grid-link-border-color;
+    background-color: @city-grid-link-bg-color;
+    flex-grow: 1;
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+    span {
+      margin: auto;
+      color: @city-grid-link-text-color;
+      font-family: "Montserrat";
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      word-break: normal;
+    }
+  }
+  a:hover {
+    text-decoration: none;
+    box-shadow: 0 1px 20px rgba(55, 70, 111, 0.16);
+    border: 2px solid @city-grid-link-hover-border-color;
+    background-color: @city-grid-link-hover-bg-color;
+    background-image: linear-gradient(180deg, @city-grid-link-gradient-first-color 0%, @city-grid-link-gradient-second-color 100%);
+    opacity: 0.8;
+    span {
+      color: #ffffff;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+
+  .city-grid-container .city-grid-wrapper {
+    .small-city {
+      flex-grow: 1;
+    }
+    .big-city {
+      flex-shrink: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .city-grid-container .city-grid-wrapper {
+    flex-direction: column;
+    .small-city {
+      .small-city-wrap {
+        flex-direction: column;
+        width: 100%;
+        a {
+          width: 100%;
+          margin-left: 0;
+          height: 250px;
+          margin-top: 30px;
+          margin-bottom: 0;
+        }
+      }
+
+    }
+    .big-city {
+      height: 250px;
+    }
+
+  }
+}
+
+@media (max-width: 1200px) {
+  .city-grid-home-bar-wrapper.hidebutton {
+    flex-direction: column;
+    .home-bar-info {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .links-block {
+      justify-content: center;
+    }
+  }
+
+}
+
+@media (max-width: 715px) {
+  .city-grid-home-bar-wrapper.hidebutton {
+    .links-block {
+      div {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-column-gap: 10px;
+        width: 100%;
+        a:before {
+          content: '';
+          margin-right: 18px;
+          position: relative;
+          display: inline-block;
+          width: 9px;
+          height: 9px;
+          background-color: rgba(219, 219, 219, .5);
+        }
+        a + a:before {
+          margin-left: 0;
+          margin-right: 18px;
+        }
+      }
+    }
+
+  }
+}
+
+@media (max-width: 522px) {
+  .city-grid-home-bar-wrapper.hidebutton {
+    .links-block {
+      justify-content: center;
+      div {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-column-gap: 10px;
+        width: inherit;
+      }
+    }
+
+  }
+}
+
+@media (max-width: 550px) {
+  .city-grid-home-bar-wrapper.hidelinks {
+    flex-direction: column;
+    .home-bar-info {
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+    .home-bar-btn {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 355px) {
+  .city-grid-home-bar-wrapper.hidebutton {
+    .links-block {
+      justify-content: center;
+      div {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-column-gap: 10px;
+        width: inherit;
+      }
+    }
+
+  }
+}

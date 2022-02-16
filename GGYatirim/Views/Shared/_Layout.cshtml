@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Güner Group Yatırım</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link href="~/area/builds/area/css/style.min.css" rel="stylesheet" />
+    <link href="~/area/css-min/area.min.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div id="preloader">
+        <div>
+            <canvas id='circleback' height='100' width='100'></canvas>
+            <canvas id='circlemain' height='100' width='100'></canvas>
+        </div>
+    </div>
+    <div id="signin-wrap">
+        <div class="sign-in-form">
+            <div class="wrap">
+                <h3>Sign in</h3>
+                <button type="button" class="js-button-close"><i class="material-icons">&#xE5C9;</i></button>
+            </div>
+            <div class="left-wrap">
+                <p>Use your email address and password to sign in to your account, or use it with social networks</p>
+                <input type="email" placeholder="E-mail">
+                <input type="password" placeholder="Password">
+                <div class="buttons-wrap">
+                    <a href="#" class="sign">Giriş Yap</a>
+                    <a href="#" class="create">Hesap Oluştur</a>
+                </div>
+                <a href="#">restore password</a>
+            </div>
+            <div class="right-wrap">
+                <img src="~/Content/Images/Logo Update-01.png" alt="img">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="header">
+        <div class="container">
+            <div class="wrapper">
+                <a href="/" class="logo">
+                    <img src="~/Content/Images/Logo Update-01.png" alt="logo">
+                </a>
+                <button type="button" data-toggle="collapse" data-target="#header" aria-expanded="false"
+                        class="navbar-toggle">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </button>
+                <div class="menu-list">
+                    <div id="header" class="navbar-collapse collapse">
+                        
+                        <ul>
+                            
+                            <li>
+                                <a href="#">
+                                    İlanlar
+                                </a>
+                                <ul class="sub-menu small">
+                                    <li>
+                                        <ul>
+                                            <li>
+                                                İlan Türleri
+                                            </li>
+                                            <li>
+                                                <a href="/Home/Tumilanlar">
+                                                    Tüm İlanlar
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Home/Satilikilan">
+                                                    Satılık İlanlar
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="/Home/Kiralikilan">
+                                                    Kiralık İlanlar
+                                                </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="subscribe-buttons">
+                    <button class="sign-in js-sign-in">
+                        <i class="fa fa-sign-in" aria-hidden="true"></i>
+                        <span>Giriş Yap</span>
+                    </button>
+                    @*<button class="registration">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                            <span>registration</span>
+                        </button>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @*Slider Partial Kısmı*@
+
+    @Html.Partial("~/Views/Home/Partials/_SliderPartial.cshtml")
+
+    <div class="container js-home-3-search">
+        <!--PROPERTY SEARCH FORM BEGIN-->
+
+        @Html.Action("ilanAra", "ilanlar")
+
+
+
+        <!--PROPERTY SEARCH FORM END-->
+    </div>
+
+
+    @RenderBody()
+
+
+    <!--CALL TO ACTION2 END   Footer Kımıs -->
+    @Html.Partial("~/Views/Home/Partials/_FooterPartial.cshtml")
+
+
+    <script type="text/javascript" src="~/area/js/library/jquery.js"></script>
+    <script type="text/javascript" src="~/area/js/library/bootstrap.js"></script>
+    <script type="text/javascript" src="~/area/js/library/owl.carousel.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBGotOna22MxxiHpaGPV1aEOYTMx428-g"></script>
+    <script type="text/javascript" src="~/area/js/library/markerclusterer.js"></script>
+    <script type="text/javascript" src="~/area/js/library/ion.rangeSlider.min.js"></script>
+    <script type="text/javascript" src="~/area/js/library/jquery.mousewheel.js"></script>
+    <script type="text/javascript" src="~/area/js/library/chartist.min.js"></script>
+    <script type="text/javascript" src="~/area/js/library/microplugin.js"></script>
+    <script type="text/javascript" src="~/area/js/library/sifter.js"></script>
+    <script type="text/javascript" src="~/area/js/library/selectize.js"></script>
+    <script type="text/javascript" src="~/area/js/library/progressbar.js"></script>
+    <script type="text/javascript" src="~/area/js/library/module.js"></script>
+    <script type="text/javascript" src="~/area/js/library/hotkeys.js"></script>
+    <script type="text/javascript" src="~/area/js/library/uploader.js"></script>
+    <script type="text/javascript" src="~/area/js/library/simditor.js"></script>
+
+    <script type="text/javascript" src="~/area/js/rangeslider.js"></script>
+    <script type="text/javascript" src="~/area/js/agent_slider.js"></script>
+    <script type="text/javascript" src="~/area/js/post_slider.js"></script>
+    <script type="text/javascript" src="~/area/js/property_carousel.js"></script>
+    <script type="text/javascript" src="~/area/js/partner_carousel.js"></script>
+    <script type="text/javascript" src="~/area/js/agents_carousel.js"></script>
+    <script type="text/javascript" src="~/area/js/counters.js"></script>
+    <script type="text/javascript" src="~/area/js/slider_text.js"></script>
+    <script type="text/javascript" src="~/area/js/pageviews_chart.js"></script>
+    <script type="text/javascript" src="~/area/js/search_form.js"></script>
+    <script type="text/javascript" src="~/area/js/search_form_slider.js"></script>
+    <script type="text/javascript" src="~/area/js/count_checker.js"></script>
+    <script type="text/javascript" src="j~/area/s/form_toggle.js"></script>
+    <script type="text/javascript" src="~/area/js/featured_carousel.js"></script>
+    <script type="text/javascript" src="~/area/js/one_element_slider.js"></script>
+    <script type="text/javascript" src="~/area/js/accordion.js"></script>
+    <script type="text/javascript" src="~/area/js/partners_small.js"></script>
+    <script type="text/javascript" src="~/area/js/pageviews_chart.js"></script>
+    <script type="text/javascript" src="~/area/js/intro_page.js"></script>
+    <script type="text/javascript" src="~/area/js/map_component.js"></script>
+    <script type="text/javascript" src="~/area/js/header.js"></script>
+    <script type="text/javascript" src="~/area/js/property_slider.js"></script>
+    <script type="text/javascript" src="~/area/js/visible.js"></script>
+    <script type="text/javascript" src="~/area/js/coming-soon.js"></script>
+    <script type="text/javascript" src="~/area/js/rate_article.js"></script>
+    <script type="text/javascript" src="~/area/js/service-page-size.js"></script>
+    <script type="text/javascript" src="~/area/js/preloader.js"></script>
+    <script type="text/javascript" src="~/area/js/clear_form.js"></script>
+    <script type="text/javascript" src="~/area/js/property_gallery.js"></script>
+    <script type="text/javascript" src="~/area/js/area_tabs.js"></script>
+    <script type="text/javascript" src="~/area/js/testimonials.js"></script>
+    <script type="text/javascript" src="~/area/js/sign_in.js"></script>
+    <script type="text/javascript" src="~/area/js/account_page.js"></script>
+    <script type="text/javascript" src="~/area/js/chat_component.js"></script>
+    <script type="text/javascript" src="~/area/js/account_chart.js"></script>
+    <script type="text/javascript" src="~/area/js/account_component.js"></script>
+    <script type="text/javascript" src="~/area/js/text_editor.js"></script>
+
+    <script type="text/javascript" src="~/area/js/main.js"></script>
+    <!--<script type="text/javascript" src="js-min/min.js"></script>-->
+
+</body>
+
+
+</html>

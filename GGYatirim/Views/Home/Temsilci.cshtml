@@ -1,0 +1,56 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.DbTemsilci>
+
+
+
+<div class="item">
+
+    @foreach (var x in Model)
+    {
+        <div class="agent">
+            <div class="agent-info-wrapper">
+                <div class="agent-avatar">
+                    <a href="#">
+                        <img src="@x.ProfilResim" alt="Resim">
+                        <div class="online-status"></div>
+                    </a>
+                </div>
+                <div class="agent-info">
+                    <h2>@x.AdSoyad</h2>
+                    <span class="agent-district">@x.Makam</span>
+                    <div class="row">
+
+                        <div class="col-md-6 agent-phones">
+                            <span><i class="fa fa-phone-square"></i>Telefon:</span>
+                            <span>@x.Tel</span>
+                        </div>
+                        <div class="col-md-12 agent-phones">
+                            <span><i class="fa fa-envelope"></i>E Posta:</span>
+                            <a href="mailto:@x.EPosta">@x.EPosta</a>
+                        </div>
+                    </div>
+                    <div class="agent-social-wrapper">
+                        <div class="agent-social-icons">
+                            <a href="@x.Facebook">
+                                <i class="fa fa-facebook icons" aria-hidden="true"></i>
+                            </a>
+                            <a href="@x.Twetter">
+                                <i class="fa fa-twitter icons" aria-hidden="true"></i>
+                            </a>
+                            <a href="@x.instagram">
+                                <i class="fa fa-instagram" aria-hidden="true"></i>
+                            </a>
+                        </div>
+
+                        @*<a href="#" class="icon-link">
+                                <i class="material-icons">view_module</i>
+                                <span>Listing</span>
+                            </a>*@
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    }
+
+</div>
+

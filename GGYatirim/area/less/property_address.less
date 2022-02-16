@@ -1,0 +1,108 @@
+.property_address .switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+  float: right;
+  margin-left: 11px;
+  top: -2px;
+}
+.property_address .switch input {
+    display: none;
+}
+.property_address .switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+.property_address .switch .slider.round {
+    border-radius: 12px;
+    border: 2px solid rgba(153, 161, 182, 0.16);
+    background-color: #ffffff;
+}
+.property_address .switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #999fb4;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+.property_address .switch input:checked + .slider {
+    background-color: #fff;
+}
+.property_address .switch input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+.property_address .switch input:checked + .slider:before {
+    -webkit-transform: translateX(14px);
+    -ms-transform: translateX(14px);
+    transform: translateX(14px);
+    background-color: #6495fe;
+}
+.property_address {
+    padding: 29px 24px;
+    border-radius: 2px;
+    border: 2px solid #eff0f3;
+    background-color: #ffffff;
+}
+.property_address .main-info {
+    padding-bottom: 26px;
+}
+.property_address .wrap > span {
+    color: #525252;
+    font-family: "Open Sans";
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+    font-weight: 400;
+    margin-right: 10px;
+}
+.property_address .wrap {
+    color: #37466f;
+    font-family: "Open Sans";
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+}
+.property_address .main-info .details {
+    color: #37466f;
+    font-family: "Open Sans";
+    font-size: 20px;
+    font-weight: 400;
+}
+.property_address .main-info .update {
+    color: #99a1b6;
+    font-family: "Open Sans";
+    font-size: 14px;
+    letter-spacing: 0.44px;
+    float: right;
+    padding-top: 4px;
+}
+@media (max-width: 1199px) {
+    .property_address .row > div > div:last-child { 
+        padding-bottom: 20px;
+    }
+    .property_address {
+        padding: 22px 22px 2px 22px;
+    }
+}
+@media (max-width: 580px) { 
+    .property_address .main-info {
+        padding-bottom: 20px;
+    }
+    .property_address .main-info .update {
+        float: none;
+        display: block;
+    }
+}

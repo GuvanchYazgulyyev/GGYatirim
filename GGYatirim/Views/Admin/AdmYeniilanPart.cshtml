@@ -1,0 +1,53 @@
+﻿@using GGYatirim.Models.Sinif
+@model List<Dbilan>
+
+
+@foreach (var x in Model)
+{
+    <div class="property-block">
+        <p class="property-type">Güncel</p>
+        <p class="property-title">@x.EmlakTipi</p>
+        <div class="apartment-address">
+            <i class="address">@x.DbKonum.SehirAd</i>
+       
+            <span class="address">@x.TamAdres</span>
+        </div>
+
+        <div class="apartment-image">
+            <img src="@x.CokluResim" alt="image">
+            <div class="badges">
+                <p class="featured">İlan Durumu</p>
+                <p class="rent">@x.DbilanDurum.ilanDurumAd</p>
+            
+            </div>
+
+        </div>
+
+        <div class="apartment-values">
+            <span>Oda Sayısı: @x.OdaSayisi</span>
+            <span>Banyo: @x.Banyo </span>
+            <span>İlan No : @x.ilanNo</span>
+        </div>
+        <div class="apartment-info">
+            <div class="apartment-price">
+                <p class="price-big">Fiyat: @x.TamFiyat ₺</p>
+                <p class="price-small">Metre Kare Fiyat: @x.MetreKareFiyat ₺</p>
+            </div>
+           
+        </div>
+        <div class="apartment-manager">
+            <div class="manager-wrap">
+                <div class="manager-icon">
+                    <a href="#chat"> <img src="./images/userpic.png" alt="userpic"></a>
+                    <div class="online-status"></div>
+                </div>
+                <span class="manager-name">Eleanor French</span>
+            </div>
+            <div class="calendar">
+                <i class="material-icons">insert_invitation</i>
+                <span>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</span>
+            </div>
+        </div>
+    </div>
+}
+

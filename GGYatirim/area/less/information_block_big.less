@@ -1,0 +1,94 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.information-block-big {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: 30% 65%;
+  -ms-grid-columns: 30% 65%;
+  grid-column-gap: 5%;
+  padding: 38px 0 40px;
+  border-bottom: 1px solid @information-block-big-border-bottom;
+  p {
+    color: @information-block-big-paragraph-color;
+    font-family: @main-font;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+  }
+}
+
+.information-block-big_contacts {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: calc(92.307629% / 2) calc(92.307629% / 2);
+  -ms-grid-columns: calc(92.307629% / 2) calc(92.307629% / 2);
+  grid-column-gap: calc(100% - 92.307629%);
+  align-items: start;
+  div {
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: max-content 1fr;
+    -ms-grid-columns: max-content 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+  }
+  span {
+    word-break: break-all;
+    color: @information-block-big-contact-text-color;
+    i {
+      margin-right: 8px;
+      color: @information-block-big-contact-icon-color;
+
+    }
+
+    .fa-phone {
+      font-size: 16px;
+    }
+    .fa-skype {
+      font-size: 16px;
+    }
+    .fa-envelope {
+      font-size: 15px;
+    }
+    .fa-comment {
+      font-size: 15px;
+    }
+  }
+
+  .values {
+    color: @information-block-big-contact-values-color;
+    word-break: break-all;
+  }
+
+  .fa-laptop.fa-lg {
+    vertical-align: -10%;
+  }
+
+}
+
+@media (max-width: 991px) {
+  .information-block-big {
+    grid-template-columns: 1fr;
+    -ms-grid-columns: 1fr;
+    grid-row-gap: 25px;
+  }
+}
+
+@media (max-width: 635px) {
+  .information-block-big_contacts {
+    grid-template-columns: 1fr;
+    -ms-grid-columns: 1fr;
+    grid-row-gap: 10px;
+    div {
+      grid-template-columns: 95px 1fr;
+      -ms-grid-columns: 1fr;
+    }
+  }
+
+}

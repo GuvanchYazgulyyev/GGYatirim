@@ -1,0 +1,258 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.agent-grid-fs {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: repeat(4, calc(92% / 4));
+  grid-row-gap: 20px;
+  grid-column-gap: calc(8% / 3);
+  .agent-item {
+    padding: 22px;
+    border-radius: 2px;
+    border: 2px solid @agent-grid-fs-agent-item-border-color;
+    background-color: @agent-grid-fs-agent-item-background;
+    img {
+      height: 222px;
+      max-width: 100%;
+      object-fit: cover;
+      width: 100%;
+    }
+    .agent-name {
+      color: @agent-grid-fs-agent-item-agent-name-color;
+      font-family: @main-font;
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 9px;
+      margin-top: 17px;
+    }
+    .agent-district {
+      color: @agent-grid-fs-agent-item-agent-district-color;
+      font-family: @main-font;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0.44px;
+      margin-bottom: 24px;
+      display: block;
+    }
+
+    .phone-wrapper {
+      display: grid;
+      grid-template-columns: max-content max-content;
+      display: -ms-grid;
+      -ms-grid-columns: max-content max-content;
+      .phone-type {
+        color: @agent-grid-fs-agent-item-phone-type-color;
+        font-family: @main-font;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.44px;
+      }
+      .phone-number {
+        color: @agent-grid-fs-agent-item-phone-number-color;
+        font-family: @main-font;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 22px;
+        letter-spacing: 0.44px;
+      }
+      .phone1 {
+        grid-column: 1;
+        grid-row: 1;
+        -ms-grid-column: 1;
+        -ms-grid-row: 1;
+      }
+      .phone2 {
+        grid-column: 1;
+        grid-row: 2;
+        -ms-grid-column: 1;
+        -ms-grid-row: 2;
+      }
+      .office {
+        grid-row: 1;
+        grid-column: 2;
+        -ms-grid-column: 2;
+        -ms-grid-row: 1;
+      }
+      .mobile {
+        grid-row: 2;
+        grid-column: 2;
+        -ms-grid-column: 2;
+
+      }
+      .fa-mobile {
+        padding-left: 2px;
+        padding-right: 3px;
+        font-size: 16px;
+        color: @agent-grid-fs-agent-item-mobile-icon-color;
+      }
+      .fa-phone {
+        font-size: 16px;
+        color: @agent-grid-fs-agent-item-phone-icon-color;
+      }
+    }
+    .agent-social-icons {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: row;
+      align-items: flex-end;
+      a {
+        width: 40px;
+        height: 40px;
+        color: @agent-grid-fs-agent-item-social-icon-color;
+        font-size: 17px;
+        background-color: @agent-grid-fs-agent-item-social-icon-bg-color;
+        border-radius: 100%;
+        display: inline-block;
+        margin-right: 14px;
+        text-align: center;
+        padding: 12px 0 12px 0;
+        line-height: 1px;
+      }
+
+      a:nth-child(4n+0) {
+        margin-right: 0;
+      }
+      a:nth-child(4n+1) {
+        margin-top: 10px;
+      }
+      a:hover {
+        text-decoration: none;
+        color: @agent-grid-fs-agent-item-social-icon-hover-color;
+        box-shadow: 0 1px 10px @agent-grid-fs-agent-item-social-icon-hover-shadow;
+        background-color: @agent-grid-fs-agent-item-social-icon-bg-hover-color;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) and(max-width: 1199px) {
+  .agent-grid-fs {
+    grid-template-columns: repeat(3, calc(92% / 3));
+    -ms-grid-columns: calc(92% / 3) calc(92% / 3) calc(92% / 3);
+    grid-column-gap: calc(8% / 2);
+    .agent-item {
+      img {
+        height: 250px;
+      }
+    }
+  }
+}
+
+@media (min-width: 630px) and(max-width: 991px) {
+  .agent-grid-fs {
+    grid-template-columns: repeat(2, calc(92% / 2));
+    -ms-grid-columns: calc(92% / 2) calc(92% / 2);
+    grid-column-gap: calc(8% / 1);
+    .agent-item {
+      img {
+        height: 250px;
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and(max-width: 629px) {
+  .agent-grid-fs {
+    grid-template-columns: 1fr;
+    -ms-grid-columns: 1fr;
+    grid-column-gap: unset;
+  }
+}
+
+/**agent item media **/
+
+@media (min-width: 551px) and(max-width: 629px) {
+  .agent-grid-fs {
+    .agent-item {
+      display: grid;
+      display: -ms-grid;
+      grid-template-columns: max-content 1fr;
+      -ms-grid-columns: max-content 1fr;
+      grid-template-rows: max-content max-content max-content max-content;
+      -ms-grid-rows: max-content max-content max-content max-content;
+      grid-column-gap: 15px;
+
+      img {
+        grid-column: 1;
+        grid-row-start: 1;
+        grid-row-end: 5;
+        -ms-grid-row: 1;
+        -ms-grid-row-span: 5;
+      }
+      .agent-name {
+        grid-column: 2;
+        -ms-grid-column: 2;
+        margin: 0;
+      }
+      .agent-district {
+        grid-column: 2;
+        -ms-grid-column: 2;
+        margin: 0;
+      }
+      .phone-wrapper {
+        grid-column: 2;
+        -ms-grid-column: 2;
+      }
+      .agent-social-icons {
+        grid-column: 2;
+        -ms-grid-column: 2;
+
+        a:nth-child(6n+1) {
+          margin-top: 10px;
+        }
+        a:first-child {
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and(max-width: 550px) {
+  .agent-grid-fs {
+    grid-template-columns: 1fr;
+    -ms-grid-columns: 1fr;
+    grid-column-gap: unset;
+    .agent-item {
+      text-align: center;
+      img {
+        width: unset;
+      }
+      .phone-wrapper {
+        justify-content: center;
+      }
+      .agent-social-icons {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media (min-width: 691px) and(max-width: 991px) {
+  .agent-grid-fs {
+    .agent-item {
+
+      .agent-social-icons {
+        grid-column: 2;
+        -ms-grid-column: 2;
+
+        a:nth-child(5n+0) {
+          margin-right: 0;
+        }
+        a:nth-child(4n+0) {
+          margin-right: 14px;
+        }
+        a:nth-child(6n+1) {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
+

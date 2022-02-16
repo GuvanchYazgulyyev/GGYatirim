@@ -1,0 +1,63 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.rate-article {
+  border-radius: 2px;
+  border: 2px solid @rate-article-border-color;
+  background-color: @rate-article-bg-color;
+  padding: 24px;
+  p {
+    opacity: 0.8;
+    color: @rate-article-text-color;
+    font-family: @main-font;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+    margin-bottom: 19px;
+  }
+}
+
+.rate-article__button-block {
+  a:hover {
+    text-decoration: none;
+    i {
+      box-shadow: 0 1px 10px @rate-article-button-hover-shadow;
+      background-color: @rate-article-button-hover-bg-color;
+      color: @rate-article-button-hover-color;
+    }
+  }
+
+  a:focus {
+    text-decoration: none;
+  }
+
+  i {
+    font-size: 16px;
+    padding: 12px;
+    border-radius: 100px;
+    background-color: @rate-article-button-bg-color;
+    color: @rate-article-button-color;
+  }
+
+  .button_active {
+    text-decoration: none;
+    i {
+      box-shadow: 0 1px 10px @rate-article-button-active-shadow;
+      background-color: @rate-article-button-active-bg-color;
+      color: @rate-article-button-active-color;
+    }
+  }
+}
+
+.button-like {
+  margin-right: 16px;
+}
+
+.button__position-right {
+  float: right;
+}

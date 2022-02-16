@@ -1,0 +1,29 @@
+﻿@using GGYatirim.Models.Sinif
+@model List<DbKonum> 
+@{
+    ViewBag.Title = "AdmKonum";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div style="width:80%" class="col-md-12 table table-hover">
+    <h3>Yeni Şehir Ekle</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Şehir Ad</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.SehirAd</td>
+                <td><a href="~/Admin/AdmKonumSil/@x.KonumID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.SehirAd ')" class="btn btn-danger"> <i class="fas fa-trash"></i></a></td>
+                <td><a href="~/Admin/AdmKonumGetir/@x.KonumID" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Admin/AdmKonumEkle/" class="btn btn-success">Yeni Şehir Ekle</a>
+
+</div>
+

@@ -1,0 +1,64 @@
+﻿@model GGYatirim.Models.Sinif.DbiletisimBilgi
+@{
+    ViewBag.Title = "AdmiletisimBilgiGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<h3>İletişim Sayfasını Güncelle</h3>
+
+@using (Html.BeginForm("AdmiletisimBilgiGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div id="div-boyut">
+        <label><b>Sube Konum</b></label>
+        @Html.TextBoxFor(x => x.Sube, new { @class = "form-control" })
+    </div>
+    <div>
+        <label><b>Adres</b></label>
+        @Html.TextBoxFor(x => x.Adres, new { @class = "form-control" })
+
+    </div>
+
+    <div>
+        <label><b>Tel No</b></label>
+        @Html.TextBoxFor(x => x.Tel, new { @class = "form-control" })
+    </div>
+    <div>
+        <label><b>E Posta</b></label>
+        @Html.TextBoxFor(x => x.EPosta, new { @class = "form-control" })
+    </div>
+
+    <div>
+        <label><b>Harita</b></label>
+        @Html.TextBoxFor(x => x.Harita, new { @class = "form-control" })
+    </div>
+
+    <div>
+        <label><b>Facebook</b></label>
+        @Html.TextBoxFor(x => x.Facebook, new { @class = "form-control" })
+    </div>
+
+
+    <div>
+        <label><b>Twetter</b></label>
+        @Html.TextBoxFor(x => x.Twetter, new { @class = "form-control" })
+    </div>
+
+    <div>
+        <label><b>İnstagram</b></label>
+        @Html.TextBoxFor(x => x.instagram, new { @class = "form-control" })
+    </div>
+
+
+
+    <div>
+        @Html.HiddenFor(x => x.iletisimBilgiID)
+    </div>
+    <div>
+        <button class="button border with-icon">Değişiklikleri Kaydet</button>
+        <br />
+        <br />
+    </div>
+
+}

@@ -1,0 +1,339 @@
+﻿@model GGYatirim.Models.Sinif.Dbilan
+@{
+    ViewBag.Title = "AdmilanEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<!--İaln Ekleme Kımsı Alındı     id="submit" class="js-content-blocks"-->
+
+<div style="padding:50px;">
+    <div class="submit-wrapper">
+        <h1 class="account-header-top">Yeni İlan Ekle</h1>
+        @*<div class="submit-content">
+            @Html.Action("AdmYeniilanPart", "Admin")*@
+
+
+            @using (Html.BeginForm("AdmilanEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="submit-property-wild-block">
+                    <div class="general-property-info">
+                        <h2 class="submit-property__block-header">Genel ilan bilgisi</h2>
+                        <div class="prop-type">
+                            <p class="input-header">Kısa Başlık (Zorunlu)</p>
+                            <input type="text" name="EmlakTipi" required="">
+                        </div>
+
+
+                        <div class="select-type">
+                            <p class="input-header">Tip</p>
+                            @Html.DropDownListFor(x => x.EmlakTipIDD, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control", @style = "background: #fff; border-bottom: 1px solid #ebc858;  margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height:50px;" })
+
+                        </div>
+                        <div class="select-status">
+                            <p class="input-header">Durum</p>
+                            @Html.DropDownListFor(x => x.ilanDurumIDD, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control", @style = "background: #fff; border-bottom: 1px solid #ebc858;  margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height:50px;" })
+
+                        </div>
+                        <div class="select-label">
+                            <p class="input-header">Konum (Şehir)</p>
+                            @Html.DropDownListFor(x => x.KonumIDD, (List<SelectListItem>)ViewBag.dgr5, new { @class = "form-control", @style = "background: #fff; border-bottom: 1px solid #ebc858;  margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height:50px;" })
+                            <input type="text" name="ilanNo" readonly hidden="" value="@ViewBag.takipkod" /> <br />
+
+                        </div>
+                        <div class="prop-type">
+                            <p class="input-header">Site Adı</p>
+                            <input type="text" name="SiteAdi">
+                        </div>
+
+
+                        <div class="location">
+                            <p class="input-header">Google Map Adresi</p>
+                            <input type="text" name="GoogleMapAdres">
+                        </div>
+
+                        <div class="map-btn">
+                            <button class="button-secondary">Google Map Adresini Seçiniz</button>
+                        </div>
+
+                        <div class="price-full">
+                            <div class="select-label">
+                                <p class="input-header">Özellik</p>
+                                @Html.DropDownListFor(x => x.ilanOzellikIDD, (List<SelectListItem>)ViewBag.dgr4, new { @class = "form-control", @style = "background: #fff; border-bottom: 1px solid #ebc858;  margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height:50px;" })
+
+                            </div>
+                        </div>
+                        <div class="prop-type">
+                            <p class="input-header">Tam Adres (Zorunlu)</p>
+                            <input type="text" name="TamAdres" required="">
+                        </div>
+
+
+
+                    </div>
+
+                    <!--property img drag and drop start-->
+                    <div class="property-img-drag-drop">
+                        <h2 class="submit-property__block-header">İlan resimleri</h2>
+                        <div class="styling-file-input">
+                            <label>
+                                <span class="drag-span"> Resimleri buraya sürükleyip bırakın veya</span>
+                                <span class="select-span">Fotograf Seçiniz</span>
+                                <input type="file" id="File" name="File" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" class="form-control" />
+                            </label>
+                        </div>
+
+
+                         <div class="styling-file-input">
+                            <label>
+                                <span class="drag-span"> Resimleri buraya sürükleyip bırakın veya (Çoklu Resim) </span>
+                                <span class="select-span">Fotograf Seçiniz</span>
+                                <input type="file" name="CokluResim" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" multiple="" class="form-control" />
+                            </label>
+                        </div>
+
+
+
+                        <div class="image-miniatures-grid">
+
+                            <div class="image-miniature">
+                                <img src="CokluResim" name="CokluResim" alt="image">
+                                <div class="mask">
+                                    <i class="material-icons mask-controls">done</i>
+                                    <i class="material-icons mask-controls">close</i>
+                                </div>
+                            </div>
+                            <div class="image-miniature">
+                                <img src="./images/mask.png" alt="image">
+                                <div class="mask">
+                                    <i class="material-icons mask-controls">done</i>
+                                    <i class="material-icons mask-controls">close</i>
+                                </div>
+                            </div>
+                            <div class="image-miniature">
+                                <img src="./images/mask.png" alt="image">
+                                <div class="mask">
+                                    <i class="material-icons mask-controls">done</i>
+                                    <i class="material-icons mask-controls">close</i>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                    <!--property img drag and drop end-->
+                    <!--property description textarea start-->
+                    <div class="description-textarea">
+                        <h2 class="submit-property__block-header">Açıklama</h2>
+                        <textarea id="editor" name="Aciklama" rows="8" placeholder="Açıklama Ekleyiniz!" autofocus></textarea>
+
+                    </div>
+                    <!--property description textarea end-->
+                    <!--property details start-->
+
+                    <div class="property-details-block">
+                        <h2 class="submit-property__block-header">Detaylar</h2>
+                        <div class="prop-id">
+                            <p class="input-header">Tam Fiyat ₺</p>
+                            <input type="number" name="TamFiyat">
+                        </div>
+                        <div class="prop-size">
+                            <p class="input-header">Metre Kare Fiyatı ₺</p>
+                            <input type="number" name="MetreKareFiyat">
+                        </div>
+                        <div class="prop-year">
+                            <p class="input-header">Kuruluş Yılı (Bina Yaşı)</p>
+                            <input type="text" name="KurulusYili">
+                        </div>
+                        <div class="prop-land-area">
+                            <p class="input-header">Arazi Alanı</p>
+                            <input type="text" name="AraziAlanı">
+                        </div>
+                        <div class="">
+                            <p class="input-header">Aidat</p>
+                            <input type="number" name="Aidat">
+                        </div>
+
+                        <div class="prop-add-size">
+                            <p class="input-header">Ek Alan Boyutu</p>
+                            <input type="text" name="AlanBoyutu">
+                        </div>
+
+                        <div>
+                            <p class="input-header">Bulunduğu Kat</p>
+                            <input type="text" name="BulunduguKat">
+                        </div>
+
+                        <div>
+                            <p class="input-header">Isıtma</p>
+                            <input type="text" name="isitma">
+                        </div>
+
+                        <div>
+                            <p class="input-header">Kullanım Durumu</p>
+                            <input type="text" name="KullanimDurumu">
+                        </div>
+
+                        <div>
+                            <p class="input-header">Tapu Durumu</p>
+                            <input type="text" name="TapuDurumu">
+                        </div>
+                        <div>
+                            <p class="input-header">Zemin Etüdü</p>
+                            <input type="text" name="ZeminEtudu">
+                        </div>
+                        <div>
+                            <p class="input-header">Yapının Durumu</p>
+                            <input type="text" name="YapininDurumu">
+                        </div>
+                        <div>
+                            <p class="input-header">Kat Sayısı</p>
+                            <input type="text" name="KatSayisi">
+                        </div>
+
+
+                        <div class="select-type">
+                            <p class="input-header">Eşyalı</p>
+                            <select name="Esyali" style="background: #fff; border-bottom: 1px solid #ebc858; margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height: 40px;" class="property-select big-input" data-placeholder="type">
+                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                <option value="Evet">Evet</option>
+                                <option value="Hayır">Hayır</option>
+
+                            </select>
+                        </div>
+
+
+
+                        <div class="select-type">
+                            <p class="input-header">Site İçersinde</p>
+                            <select name="Siteicerisinde" style="background: #fff; border-bottom: 1px solid #ebc858; margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height: 40px;" class="property-select big-input" data-placeholder="type">
+                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                <option value="Evet">Evet</option>
+                                <option value="Hayır">Hayır</option>
+
+                            </select>
+                        </div>
+
+                        <div class="select-type">
+                            <p class="input-header">Krediye Uygun</p>
+                            <select name="KrediyeUygun" style="background: #fff; border-bottom: 1px solid #ebc858; margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height: 40px;" class="property-select big-input" data-placeholder="type">
+                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                <option value="Evet">Evet</option>
+                                <option value="Hayır">Hayır</option>
+
+                            </select>
+                        </div>
+
+                        <div class="select-type">
+                            <p class="input-header">Takas</p>
+                            <select name="Takasli" style="background: #fff; border-bottom: 1px solid #ebc858; margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height: 40px;" class="property-select big-input" data-placeholder="type">
+                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                <option value="Evet">Evet</option>
+                                <option value="Hayır">Hayır</option>
+
+                            </select>
+                        </div>
+
+                        <div class="select-type">
+                            <p class="input-header">Yakıt Tipi</p>
+                            <select name="YakitTipi" style="background: #fff; border-bottom: 1px solid #ebc858; margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height: 40px;" class="property-select big-input" data-placeholder="type">
+                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                <option value="Doğalgaz">Doğalgaz</option>
+                                <option value="Elektrik">Elektrik</option>
+                                <option value="Soba">Soba</option>
+                                <option value="Yerden Isıtmalı">Yerden Isıtmalı</option>
+
+                            </select>
+                        </div>
+
+                        <div class="select-type">
+                            <p class="input-header">Balkon</p>
+                            <select name="Balkon" style="background: #fff; border-bottom: 1px solid #ebc858; margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height: 40px;" class="property-select big-input" data-placeholder="type">
+                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                <option value="Var">Var</option>
+                                <option value="Yok">Yok</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+
+                            </select>
+                        </div>
+
+                        <div class="select-type">
+                            <p class="input-header">Banyo</p>
+                            <select name="Banyo" style="background: #fff; border-bottom: 1px solid #ebc858; margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height: 40px;" class="property-select big-input" data-placeholder="type">
+                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                <option value="Var">Var</option>
+                                <option value="Yok">Yok</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+
+                            </select>
+                        </div>
+
+                        <div class="select-type">
+                            <p class="input-header">Garaj</p>
+                            <select name="Garaj" style="background: #fff; border-bottom: 1px solid #ebc858; margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height: 40px;" class="property-select big-input" data-placeholder="type">
+                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                <option value="Var">Var</option>
+                                <option value="Yok">Yok</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+
+                            </select>
+                        </div>
+
+
+
+                        <div class="select-type">
+                            <p class="input-header">Oda Sayısı</p>
+                            <select name="OdaSayisi" style="background: #fff; border-bottom: 1px solid #ebc858; margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height: 40px;" class="property-select big-input" data-placeholder="type">
+                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="10">10</option>
+
+                            </select>
+                        </div>
+
+
+
+                    </div>
+
+
+
+                    <div class="private-note">
+                        <h2 class="submit-property__block-header">Özel Not (İstege Bağlı)</h2>
+                        <textarea placeholder="Özel Not..." name="OzelNor"></textarea>
+                    </div>
+
+                    @*<div class="submit-property-btns">
+                            <div>
+                                <a href="#" class="button-link-normal button-link-normal__single-icon">
+                                    <i class="material-icons">flag</i>
+                                </a>
+
+                                <a href="#" class="button-link-normal">
+                                    Önizlem Yap
+                                </a>
+                            </div>
+
+                        </div>*@
+                    <input type="submit" class="button-link-normal" style="background-color:springgreen; color:black;" value="İlanı Ekle" />
+
+                </div>
+
+            }
+        @*</div>*@
+    </div>
+</div>
+

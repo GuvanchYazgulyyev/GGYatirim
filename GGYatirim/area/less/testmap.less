@@ -1,0 +1,42 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.test-map-alexei {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  grid-template-rows: max-content 1fr;
+  height: 900px;
+
+  #test-map-alexei {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
+  .test-map-alexei-form {
+    grid-column: 2;
+    grid-row: 1;
+    z-index: 52;
+    padding: 24px;
+  }
+
+  .map_component_listing {
+    grid-column: 2;
+    grid-row: 2;
+    z-index: 50;
+    /* background: #9814ae;*/
+    overflow: auto;
+    padding: 24px;
+    
+  }
+  .map_component_listing::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+  }
+
+}

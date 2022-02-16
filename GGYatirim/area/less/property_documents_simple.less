@@ -1,0 +1,77 @@
+.property-documents-simple {
+    border-radius: 2px;
+    border: 2px solid #eff0f3;
+    background-color: #ffffff;
+    padding: 24px;
+}
+.property-documents-simple .wrap {
+    display: inline-block;
+    width: 100%;
+    font-size: 0;
+    vertical-align: middle;
+}
+.property-documents-simple .wrap .item { 
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    padding: 20px 0px;
+    border-bottom: 2px solid rgba(153, 161, 182, 0.08);
+}
+.property-documents-simple .wrap:first-child .item { 
+    padding-top: 0px;
+}
+.property-documents-simple .wrap:last-child .item {
+    padding-bottom: 0px;
+    border: none;
+} 
+.property-documents-simple .wrap .item .info-wrap {
+    display: inline-block;
+    vertical-align: middle;
+} 
+.property-documents-simple .wrap .item .download {
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    background-color: #f7f7f7;
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    margin-right: 16px;
+    transition: all .4ms;
+}
+.property-documents-simple .wrap .item .download i { 
+    color: #99a1b6;
+    font-size: 16px;
+    padding-top: 13px;
+}
+.property-documents-simple .wrap .item .size {
+    color: #99a1b6;
+    font-family: "Open Sans";
+    font-size: 12px;
+    letter-spacing: 0.38px;
+}
+.property-documents-simple .wrap .item .name {
+    color: #37466f;
+    font-family: "Open Sans";
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+    display: block;
+}
+.property-documents-simple .wrap .item .download:hover {
+    background-color: #6495fe;
+    box-shadow: 0 1px 10px #6495fe;
+}
+.property-documents-simple .wrap .item .download:hover i {
+    color: #fff;
+}
+@media(max-width:476px) {
+    .property-documents-simple .wrap .item .download {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 5px;
+    }
+    .property-documents-simple .wrap .item {
+        text-align: center;
+    }
+}

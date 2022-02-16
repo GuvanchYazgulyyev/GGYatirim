@@ -1,0 +1,133 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+
+
+
+
+
+
+<!--PROPERTY GROUP LARGE END-->
+<!--NEW REGIONS BEGIN-->
+
+<div class="new-region-wrapper">
+    <div class="container">
+        <!--For customize use html and less from home_bar.html and home_bar.less start-->
+        <!-- hidebutton - hide home-bar-btn block; hidelinks - hide links-block -->
+        <div class="new-region-home-bar-wrapper hidebutton hidelinks">
+         
+            <div class="home-bar-btn">
+                <a href="#">Watch More</a>
+
+            </div>
+            <div class="links-block">
+                <div>
+                    <a href="#">Commercial</a>
+                    <a href="#">Furnished Homes</a>
+                    <a href="#">Land & Plot</a>
+                    <a href="#">Paying Guest</a>
+                    <a href="#">Residential</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!--For customize use html and less from home_bar.html and home_bar.less end-->
+
+        @Html.Action("YeniilanPart", "Home")
+        
+    </div>
+</div>
+
+<!--NEW REGIONS END-->
+<div class="container">
+    <!--PROPERTY STANDART GRID BEGIN-->
+
+    <div class="standart-grid-container">
+        <!--For customize use html and less from home_bar.html and home_bar.less start-->
+        <!-- hidebutton - hide home-bar-btn block; hidelinks - hide links-block -->
+        <div class="standart-grid-home-bar-wrapper hidelinks">
+            @*<div class="home-bar-info">
+                <i class="fa fa-file-word-o"></i>
+
+                <span>
+                    @ViewBag.d2 EMLAK İLANI SİZİ BEKLİYOR</span>
+            </div>
+            <div class="home-bar-btn">
+                <a href="/Home/Tumilanlar">Tüm İlanlara Göz Atın</a>
+
+            </div>*@
+    
+        </div>
+        <!--An sayfa Kiralık ilanları Top 5 kısmı-->
+        @*@Html.Action("AnasayfaKiralikilanPart")*@
+
+        
+
+
+
+    </div>
+
+    <!--PROPERTY STANDART GRID END-->
+</div>
+<!--AGENT CAROUSEL BEGIN-->
+
+<div class="container-fluid agents-carousel-container">
+    <div class="container">
+     
+        <div class="row">
+            <div class="col-md-8">
+                <div class="owl-carousel owl-theme">
+
+                    @Html.Action("Temsilci")
+                    
+
+                </div>
+            </div>
+        </div>
+        <div class="link-wrapper">
+          
+        </div>
+
+    </div>
+</div>
+
+<!--AGENT CAROUSEL END-->
+
+<div class="container m-b-60">
+    <!--Post Grid Begin-->
+
+    <div class="post-grid">
+        <!-- class hidebutton hide button-wrapper block, class hidespan hide span-wrapper -->
+        <div class="post-grid-arrow-block">
+
+      
+            <div class="span-wrapper">
+                <span>
+                    SON GÖNDERİ
+                </span>
+            </div>
+            <div class="button-wrapper">
+                <a href="/Home/Blog">Daha Fazla Oku </a>
+            </div>
+        </div>
+
+
+
+        <!-- Blog Kısmı-->
+        <div class="owl-carousel owl-theme">
+          
+            @Html.Action("PartialBlog")
+
+        </div>
+    </div>
+    <!--Post Grid End-->
+</div>
+

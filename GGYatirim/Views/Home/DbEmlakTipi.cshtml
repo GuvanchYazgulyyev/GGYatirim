@@ -1,0 +1,164 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.DbEmlakTipi>
+
+@foreach (var x in Model)
+{
+    if (x.EmlakTipiID == 1)
+    {
+        <a href="/ilanlar/Apartman/@x.EmlakTipiID">
+            <div class="region-element">
+                <span class="city">@x.EmlakTipAd</span>
+                <span class="count">@ViewBag.d1</span>
+            </div>
+        </a>
+    }
+
+    if (x.EmlakTipiID == 2)
+    {
+        <a href="/ilanlar/Daire/@x.EmlakTipiID">
+            <div class="region-element">
+                <span class="city">@x.EmlakTipAd</span>
+                <span class="count">@ViewBag.d2</span>
+            </div>
+        </a>
+    }
+
+
+    if (x.EmlakTipiID == 3)
+    {
+        <a href="/ilanlar/Arsa/@x.EmlakTipiID">
+            <div class="region-element">
+                <span class="city">@x.EmlakTipAd</span>
+                <span class="count">@ViewBag.d3</span>
+            </div>
+        </a>
+    }
+
+
+    if (x.EmlakTipiID == 4)
+    {
+        <a href="/ilanlar/Mustakil/@x.EmlakTipiID">
+            <div class="region-element">
+                <span class="city">@x.EmlakTipAd</span>
+                <span class="count">@ViewBag.d4</span>
+            </div>
+        </a>
+    }
+
+
+
+    if (x.EmlakTipiID == 5)
+    {
+        <a href="/ilanlar/Dubleks/@x.EmlakTipiID">
+            <div class="region-element">
+                <span class="city">@x.EmlakTipAd</span>
+                <span class="count">@ViewBag.d5</span>
+            </div>
+        </a>
+    }
+
+    if (x.EmlakTipiID == 6)
+    {
+        <a href="/ilanlar/Arazi/@x.EmlakTipiID">
+            <div class="region-element">
+                <span class="city">@x.EmlakTipAd</span>
+                <span class="count">@ViewBag.d6</span>
+            </div>
+        </a>
+    }
+
+    if (x.EmlakTipiID == 7)
+    {
+        <a href="/ilanlar/Dukkan/@x.EmlakTipiID">
+            <div class="region-element">
+                <span class="city">@x.EmlakTipAd</span>
+                <span class="count">@ViewBag.d7</span>
+            </div>
+        </a>
+    }
+
+
+    if (x.EmlakTipiID == 8)
+    {
+        <a href="/ilanlar/isyeri/@x.EmlakTipiID">
+            <div class="region-element">
+                <span class="city">@x.EmlakTipAd</span>
+                <span class="count">@ViewBag.d8</span>
+            </div>
+        </a>
+    }
+
+
+    if (x.EmlakTipiID == 9)
+    {
+        <a href="/ilanlar/Bahce/@x.EmlakTipiID">
+            <div class="region-element">
+                <span class="city">@x.EmlakTipAd</span>
+                <span class="count">@ViewBag.d9</span>
+            </div>
+        </a>
+    }
+
+
+
+
+    if (x.EmlakTipiID == 10)
+    {
+        <a href="/ilanlar/Petrolistasyon/@x.EmlakTipiID">
+            <div class="region-element">
+                <span class="city">@x.EmlakTipAd</span>
+                <span class="count">@ViewBag.d10</span>
+            </div>
+        </a>
+    }
+
+
+
+    if (x.EmlakTipiID == 11)
+    {
+        <a href="/ilanlar/Ciftlik/@x.EmlakTipiID">
+            <div class="region-element">
+                <span class="city">@x.EmlakTipAd</span>
+                <span class="count">@ViewBag.d11</span>
+            </div>
+        </a>
+    }
+
+
+
+    if (x.EmlakTipiID == 12)
+    {
+        <a href="/ilanlar/Ahir/@x.EmlakTipiID">
+            <div class="region-element">
+                <span class="city">@x.EmlakTipAd</span>
+                <span class="count">@ViewBag.d12</span>
+            </div>
+        </a>
+    }
+
+    if (x.EmlakTipiID == 13)
+    {
+        <a href="/ilanlar/Otomobil/@x.EmlakTipiID">
+            <div class="region-element">
+                <span class="city">@x.EmlakTipAd</span>
+                <span class="count">@ViewBag.d13</span>
+            </div>
+        </a>
+    }
+
+
+
+    if (x.EmlakTipiID == 14)
+    {
+        <a href="/ilanlar/Traktor/@x.EmlakTipiID">
+            <div class="region-element">
+                <span class="city">@x.EmlakTipAd</span>
+                <span class="count">@ViewBag.d14</span>
+            </div>
+        </a>
+    }
+
+
+
+
+
+}

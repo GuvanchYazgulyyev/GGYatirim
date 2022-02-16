@@ -1,0 +1,179 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+.agency-normal-wrapper {
+  border-radius: 2px;
+  border: 2px solid @agency-normal-wrap-border-color;
+  background-color: @agency-normal-wrap-bg-color;
+  padding: 24px;
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: max-content 1fr;
+  -ms-grid-columns: max-content 1fr;
+  grid-column-gap: 34px;
+  grid-row-gap: 34px;
+
+}
+
+.agency-normal-info-block {
+
+  font-family: @main-font;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.44px;
+
+  span {
+    word-break: break-all;
+    color: @agency-normal-contact-text-color;
+    i {
+      margin-right: 8px;
+      color: @agency-normal-contact-icon-color;
+
+    }
+
+    .fa-phone {
+      font-size: 16px;
+    }
+    .fa-skype {
+      font-size: 16px;
+    }
+    .fa-envelope {
+      font-size: 15px;
+    }
+    .fa-comment {
+      font-size: 15px;
+    }
+  }
+
+  h2 {
+    color: @agency-normal-header-color;
+    font-family: @main-font;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 6px 0 20px 0;
+  }
+
+  p {
+    color: @agency-normal-paragraph-color;
+
+  }
+
+  .address_block {
+    display: flex;
+    span {
+      color: @agency-normal-address-text-color;
+      margin: auto 0 auto 0;
+    }
+    i {
+      font-size: 16px;
+      margin: auto 8px auto 0;
+      color: @agency-normal-address-icon-color;
+    }
+  }
+
+  .contact-information-block {
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-row-gap: 20px;
+
+    .information-column {
+      display: grid;
+      display: -ms-grid;
+      grid-template-columns: max-content max-content;
+      -ms-grid-columns: max-content max-content;
+      grid-column-gap: 10px;
+      grid-row-gap: 10px;
+      .values {
+        color: @agency-normal-contact-values-color;
+        word-break: break-all;
+      }
+    }
+
+    img {
+      height: 16px;
+      width: 16px;
+      position: relative;
+      top: -2px;
+      margin-right: 8px;
+    }
+
+  }
+
+}
+
+.agency-normal-logo {
+  display: flex;
+  img {
+    height: 120px;
+    width: 120px;
+    object-fit: contain;
+
+  }
+}
+
+@media (max-width: 1200px) {
+  .agency-normal-info-block {
+    .contact-information-block {
+      grid-template-columns: 1fr 1fr;
+      -ms-grid-columns: 1fr 1fr;
+      grid-row-gap: 10px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .agency-normal-wrapper {
+    grid-template-columns: 1fr;
+    -ms-grid-columns: 1fr;
+    .agency-normal-logo {
+      img {
+        margin: auto;
+      }
+    }
+  }
+
+  .agency-normal-info-block {
+    .contact-information-block {
+      grid-template-columns: 1fr 1fr;
+      -ms-grid-columns: 1fr 1fr;
+      grid-row-gap: 10px;
+    }
+    .address_block {
+      i {
+        margin: auto 8px auto auto;
+      }
+      span {
+        margin: auto auto auto 0;
+      }
+    }
+    h2 {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+
+  .agency-normal-info-block {
+    .contact-information-block {
+      grid-template-columns: 1fr;
+      -ms-grid-columns: 1fr;
+      grid-row-gap: 10px;
+    }
+  }
+
+  .agency-normal-info-block {
+    .contact-information-block {
+      .information-column {
+        grid-template-columns: max-content 1fr;
+        -ms-grid-columns: max-content 1fr;
+      }
+    }
+  }
+}

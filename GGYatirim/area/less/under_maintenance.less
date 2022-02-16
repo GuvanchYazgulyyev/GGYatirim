@@ -1,0 +1,112 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.maintenance-page-container {
+  background-color: @maintenance-page-bg-color;
+}
+
+.maintenance-page {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+
+  .icons__item:hover {
+    text-decoration: none;
+    color: @maintenance-page-social-icons-hover-text-color;
+    box-shadow: 0 1px 10px @maintenance-page-social-icons-hover-shadow;
+    background-color: @maintenance-page-social-icons-hover-bg-color;
+  }
+
+  .icons__item {
+    width: 40px;
+    height: 40px;
+    color: @maintenance-page-social-icons-text-color;
+    font-size: 17px;
+    background-color: @maintenance-page-social-icons-bg-color;
+    border-radius: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 12px 0 12px 0;
+    line-height: 1px;
+  }
+
+  .icons__item_margin-right_small {
+    margin-right: 16px;
+  }
+
+  .back-img {
+    img {
+      width: 100%;
+      max-width: 512px;
+    }
+  }
+
+  .logo-block:hover {
+    text-decoration: none;
+  }
+
+  .logo-block {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .logo-block__logo {
+    margin: auto 10px auto 0;
+  }
+
+  .logo-block__title {
+    margin: auto 0;
+    color: @maintenance-page-title-color;
+    font-family: @secondary-font;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+
+  }
+}
+
+.maintenance-page h1 {
+  color: @maintenance-page-header-color;
+  font-family: @main-font;
+  font-size: 48px;
+}
+
+.maintenance-page p {
+  color: @maintenance-page-paragraph-color;
+  font-family: @main-font;
+  font-size: 20px;
+}
+
+.maintenance-page {
+  color: @maintenance-page-text-color;
+  font-family: @main-font;
+  font-size: 16px;
+  line-height: 26px;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 991px) {
+
+  .maintenance-page {
+    align-items: center;
+    padding-bottom: 40px;
+    padding-top: 40px;
+  }
+
+  .maintenance-page__main-block {
+    text-align: center;
+  }
+}
+
+
+

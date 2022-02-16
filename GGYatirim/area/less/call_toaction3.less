@@ -1,0 +1,110 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.call-to-action-section-3 {
+  background-color: @call-to-action-3-bg-color;
+  padding: 64px 0 64px;
+}
+
+.call-to-action-section-3 {
+  .slogan-wrap {
+    display: flex;
+    h2 {
+      margin: auto 0;
+      color: @call-to-action-3-header-color;
+      font-family: @main-font;
+      font-size: 20px;
+      font-weight: 600;
+    }
+  }
+  .action-wrapper {
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: max-content max-content;
+    -ms-grid-columns: max-content max-content;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+
+  .form-wrap {
+
+    input[type="email"] {
+      width: 322px;
+      height: 40px;
+      border-radius: 2px;
+      border: 2px solid @call-to-action-3-input-border-color;
+      background-color: @call-to-action-3-input-bg-color;
+      padding-left: 8px;
+    }
+    input[type="email"]:focus {
+      border: 2px solid @call-to-action-3-input-focus-border-color;
+      outline: @call-to-action-3-input-focus-border-color;
+    }
+
+    input[type="submit"] {
+      color: @call-to-action-3-submit-text-color;
+      font-family: @secondary-font;
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      height: 40px;
+      border-radius: 2px;
+      border: 2px solid @call-to-action-3-submit-border-color;
+      background-color: @call-to-action-3-submit-bg-color;
+    }
+
+    form {
+      display: grid;
+      display: -ms-grid;
+      grid-template-columns: max-content max-content;
+      -ms-grid-columns: max-content max-content;
+      grid-column-gap: 10px;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .call-to-action-section-3 {
+    .action-wrapper {
+      grid-template-columns: 1fr;
+      -ms-grid-columns: 1fr;
+      grid-row-gap: 20px;
+      justify-content: center;
+
+    }
+    .slogan-wrap {
+      h2 {
+        margin: auto;
+      }
+    }
+    .form-wrap {
+      form {
+        justify-content: center;
+      }
+    }
+  }
+
+}
+
+@media (max-width: 450px) {
+
+  .call-to-action-section-3 {
+
+    .form-wrap {
+      form {
+        grid-template-columns: 1fr;
+        grid-row-gap: 15px;
+      }
+      input[type="email"] {
+        width: 100%;
+      }
+    }
+  }
+
+}

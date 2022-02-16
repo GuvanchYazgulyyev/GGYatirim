@@ -1,0 +1,39 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.advertisement-link {
+  width: 100%;
+
+  .advertisement-block {
+    display: flex;
+    padding: 53px 0 52px 0;
+    background-color: @advertisement-block-bg-color;
+    border-radius: 2px;
+    border: 2px solid @advertisement-block-border-color;
+    span {
+      margin: auto;
+      color: @advertisement-block-text-color;
+      font-family: @secondary-font;
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+  }
+}
+
+.advertisement-link:hover {
+  text-decoration: none;
+  .advertisement-block {
+    background-color: @advertisement-block-hover-bg-color;
+    border-color: @advertisement-block-hover-border-color;
+    span {
+      color: @advertisement-block-hover-text-color;
+    }
+  }
+}

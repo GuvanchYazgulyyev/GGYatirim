@@ -1,0 +1,358 @@
+@header-background-color: #fff;
+@header-border-color: #99a1b6;
+@header-main-list-text-color: #6495fe;
+@header-logo-text-color: #37466f;
+@header-list-mark-background-color: #DBDBDB; 
+@header-buttons-border: #99a1b6;
+@header-signin-background-color: #f7f7f7;
+@header-signin-text-color: #527efd;
+@header-registration-background-color: #6495fe;
+@header-registration-text-color: #fff;
+@header-smallscreen-button-background: #f7f7f7;
+@header-smallscreen-button-color: #527efd;
+@header-logo-text-weight: 900;
+@header-logo-text-trunsform: uppercase;
+@header-logo-font-family: "Montserrat";
+@header-submenu-background-color: #fff;
+@header-submenu-text-color: #37466f;
+@header-smallscreen-buttons-color: #527efd;
+@header-menu-hover-color: #6495fe;
+
+.header {
+    background: @header-background-color;
+    border-bottom: 2px solid fade(@header-border-color, 8%);
+}
+
+.header .wrapper {
+    display: inline-block;
+    font-size: 0;
+    width: 100%;
+    text-align: right;
+    position: relative;
+}
+.header .wrapper > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+.header .logo {
+    float: left;
+    padding: 22px 0;
+    display: inline-block;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+.header .logo img {
+    height: 40px;
+    object-fit: contain;
+}
+.header .logo span {
+    color: @header-logo-text-color;
+    text-transform: @header-logo-text-trunsform;
+    font-weight: @header-logo-text-weight;
+    font-size: 14px;
+    line-height: 40px;
+    font-family: @header-logo-font-family;
+}
+.header .menu-list {
+  width: 60%;
+  padding-right: 32px;
+  z-index: 20;
+}
+.header .menu-list ul {
+    padding: 0;
+    margin: 0;
+}
+.header .menu-list div > ul > li {
+    display: inline-block;
+    padding-right: 41px;
+}
+.header .menu-list div > ul > li:last-child {
+    padding: 0;
+}
+.header .menu-list > div > ul > li > a {
+    display: block;
+    position: relative;
+    color: @header-main-list-text-color;
+    font-family: @secondary-font;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 34px 0;
+}
+.header .menu-list > div > ul > li > a:before {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: fade(@header-list-mark-background-color, 50%);
+    left: -25px;
+    top: 38px;
+} 
+.header .menu-list > div > ul > li:first-child > a:before {
+    display: none;
+}
+.header .subscribe-buttons {
+    height: 100%;
+    padding: 17px 0 17px 32px;
+    position: relative;
+}
+.header .subscribe-buttons > button > i {
+    display: none;
+}
+.header .subscribe-buttons:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    width: 2px;
+    left: 0;
+    background: fade(@header-buttons-border, 8%);
+}
+.header .subscribe-buttons button {
+    font-family: @secondary-font;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-radius: 20px;
+    padding: 13px 21px 12px 21px;
+    border: none;
+}
+.header .subscribe-buttons button:first-child {
+  margin-right: 20px;
+}
+.header .subscribe-buttons .sign-in {
+    background-color: @header-signin-background-color;
+    color: @header-signin-text-color;
+}
+.header .subscribe-buttons .registration {
+    background-color: @header-registration-background-color;
+    color: @header-registration-text-color;
+}
+.header .wrapper > button {
+    display: none;
+    position: relative;
+    float: left;
+    padding: 5px 11px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin: 26px 0 0 0;
+    z-index: 1;
+    background-color: @header-smallscreen-button-background;
+    color: @header-smallscreen-button-color;
+    font-size: 16px;
+}
+.header .menu-list .sub-menu {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  text-align: left;
+  float: left;
+  left: 0;
+  right: 0;
+  padding: 30px 30px 31px 30px;
+  box-shadow: 0 1px 20px rgba(55, 70, 111, 0.16);
+  border-radius: 2px;
+  border: 2px solid #eff0f3;
+  background-color: @header-submenu-background-color;
+  list-style-type: none;
+  margin: -10px 0 0 0;
+  justify-content: space-between;
+  z-index: 1;
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
+  -webkit-transform-origin: 50% 0;
+  -webkit-transition: 350ms;
+  -moz-transition: 350ms;
+  -o-transition: 350ms;
+  transition: 350ms;
+}
+.header .menu-list .sub-menu.small { 
+    left: auto;
+    right: auto;
+    flex-direction: column;
+}
+.header .menu-list .sub-menu.small > li > ul {
+    margin-right: 30px;
+}
+.header .menu-list .sub-menu.small > li:last-child > ul {
+    margin: 0;
+}
+.header .menu-list .sub-menu > li > ul {
+  padding: 0;
+  list-style-type: none;
+}
+.header .wrapper ul > li > ul > li > a {
+  color: @header-submenu-text-color;
+  font-family: @main-font;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.44px;
+  text-transform: capitalize;
+  display: block;
+  position: relative;
+  padding: 0 0 10px 24px;
+}
+.header .menu-list > div > ul > li > ul > li:last-child > a {
+  padding-bottom: 0;
+}
+.header .menu-list > div > ul > li > ul > li > ul > li > a:before {
+  content: "\f138";
+  position: absolute;
+  top: -1px;
+  width: 14px;
+  height: 16px;
+  color: #99a1b6;
+  left: 0;
+  font-family: "FontAwesome";
+}
+.header .menu-list li.destanations > ul > li > a:before {
+  content: "\f0ac";
+}
+.header .menu-list .sub-menu > li > ul > li > ul > li > ul > li > a:before {
+  content: "\f0ac";
+}
+.header .menu-list > div > ul > li > ul > li > ul > li:first-child {
+  color: #37466f;
+  font-family: @main-font;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.28px;
+  text-transform: capitalize;
+  padding-bottom: 20px;
+  min-height: 40px;
+}
+.header .menu-list ul > li:hover > .sub-menu {
+  z-index: 100;
+  max-height: 1000px;
+  -webkit-transform: perspective(400px) rotate3d(0, 0, 0, 0);
+}
+.header .navbar-collapse {
+  padding: 0;
+  float: right;
+}
+.header .menu-list > div > ul > li:hover > a:after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  background-color: @header-menu-hover-color;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+}
+.header .menu-list > div > ul > li:hover > a,
+.header .menu-list > div > ul > li:hover > a:active {
+  text-decoration: none;
+}
+@media (max-width: 1199px) {
+  .header .subscribe-buttons > button > i {
+    display: block;
+  }
+  .header .subscribe-buttons > button > span {
+    display: none;
+  }
+  .header .menu-list {
+    padding-right: 20px;
+  }
+  .header .subscribe-buttons {
+    padding-left: 20px;
+  }
+  .header .menu-list > div > ul > li > a:before {
+    left: -17px;
+  }
+  .header .menu-list div > ul > li {
+    padding-right: 27px;
+  }
+}
+
+@media (max-width: 991px) {
+  .header .logo {
+    float: none;
+    width: 65%;
+    text-align: center;
+  }
+  .header .navbar-collapse {
+    width: 100%;
+    text-align: center;
+    border: 2px solid rgba(153, 161, 182, .08);
+  }
+  .header .wrapper > button {
+    display: block;
+  }
+  .header .navbar-collapse.collapse.in {
+    display: block !important;
+  }
+  .header .navbar-collapse.collapse {
+    display: none !important;
+  }
+  .header .menu-list {
+    width: 100%;
+    padding-right: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 84px;
+    text-align: center;
+    background-color: @header-background-color;
+  }
+}
+@media (max-width: 575px) {
+  .header .logo {
+    width: auto;
+    padding: 15px 0;
+  }
+  .header .subscribe-buttons .sign-in,
+  .header .subscribe-buttons .registration {
+    background: transparent;
+    color: @header-smallscreen-buttons-color;
+  }
+  .header .subscribe-buttons button {
+    font-size: 16px;
+    padding: 0;
+  }
+  .header .wrapper > button {
+    margin-top: 20px;
+    float: right;
+  }
+  .header .subscribe-buttons {
+    padding-left: 20px;
+    float: left;
+    margin-left: 20px;
+    padding: 27px 0 28px 32px;
+  }
+  .header .logo {
+    float: left;
+  }
+  .header .menu-list .sub-menu {
+    flex-direction: column;
+    text-align: center;
+  }
+  .header .menu-list .sub-menu.small {
+      left: 0px;
+      right: 0px;
+  }
+  .header .menu-list > div > ul > li > ul > li > ul > li:first-child {
+    min-height: auto;
+  }
+  .header .menu-list > div > ul > li > a {
+    padding: 20px 0;
+  }
+  .header .menu-list div > ul > li {
+    padding: 0;
+    width: 100%;
+  }
+  .header .wrapper ul > li > ul > li > a {
+    padding: 0 0 10px 0px;
+  }
+  .header .menu-list > div > ul > li > a:before {
+    display: none;
+  }
+  .header .menu-list .sub-menu.small > li > ul {
+      margin: 0;
+  }
+}

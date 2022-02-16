@@ -1,0 +1,70 @@
+﻿@using GGYatirim.Models.Sinif
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<DbKullanici>
+@{
+    ViewBag.Title = "AdmKayitliKullanici";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+
+<div class="container m-b-30" style="margin-top:30px;">
+    <!--AGENT GRID FS BEGIN-->
+    <div class="agent-grid-fs">
+        @foreach (var x in Model)
+        {
+            <div class="agent-item">
+                <img src="@x.Resim" alt="Profil">
+                <h3 class="agent-name">@x.KisiAdi @x.KisiSoyadi</h3>
+                <span class="agent-district">@x.Meslek</span>
+                <span class="agent-district">Kullanıcı No:<b> @x.KullaniciNo</b></span>
+                <div class="phone-wrapper">
+                    <div class="phone1">
+                        <i class="fa fa-calendar" aria-hidden="true"></i>
+                        <span class="phone-type">Kayıt Tarihi:&emsp;</span>
+                    </div>
+                    <span class="phone-number office">@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</span> <br>
+
+                    <div class="phone2">
+                        <i class="fa fa-mobile" aria-hidden="true"></i>
+                        <span class="phone-type">Telefon:&emsp;</span>
+                    </div>
+                    <span class="phone-number mobile">@x.Telefon</span> <br>
+                </div>
+
+                <div class="agent-social-icons">
+                    <a href="@x.Face">
+                        <i class="fa fa-facebook icons" aria-hidden="true"></i>
+                    </a>
+                    <a href="@x.instagram">
+                        <i class="fa fa-instagram icons" aria-hidden="true"></i>
+                    </a>
+
+
+                    <a href="/Admin/AdmKayitliKullaniciSil/@x.KullaniciID" alt="Sil(Sil)">
+                        <i class="fa fa-remove" aria-hidden="true"></i>
+                    </a>
+
+
+                    <a href="/Admin/AdmKayitliKullaniciGetr/@x.KullaniciID" alt="Düzenle(Detay)">
+                        <i class="fa fa-edit" aria-hidden="true"></i>
+                    </a>
+
+
+
+                </div>
+            </div>
+        }
+
+
+
+    </div>
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("AdmKayitliKullanici", new { sayfa }))
+    <!--AGENT GRID FS END-->
+</div>
+
+
+
+

@@ -1,0 +1,32 @@
+﻿@model GGYatirim.Models.Sinif.ResimDeneme
+@{
+    ViewBag.Title = "AdmResimEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div style="width:80%;" class="col-md-12">
+    <h2> Resim Ekle</h2>
+    <h1>@ViewBag.mesaj</h1>
+
+    @using (Html.BeginForm("AdmResimEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+
+
+        <input name="CokluResim" multiple="true" type="file">
+
+
+
+        <div class="select-type">
+            <p class="input-header">İlan Adı</p>
+            @Html.DropDownListFor(x => x.ialnID, (List<SelectListItem>)ViewBag.dgr2 , new { @class = "form-control", @style = "background: #fff; border-bottom: 1px solid #ebc858;  margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height:50px;" })
+
+        </div>
+        @Html.HiddenFor(x => x.ResimID)
+
+        <br />
+        <button class="btn btn-success">Yeni Resim Ekle</button>
+
+    }
+</div>

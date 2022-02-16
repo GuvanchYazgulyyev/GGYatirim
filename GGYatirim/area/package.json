@@ -1,0 +1,26 @@
+{
+  "name": "team",
+  "version": "1.0.0",
+  "description": "Team Html Template",
+  "devDependencies": {
+    "grunt": "1.0.1",
+    "grunt-bower": "*",
+    "grunt-concurrent": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-compress": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-cssmin": "*",
+    "grunt-contrib-imagemin": "*",
+    "grunt-contrib-jshint": "^1.1.0",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-git": "*",
+    "grunt-mkdir": "*",
+    "load-grunt-config": "*"
+  },
+  "dependencies": {
+    "time-grunt": "*",
+    "underscore": "*"
+  }
+}

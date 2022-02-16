@@ -1,0 +1,285 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.featured-agents {
+  border-radius: 2px;
+  border: 2px solid @sidebar-featured-agents-border-color;
+  background-color: @sidebar-featured-agents-bg-color;
+  padding: 24px;
+
+  h2 {
+    color: @sidebar-featured-agents-header-color;
+    font-family: @main-font;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 16px;
+  }
+
+  .agents-wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 16px;
+    margin: 0 0 22px;
+  }
+}
+
+.featured-agents-link {
+  color: @sidebar-featured-agents-link-color;
+  font-family: @secondary-font;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+
+}
+
+.featured-agents-link:hover {
+  color: @sidebar-featured-agents-link-hover-color;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+}
+
+.featured-agents-agent {
+  border-radius: 2px;
+  border: 2px solid @sidebar-featured-agents-agent-border-color;
+  background-color: @sidebar-featured-agents-agent-bg-color;
+  padding: 24px;
+  min-width: 238px;
+  max-width: 308px;
+  width: 100%;
+  .agent-information {
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: max-content 1fr;
+    -ms-grid-columns: max-content 1fr;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+
+  }
+
+  .agent-name {
+    padding-top: 11px;
+    h3 {
+      color: @sidebar-featured-agents-agent-name-color;
+      font-family: @main-font;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.28px;
+      margin: 0;
+    }
+    p {
+      color: @sidebar-featured-agents-agent-district-color;
+      font-family: @main-font;
+      font-size: 14px;
+      line-height: 22px;
+      letter-spacing: 0.44px;
+    }
+  }
+
+  .agent-photo {
+    position: relative;
+    img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+    .agent-status {
+      position: absolute;
+      top: 10%;
+    }
+  }
+
+  .agent-links {
+    margin: 16px 0 0;
+    display: grid;
+    display: -ms-grid;
+    justify-content: space-between;
+    grid-template-columns: 1fr max-content;
+    -ms-grid-columns: 1fr max-content;
+
+    .social-btn {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .icons__item:hover {
+      text-decoration: none;
+      color: @sidebar-featured-agents-social-icons-hover-text-color;
+      box-shadow: 0 1px 10px @sidebar-featured-agents-social-icons-hover-shadow;
+      background-color: @sidebar-featured-agents-social-icons-hover-bg-color;
+    }
+
+    .icons__item {
+      width: 40px;
+      height: 40px;
+      color: @sidebar-featured-agents-social-icons-text-color;
+      font-size: 17px;
+      background-color: @sidebar-featured-agents-social-icons-bg-color;
+      border-radius: 100%;
+      display: inline-block;
+      text-align: center;
+      padding: 12px 0 12px 0;
+      line-height: 1px;
+      margin-right: 16px;
+    }
+
+    .icon-link {
+      padding: 12px 17px 11px 17px;
+      border-radius: 20px;
+      background-color: @sidebar-featured-agents-social-icons-bg-color;
+      display: flex;
+      i {
+        font-size: 16px;
+        position: relative;
+        margin: auto 12px auto 0;
+        color: @sidebar-featured-agents-social-icons-text-color;
+        top: 0;
+      }
+      span {
+        display: inline-block;
+        color: @sidebar-featured-agents-social-icons-span-color;
+        font-family: @secondary-font;
+        font-size: 12px;
+        font-weight: 400;
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        margin: auto 0 auto 0;
+      }
+    }
+    .icon-link:hover {
+      box-shadow: 0 1px 10px @sidebar-featured-agents-social-icons-hover-shadow;
+      border-radius: 20px;
+      background-color: @sidebar-featured-agents-social-icons-hover-bg-color;
+      text-decoration: none;
+      i {
+        color: @sidebar-featured-agents-social-icons-hover-text-color;
+      }
+      span {
+        color: @sidebar-featured-agents-social-icons-hover-text-color;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px ) and (max-width: 1199px) {
+  .featured-agents-agent {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 700px) and (max-width: 991px) {
+  .featured-agents {
+    .agents-wrapper {
+      grid-template-columns: max-content max-content;
+      -ms-grid-columns: max-content max-content;
+      justify-content: space-around;
+    }
+  }
+
+  .featured-agents-agent {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 699px) {
+  .featured-agents-agent {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 450px) {
+  .featured-agents-agent {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .featured-agents-agent {
+    .agent-links {
+      .icons__item:nth-child(n+4) {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px ) {
+  .featured-agents-agent {
+    .agent-links {
+      .icons__item:nth-child(n+3) {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+@media (min-width: 700px) and (max-width: 991px ) {
+  .featured-agents-agent {
+    .agent-links {
+      .icons__item:nth-child(n+4) {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+@media (min-width: 492px) and (max-width: 547px ) {
+  .featured-agents-agent {
+    .agent-links {
+      .icons__item:nth-child(n+6) {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+@media (min-width: 475px) and (max-width: 491px ) {
+  .featured-agents-agent {
+    .agent-links {
+      .icons__item:nth-child(n+5) {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+@media (min-width: 428px) and (max-width: 474px ) {
+  .featured-agents-agent {
+    .agent-links {
+      .icons__item:nth-child(4) {
+        margin-right: 0;
+      }
+      .icons__item:nth-child(n+5) {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+@media (min-width: 372px) and (max-width: 427px ) {
+  .featured-agents-agent {
+    .agent-links {
+      .icons__item:nth-child(n+4) {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 371px ) {
+  .featured-agents-agent {
+    .agent-links {
+      .icons__item:nth-child(n+3) {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+

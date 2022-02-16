@@ -1,0 +1,363 @@
+@header2-background-color: #fff;
+@header2-border-color: #99a1b6;
+@header2-main-list-text-color: #6495fe;
+@header2-logo-text-color: #37466f;
+@header2-list-mark-background-color: #DBDBDB; 
+@header2-buttons-border: #99a1b6;
+@header2-signin-background-color: #f7f7f7;
+@header2-signin-text-color: #527efd;
+@header2-registration-background-color: #6495fe;
+@header2-registration-text-color: #fff;
+@header2-smallscreen-button-background: #f7f7f7;
+@header2-smallscreen-button-color: #527efd;
+@header2-logo-text-weight: 900;
+@header2-logo-text-trunsform: uppercase;
+@header2-logo-font-family: "Montserrat";
+@header2-submenu-background-color: #fff;
+@header2-submenu-text-color: #37466f;
+@header2-smallscreen-buttons-color: #527efd;
+@header2-menu-hover-color: #6495fe;
+.header2 {
+    background: @header2-background-color;
+    border-bottom: 2px solid fade(@header2-border-color, 8%);
+}
+.header2.stick-header2 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+}
+.header2 .wrapper {
+    display: inline-block;
+    font-size: 0;
+    width: 100%;
+    text-align: right;
+    position: relative;
+}
+.header2 .wrapper > div {
+    display: inline-block;
+    vertical-align: middle;
+}
+.header2 .logo {
+    float: left;
+    padding: 22px 20px 22px 0px;
+    display: inline-block;
+    vertical-align: middle;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+.header2 .logo img {
+    height: 40px;
+    object-fit: contain;
+}
+.header2 .logo span {
+    color: @header2-logo-text-color;
+    text-transform: @header2-logo-text-trunsform;
+    font-weight: @header2-logo-text-weight;
+    font-size: 14px;
+    line-height: 40px;
+    font-family: @header2-logo-font-family;
+}
+.header2 .menu-list {
+  width: 60%;
+  padding-right: 32px;
+  z-index: 20;
+  float: left;
+}
+.header2 .menu-list ul {
+    padding: 0;
+    margin: 0;
+}
+.header2 .menu-list div > ul > li {
+    display: inline-block;
+    padding-right: 41px;
+}
+.header2 .menu-list div > ul > li:last-child {
+    padding: 0;
+}
+.header2 .menu-list > div > ul > li > a {
+    display: block;
+    position: relative;
+    color: @header2-main-list-text-color;
+    font-family: @secondary-font;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    padding: 34px 0;
+}
+.header2 .menu-list > div > ul > li > a:before {
+    content: "";
+    position: absolute;
+    width: 9px;
+    height: 9px;
+    background: fade(@header2-list-mark-background-color, 50%);
+    left: -25px;
+    top: 38px;
+} 
+.header2 .menu-list > div > ul > li:first-child > a:before {
+    display: none;
+}
+.header2 .subscribe-buttons {
+    padding: 17px 0 17px 32px;
+    position: relative;
+    float: right !important;
+    top: 7px;
+}
+.header2 .subscribe-buttons > button > i {
+    display: none;
+}
+.header2 .subscribe-buttons:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    width: 2px;
+    left: 0;
+    background: fade(@header2-buttons-border, 8%);
+    display: none;
+}
+.header2 .subscribe-buttons button {
+    font-family: @secondary-font;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    border-radius: 20px;
+    padding: 13px 21px 12px 21px;
+    border: none;
+}
+.header2 .subscribe-buttons button:first-child {
+  margin-right: 0px;
+}
+.header2 .subscribe-buttons .sign-in {
+    background-color: @header2-signin-background-color;
+    color: @header2-signin-text-color;
+}
+.header2 .subscribe-buttons .registration {
+    background-color: @header2-registration-background-color;
+    color: @header2-registration-text-color;
+}
+.header2 .wrapper > button {
+    display: none;
+    position: relative;
+    float: left;
+    padding: 5px 11px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    margin: 26px 0 0 0;
+    z-index: 1;
+    background-color: @header2-smallscreen-button-background;
+    color: @header2-smallscreen-button-color;
+    font-size: 16px;
+}
+.header2 .menu-list .sub-menu {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    text-align: left;
+    float: left;
+    left: 0;
+    right: 0;
+    padding: 30px 30px 31px 30px;
+    box-shadow: 0 1px 20px rgba(55, 70, 111, 0.16);
+    border-radius: 2px;
+    border: 2px solid rgba(153,161,182,.08);
+    background-color: @header2-submenu-background-color;
+    list-style-type: none;
+    margin: -10px 0 0 0;
+    justify-content: space-between;
+    z-index: 1;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
+    -webkit-transform-origin: 50% 0;
+    -webkit-transition: 350ms;
+    -moz-transition: 350ms;
+    -o-transition: 350ms;
+    transition: 350ms;
+}
+.header2 .menu-list .sub-menu.small { 
+    left: auto;
+    right: auto;
+    flex-direction: column;
+}
+.header2 .menu-list .sub-menu.small > li > ul {
+    margin-right: 30px;
+}
+.header2 .menu-list .sub-menu.small > li:last-child > ul {
+    margin: 0;
+}
+.header2 .menu-list .sub-menu > li > ul {
+  padding: 0;
+  list-style-type: none;
+}
+.header2 .wrapper ul > li > ul > li > a {
+  color: @header2-submenu-text-color;
+  font-family: @main-font;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.44px;
+  text-transform: capitalize;
+  display: block;
+  position: relative;
+  padding: 0 0 10px 24px;
+}
+.header2 .menu-list > div > ul > li > ul > li:last-child > a {
+  padding-bottom: 0;
+}
+.header2 .menu-list > div > ul > li > ul > li > ul > li > a:before {
+  content: "\f138";
+  position: absolute;
+  top: -1px;
+  width: 14px;
+  height: 16px;
+  color: #99a1b6;
+  left: 0;
+  font-family: "FontAwesome";
+}
+.header2 .menu-list li.destanations > ul > li > a:before {
+  content: "\f0ac";
+}
+.header2 .menu-list .sub-menu > li > ul > li > ul > li > ul > li > a:before {
+  content: "\f0ac";
+}
+.header2 .menu-list > div > ul > li > ul > li > ul > li:first-child {
+  color: #fff;
+  font-family: @main-font;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.28px;
+  text-transform: capitalize;
+  padding-bottom: 20px;
+  min-height: 40px;
+}
+.header2 .menu-list ul > li:hover > .sub-menu {
+  z-index: 100;
+  max-height: 1000px;
+  -webkit-transform: perspective(400px) rotate3d(0, 0, 0, 0);
+}
+.header2 .navbar-collapse {
+  padding: 0;
+  float: right;
+}
+.header2 .menu-list > div > ul > li:hover > a:after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  background-color: @header2-menu-hover-color;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+}
+.header2 .menu-list > div > ul > li:hover > a,
+.header2 .menu-list > div > ul > li:hover > a:active {
+  text-decoration: none;
+}
+@media (max-width: 1199px) {
+  .header2 .subscribe-buttons > button > i {
+    display: block;
+  }
+  .header2 .subscribe-buttons > button > span {
+    display: none;
+  }
+  .header2 .menu-list {
+    padding-right: 20px;
+  }
+  .header2 .subscribe-buttons {
+    padding-left: 20px;
+  }
+  .header2 .menu-list > div > ul > li > a:before {
+    left: -17px;
+  }
+  .header2 .menu-list div > ul > li {
+    padding-right: 27px;
+  }
+}
+
+@media (max-width: 991px) {
+  .header2 .logo {
+    float: none;
+    width: 65%;
+    text-align: center;
+    padding-right: 0px;
+  }
+  .header2 .navbar-collapse {
+    width: 100%;
+    text-align: center;
+    border: 2px solid rgba(153, 161, 182, .08);
+  }
+  .header2 .wrapper > button {
+    display: block;
+  }
+  .header2 .navbar-collapse.collapse.in {
+    display: block !important;
+  }
+  .header2 .navbar-collapse.collapse {
+    display: none !important;
+  }
+  .header2 .menu-list {
+    width: 100%;
+    padding-right: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 84px;
+    text-align: center;
+    background-color: @header2-background-color;
+  }
+}
+@media (max-width: 575px) {
+  .header2 .logo {
+    width: auto;
+    padding: 15px 0;
+  }
+  .header2 .subscribe-buttons button {
+    font-size: 16px;
+    padding: 0;
+  }
+  .header2 .wrapper > button {
+    margin-top: 20px;
+    float: right;
+  }
+  .header2 .subscribe-buttons {
+    padding-left: 20px;
+    float: left;
+    margin-left: 20px;
+    padding: 27px 0 28px 32px;
+    display: none !important;
+  }
+  .header2 .logo {
+    float: left;
+  }
+  .header2 .menu-list .sub-menu {
+    flex-direction: column;
+    text-align: center;
+  }
+  .header2 .menu-list .sub-menu.small {
+      left: 0px;
+      right: 0px;
+  }
+  .header2 .menu-list > div > ul > li > ul > li > ul > li:first-child {
+    min-height: auto;
+  }
+  .header2 .menu-list > div > ul > li > a {
+    padding: 20px 0;
+  }
+  .header2 .menu-list div > ul > li {
+    padding: 0;
+    width: 100%;
+  }
+  .header2 .wrapper ul > li > ul > li > a {
+    padding: 0 0 10px 0px;
+  }
+  .header2 .menu-list > div > ul > li > a:before {
+    display: none;
+  }
+  .header2 .menu-list .sub-menu.small > li > ul {
+      margin: 0;
+  }
+}

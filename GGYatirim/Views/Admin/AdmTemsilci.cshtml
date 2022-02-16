@@ -1,0 +1,40 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.DbTemsilci>
+@{
+    ViewBag.Title = "AdmTemsilci";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="col-md-10 col-sm-12 col-xs-12">
+    <h3>Temsilciler</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Ad Soyad</th>
+            <th>E Posta</th>
+            <th>Makam</th>
+            <th>Tel</th>
+            <th>Resim</th>
+            <th>Kayıt Tarihi</th>
+
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.AdSoyad</td>
+                <td>@x.EPosta</td>
+                <td>@x.Makam</td>
+                <td>@x.Tel</td>
+                <td><img src="@x.ProfilResim" width="90px;" /></td>
+                <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</td>
+                <td><a href="~/Admin/AdmTemsilciSil/@x.TemsilciID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.AdSoyad ')" class="btn btn-danger"> <i class="fas fa-trash"></i></a></td>
+                <td><a href="~/Admin/AdmTemsilciGetr/@x.TemsilciID" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Admin/AdmTemsilciEkle/" class="btn btn-success">Yeni Temsilci Ekle</a>
+
+</div>
+

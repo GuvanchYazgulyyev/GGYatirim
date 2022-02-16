@@ -1,0 +1,227 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+
+.main-contact-form {
+  border-radius: 2px;
+  border: 2px solid @main-contact-form-border-color;
+  background-color: @main-contact-form-bg-color;
+  padding: 24px;
+  h2 {
+    color: @main-contact-form-header-color;
+    font-family: @main-font;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 0 0 16px;
+  }
+  p {
+    opacity: 0.8;
+    color: @main-contact-form-text-color;
+    font-family: @main-font;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+    margin-bottom: 20px;
+  }
+}
+
+#contact-main {
+  display: grid;
+  display: -ms-grid;
+  grid-template-columns: minmax(238px, 344px) 2fr;
+  -ms-grid-columns: minmax(238px, 344px) 2fr;
+  grid-column-gap: 24px;
+  //grid-template-rows: repeat(5 44px);
+  grid-row-gap: 16px;
+  .input-name {
+    grid-column: 1;
+    grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-row: 1;
+  }
+  .input-email {
+    grid-column: 1;
+    grid-row: 2;
+    -ms-grid-column: 1;
+    -ms-grid-row: 2;
+  }
+  .input-phone {
+    grid-column: 1;
+    grid-row: 3;
+    -ms-grid-column: 1;
+    -ms-grid-row: 3;
+  }
+
+  .input-apartment {
+    grid-column: 1;
+    grid-row: 4;
+    -ms-grid-column: 1;
+    -ms-grid-row: 4;
+  }
+
+  .input-button {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row: 5;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 3;
+    -ms-grid-row: 5;
+  }
+
+  .input-subject {
+    grid-column: 2;
+    grid-row: 1;
+    -ms-grid-column: 2;
+    -ms-grid-row: 1;
+  }
+
+  .input-textarea {
+    grid-column: 2;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    -ms-grid-column: 2;
+    -ms-grid-row: 2;
+    -ms-grid-row-span: 5;
+  }
+  .input-wrapper {
+    position: relative;
+  }
+  input {
+    display: block;
+    width: 100%;
+    border-radius: 2px;
+    border: 2px solid @main-contact-form-input-border-color;
+    background-color: @main-contact-form-input-bg-color;
+    height: 40px;
+    padding-left: 16px;
+  }
+
+  textarea {
+    display: block;
+    width: 100%;
+    border-radius: 2px;
+    border: 2px solid @main-contact-form-border-color;
+    background-color: @main-contact-form-input-bg-color;
+    padding-left: 16px;
+    padding-top: 8px;
+  }
+
+  input::placeholder {
+    color: @main-contact-form-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+  input::-moz-placeholder {
+    color: @main-contact-form-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+  input:-moz-placeholder {
+    color: @main-contact-form-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+  input:-ms-input-placeholder {
+    color: @main-contact-form-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+  input::-webkit-input-placeholder {
+    color: @main-contact-form-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+
+  input:focus,
+  textarea:focus {
+    outline-color: @main-contact-form-input-outline-color;
+  }
+  textarea::placeholder {
+    color: @main-contact-form-placeholder-color;
+    font-family: @main-font;
+    font-size: 14px;
+    letter-spacing: 0.44px;
+  }
+
+  input[required] + label:before {
+    content: "";
+    font-size: 20px;
+  }
+
+  input[required] + label {
+    position: absolute;
+    top: 13%;
+    right: 2%;
+  }
+
+  input[required]:not(:focus):valid + label:before {
+    content: "\E5CA";
+    font-family: "Material Icons";
+    color: @main-contact-form-valid-input-label-color;
+  }
+
+  input[required]:focus:not(:placeholder-shown):invalid + label:before {
+    color: @main-contact-form-invalid-input-label-color;
+    content: '\E5CD';
+    font-family: "Material Icons";
+  }
+
+  input[required]:not(:placeholder-shown):invalid + label:before {
+    color: @main-contact-form-invalid-input-label-color;
+    content: '\E5CD';
+    font-family: "Material Icons";
+  }
+
+  input[type="submit"] {
+    text-align: center;
+    height: 40px;
+    border-radius: 2px;
+    border: 2px solid @main-contact-form-button-border-color;
+    background-color: @main-contact-form-button-bg-color;
+    color: @main-contact-form-button-text-color;
+    font-family: @secondary-font;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+}
+
+@media (max-width: 768px) {
+  #contact-main {
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: 1fr;
+    -ms-grid-columns: 1fr;
+    .input-name,
+    .input-email,
+    .input-phone,
+    .input-apartment,
+    .input-button,
+    .input-subject,
+    .input-textarea {
+      grid-column: unset;
+      grid-row-start: unset;
+      grid-row-end: unset;
+      -ms-grid-column: unset;
+      -ms-grid-row: unset;
+      -ms-grid-row-span: unset;
+    }
+
+    .input-textarea {
+      height: 128px;
+    }
+  }
+}
+

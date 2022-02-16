@@ -1,0 +1,325 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+
+
+#search-form-1 .property-search {
+  border-radius: 2px;
+  border: 2px solid @search-form1-border-color;
+  background-color: @search-form1-bg-color;
+  //margin-bottom: 40px;
+  .main-apartment-search-options {
+    padding: 22px;
+    h2 {
+      color: @search-form1-header-color;
+      font-family: @main-font;
+      font-size: 20px;
+      font-weight: 600;
+      display: block;
+    }
+    .options-wrapper-main {
+      margin-top: 0;
+      display: grid;
+      grid-template-columns: minmax(200px, 1.8fr) minmax(123px, 1.3fr) minmax(123px, 1fr) minmax(123px, 1fr) minmax(156px, 1fr);
+      grid-gap: 22px;
+      display: -ms-grid;
+      -ms-grid-columns: minmax(200px, 1.8fr) minmax(123px, 1.3fr) minmax(123px, 1fr) minmax(123px, 1fr) minmax(156px, 1fr);
+      .wrapper {
+        h3 {
+          color: @search-form1-categories-header-color;
+          font-family: @main-font;
+          font-size: 14px;
+          line-height: 22px;
+          letter-spacing: 0.44px;
+          margin: 0 0 13px 0;
+        }
+        .property-searchinput {
+          height: 44px !important;
+          border: 2px solid @search-form1-input-border-color;
+          border-radius: 2px;
+          width: 100%;
+        }
+        input {
+          padding-left: 10px;
+        }
+        input::placeholder {
+          color: @search-form1-input-placeholder-color;
+          font-family: @main-font;
+          font-size: 14px;
+          letter-spacing: 0.44px;
+        }
+
+        input:focus {
+          outline-color: @search-form1-input-focus-border-color;
+          border-color: @search-form1-input-focus-border-color;
+        }
+      }
+      .advanced-wrapper {
+        h3 {
+          display: inline-block;
+          position: relative;
+          color: @search-form1-advanced-header-color;
+        }
+        .switch {
+          position: relative;
+          display: inline-block;
+          width: 40px;
+          height: 24px;
+          // margin-bottom: 20px;
+          float: right;
+
+          input {
+            display: none;
+          }
+          .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+          }
+          .slider.round {
+
+            border-radius: 12px;
+            border: 2px solid @search-form1-slider-border-color;
+            background-color: @search-form1-slider-bg-color;
+
+          }
+          .slider:before {
+            position: absolute;
+            content: "";
+            height: 16px;
+            width: 16px;
+            left: 2px;
+            bottom: 2px;
+            background-color: @search-form1-slider-first-color;
+            -webkit-transition: .4s;
+            transition: .4s;
+            border-radius: 50%;
+          }
+          .slider.special-before:before {
+            background-color: @search-form1-slider-last-color;
+
+          }
+          input:checked + .slider {
+            background-color: #fff;
+          }
+
+          input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+          }
+
+          input:checked + .slider:before {
+            -webkit-transform: translateX(14px);
+            -ms-transform: translateX(14px);
+            transform: translateX(14px);
+            color: @search-form1-slider-last-color;
+          }
+        }
+      }
+    }
+
+  }
+
+  .toggle-options {
+    display: none;
+    padding-top: 21px;
+    padding-bottom: 22px;
+    margin-right: 24px;
+    margin-left: 24px;
+    border-top: 2px solid @search-form1-toggle-options-border-color;
+    .advanced-options {
+      .options-wrapper {
+        padding-top: 21px;
+        padding-bottom: 32px;
+        .select-wrapper {
+          display: flex;
+          justify-content: space-around;
+          position: relative;
+          top: 16px;
+          .selectize-control {
+            width: 45%;
+          }
+          .hr {
+            width: 10%;
+            hr {
+              border-top: 2px solid @search-form1-toggle-options-select-delimiter-color;
+            }
+          }
+        }
+      }
+    }
+    .advanced-options,
+    .apartment-features {
+      span {
+        color: @search-form1-apartment-features-color;
+        font-family: @main-font;
+        font-size: 14px;
+        line-height: 22px;
+        letter-spacing: 0.44px;
+      }
+    }
+    .checkboxes-block {
+      margin-top: 10px;
+      display: grid;
+      display: -ms-grid;
+      grid-column-gap: 20px;
+    }
+  }
+}
+
+/**Toggle button **/
+
+/** Property button **/
+
+#search-form-1 .main-apartment-search-options .property-button {
+  height: 44px;
+  width: 100%;
+  text-transform: uppercase;
+  border: 2px solid @search-form1-search-button-border-color;
+  border-radius: 2px;
+  background: @search-form1-search-button-bg-color;
+  color: @search-form1-search-button-text-color;
+  font-family: @secondary-font;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 0.4px;
+  position: relative;
+  //top: -1px;
+  display: block;
+}
+
+/**Media queries for toggle options checkboxes block begin **/
+
+@media (min-width: 1200px) {
+  #search-form-1 .property-search {
+    .toggle-options {
+      .checkboxes-block {
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        -ms-grid-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+
+      }
+    }
+  }
+}
+
+@media (max-width: 1199px) {
+  #search-form-1 .property-search {
+    .toggle-options {
+      .checkboxes-block {
+        grid-template-columns: 1fr 1fr 1fr;
+        -ms-grid-columns: 1fr 1fr 1fr;
+
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  #search-form-1 .property-search {
+    .toggle-options {
+      .checkboxes-block {
+        grid-template-columns: 1fr 1fr 1fr;
+        -ms-grid-columns: 1fr 1fr 1fr;
+
+      }
+    }
+  }
+}
+
+@media (min-width: 405px) and (max-width: 749px) {
+  #search-form-1 .property-search {
+    .toggle-options {
+      .checkboxes-block {
+        grid-template-columns: 1fr 1fr;
+        -ms-grid-columns: 1fr 1fr;
+
+      }
+    }
+  }
+}
+
+@media (min-width: 320px) and (max-width: 404px) {
+  #search-form-1 .property-search {
+    .toggle-options {
+      .checkboxes-block {
+        grid-template-columns: 1fr;
+        -ms-grid-columns: 1fr;
+
+      }
+    }
+  }
+}
+
+/***Media queries for toggle options checkboxes block end ***/
+/***************************************/
+
+@media (max-width: 992px) {
+  #search-form-1 .property-search {
+    .main-apartment-search-options {
+      .options-wrapper-main {
+        .advanced-wrapper {
+          h3 {
+            margin-right: 0;
+          }
+          .switch {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+
+  #search-form-1 .property-search {
+    .main-apartment-search-options {
+      .options-wrapper-main {
+        grid-template-columns: 1fr 1fr;
+        -ms-grid-columns: 1fr 1fr;
+
+        .advanced-wrapper {
+          grid-column-start: 1;
+          grid-column-end: 3;
+          -ms-grid-column: 1;
+          -ms-grid-column-span: 3;
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 767px) {
+  #search-form-1 .property-search {
+    .main-apartment-search-options {
+      .options-wrapper-main {
+        grid-template-columns: 1fr;
+        -ms-grid-columns: 1fr;
+      }
+    }
+  }
+}
+
+@media (max-width: 500px) {
+
+  #search-form-1 .property-search {
+    .options-wrapper {
+      padding-top: 13px;
+    }
+  }
+
+}
+
+

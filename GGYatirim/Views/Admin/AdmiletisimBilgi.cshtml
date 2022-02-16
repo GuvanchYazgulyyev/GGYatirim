@@ -1,0 +1,35 @@
+﻿@using GGYatirim.Models.Sinif
+@model List<DbiletisimBilgi> 
+@{
+    ViewBag.Title = "AdmiletisimBilgi";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div style="width:50%" ; class="col-md-4 table table-hover">
+    <h3>İletişim Bilgiler  (Harita, İnst,Face,Twet) Detay Butonuna Tıklayarak Görebilirsiniz! </h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Sube</th>
+            <th>Adres</th>
+            <th>Tel</th>
+            <th>E Posta</th>           
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Sube</td>
+                <td>@x.Adres</td>
+                <td>@x.Tel</td>
+                <td>@x.EPosta</td>
+                <td><a href="~/Admin/AdmiletisimBilgiSil/@x.iletisimBilgiID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.Sube ')" class="btn btn-danger"> <i class="fas fa-trash"></i></a></td>
+                <td><a href="~/Admin/AdmiletisimBilgiGetir/@x.iletisimBilgiID" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Admin/AdmiletisimBilgiEkle/" class="btn btn-success">Yeni İletişim Bilgi Ekle</a>
+
+</div>
+

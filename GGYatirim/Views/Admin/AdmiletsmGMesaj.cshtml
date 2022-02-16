@@ -1,0 +1,55 @@
+﻿@using GGYatirim.Models.Sinif
+@model List<DbiletisimForm>
+@{
+    ViewBag.Title = "AdmiletsmGMesaj";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div style="width:80%" class="col-md-12 table table-hover">
+
+    <h2>Gelem Mesajlar</h2>
+    @using (Html.BeginForm("AdmiletsmGMesaj", "Admin", FormMethod.Post))
+    {
+        <div class="col-md-12" style="float:left">
+            <div class="col-md-6">
+                <input type="text" name="p" placeholder="Telefon No İle Arama Yap..." class="form-control" />
+
+            </div>
+            <div class="col-md-6">
+                <input type="submit" class="btn btn-info" value="Ara..." />
+
+            </div>
+
+        </div>
+        @*@Html.TextBox("p")*@
+
+    }
+
+    <div class="col-md-12 table table-hover">
+        <h3>Gelen Mesaj</h3>
+        <table class="table table-bordered">
+            <tr>
+                <th>Ad Soyad</th>
+                <th>E-Posta</th>
+                <th>Tel</th>
+                <th>Konu</th>
+                <th>Mesaj</th>
+                <th>Sil</th>
+            </tr>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.AdSoyad</td>
+                    <td>@x.EPosta</td>
+                    <td>@x.Tel</td>
+                    <td>@x.Konu</td>
+                    <td>@x.Mesaj</td>
+                    <td><a href="~/Admin/AdmMesjSil/@x.iletisimFormID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.AdSoyad ')" class="btn btn-danger"> <i class="fas fa-trash"></i></a></td>
+                </tr>
+            }
+        </table>
+
+    </div>
+    </div>
+

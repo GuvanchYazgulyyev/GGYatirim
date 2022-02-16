@@ -1,0 +1,417 @@
+@header5-background-color: #fff;
+@header5-border-color: #99a1b6;
+@header5-main-list-text-color: #6495fe;
+@header5-logo-text-color: #37466f;
+@header5-list-mark-background-color: #DBDBDB;
+@header5-buttons-border: #99a1b6;
+@header5-submit-background-color: #f7f7f7;
+@header5-submit-text-color: #527efd;
+@header5-registration-background-color: #6495fe;
+@header5-registration-text-color: #fff;
+@header5-smallscreen-button-background: #f7f7f7;
+@header5-smallscreen-button-color: #527efd;
+@header5-logo-text-weight: 900;
+@header5-logo-text-trunsform: uppercase;
+@header5-logo-font-family: "Montserrat";
+@header5-submenu-background-color: #fff;
+@header5-submenu-text-color: #37466f;
+@header5-smallscreen-buttons-color: #527efd;
+@header5-menu-hover-color: #6495fe;
+
+.header5 {
+  background: @header5-background-color;
+  border-bottom: 2px solid fade(@header5-border-color, 8%);
+}
+
+.header5.stick-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.header5 .wrapper {
+  display: inline-block;
+  font-size: 0;
+  width: 100%;
+  text-align: right;
+  position: relative;
+}
+
+.header5 .wrapper > div {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.header5 .logo {
+  float: left;
+  padding: 22px 0;
+  display: inline-block;
+  vertical-align: middle;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-decoration: none;
+}
+
+.header5 .logo img {
+  height: 40px;
+  object-fit: contain;
+}
+
+.header5 .logo span {
+  color: @header5-logo-text-color;
+  text-transform: @header5-logo-text-trunsform;
+  font-weight: @header5-logo-text-weight;
+  font-size: 14px;
+  line-height: 40px;
+  font-family: @header5-logo-font-family;
+}
+
+.header5 .menu-list {
+  width: 60%;
+  padding-right: 32px;
+  z-index: 20;
+}
+
+.header5 .menu-list ul {
+  padding: 0;
+  margin: 0;
+}
+
+.header5 .menu-list div > ul > li {
+  display: inline-block;
+  padding-right: 41px;
+}
+
+.header5 .menu-list div > ul > li:last-child {
+  padding: 0;
+}
+
+.header5 .menu-list > div > ul > li > a {
+  display: block;
+  position: relative;
+  color: @header5-main-list-text-color;
+  font-family: @secondary-font;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  padding: 34px 0;
+}
+
+.header5 .menu-list > div > ul > li > a:before {
+  content: "";
+  position: absolute;
+  width: 9px;
+  height: 9px;
+  background: fade(@header5-list-mark-background-color, 50%);
+  left: -25px;
+  top: 38px;
+}
+
+.header5 .menu-list > div > ul > li:first-child > a:before {
+  display: none;
+}
+
+.header5 .subscribe-buttons {
+  height: 100%;
+  padding: 23px 0 17px 32px;
+  position: relative;
+}
+
+.header5 .subscribe-buttons > button > i {
+  display: none;
+}
+
+.header5 .subscribe-buttons button {
+  font-family: @secondary-font;
+  font-size: 12px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  border-radius: 20px;
+  padding: 13px 21px 12px 21px;
+  border: none;
+}
+
+.header5 .subscribe-buttons button:first-child {
+  margin-right: 20px;
+}
+
+.header5 .subscribe-buttons .submit {
+  background-color: @header5-submit-background-color;
+  color: @header5-submit-text-color;
+  font-weight: 600;
+}
+
+.header5 .subscribe-buttons .registration {
+  background-color: @header5-registration-background-color;
+  color: @header5-registration-text-color;
+}
+
+.header5 .wrapper > button {
+  display: none;
+  position: relative;
+  float: left;
+  padding: 5px 11px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  margin: 26px 0 0 0;
+  z-index: 1;
+  background-color: @header5-smallscreen-button-background;
+  color: @header5-smallscreen-button-color;
+  font-size: 16px;
+}
+
+.header5 .menu-list .sub-menu {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  text-align: left;
+  float: left;
+  left: 0;
+  right: 0;
+  padding: 30px 30px 31px 30px;
+  box-shadow: 0 1px 20px rgba(55, 70, 111, 0.16);
+  border-radius: 2px;
+  border: 2px solid #eff0f3;
+  background-color: @header5-submenu-background-color;
+  list-style-type: none;
+  margin: -10px 0 0 0;
+  justify-content: space-between;
+  z-index: 1;
+  max-height: 0;
+  overflow: hidden;
+  -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
+  -webkit-transform-origin: 50% 0;
+  -webkit-transition: 350ms;
+  -moz-transition: 350ms;
+  -o-transition: 350ms;
+  transition: 350ms;
+}
+
+.header5 .menu-list .sub-menu.small {
+  left: auto;
+  right: auto;
+  flex-direction: column;
+}
+
+.header5 .menu-list .sub-menu.small > li > ul {
+  margin-right: 30px;
+}
+
+.header5 .menu-list .sub-menu.small > li:last-child > ul {
+  margin: 0;
+}
+
+.header5 .menu-list .sub-menu > li > ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.header5 .wrapper ul > li > ul > li > a {
+  color: @header5-submenu-text-color;
+  font-family: @main-font;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.44px;
+  text-transform: capitalize;
+  display: block;
+  position: relative;
+  padding: 0 0 10px 24px;
+}
+
+.header5 .menu-list > div > ul > li > ul > li:last-child > a {
+  padding-bottom: 0;
+}
+
+.header5 .menu-list > div > ul > li > ul > li > ul > li > a:before {
+  content: "\f138";
+  position: absolute;
+  top: -1px;
+  width: 14px;
+  height: 16px;
+  color: #99a1b6;
+  left: 0;
+  font-family: "FontAwesome";
+}
+
+.header5 .menu-list li.destanations > ul > li > a:before {
+  content: "\f0ac";
+}
+
+.header5 .menu-list .sub-menu > li > ul > li > ul > li > ul > li > a:before {
+  content: "\f0ac";
+}
+
+.header5 .menu-list > div > ul > li > ul > li > ul > li:first-child {
+  color: #37466f;
+  font-family: @main-font;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.28px;
+  text-transform: capitalize;
+  padding-bottom: 20px;
+  min-height: 40px;
+}
+
+.header5 .menu-list ul > li:hover > .sub-menu {
+  z-index: 100;
+  max-height: 1000px;
+  -webkit-transform: perspective(400px) rotate3d(0, 0, 0, 0);
+}
+
+.header5 .navbar-collapse {
+  padding: 0;
+  float: left;
+
+}
+
+.header5 .menu-list > div > ul > li:hover > a:after {
+  content: "";
+  position: absolute;
+  bottom: 10px;
+  background-color: @header5-menu-hover-color;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+}
+
+.header5 .menu-list > div > ul > li:hover > a,
+.header5 .menu-list > div > ul > li:hover > a:active {
+  text-decoration: none;
+}
+
+@media (max-width: 1199px) {
+  .header5 .subscribe-buttons > button > i {
+    display: block;
+  }
+
+  .header5 .subscribe-buttons > button > span {
+    display: none;
+  }
+
+  .header5 .menu-list {
+    padding-right: 20px;
+  }
+
+  .header5 .subscribe-buttons {
+    padding-left: 20px;
+  }
+
+  .header5 .menu-list > div > ul > li > a:before {
+    left: -17px;
+  }
+
+  .header5 .menu-list div > ul > li {
+    padding-right: 27px;
+  }
+}
+
+@media (max-width: 991px) {
+  .header5 .logo {
+    float: none;
+    width: 65%;
+    text-align: center;
+  }
+
+  .header5 .navbar-collapse {
+    width: 100%;
+    text-align: center;
+    border: 2px solid rgba(153, 161, 182, .08);
+  }
+
+  .header5 .wrapper > button {
+    display: block;
+  }
+
+  .header5 .navbar-collapse.collapse.in {
+    display: block !important;
+  }
+
+  .header5 .navbar-collapse.collapse {
+    display: none !important;
+  }
+
+  .header5 .menu-list {
+    width: 100%;
+    padding-right: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 84px;
+    text-align: center;
+    background-color: @header5-background-color;
+  }
+}
+
+@media (max-width: 575px) {
+  .header5 .logo {
+    width: auto;
+    padding: 15px 0;
+  }
+
+  .header5 .subscribe-buttons .submit,
+  .header5 .subscribe-buttons .registration {
+    background: transparent;
+    color: @header5-smallscreen-buttons-color;
+  }
+
+  .header5 .subscribe-buttons button {
+    font-size: 16px;
+    padding: 0;
+  }
+
+  .header5 .wrapper > button {
+    margin-top: 20px;
+    float: right;
+  }
+
+  .header5 .subscribe-buttons {
+    padding-left: 20px;
+    float: left;
+    margin-left: 20px;
+    padding: 27px 0 28px 32px;
+  }
+
+  .header5 .logo {
+    float: left;
+  }
+
+  .header5 .menu-list .sub-menu {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .header5 .menu-list .sub-menu.small {
+    left: 0;
+    right: 0;
+  }
+
+  .header5 .menu-list > div > ul > li > ul > li > ul > li:first-child {
+    min-height: auto;
+  }
+
+  .header5 .menu-list > div > ul > li > a {
+    padding: 20px 0;
+  }
+
+  .header5 .menu-list div > ul > li {
+    padding: 0;
+    width: 100%;
+  }
+
+  .header5 .wrapper ul > li > ul > li > a {
+    padding: 0 0 10px 0px;
+  }
+
+  .header5 .menu-list > div > ul > li > a:before {
+    display: none;
+  }
+
+  .header5 .menu-list .sub-menu.small > li > ul {
+    margin: 0;
+  }
+}

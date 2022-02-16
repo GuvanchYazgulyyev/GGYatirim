@@ -1,0 +1,45 @@
+﻿@using GGYatirim.Models.Sinif
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Dbilan>
+@{
+    ViewBag.Title = "Admilan";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div style="width:80%" class="col-md-12 table table-hover">
+    <h3>Yeni ilan Ekle</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Kısa Başlık</th>
+            <th>Şehir</th>
+            <th>Adres</th>
+            <th>Tam Fiyat</th>
+            <th>İlan No</th>
+            <th>Tarih</th>
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.EmlakTipi</td>
+                <td>@x.DbKonum.SehirAd</td>
+                <td>@x.TamAdres</td>
+                <td>@x.TamFiyat</td>
+                <td>@x.ilanNo</td>
+                <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</td>
+                <td><a href="~/Admin/AdmilanSil/@x.ilanID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.EmlakTipi ')" class="btn btn-danger"> <i class="fas fa-trash"></i></a></td>
+                <td><a href="~/Admin/AdmilanGetir/@x.ilanID#submit" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
+            </tr>
+        }
+    </table>
+    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Admilan", new { sayfa }))
+
+    <br />
+    <a href="/Admin/AdmilanEkle/#submit" class="btn btn-success">Yeni İlan Ekle</a>
+
+</div>

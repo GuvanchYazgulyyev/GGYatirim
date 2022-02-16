@@ -1,0 +1,149 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+
+.form-slider {
+  position: relative;
+  .form-container {
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 70%;
+    z-index: 50;
+    margin: auto;
+  }
+
+  .slider-text-section {
+    position: relative;
+
+    .bg {
+      background: url(../images/slider-form-bg.png) no-repeat;
+      background-size: cover;
+    }
+    .slider-text {
+      position: absolute;
+      top: 60%;
+      z-index: 50;
+      font-family: "Open Sans";
+      font-size: 20px;
+      font-weight: 600;
+      color: @form-slider-text-color;
+      left: 0;
+      right: 0;
+    }
+    .arrow-next,
+    .arrow-prev {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 5;
+      i {
+        font-size: 16px;
+        font-weight: 600;
+        padding: 12px;
+        background-color: @form-slider-button-bg-color;
+        border-radius: 100%;
+        color: @form-slider-button-color;
+      }
+    }
+    .arrow-next {
+      margin-right: 51px;
+      right: 0;
+    }
+    .arrow-prev {
+      margin-left: 51px;
+      left: 0;
+    }
+
+    a:hover i {
+      background-color: @form-slider-button-hover-bg-color;
+      color: @form-slider-button-hover-color;
+      box-shadow: 0 1px 10px @form-slider-button-hover-shadow;
+      text-decoration: none;
+
+    }
+    .progress-bar-line {
+      position: absolute;
+      z-index: 5;
+      left: 0;
+      right: 0;
+      height: 10px;
+      border: 2px solid @form-slider-progress-bar-border-color;
+      background-color: @form-slider-progress-bar-bg-color;
+      bottom: 0px;
+      width: 100%;
+      .bar-line {
+        height: 4px;
+        border-radius: 5px;
+        background-color: @form-slider-progress-bar-color;
+        width: 50%;
+      }
+    }
+
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1300px) {
+  .form-slider {
+    .slider-text-section {
+      .arrow-next {
+        margin-right: 8px;
+      }
+      .arrow-prev {
+        margin-left: 8px;
+      }
+    }
+
+  }
+}
+
+@media (max-width: 992px) {
+  .form-slider {
+    .form-container {
+      position: relative;
+      left: inherit;
+      right: inherit;
+      top: inherit;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .form-slider {
+    .slider-text-section {
+      .arrow-next,
+      .arrow-prev {
+        top: 92%;
+      }
+    }
+
+  }
+}
+
+@media (max-width: 500px) {
+  .form-slider {
+    .slider-text-section {
+      .arrow-next,
+      .arrow-prev {
+        top: 92%;
+      }
+      .arrow-next {
+        margin-right: 20px;
+      }
+      .arrow-prev {
+        margin-left: 20px;
+      }
+    }
+
+  }
+}
+
+/*
+
+background-color: rgba(100, 149, 254, 0.5);
+background-blend-mode: multiply;*/

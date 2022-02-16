@@ -1,0 +1,48 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.Dbilan>
+
+
+
+
+@foreach (var x in Model)
+{
+
+    if (x.ilanDurumIDD == 1)
+    {
+        <div class="result">
+            <img src="@x.CokluResim" alt="search-img">
+            <span class="name">
+                <a href="/Home/ilanDetay/@x.ilanID">@x.DbEmlakTipi.EmlakTipAd</a>
+                <span class="apartment-name">@x.EmlakTipi</span>
+            </span>
+            <span class="wrapper">
+                <span class="info">
+                    <span>
+                        <span>Fiyat, ₺ </span>@x.TamFiyat
+                    </span>
+                    <br />
+                    <span>
+                        <span>Tarih </span>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")
+                    </span>
+                </span>
+
+                <span class="info">
+                    <span>
+                        <span>İlan No </span>@x.ilanNo
+                    </span>
+                    <br />
+                    <span>
+                        <span>Oda Sayısı </span>@x.OdaSayisi
+                    </span>
+                </span>
+
+                @*<span class="buttons">
+                        <a href="#" class="heart"><i class="material-icons icons-style"></i></a>
+                        <a href="#" class="clone"> <i class="fa fa-share"></i></a>
+                    </span>*@
+            </span>
+        </div>
+    }
+
+}
+
+

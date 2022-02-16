@@ -1,0 +1,64 @@
+﻿@model GGYatirim.Models.Sinif.DbBlog
+@{
+    ViewBag.Title = "AdmBlogGetr";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-md-10 col-sm-12 col-xs-12">
+
+    <h3>Blog Sayfasını Güncelle</h3>
+
+    @using (Html.BeginForm("AdmBlogGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div id="div-boyut">
+            <label><b>Başlık</b></label>
+            @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+        </div>
+        <div>
+            <label><b>İçerik 1</b></label>
+            @Html.TextAreaFor(x => x.icerik1, 6, 6, new { @class = "form-control" })
+        </div>
+
+        <div>
+            <label><b>İçerik 2</b></label>
+            @Html.TextAreaFor(x => x.icerik2, 6, 6, new { @class = "form-control" })
+        </div>
+
+
+        <div>
+            <label><b>İçerik 3</b></label>
+            @Html.TextAreaFor(x => x.icerik3, 6, 6, new { @class = "form-control" })
+        </div>
+
+
+
+
+
+        <div>
+            <label><b>E-Posta</b></label>
+            @Html.TextBoxFor(x => x.EPosta, new { @class = "form-control" })
+        </div>
+
+
+        <div>
+            <label><b>Resim</b></label>
+            <input type="file" id="File" name="File" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" class="form-control" />
+        </div>
+
+
+
+
+        <div>
+            @Html.HiddenFor(x => x.BlogID)
+        </div>
+        <div>
+            <br />
+            <br />
+            <button class="btn btn-success" style="background-color:cornflowerblue">Değişiklikleri Kaydet</button>
+
+        </div>
+
+
+    }
+</div>
+

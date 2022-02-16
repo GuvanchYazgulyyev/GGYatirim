@@ -1,0 +1,35 @@
+default:
+    tasks:
+        - 'extract-library'
+        - 'compele-less'
+        - 'min-css'
+        - 'validate-js'
+        - 'min-js'
+build-css:
+        - 'compele-less'
+        - 'min-css'
+compele-less:
+    tasks:
+        - 'concat:less'
+        - 'less:compele'
+min-css:
+    tasks:
+        - 'cssmin:css'
+min-js:
+    tasks:
+        - 'uglify:js'
+min-images:
+    tasks:
+        - 'imagemin:image_min'
+extract-library:
+    tasks:
+        - 'clean-libraries'
+        - 'bower:extract'
+clean-libraries:
+    tasks:
+        - 'clean:js_library'
+        - 'clean:css_library'
+        - 'clean:fonts_library'
+validate-js:
+    tasks:
+        - 'jshint:js'

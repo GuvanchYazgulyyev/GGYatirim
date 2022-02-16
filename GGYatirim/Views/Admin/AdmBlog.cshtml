@@ -1,0 +1,35 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.DbBlog>
+@{
+    ViewBag.Title = "AdmBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="col-md-10 col-sm-12 col-xs-12">
+    <h3>Bloglar</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Başlık</th>
+            <th>E Posta</th>         
+            <th>Resim</th>
+            <th>Kayıt Tarihi</th>
+
+            <th>Sil</th>
+            <th>Güncelle</th>
+        </tr>
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.Baslik</td>
+                <td>@x.EPosta</td>
+                <td><img src="@x.Resim" width="90px;" /></td>
+                <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</td>
+                <td><a href="~/Admin/AdmBlogSil/@x.BlogID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.Baslik ')" class="btn btn-danger"> <i class="fas fa-trash"></i></a></td>
+                <td><a href="~/Admin/AdmBlogGetr/@x.BlogID" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
+            </tr>
+        }
+    </table>
+    <a href="/Admin/AdmBlogEkle/" class="btn btn-success">Yeni Blog Ekle</a>
+
+</div>

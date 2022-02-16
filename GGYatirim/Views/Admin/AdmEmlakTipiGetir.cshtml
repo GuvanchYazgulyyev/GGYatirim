@@ -1,0 +1,32 @@
+﻿@model GGYatirim.Models.Sinif.DbEmlakTipi
+
+@{
+    ViewBag.Title = "AdmEmlakTipiGetir";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Güncelle</h3>
+
+@using (Html.BeginForm("AdmEmlakTipiGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+    <form class="form-group" method="post">
+
+        Hizmet Ad
+        @Html.TextBoxFor(x => x.EmlakTipAd, new { @class = "form-control" })
+
+
+
+        @Html.HiddenFor(x => x.EmlakTipiID)
+
+        <button class="btn btn-success">Değişikliği Kaydet</button>
+
+    </form>
+
+
+
+
+
+}
+

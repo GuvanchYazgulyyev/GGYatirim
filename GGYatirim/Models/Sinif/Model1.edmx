@@ -1,0 +1,1189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="GYatirimModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="DbAdmin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="varchar(max)" />
+          <Property Name="EPosta" Type="varchar(max)" />
+          <Property Name="Tel" Type="varchar(max)" />
+          <Property Name="Sifre" Type="varchar(max)" />
+          <Property Name="Durum" Type="bit" />
+          <Property Name="RolId" Type="int" />
+          <Property Name="Tarih" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DbBlog">
+          <Key>
+            <PropertyRef Name="BlogID" />
+          </Key>
+          <Property Name="BlogID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Baslik" Type="varchar(max)" />
+          <Property Name="Resim" Type="varchar(max)" />
+          <Property Name="icerik1" Type="varchar(max)" />
+          <Property Name="icerik2" Type="varchar(max)" />
+          <Property Name="icerik3" Type="varchar(max)" />
+          <Property Name="YazarAdSoyad" Type="varchar(max)" />
+          <Property Name="YazarResim" Type="varchar(max)" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="EPosta" Type="varchar(max)" />
+          <Property Name="Durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="DbEmlakTipi">
+          <Key>
+            <PropertyRef Name="EmlakTipiID" />
+          </Key>
+          <Property Name="EmlakTipiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmlakTipAd" Type="varchar(max)" />
+          <Property Name="Durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="DbHareket">
+          <Key>
+            <PropertyRef Name="HareketID" />
+          </Key>
+          <Property Name="HareketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="KullaniciIDD" Type="int" />
+          <Property Name="HaraketilanIDD" Type="int" />
+        </EntityType>
+        <EntityType Name="Dbilan">
+          <Key>
+            <PropertyRef Name="ilanID" />
+          </Key>
+          <Property Name="ilanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmlakTipi" Type="varchar(max)" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="TamAdres" Type="varchar(max)" />
+          <Property Name="TamFiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MetreKareFiyat" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CokluResim" Type="varchar(max)" />
+          <Property Name="Aciklama" Type="varchar(max)" />
+          <Property Name="ilanNo" Type="varchar(max)" />
+          <Property Name="AlanBoyutu" Type="varchar(max)" />
+          <Property Name="KurulusYili" Type="varchar(max)" />
+          <Property Name="AraziAlanı" Type="varchar(max)" />
+          <Property Name="Banyo" Type="varchar" MaxLength="500" />
+          <Property Name="OdaSayisi" Type="varchar" MaxLength="50" />
+          <Property Name="Garaj" Type="varchar" MaxLength="50" />
+          <Property Name="Aidat" Type="varchar(max)" />
+          <Property Name="BulunduguKat" Type="varchar(max)" />
+          <Property Name="KatSayisi" Type="varchar(max)" />
+          <Property Name="ilanOzellikIDD" Type="int" />
+          <Property Name="EmlakTipIDD" Type="int" />
+          <Property Name="ilanDurumIDD" Type="int" />
+          <Property Name="KonumIDD" Type="int" />
+          <Property Name="Durum" Type="bit" />
+          <Property Name="isitma" Type="varchar" MaxLength="90" />
+          <Property Name="Esyali" Type="varchar" MaxLength="50" />
+          <Property Name="KullanimDurumu" Type="varchar" MaxLength="50" />
+          <Property Name="Siteicerisinde" Type="varchar" MaxLength="50" />
+          <Property Name="KrediyeUygun" Type="varchar" MaxLength="50" />
+          <Property Name="Takasli" Type="varchar" MaxLength="50" />
+          <Property Name="TapuDurumu" Type="varchar" MaxLength="50" />
+          <Property Name="ZeminEtudu" Type="varchar" MaxLength="90" />
+          <Property Name="YapininDurumu" Type="varchar" MaxLength="50" />
+          <Property Name="YakitTipi" Type="varchar" MaxLength="90" />
+          <Property Name="OzelNor" Type="varchar(max)" />
+          <Property Name="Balkon" Type="varchar" MaxLength="50" />
+          <Property Name="SiteAdi" Type="varchar" MaxLength="140" />
+          <Property Name="GoogleMapAdres" Type="varchar(max)" />
+          <Property Name="KProfil" Type="varchar(max)" />
+          <Property Name="KAdSoyad" Type="varchar" MaxLength="150" />
+          <Property Name="KMeslek" Type="varchar" MaxLength="500" />
+          <Property Name="KKisaAciklama" Type="varchar" MaxLength="500" />
+          <Property Name="KTel" Type="varchar" MaxLength="50" />
+          <Property Name="KEPosta" Type="varchar" MaxLength="70" />
+          <Property Name="VitrinResim" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="DbilanDurum">
+          <Key>
+            <PropertyRef Name="ilanDurumID" />
+          </Key>
+          <Property Name="ilanDurumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ilanDurumAd" Type="varchar(max)" />
+          <Property Name="Durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="DbilanGallery">
+          <Key>
+            <PropertyRef Name="ilanGalleryID" />
+          </Key>
+          <Property Name="ilanGalleryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="İlanIDD" Type="int" />
+          <Property Name="Ad" Type="varchar(max)" />
+          <Property Name="URL" Type="varchar(max)" />
+          <Property Name="EklenmeTarihi" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DbilanOzellik">
+          <Key>
+            <PropertyRef Name="ilanOzellikID" />
+          </Key>
+          <Property Name="ilanOzellikID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="OzellikAd" Type="varchar(max)" />
+          <Property Name="Durum" Type="bit" />
+          <Property Name="Secildimi" Type="bit" />
+        </EntityType>
+        <EntityType Name="DbiletisimBilgi">
+          <Key>
+            <PropertyRef Name="iletisimBilgiID" />
+          </Key>
+          <Property Name="iletisimBilgiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Sube" Type="varchar(max)" />
+          <Property Name="Adres" Type="varchar(max)" />
+          <Property Name="Tel" Type="varchar(max)" />
+          <Property Name="EPosta" Type="varchar(max)" />
+          <Property Name="Harita" Type="varchar(max)" />
+          <Property Name="Facebook" Type="varchar(max)" />
+          <Property Name="Twetter" Type="varchar(max)" />
+          <Property Name="instagram" Type="varchar(max)" />
+          <Property Name="Durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="DbiletisimForm">
+          <Key>
+            <PropertyRef Name="iletisimFormID" />
+          </Key>
+          <Property Name="iletisimFormID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="varchar(max)" />
+          <Property Name="EPosta" Type="varchar(max)" />
+          <Property Name="Tel" Type="varchar(max)" />
+          <Property Name="Konu" Type="varchar(max)" />
+          <Property Name="Mesaj" Type="varchar(max)" />
+          <Property Name="Durum" Type="bit" />
+          <Property Name="Tarih" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DbKonum">
+          <Key>
+            <PropertyRef Name="KonumID" />
+          </Key>
+          <Property Name="KonumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SehirAd" Type="varchar(max)" />
+          <Property Name="Durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="DbKullanici">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KisiAdi" Type="varchar" MaxLength="150" />
+          <Property Name="KisiSoyadi" Type="varchar" MaxLength="200" />
+          <Property Name="KullaniciNo" Type="varchar" MaxLength="15" />
+          <Property Name="Meslek" Type="varchar" MaxLength="500" />
+          <Property Name="EPosta" Type="varchar" MaxLength="90" />
+          <Property Name="Sifre" Type="varchar" MaxLength="50" />
+          <Property Name="Telefon" Type="varchar" MaxLength="50" />
+          <Property Name="KisaAciklama" Type="varchar(max)" />
+          <Property Name="Face" Type="varchar" MaxLength="500" />
+          <Property Name="instagram" Type="varchar" MaxLength="500" />
+          <Property Name="KullaniciRolid" Type="int" />
+          <Property Name="ilanOnaylandi" Type="bit" />
+          <Property Name="Durum" Type="bit" />
+          <Property Name="Resim" Type="varchar(max)" />
+          <Property Name="Tarih" Type="datetime" />
+        </EntityType>
+        <EntityType Name="DbSlider">
+          <Key>
+            <PropertyRef Name="SliderID" />
+          </Key>
+          <Property Name="SliderID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Resim" Type="varchar(max)" />
+          <Property Name="Baslik" Type="varchar(max)" />
+          <Property Name="KisaYazi" Type="varchar(max)" />
+          <Property Name="Durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="DbTemsilci">
+          <Key>
+            <PropertyRef Name="TemsilciID" />
+          </Key>
+          <Property Name="TemsilciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AdSoyad" Type="varchar(max)" />
+          <Property Name="Makam" Type="varchar(max)" />
+          <Property Name="EPosta" Type="varchar(max)" />
+          <Property Name="Tel" Type="varchar(max)" />
+          <Property Name="Facebook" Type="varchar(max)" />
+          <Property Name="instagram" Type="varchar(max)" />
+          <Property Name="Twetter" Type="varchar(max)" />
+          <Property Name="WebSite" Type="varchar(max)" />
+          <Property Name="Durum" Type="bit" />
+          <Property Name="Tarih" Type="datetime" />
+          <Property Name="ProfilResim" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="DbYetki">
+          <Key>
+            <PropertyRef Name="AdminYetkiID" />
+          </Key>
+          <Property Name="AdminYetkiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YetkiAd" Type="varchar(max)" />
+          <Property Name="Durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="ialnlarDeneme">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ialnAd" Type="varchar" MaxLength="50" />
+          <Property Name="Ozellik" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Price" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Photos" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="ResimDeneme">
+          <Key>
+            <PropertyRef Name="ResimID" />
+          </Key>
+          <Property Name="ResimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResimAd" Type="varchar(max)" />
+          <Property Name="ialnID" Type="int" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_DbAdmin_DbYetki">
+          <End Role="DbYetki" Type="Self.DbYetki" Multiplicity="0..1" />
+          <End Role="DbAdmin" Type="Self.DbAdmin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbYetki">
+              <PropertyRef Name="AdminYetkiID" />
+            </Principal>
+            <Dependent Role="DbAdmin">
+              <PropertyRef Name="RolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DbHareket_Dbilan">
+          <End Role="Dbilan" Type="Self.Dbilan" Multiplicity="0..1" />
+          <End Role="DbHareket" Type="Self.DbHareket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dbilan">
+              <PropertyRef Name="ilanID" />
+            </Principal>
+            <Dependent Role="DbHareket">
+              <PropertyRef Name="HaraketilanIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DbHareket_DbKullanici">
+          <End Role="DbKullanici" Type="Self.DbKullanici" Multiplicity="0..1" />
+          <End Role="DbHareket" Type="Self.DbHareket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbKullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="DbHareket">
+              <PropertyRef Name="KullaniciIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dbilan_DbEmlakTipi">
+          <End Role="DbEmlakTipi" Type="Self.DbEmlakTipi" Multiplicity="0..1" />
+          <End Role="Dbilan" Type="Self.Dbilan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbEmlakTipi">
+              <PropertyRef Name="EmlakTipiID" />
+            </Principal>
+            <Dependent Role="Dbilan">
+              <PropertyRef Name="EmlakTipIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dbilan_DbilanDurum">
+          <End Role="DbilanDurum" Type="Self.DbilanDurum" Multiplicity="0..1" />
+          <End Role="Dbilan" Type="Self.Dbilan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbilanDurum">
+              <PropertyRef Name="ilanDurumID" />
+            </Principal>
+            <Dependent Role="Dbilan">
+              <PropertyRef Name="ilanDurumIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dbilan_DbilanOzellik">
+          <End Role="DbilanOzellik" Type="Self.DbilanOzellik" Multiplicity="0..1" />
+          <End Role="Dbilan" Type="Self.Dbilan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbilanOzellik">
+              <PropertyRef Name="ilanOzellikID" />
+            </Principal>
+            <Dependent Role="Dbilan">
+              <PropertyRef Name="ilanOzellikIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dbilan_DbKonum">
+          <End Role="DbKonum" Type="Self.DbKonum" Multiplicity="0..1" />
+          <End Role="Dbilan" Type="Self.Dbilan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbKonum">
+              <PropertyRef Name="KonumID" />
+            </Principal>
+            <Dependent Role="Dbilan">
+              <PropertyRef Name="KonumIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DbilanGallery_Dbilan">
+          <End Role="Dbilan" Type="Self.Dbilan" Multiplicity="0..1" />
+          <End Role="DbilanGallery" Type="Self.DbilanGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dbilan">
+              <PropertyRef Name="ilanID" />
+            </Principal>
+            <Dependent Role="DbilanGallery">
+              <PropertyRef Name="İlanIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DbKullanici_DbYetki">
+          <End Role="DbYetki" Type="Self.DbYetki" Multiplicity="0..1" />
+          <End Role="DbKullanici" Type="Self.DbKullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbYetki">
+              <PropertyRef Name="AdminYetkiID" />
+            </Principal>
+            <Dependent Role="DbKullanici">
+              <PropertyRef Name="KullaniciRolid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ResimDeneme_ialnlarDeneme">
+          <End Role="ialnlarDeneme" Type="Self.ialnlarDeneme" Multiplicity="0..1" />
+          <End Role="ResimDeneme" Type="Self.ResimDeneme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ialnlarDeneme">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResimDeneme">
+              <PropertyRef Name="ialnID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GYatirimModelStoreContainer">
+          <EntitySet Name="DbAdmin" EntityType="Self.DbAdmin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DbBlog" EntityType="Self.DbBlog" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DbEmlakTipi" EntityType="Self.DbEmlakTipi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DbHareket" EntityType="Self.DbHareket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Dbilan" EntityType="Self.Dbilan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DbilanDurum" EntityType="Self.DbilanDurum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DbilanGallery" EntityType="Self.DbilanGallery" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DbilanOzellik" EntityType="Self.DbilanOzellik" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DbiletisimBilgi" EntityType="Self.DbiletisimBilgi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DbiletisimForm" EntityType="Self.DbiletisimForm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DbKonum" EntityType="Self.DbKonum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DbKullanici" EntityType="Self.DbKullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DbSlider" EntityType="Self.DbSlider" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DbTemsilci" EntityType="Self.DbTemsilci" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DbYetki" EntityType="Self.DbYetki" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ialnlarDeneme" EntityType="Self.ialnlarDeneme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ResimDeneme" EntityType="Self.ResimDeneme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DbAdmin_DbYetki" Association="Self.FK_DbAdmin_DbYetki">
+            <End Role="DbYetki" EntitySet="DbYetki" />
+            <End Role="DbAdmin" EntitySet="DbAdmin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DbHareket_Dbilan" Association="Self.FK_DbHareket_Dbilan">
+            <End Role="Dbilan" EntitySet="Dbilan" />
+            <End Role="DbHareket" EntitySet="DbHareket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DbHareket_DbKullanici" Association="Self.FK_DbHareket_DbKullanici">
+            <End Role="DbKullanici" EntitySet="DbKullanici" />
+            <End Role="DbHareket" EntitySet="DbHareket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dbilan_DbEmlakTipi" Association="Self.FK_Dbilan_DbEmlakTipi">
+            <End Role="DbEmlakTipi" EntitySet="DbEmlakTipi" />
+            <End Role="Dbilan" EntitySet="Dbilan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dbilan_DbilanDurum" Association="Self.FK_Dbilan_DbilanDurum">
+            <End Role="DbilanDurum" EntitySet="DbilanDurum" />
+            <End Role="Dbilan" EntitySet="Dbilan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dbilan_DbilanOzellik" Association="Self.FK_Dbilan_DbilanOzellik">
+            <End Role="DbilanOzellik" EntitySet="DbilanOzellik" />
+            <End Role="Dbilan" EntitySet="Dbilan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dbilan_DbKonum" Association="Self.FK_Dbilan_DbKonum">
+            <End Role="DbKonum" EntitySet="DbKonum" />
+            <End Role="Dbilan" EntitySet="Dbilan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DbilanGallery_Dbilan" Association="Self.FK_DbilanGallery_Dbilan">
+            <End Role="Dbilan" EntitySet="Dbilan" />
+            <End Role="DbilanGallery" EntitySet="DbilanGallery" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DbKullanici_DbYetki" Association="Self.FK_DbKullanici_DbYetki">
+            <End Role="DbYetki" EntitySet="DbYetki" />
+            <End Role="DbKullanici" EntitySet="DbKullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ResimDeneme_ialnlarDeneme" Association="Self.FK_ResimDeneme_ialnlarDeneme">
+            <End Role="ialnlarDeneme" EntitySet="ialnlarDeneme" />
+            <End Role="ResimDeneme" EntitySet="ResimDeneme" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="GYatirimModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="DbAdmin">
+          <Key>
+            <PropertyRef Name="AdminID" />
+          </Key>
+          <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EPosta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Durum" Type="Boolean" />
+          <Property Name="RolId" Type="Int32" />
+          <NavigationProperty Name="DbYetki" Relationship="Self.FK_DbAdmin_DbYetki" FromRole="DbAdmin" ToRole="DbYetki" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DbBlog">
+          <Key>
+            <PropertyRef Name="BlogID" />
+          </Key>
+          <Property Name="BlogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Baslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Resim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="icerik1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="icerik2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="icerik3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="YazarAdSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="YazarResim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="EPosta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Durum" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DbEmlakTipi">
+          <Key>
+            <PropertyRef Name="EmlakTipiID" />
+          </Key>
+          <Property Name="EmlakTipiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmlakTipAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Durum" Type="Boolean" />
+          <NavigationProperty Name="Dbilan" Relationship="Self.FK_Dbilan_DbEmlakTipi" FromRole="DbEmlakTipi" ToRole="Dbilan" />
+        </EntityType>
+        <EntityType Name="Dbilan">
+          <Key>
+            <PropertyRef Name="ilanID" />
+          </Key>
+          <Property Name="ilanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmlakTipi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="TamAdres" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TamFiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MetreKareFiyat" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="CokluResim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ilanNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AlanBoyutu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KurulusYili" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AraziAlanı" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Banyo" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="OdaSayisi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Garaj" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Aidat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="BulunduguKat" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KatSayisi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ilanOzellikIDD" Type="Int32" />
+          <Property Name="EmlakTipIDD" Type="Int32" />
+          <Property Name="ilanDurumIDD" Type="Int32" />
+          <Property Name="KonumIDD" Type="Int32" />
+          <Property Name="Durum" Type="Boolean" />
+          <Property Name="isitma" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="Esyali" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KullanimDurumu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Siteicerisinde" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KrediyeUygun" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Takasli" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TapuDurumu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ZeminEtudu" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="YapininDurumu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YakitTipi" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DbEmlakTipi" Relationship="Self.FK_Dbilan_DbEmlakTipi" FromRole="Dbilan" ToRole="DbEmlakTipi" />
+          <NavigationProperty Name="DbilanDurum" Relationship="Self.FK_Dbilan_DbilanDurum" FromRole="Dbilan" ToRole="DbilanDurum" />
+          <NavigationProperty Name="DbilanOzellik" Relationship="Self.FK_Dbilan_DbilanOzellik" FromRole="Dbilan" ToRole="DbilanOzellik" />
+          <NavigationProperty Name="DbKonum" Relationship="Self.FK_Dbilan_DbKonum" FromRole="Dbilan" ToRole="DbKonum" />
+          <Property Name="OzelNor" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Balkon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SiteAdi" Type="String" MaxLength="140" FixedLength="false" Unicode="false" />
+          <Property Name="GoogleMapAdres" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DbilanGallery" Relationship="GYatirimModel.FK_DbilanGallery_Dbilan" FromRole="Dbilan" ToRole="DbilanGallery" />
+          <Property Name="KProfil" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KAdSoyad" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="KMeslek" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="KKisaAciklama" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="KTel" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KEPosta" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="DbHareket" Relationship="GYatirimModel.FK_DbHareket_Dbilan" FromRole="Dbilan" ToRole="DbHareket" />
+          <Property Name="VitrinResim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DbilanDurum">
+          <Key>
+            <PropertyRef Name="ilanDurumID" />
+          </Key>
+          <Property Name="ilanDurumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ilanDurumAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Durum" Type="Boolean" />
+          <NavigationProperty Name="Dbilan" Relationship="Self.FK_Dbilan_DbilanDurum" FromRole="DbilanDurum" ToRole="Dbilan" />
+        </EntityType>
+        <EntityType Name="DbilanOzellik">
+          <Key>
+            <PropertyRef Name="ilanOzellikID" />
+          </Key>
+          <Property Name="ilanOzellikID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="OzellikAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Durum" Type="Boolean" />
+          <NavigationProperty Name="Dbilan" Relationship="Self.FK_Dbilan_DbilanOzellik" FromRole="DbilanOzellik" ToRole="Dbilan" />
+          <Property Name="Secildimi" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DbiletisimBilgi">
+          <Key>
+            <PropertyRef Name="iletisimBilgiID" />
+          </Key>
+          <Property Name="iletisimBilgiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Sube" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EPosta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Harita" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Twetter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Durum" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DbiletisimForm">
+          <Key>
+            <PropertyRef Name="iletisimFormID" />
+          </Key>
+          <Property Name="iletisimFormID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EPosta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Konu" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Mesaj" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Durum" Type="Boolean" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="DbKonum">
+          <Key>
+            <PropertyRef Name="KonumID" />
+          </Key>
+          <Property Name="KonumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SehirAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Durum" Type="Boolean" />
+          <NavigationProperty Name="Dbilan" Relationship="Self.FK_Dbilan_DbKonum" FromRole="DbKonum" ToRole="Dbilan" />
+        </EntityType>
+        <EntityType Name="DbSlider">
+          <Key>
+            <PropertyRef Name="SliderID" />
+          </Key>
+          <Property Name="SliderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Resim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Baslik" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="KisaYazi" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Durum" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="DbTemsilci">
+          <Key>
+            <PropertyRef Name="TemsilciID" />
+          </Key>
+          <Property Name="TemsilciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AdSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Makam" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="EPosta" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tel" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Facebook" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="instagram" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Twetter" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="WebSite" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Durum" Type="Boolean" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="ProfilResim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DbYetki">
+          <Key>
+            <PropertyRef Name="AdminYetkiID" />
+          </Key>
+          <Property Name="AdminYetkiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YetkiAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Durum" Type="Boolean" />
+          <NavigationProperty Name="DbAdmin" Relationship="Self.FK_DbAdmin_DbYetki" FromRole="DbYetki" ToRole="DbAdmin" />
+          <NavigationProperty Name="DbKullanici" Relationship="GYatirimModel.FK_DbKullanici_DbYetki" FromRole="DbYetki" ToRole="DbKullanici" />
+        </EntityType>
+        <Association Name="FK_DbAdmin_DbYetki">
+          <End Role="DbYetki" Type="Self.DbYetki" Multiplicity="0..1" />
+          <End Role="DbAdmin" Type="Self.DbAdmin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbYetki">
+              <PropertyRef Name="AdminYetkiID" />
+            </Principal>
+            <Dependent Role="DbAdmin">
+              <PropertyRef Name="RolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dbilan_DbEmlakTipi">
+          <End Role="DbEmlakTipi" Type="Self.DbEmlakTipi" Multiplicity="0..1" />
+          <End Role="Dbilan" Type="Self.Dbilan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbEmlakTipi">
+              <PropertyRef Name="EmlakTipiID" />
+            </Principal>
+            <Dependent Role="Dbilan">
+              <PropertyRef Name="EmlakTipIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dbilan_DbilanDurum">
+          <End Role="DbilanDurum" Type="Self.DbilanDurum" Multiplicity="0..1" />
+          <End Role="Dbilan" Type="Self.Dbilan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbilanDurum">
+              <PropertyRef Name="ilanDurumID" />
+            </Principal>
+            <Dependent Role="Dbilan">
+              <PropertyRef Name="ilanDurumIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dbilan_DbilanOzellik">
+          <End Role="DbilanOzellik" Type="Self.DbilanOzellik" Multiplicity="0..1" />
+          <End Role="Dbilan" Type="Self.Dbilan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbilanOzellik">
+              <PropertyRef Name="ilanOzellikID" />
+            </Principal>
+            <Dependent Role="Dbilan">
+              <PropertyRef Name="ilanOzellikIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Dbilan_DbKonum">
+          <End Role="DbKonum" Type="Self.DbKonum" Multiplicity="0..1" />
+          <End Role="Dbilan" Type="Self.Dbilan" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbKonum">
+              <PropertyRef Name="KonumID" />
+            </Principal>
+            <Dependent Role="Dbilan">
+              <PropertyRef Name="KonumIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="GYatirimEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="DbAdmin" EntityType="Self.DbAdmin" />
+          <EntitySet Name="DbBlog" EntityType="Self.DbBlog" />
+          <EntitySet Name="DbEmlakTipi" EntityType="Self.DbEmlakTipi" />
+          <EntitySet Name="Dbilan" EntityType="Self.Dbilan" />
+          <EntitySet Name="DbilanDurum" EntityType="Self.DbilanDurum" />
+          <EntitySet Name="DbilanOzellik" EntityType="Self.DbilanOzellik" />
+          <EntitySet Name="DbiletisimBilgi" EntityType="Self.DbiletisimBilgi" />
+          <EntitySet Name="DbiletisimForm" EntityType="Self.DbiletisimForm" />
+          <EntitySet Name="DbKonum" EntityType="Self.DbKonum" />
+          <EntitySet Name="DbSlider" EntityType="Self.DbSlider" />
+          <EntitySet Name="DbTemsilci" EntityType="Self.DbTemsilci" />
+          <EntitySet Name="DbYetki" EntityType="Self.DbYetki" />
+          <AssociationSet Name="FK_DbAdmin_DbYetki" Association="Self.FK_DbAdmin_DbYetki">
+            <End Role="DbYetki" EntitySet="DbYetki" />
+            <End Role="DbAdmin" EntitySet="DbAdmin" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dbilan_DbEmlakTipi" Association="Self.FK_Dbilan_DbEmlakTipi">
+            <End Role="DbEmlakTipi" EntitySet="DbEmlakTipi" />
+            <End Role="Dbilan" EntitySet="Dbilan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dbilan_DbilanDurum" Association="Self.FK_Dbilan_DbilanDurum">
+            <End Role="DbilanDurum" EntitySet="DbilanDurum" />
+            <End Role="Dbilan" EntitySet="Dbilan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dbilan_DbilanOzellik" Association="Self.FK_Dbilan_DbilanOzellik">
+            <End Role="DbilanOzellik" EntitySet="DbilanOzellik" />
+            <End Role="Dbilan" EntitySet="Dbilan" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Dbilan_DbKonum" Association="Self.FK_Dbilan_DbKonum">
+            <End Role="DbKonum" EntitySet="DbKonum" />
+            <End Role="Dbilan" EntitySet="Dbilan" />
+          </AssociationSet>
+          <EntitySet Name="sysdiagrams" EntityType="GYatirimModel.sysdiagrams" />
+          <EntitySet Name="DbKullanici" EntityType="GYatirimModel.DbKullanici" />
+          <AssociationSet Name="FK_DbKullanici_DbYetki" Association="GYatirimModel.FK_DbKullanici_DbYetki">
+            <End Role="DbYetki" EntitySet="DbYetki" />
+            <End Role="DbKullanici" EntitySet="DbKullanici" />
+          </AssociationSet>
+          <EntitySet Name="ialnlarDeneme" EntityType="GYatirimModel.ialnlarDeneme" />
+          <EntitySet Name="Product" EntityType="GYatirimModel.Product" />
+          <EntitySet Name="ResimDeneme" EntityType="GYatirimModel.ResimDeneme" />
+          <AssociationSet Name="FK_ResimDeneme_ialnlarDeneme" Association="GYatirimModel.FK_ResimDeneme_ialnlarDeneme">
+            <End Role="ialnlarDeneme" EntitySet="ialnlarDeneme" />
+            <End Role="ResimDeneme" EntitySet="ResimDeneme" />
+          </AssociationSet>
+          <EntitySet Name="DbilanGallery" EntityType="GYatirimModel.DbilanGallery" />
+          <AssociationSet Name="FK_DbilanGallery_Dbilan" Association="GYatirimModel.FK_DbilanGallery_Dbilan">
+            <End Role="Dbilan" EntitySet="Dbilan" />
+            <End Role="DbilanGallery" EntitySet="DbilanGallery" />
+          </AssociationSet>
+          <EntitySet Name="DbHareket" EntityType="GYatirimModel.DbHareket" />
+          <AssociationSet Name="FK_DbHareket_Dbilan" Association="GYatirimModel.FK_DbHareket_Dbilan">
+            <End Role="Dbilan" EntitySet="Dbilan" />
+            <End Role="DbHareket" EntitySet="DbHareket" />
+          </AssociationSet>
+          <AssociationSet Name="FK_DbHareket_DbKullanici" Association="GYatirimModel.FK_DbHareket_DbKullanici">
+            <End Role="DbKullanici" EntitySet="DbKullanici" />
+            <End Role="DbHareket" EntitySet="DbHareket" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="DbKullanici">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KisiAdi" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="KisiSoyadi" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="KullaniciNo" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="Meslek" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="EPosta" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KisaAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Face" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="instagram" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="KullaniciRolid" Type="Int32" />
+          <Property Name="ilanOnaylandi" Type="Boolean" />
+          <Property Name="Durum" Type="Boolean" />
+          <Property Name="Resim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="DbYetki" Relationship="GYatirimModel.FK_DbKullanici_DbYetki" FromRole="DbKullanici" ToRole="DbYetki" />
+          <NavigationProperty Name="DbHareket" Relationship="GYatirimModel.FK_DbHareket_DbKullanici" FromRole="DbKullanici" ToRole="DbHareket" />
+        </EntityType>
+        <Association Name="FK_DbKullanici_DbYetki">
+          <End Type="GYatirimModel.DbYetki" Role="DbYetki" Multiplicity="0..1" />
+          <End Type="GYatirimModel.DbKullanici" Role="DbKullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbYetki">
+              <PropertyRef Name="AdminYetkiID" />
+            </Principal>
+            <Dependent Role="DbKullanici">
+              <PropertyRef Name="KullaniciRolid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="ialnlarDeneme">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ialnAd" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Ozellik" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ResimDeneme" Relationship="GYatirimModel.FK_ResimDeneme_ialnlarDeneme" FromRole="ialnlarDeneme" ToRole="ResimDeneme" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Photos" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="ResimDeneme">
+          <Key>
+            <PropertyRef Name="ResimID" />
+          </Key>
+          <Property Name="ResimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResimAd" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ialnID" Type="Int32" />
+          <NavigationProperty Name="ialnlarDeneme" Relationship="GYatirimModel.FK_ResimDeneme_ialnlarDeneme" FromRole="ResimDeneme" ToRole="ialnlarDeneme" />
+        </EntityType>
+        <Association Name="FK_ResimDeneme_ialnlarDeneme">
+          <End Type="GYatirimModel.ialnlarDeneme" Role="ialnlarDeneme" Multiplicity="0..1" />
+          <End Type="GYatirimModel.ResimDeneme" Role="ResimDeneme" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ialnlarDeneme">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="ResimDeneme">
+              <PropertyRef Name="ialnID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DbilanGallery">
+          <Key>
+            <PropertyRef Name="ilanGalleryID" />
+          </Key>
+          <Property Name="ilanGalleryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="İlanIDD" Type="Int32" />
+          <Property Name="Ad" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Dbilan" Relationship="GYatirimModel.FK_DbilanGallery_Dbilan" FromRole="DbilanGallery" ToRole="Dbilan" />
+          <Property Name="EklenmeTarihi" Type="DateTime" Precision="3" />
+        </EntityType>
+        <Association Name="FK_DbilanGallery_Dbilan">
+          <End Type="GYatirimModel.Dbilan" Role="Dbilan" Multiplicity="0..1" />
+          <End Type="GYatirimModel.DbilanGallery" Role="DbilanGallery" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dbilan">
+              <PropertyRef Name="ilanID" />
+            </Principal>
+            <Dependent Role="DbilanGallery">
+              <PropertyRef Name="İlanIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="DbHareket">
+          <Key>
+            <PropertyRef Name="HareketID" />
+          </Key>
+          <Property Name="HareketID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="KullaniciIDD" Type="Int32" />
+          <Property Name="HaraketilanIDD" Type="Int32" />
+          <NavigationProperty Name="Dbilan" Relationship="GYatirimModel.FK_DbHareket_Dbilan" FromRole="DbHareket" ToRole="Dbilan" />
+          <NavigationProperty Name="DbKullanici" Relationship="GYatirimModel.FK_DbHareket_DbKullanici" FromRole="DbHareket" ToRole="DbKullanici" />
+        </EntityType>
+        <Association Name="FK_DbHareket_Dbilan">
+          <End Type="GYatirimModel.Dbilan" Role="Dbilan" Multiplicity="0..1" />
+          <End Type="GYatirimModel.DbHareket" Role="DbHareket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dbilan">
+              <PropertyRef Name="ilanID" />
+            </Principal>
+            <Dependent Role="DbHareket">
+              <PropertyRef Name="HaraketilanIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_DbHareket_DbKullanici">
+          <End Type="GYatirimModel.DbKullanici" Role="DbKullanici" Multiplicity="0..1" />
+          <End Type="GYatirimModel.DbHareket" Role="DbHareket" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DbKullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="DbHareket">
+              <PropertyRef Name="KullaniciIDD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="GYatirimModelStoreContainer" CdmEntityContainer="GYatirimEntities">
+          <EntitySetMapping Name="DbAdmin">
+            <EntityTypeMapping TypeName="GYatirimModel.DbAdmin">
+              <MappingFragment StoreEntitySet="DbAdmin">
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="EPosta" ColumnName="EPosta" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="RolId" ColumnName="RolId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DbBlog">
+            <EntityTypeMapping TypeName="GYatirimModel.DbBlog">
+              <MappingFragment StoreEntitySet="DbBlog">
+                <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="icerik1" ColumnName="icerik1" />
+                <ScalarProperty Name="icerik2" ColumnName="icerik2" />
+                <ScalarProperty Name="icerik3" ColumnName="icerik3" />
+                <ScalarProperty Name="YazarAdSoyad" ColumnName="YazarAdSoyad" />
+                <ScalarProperty Name="YazarResim" ColumnName="YazarResim" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="EPosta" ColumnName="EPosta" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DbEmlakTipi">
+            <EntityTypeMapping TypeName="GYatirimModel.DbEmlakTipi">
+              <MappingFragment StoreEntitySet="DbEmlakTipi">
+                <ScalarProperty Name="EmlakTipiID" ColumnName="EmlakTipiID" />
+                <ScalarProperty Name="EmlakTipAd" ColumnName="EmlakTipAd" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Dbilan">
+            <EntityTypeMapping TypeName="GYatirimModel.Dbilan">
+              <MappingFragment StoreEntitySet="Dbilan">
+                <ScalarProperty Name="VitrinResim" ColumnName="VitrinResim" />
+                <ScalarProperty Name="KEPosta" ColumnName="KEPosta" />
+                <ScalarProperty Name="KTel" ColumnName="KTel" />
+                <ScalarProperty Name="KKisaAciklama" ColumnName="KKisaAciklama" />
+                <ScalarProperty Name="KMeslek" ColumnName="KMeslek" />
+                <ScalarProperty Name="KAdSoyad" ColumnName="KAdSoyad" />
+                <ScalarProperty Name="KProfil" ColumnName="KProfil" />
+                <ScalarProperty Name="GoogleMapAdres" ColumnName="GoogleMapAdres" />
+                <ScalarProperty Name="SiteAdi" ColumnName="SiteAdi" />
+                <ScalarProperty Name="Balkon" ColumnName="Balkon" />
+                <ScalarProperty Name="OzelNor" ColumnName="OzelNor" />
+                <ScalarProperty Name="ilanID" ColumnName="ilanID" />
+                <ScalarProperty Name="EmlakTipi" ColumnName="EmlakTipi" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="TamAdres" ColumnName="TamAdres" />
+                <ScalarProperty Name="TamFiyat" ColumnName="TamFiyat" />
+                <ScalarProperty Name="MetreKareFiyat" ColumnName="MetreKareFiyat" />
+                <ScalarProperty Name="CokluResim" ColumnName="CokluResim" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="ilanNo" ColumnName="ilanNo" />
+                <ScalarProperty Name="AlanBoyutu" ColumnName="AlanBoyutu" />
+                <ScalarProperty Name="KurulusYili" ColumnName="KurulusYili" />
+                <ScalarProperty Name="AraziAlanı" ColumnName="AraziAlanı" />
+                <ScalarProperty Name="Banyo" ColumnName="Banyo" />
+                <ScalarProperty Name="OdaSayisi" ColumnName="OdaSayisi" />
+                <ScalarProperty Name="Garaj" ColumnName="Garaj" />
+                <ScalarProperty Name="Aidat" ColumnName="Aidat" />
+                <ScalarProperty Name="BulunduguKat" ColumnName="BulunduguKat" />
+                <ScalarProperty Name="KatSayisi" ColumnName="KatSayisi" />
+                <ScalarProperty Name="ilanOzellikIDD" ColumnName="ilanOzellikIDD" />
+                <ScalarProperty Name="EmlakTipIDD" ColumnName="EmlakTipIDD" />
+                <ScalarProperty Name="ilanDurumIDD" ColumnName="ilanDurumIDD" />
+                <ScalarProperty Name="KonumIDD" ColumnName="KonumIDD" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="isitma" ColumnName="isitma" />
+                <ScalarProperty Name="Esyali" ColumnName="Esyali" />
+                <ScalarProperty Name="KullanimDurumu" ColumnName="KullanimDurumu" />
+                <ScalarProperty Name="Siteicerisinde" ColumnName="Siteicerisinde" />
+                <ScalarProperty Name="KrediyeUygun" ColumnName="KrediyeUygun" />
+                <ScalarProperty Name="Takasli" ColumnName="Takasli" />
+                <ScalarProperty Name="TapuDurumu" ColumnName="TapuDurumu" />
+                <ScalarProperty Name="ZeminEtudu" ColumnName="ZeminEtudu" />
+                <ScalarProperty Name="YapininDurumu" ColumnName="YapininDurumu" />
+                <ScalarProperty Name="YakitTipi" ColumnName="YakitTipi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DbilanDurum">
+            <EntityTypeMapping TypeName="GYatirimModel.DbilanDurum">
+              <MappingFragment StoreEntitySet="DbilanDurum">
+                <ScalarProperty Name="ilanDurumID" ColumnName="ilanDurumID" />
+                <ScalarProperty Name="ilanDurumAd" ColumnName="ilanDurumAd" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DbilanOzellik">
+            <EntityTypeMapping TypeName="GYatirimModel.DbilanOzellik">
+              <MappingFragment StoreEntitySet="DbilanOzellik">
+                <ScalarProperty Name="Secildimi" ColumnName="Secildimi" />
+                <ScalarProperty Name="ilanOzellikID" ColumnName="ilanOzellikID" />
+                <ScalarProperty Name="OzellikAd" ColumnName="OzellikAd" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DbiletisimBilgi">
+            <EntityTypeMapping TypeName="GYatirimModel.DbiletisimBilgi">
+              <MappingFragment StoreEntitySet="DbiletisimBilgi">
+                <ScalarProperty Name="iletisimBilgiID" ColumnName="iletisimBilgiID" />
+                <ScalarProperty Name="Sube" ColumnName="Sube" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="EPosta" ColumnName="EPosta" />
+                <ScalarProperty Name="Harita" ColumnName="Harita" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="Twetter" ColumnName="Twetter" />
+                <ScalarProperty Name="instagram" ColumnName="instagram" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DbiletisimForm">
+            <EntityTypeMapping TypeName="GYatirimModel.DbiletisimForm">
+              <MappingFragment StoreEntitySet="DbiletisimForm">
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="iletisimFormID" ColumnName="iletisimFormID" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="EPosta" ColumnName="EPosta" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Konu" ColumnName="Konu" />
+                <ScalarProperty Name="Mesaj" ColumnName="Mesaj" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DbKonum">
+            <EntityTypeMapping TypeName="GYatirimModel.DbKonum">
+              <MappingFragment StoreEntitySet="DbKonum">
+                <ScalarProperty Name="KonumID" ColumnName="KonumID" />
+                <ScalarProperty Name="SehirAd" ColumnName="SehirAd" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DbSlider">
+            <EntityTypeMapping TypeName="GYatirimModel.DbSlider">
+              <MappingFragment StoreEntitySet="DbSlider">
+                <ScalarProperty Name="SliderID" ColumnName="SliderID" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="Baslik" ColumnName="Baslik" />
+                <ScalarProperty Name="KisaYazi" ColumnName="KisaYazi" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DbTemsilci">
+            <EntityTypeMapping TypeName="GYatirimModel.DbTemsilci">
+              <MappingFragment StoreEntitySet="DbTemsilci">
+                <ScalarProperty Name="ProfilResim" ColumnName="ProfilResim" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="TemsilciID" ColumnName="TemsilciID" />
+                <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
+                <ScalarProperty Name="Makam" ColumnName="Makam" />
+                <ScalarProperty Name="EPosta" ColumnName="EPosta" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Facebook" ColumnName="Facebook" />
+                <ScalarProperty Name="instagram" ColumnName="instagram" />
+                <ScalarProperty Name="Twetter" ColumnName="Twetter" />
+                <ScalarProperty Name="WebSite" ColumnName="WebSite" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DbYetki">
+            <EntityTypeMapping TypeName="GYatirimModel.DbYetki">
+              <MappingFragment StoreEntitySet="DbYetki">
+                <ScalarProperty Name="AdminYetkiID" ColumnName="AdminYetkiID" />
+                <ScalarProperty Name="YetkiAd" ColumnName="YetkiAd" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="GYatirimModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DbKullanici">
+            <EntityTypeMapping TypeName="GYatirimModel.DbKullanici">
+              <MappingFragment StoreEntitySet="DbKullanici">
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="Resim" ColumnName="Resim" />
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="ilanOnaylandi" ColumnName="ilanOnaylandi" />
+                <ScalarProperty Name="KullaniciRolid" ColumnName="KullaniciRolid" />
+                <ScalarProperty Name="instagram" ColumnName="instagram" />
+                <ScalarProperty Name="Face" ColumnName="Face" />
+                <ScalarProperty Name="KisaAciklama" ColumnName="KisaAciklama" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="EPosta" ColumnName="EPosta" />
+                <ScalarProperty Name="Meslek" ColumnName="Meslek" />
+                <ScalarProperty Name="KullaniciNo" ColumnName="KullaniciNo" />
+                <ScalarProperty Name="KisiSoyadi" ColumnName="KisiSoyadi" />
+                <ScalarProperty Name="KisiAdi" ColumnName="KisiAdi" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ialnlarDeneme">
+            <EntityTypeMapping TypeName="GYatirimModel.ialnlarDeneme">
+              <MappingFragment StoreEntitySet="ialnlarDeneme">
+                <ScalarProperty Name="Ozellik" ColumnName="Ozellik" />
+                <ScalarProperty Name="ialnAd" ColumnName="ialnAd" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Product">
+            <EntityTypeMapping TypeName="GYatirimModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Photos" ColumnName="Photos" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ResimDeneme">
+            <EntityTypeMapping TypeName="GYatirimModel.ResimDeneme">
+              <MappingFragment StoreEntitySet="ResimDeneme">
+                <ScalarProperty Name="ialnID" ColumnName="ialnID" />
+                <ScalarProperty Name="ResimAd" ColumnName="ResimAd" />
+                <ScalarProperty Name="ResimID" ColumnName="ResimID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DbilanGallery">
+            <EntityTypeMapping TypeName="GYatirimModel.DbilanGallery">
+              <MappingFragment StoreEntitySet="DbilanGallery">
+                <ScalarProperty Name="EklenmeTarihi" ColumnName="EklenmeTarihi" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Ad" ColumnName="Ad" />
+                <ScalarProperty Name="İlanIDD" ColumnName="İlanIDD" />
+                <ScalarProperty Name="ilanGalleryID" ColumnName="ilanGalleryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DbHareket">
+            <EntityTypeMapping TypeName="GYatirimModel.DbHareket">
+              <MappingFragment StoreEntitySet="DbHareket">
+                <ScalarProperty Name="HaraketilanIDD" ColumnName="HaraketilanIDD" />
+                <ScalarProperty Name="KullaniciIDD" ColumnName="KullaniciIDD" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="HareketID" ColumnName="HareketID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

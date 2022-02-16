@@ -1,0 +1,46 @@
+﻿@model GGYatirim.Models.Sinif.DbAdmin
+@{
+    ViewBag.Title = "AdminKulGetr";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="col-md-10 col-sm-12 col-xs-12">
+
+    <h3>Kullanıcı Sayfasını Güncelle</h3>
+
+    @using (Html.BeginForm("AdmKulGuncelle", "Admin", FormMethod.Post))
+    {
+        <div id="div-boyut">
+            <label><b>Ad Soyad</b></label>
+            @Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })
+        </div>
+        <div>
+            <label><b>Telefon</b></label>
+            @Html.TextBoxFor(x => x.Tel, new { @class = "form-control" })
+        </div>
+        <div>
+            <label><b>E-Posta</b></label>
+            @Html.TextBoxFor(x => x.EPosta, new { @class = "form-control" })
+        </div>
+        <div>
+            <label><b>Şifre</b></label>
+            @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })
+        </div>
+
+        <label><b>Yetki</b></label>
+        @Html.DropDownListFor(x => x.RolId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+
+        <div>
+            @Html.HiddenFor(x => x.AdminID)
+        </div>
+        <div>
+            <br />
+            <br />
+            <button class="btn btn-success" style="background-color:cornflowerblue">Değişiklikleri Kaydet</button>
+
+        </div>
+
+
+    }
+    </div>

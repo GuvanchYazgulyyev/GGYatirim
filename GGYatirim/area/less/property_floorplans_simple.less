@@ -1,0 +1,111 @@
+.property-floorplans-simple .info-wrap {
+    margin: auto 0px;
+}
+.property-floorplans-simple .accordion .accordion-header i:before {
+    content: "\E313";
+    position: relative;
+    top: 1px;
+}
+.property-floorplans-simple .accordion .accordion-header {
+    padding: 22px;
+    margin: 0px;
+    position: relative;
+}
+.property-floorplans-simple .accordion .accordion-header:before {
+    background-color: rgba(153, 161, 182, 0.08);
+    height: 2px;
+    left: 22px;
+    right: 22px;
+    bottom: 0px;
+    position: absolute;
+    content: "";
+}
+.property-floorplans-simple .info-wrap h5 { 
+    color: #37466f;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.28px;
+    margin: 0px 0px 4px 0px;
+    font-weight: 600;
+}
+.property-floorplans-simple {  
+    border-radius: 2px;
+    border: 2px solid #eff0f3;
+    background-color: #ffffff;
+}
+.property-floorplans-simple .info-item {
+    padding-right: 13px;
+    margin-right: 13px;
+    position: relative;
+    display: inline-block;
+}
+.property-floorplans-simple .info-item:last-child {
+    padding: 0px;
+    margin: 0px;
+}
+.property-floorplans-simple .info-item:before {
+    content: "";
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    background-color: #d1d1d1;
+    width: 1px;
+}
+.property-floorplans-simple .info-item:last-child:before {
+    display: none;
+}
+.property-floorplans-simple .info-item .name {
+    color: #525252;
+    font-family: "Open Sans";
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+}
+.property-floorplans-simple .info-item .value {
+    color: #525252;
+    font-family: "Open Sans";
+    font-size: 14px;
+    letter-spacing: 0.44px;
+}
+.property-floorplans-simple .accordion {
+    border: none;
+}
+.property-floorplans-simple .accordion-content img {
+    width: 100%;
+}
+.property-floorplans-simple .accordion-content {
+    padding: 0px 24px 16px;
+}
+.property-floorplans-simple .accordion .accordion-header i.open:before {
+    content: "\E316";
+    top: 0px;
+}
+.property-floorplans-simple .accordion .accordion-content {
+    border: none;
+    position: relative;
+}.property-floorplans-simple .accordion:last-child .accordion-content:before {
+    background-color: rgba(153, 161, 182, 0.08);
+    height: 2px;
+    left: 22px;
+    right: 22px;
+    top: 0px;
+    position: absolute;
+    content: "";
+}
+.property-floorplans-simple .accordion:last-child .accordion-header:before {
+    display: none;
+}
+@media (max-width:450px) {
+    .property-floorplans-simple .accordion .accordion-header i {
+        margin-right: 0px;
+        margin-left: 10px;
+    }
+    .property-floorplans-simple .accordion .accordion-header {
+        flex-direction: row-reverse;
+    }
+    .property-floorplans-simple .info-item:before {
+        display: none;
+    }
+}

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.DbKullanici>
+@{
+    ViewBag.Title = "AdmSilinmisMusteriler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="col-md-10 col-sm-12 col-xs-12">
+    <h3>Silinmiş Kullanıcılar</h3>
+    <table class="table table-bordered">
+        <tr>
+            <th>Ad Soyad</th>
+            <th>Kullanıcı No</th>
+            <th>Meslek</th>
+            <th>E Posta</th>
+            <th>Şifre</th>
+            <th>Tel</th>
+            <th>Kısa Açıklama</th>
+            <th>Yetki</th>
+            <th>Resim</th>
+            <th>Yayın Tarih</th>
+        </tr>
+
+        @foreach (var x in Model)
+        {
+            <tr>
+                <td>@x.KisiAdi @x.KisiSoyadi </td>
+                <td>@x.KullaniciNo</td>
+                <td>@x.Meslek</td>
+                <td>@x.EPosta</td>
+                <td>@x.Sifre</td>
+                <td>@x.Telefon</td>
+                <td>@x.KisaAciklama</td>
+                <td>@x.DbYetki.YetkiAd</td>
+                <td><img src="@x.Resim" width="90px;" alt="" /></td>
+                <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</td>
+                @*<td><a href="~/Admin/AdmSilinmisilanDetay/@x.ilanID#submit" class="btn btn-info"><i class="fas fa-edit"></i></a></td>*@
+            </tr>
+        }
+    </table>
+
+</div>
+

@@ -1,0 +1,234 @@
+.property_gallery {
+  position: relative;
+  padding: 22px;
+  border-radius: 2px;
+  border: 2px solid @property-gallery-border-color;
+  background-color: @property-gallery-bg-color;
+  transition: width 2s;
+  &.setfull {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    animation-name: zoomin;
+    animation-duration: 0.6s;
+    overflow: hidden;
+    .js-fullscreen-message {
+      display: inline;
+      transition: opacity 1s 1s;
+      z-index: 100;
+    }
+
+  }
+}
+
+@keyframes zoomin {
+  from {
+    transform: scale(0)
+  }
+  to {
+    transform: scale(1)
+  }
+}
+
+.property_gallery {
+  .wrapper {
+    overflow: hidden;
+    position: relative;
+
+    .js-fullscreen-btn {
+      position: absolute;
+      display: block;
+      top: 22px;
+      right: 22px;
+      z-index: 100;
+      color: @property-gallery-fullscreen-btn-color;
+      opacity: 0.5;
+
+      &.fullscreen i:before {
+        content: '\E5D0';
+      }
+
+      &.exitfullscreen i:before {
+        content: '\E5D1';
+      }
+
+    }
+
+    .js-fullscreen-btn:hover {
+      opacity: 1;
+      transition: opacity .1s cubic-bezier(0.4, 0, 1, 1);
+    }
+  }
+}
+
+.js-fullscreen-message {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 22px;
+  text-align: center;
+  padding: 20px;
+  background-color: @property-gallery-fullscreen-msg-bg-color;
+  color: @property-gallery-fullscreen-msg-text-color;
+  opacity: 0;
+  width: 50%;
+  margin: auto;
+  font-size: 18px;
+  border-radius: 10px;
+  font: @main-font;
+}
+
+.js-image-preloader {
+  position: absolute;
+  height: 100%;
+  background-color: #fdfdfd;
+  opacity: 0.5;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: none;
+  z-index: 1000;
+  div {
+    height: 100px;
+    width: 100px;
+    position: relative;
+    margin: auto;
+
+    #imagecirclemain {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.property_gallery .slide img {
+  width: 100%;
+}
+
+.property_gallery .property-slides-list-wrapper {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: block;
+  height: 15%;
+
+  * {
+    position: relative;
+    height: 100%;
+    object-fit: cover;
+  }
+
+}
+
+.property_gallery .property-slides-list-wrapper a {
+  display: block;
+  opacity: 0.4;
+  transition: all .5ms linear .5ms;
+  position: relative;
+
+}
+
+.property_gallery .property-slides-list-wrapper > a > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.property_gallery .property-slides-list-wrapper a:hover {
+  opacity: 1;
+  background-color: @property-gallery-arrow-hover-bg-color;
+  transition: all .5ms linear .5ms;
+}
+
+.property_gallery .nav-arrow {
+  background-color: @property-gallery-arrow-bg-color;
+  width: 40px;
+  height: 40px;
+  color: @property-gallery-arrow-color;
+  border-radius: 100%;
+  position: absolute;
+  text-align: center;
+  padding-top: 12px;
+  bottom: 7%;
+  transition: all .4ms;
+  line-height: 1;
+  z-index: 100;
+}
+
+.property_gallery .nav-arrow:hover {
+  box-shadow: 0 1px 10px @property-gallery-arrow-hover-shadow;
+  background-color: @property-gallery-arrow-hover-bg-color;
+  color: @property-gallery-arrow-hover-color;
+}
+
+.property_gallery .nav-arrow i {
+  font-size: 16px;
+}
+
+.property_gallery .nav-arrow.right-arrow {
+  right: 0;
+  margin-right: 20px;
+}
+
+.property_gallery .nav-arrow.left-arrow {
+  margin-left: 20px;
+}
+
+.property_gallery .property-status {
+  position: absolute;
+  top: 22px;
+  left: 22px;
+  right: 22px;
+}
+
+.property_gallery .property-status span {
+  display: inline-block;
+  padding: 10px;
+  margin-right: 10px;
+  font-family: @secondary-font;
+  font-size: 10px;
+  font-weight: 400;
+  line-height: 10px;
+  text-transform: uppercase;
+  letter-spacing: .24px;
+  margin-bottom: 0;
+}
+
+/*.property_gallery .property-status .featured {
+  background-color: #9814ae;
+  color: #fff;
+}
+
+.property_gallery .property-status .rent {
+  background: #4192f2;
+  color: #fff;
+}*/
+
+@media (max-width: 600px) {
+  .property_gallery {
+    padding: 0;
+    border: none;
+  }
+}
+
+@media (max-width: 450px) {
+  .property_gallery .property-slides-list-wrapper {
+    // display: none;
+  }
+
+  .property_gallery .nav-arrow {
+    width: 30px;
+    height: 30px;
+    padding-top: 8px;
+  }
+
+  .property_gallery .property-status span {
+    padding: 5px;
+    text-transform: capitalize;
+  }
+}

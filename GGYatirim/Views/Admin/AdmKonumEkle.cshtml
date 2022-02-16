@@ -1,0 +1,26 @@
+﻿@model GGYatirim.Models.Sinif.DbKonum
+
+@{
+    ViewBag.Title = "AdmKonumEkle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<h2> Şehir Ekle</h2>
+<div class="col-md-12">
+    @using (Html.BeginForm("AdmKonumEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <form class="form-group" method="post">
+
+            Şehir Ad
+            @Html.TextBoxFor(x => x.SehirAd, new { @class = "form-control" })
+
+
+            @Html.HiddenFor(x => x.KonumID)
+
+            <button class="button border with-icon">Yeni Şehir Ekle</button>
+
+        </form>
+    }
+</div>
+

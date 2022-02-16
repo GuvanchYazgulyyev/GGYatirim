@@ -1,0 +1,65 @@
+.property-pageviews-chart {
+    padding: 30px 24px 5px 24px;
+    border-radius: 2px;
+    border: 2px solid #eff0f3;
+    background-color: #ffffff;
+}
+.property-pageviews-chart h3 {   
+    color: #37466f;
+    font-family: "Open Sans";
+    font-size: 20px;
+    margin-bottom: 15px;
+    margin-top: 0;
+}
+.property-pageviews-chart .ct-series-a .ct-line {
+    stroke: #6495fe;
+    stroke-width: 3px;
+}
+.property-pageviews-chart .ct-series-a .ct-circle {
+    stroke: #FFF;
+    stroke-width: 2px;
+    fill: #6495fe;
+}
+.property-pageviews-chart .ct-series-a .ct-area, .ct-series-a .ct-slice-donut-solid, .ct-series-a .ct-slice-pie {
+    fill: rgb(100, 149, 254);
+}
+.property-pageviews-chart .ct-grid {
+    stroke-dasharray: 0px;
+    stroke: rgba(153, 161, 182, 0.24);
+}
+.property-pageviews-chart .ct-label.ct-horizontal.ct-end,
+.property-pageviews-chart .ct-label.ct-vertical.ct-start {
+    color: rgba(153, 161, 182, 0.75);
+    font-family: "Montserrat";
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.37px;
+}
+.property-pageviews-chart .ct-vertical.ct-start {
+    position: relative;
+}
+.property-pageviews-chart .ct-vertical.ct-start:before {
+    content: '';
+    position: absolute;
+    bottom: 15px;
+    right: -10px;
+    height: 1px;
+    background-color: #dbdbdb;
+    width: 5px
+}
+.property-pageviews-chart {
+    position: relative;
+}
+.property-pageviews-chart:before {
+    position: absolute;
+    content: "";
+    left: 24px;
+    right: 38px;
+    bottom: 44px;
+    background-color: #6495fe;
+    height: 1px;
+} 
+.property-pageviews-chart .ct-label.ct-horizontal.ct-end {
+    position: relative;
+    left: -6px;
+}

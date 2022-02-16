@@ -1,0 +1,160 @@
+.sidebar-search-results {
+    padding: 24px;
+    border-radius: 2px;
+    border: 2px solid #eff0f3;
+    background-color: #f5f6f8;
+}
+.sidebar-search-results h3 {
+    color: #37466f;
+    font-family: "Open Sans";
+    font-size: 20px;
+    margin: 0;
+    padding-bottom: 14px;
+}
+.sidebar-search-results .result {
+    margin-bottom: 4px;
+    background-color: #fff;
+    font-size: 0;
+}
+.sidebar-search-results .result > .name {
+    width: 60%;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 15px;
+}
+.sidebar-search-results .result > img {
+    width: 40%;
+    object-fit: cover;
+    min-height: 84px;
+}
+.sidebar-search-results .result > span > a {
+    color: #6495fe;
+    font-family: "Montserrat";
+    font-size: 11px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    display: block;
+}
+.sidebar-search-results .result > span > .apartment-name {
+    color: #37466f;
+    font-family: "Open Sans";
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.28px;
+}
+.sidebar-search-results .result .wrapper {
+    box-shadow: 0 1px 20px rgba(55, 70, 111, 0.16);
+    border-radius: 2px;
+    border-top: 2px solid #eff0f3;
+    background-color: rgba(153, 161, 182, 0.04);
+    display: block;
+    position: relative;
+    z-index: 1;
+    max-height: 0;
+    overflow: hidden;
+    -webkit-transform: perspective(400px) rotate3d(1,0,0,-90deg);
+    -webkit-transform-origin: 50% 0;
+    -webkit-transition: 350ms;
+    -moz-transition: 350ms;
+    -o-transition: 350ms;
+    transition: 350ms;
+/*    -webkit-transition:max-height 200ms ease-in;
+    -moz-transition:max-height 200ms ease-in;
+    -o-transition:max-height 200ms ease-in;
+    transition:max-height 200ms ease-in;*/
+}
+.sidebar-search-results .result:hover .wrapper {
+    overflow: visible;
+    z-index: 100;
+    max-height: 1000px;
+    -webkit-transform: perspective(400px) rotate3d(0,0,0,0);
+}
+.sidebar-search-results .result .wrapper .info {
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    padding: 20px 0px 17px 20px;
+}
+.sidebar-search-results .result .wrapper .buttons {
+    text-align: right;
+    display: inline-block;
+    vertical-align: middle;
+    width: 50%;
+    padding: 16px 20px 16px 0px;
+}
+.sidebar-search-results .result .wrapper .info > span {
+    width: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 14px;
+    letter-spacing: 0.28px;
+    color: #37466f;
+    font-family: "Open Sans";
+}
+.sidebar-search-results .result .wrapper .info > span > span {
+    color: #99a1b6;
+    font-family: Montserrat;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.4px;
+    display: block;
+}
+.sidebar-search-results .result .buttons > a {
+    width: 40px;
+    height: 40px;
+    background-color: #f7f7f7;
+    margin-right: 10px;
+    text-align: center;
+    color: #99a1b6;
+}
+.sidebar-search-results .result .buttons > a > i {
+    font-size: 16px;
+}
+.sidebar-search-results .icons-style {
+    border: 2px solid #f7f7f7;
+    padding: 11px;
+    background: #f7f7f7;
+    border-radius: 100%;
+    font-size: 16px;
+    color: #99a1b6;
+}
+.sidebar-search-results .result .buttons a:hover .icons-style {
+    box-shadow: 0 1px 10px #6495fe;
+    background-color: #6495fe;
+    color: #f7f7f7;
+}
+.sidebar-search-results .result .buttons .clone i:before {
+    content: "\E3E0";
+}
+.sidebar-search-results .result .buttons .heart i:before {
+    content: '\E87E';
+}
+.sidebar-search-results .result .buttons .clone:hover i:before {
+    content: "\E02E";
+}
+.sidebar-search-results .result .buttons .heart:hover i:before {
+    content: "\E87D";
+}
+@media (max-width:425px) {
+    .sidebar-search-results {
+        padding: 30px 0px 0px;
+        border-bottom: none;
+    }
+    .sidebar-search-results .result .wrapper .buttons {
+        display: none;
+    }
+    .sidebar-search-results .result .wrapper .info {
+        width: 100%;
+    }
+    .sidebar-search-results h3 {
+        padding: 0 24px 32px;
+    }
+    .sidebar-search-results .result {
+        margin: 0;
+        border-bottom: 2px solid #eff0f3;
+    }
+    .sidebar-search-results .result > img {
+        margin-left: -1px;
+    } 
+}

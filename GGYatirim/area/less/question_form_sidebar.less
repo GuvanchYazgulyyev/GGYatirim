@@ -1,0 +1,149 @@
+/**
+ * @encoding     UTF-8
+ * @copyright    Copyright (C) 2016 Torbara (http://torbara.com). All rights reserved.
+ * @license      Envato Standard License http://themeforest.net/licenses/standard?ref=torbara
+ * @author       Alexei Andriyashevskyi (a.andriyashevskyi@gmail.com)
+ * @support      support@torbara.com
+ */
+
+.faq-form-wrapper {
+  border-radius: 2px;
+  border: 2px solid #eff0f3;
+  background-color: #f5f6f8;
+  padding: 24px;
+
+  h2 {
+    color: @sidebar-form-header-color;
+    font-family: @main-font;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 16px;
+    margin-top: 0;
+  }
+
+  p {
+    opacity: 0.8;
+    color: @sidebar-form-text-color;
+    font-family: @main-font;
+    font-size: 14px;
+    line-height: 22px;
+    letter-spacing: 0.44px;
+    margin-bottom: 20px;
+  }
+
+  /** form style**/
+  form {
+
+    input {
+      width: 100%;
+      display: block;
+      height: 44px;
+      border-radius: 2px;
+      border: 2px solid @sidebar-form-input-border-color;
+      background-color: @sidebar-form-input-bg-color;
+      padding-left: 8px;
+
+    }
+
+    input[type="submit"] {
+      color: @sidebar-form-button-text-color;
+      font-family: @secondary-font;
+      font-size: 12px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      border-radius: 2px;
+      border: 2px solid @sidebar-form-button-border-color;
+      background-color: @sidebar-form-button-bg-color;
+    }
+
+    textarea {
+      width: 100%;
+      height: 128px;
+      border-radius: 2px;
+      border: 2px solid @sidebar-form-input-border-color;
+      background-color: @sidebar-form-input-bg-color;
+      padding-left: 8px;
+      padding-top: 10px;
+
+    }
+
+    input::placeholder {
+      color: @sidebar-form-placeholder-color;
+      font-family: @main-font;
+      font-size: 14px;
+      letter-spacing: 0.44px;
+    }
+
+    input:-moz-placeholder {
+      color: @sidebar-form-placeholder-color;
+      font-family: @main-font;
+      font-size: 14px;
+      letter-spacing: 0.44px;
+    }
+
+    input::-moz-placeholder {
+      color: @sidebar-form-placeholder-color;
+      font-family: @main-font;
+      font-size: 14px;
+      letter-spacing: 0.44px;
+    }
+
+    input::-webkit-input-placeholder {
+      color: @sidebar-form-placeholder-color;
+      font-family: @main-font;
+      font-size: 14px;
+      letter-spacing: 0.44px;
+    }
+
+    input:-ms-input-placeholder {
+      color: @sidebar-form-placeholder-color;
+      font-family: @main-font;
+      font-size: 14px;
+      letter-spacing: 0.44px;
+    }
+
+    textarea::placeholder {
+      color: @sidebar-form-placeholder-color;
+      font-family: @main-font;
+      font-size: 14px;
+      letter-spacing: 0.44px;
+    }
+
+    input:focus {
+      border-color: @sidebar-form-input-focus-color;
+      outline-color: @sidebar-form-input-focus-color;
+    }
+
+    textarea:focus {
+      border-color: @sidebar-form-input-focus-color;
+      outline-color: @sidebar-form-input-focus-color;
+    }
+  }
+
+  /**style for selectize inputs **/
+  .selectize-input > input {
+    height: unset;
+    width: 100% !important;
+  }
+  .selectize-input.full.input-active > input {
+    top: -19px;
+  }
+
+  .input-border-bottom {
+    padding-bottom: 24px;
+    border-bottom: 2px solid @sidebar-form-delimiter-color;
+  }
+
+  /** input margin **/
+  .input-margin-bottom_small {
+    margin-bottom: 16px;
+  }
+  .input-margin-top_big {
+    margin-top: 25px;
+  }
+  .input-margin-bottom_big {
+    margin-bottom: 24px;
+  }
+
+}

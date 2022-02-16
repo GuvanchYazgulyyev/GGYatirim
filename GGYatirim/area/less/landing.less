@@ -1,0 +1,122 @@
+.landing {
+    background:linear-gradient(to top, #ffffff 0%, rgba(255, 255, 255, 0.5) 100%), url(../images/landing-background.png);
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.landing .landing-header {
+    text-align: center;
+    position: relative;
+    top: 15%;
+}
+.landing .landing-header .logo {
+    padding-bottom: 24px;
+    display: inline-block;
+}
+.landing .landing-header p {
+    color: #525252;
+    font-family: "Open Sans";
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    padding-bottom: 60px;
+    margin: 0px;
+}
+.landing .landing-header .buttons-wrap .button {
+    height: 40px;
+    border-radius: 20px;
+    background-color: #6495fe;
+    color: #ffffff;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    margin-right: 20px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 40px;
+    text-decoration: none;
+    padding: 0px 10px;
+}
+.landing .landing-header .buttons-wrap .button:last-child {
+    margin: 0px;
+}
+.landing .landing-header .buttons-wrap .button i {
+    font-size: 16px;
+    margin-right: 5px;
+    vertical-align: middle;
+    top: -1px;
+    position: relative;
+}
+.landing .carousel {
+    position: relative;
+    top: 30%;
+    padding-top: 52px;
+    overflow-x: auto;
+}
+.landing .carousel .slides-wrap {
+    width: 10000px;
+    position: relative;
+}
+.landing .carousel .carousel-item {
+    display: inline-block;
+    margin-right: 33px;
+    float: left;
+    top: 0px;
+    position: relative;
+    transition: all .2s ease-in-out 0s,visibility 0s linear .3s,z-index 0s linear 10ms;
+}
+.landing .carousel .carousel-item:hover {
+    top: -50px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+}
+.landing .carousel .button {
+    position: absolute;
+    background-color: #f7f7f7;
+    width: 40px;
+    height: 40px;
+    color: #99a1b6;
+    font-size: 16px;
+    border-radius: 100%;
+    text-align: center;
+    padding-top: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all .4ms;
+    line-height: 1;
+    z-index: 200;
+    display: inline-block;
+}
+.landing .carousel .button.left {
+    left: 5%;
+}
+.landing .carousel .button.right {
+    right: 5%;
+}
+.landing .carousel .button:hover {
+    box-shadow: 0 1px 10px rgba(100,149,254,.5);
+    background-color: #6495fe;
+    color: #fff;
+}
+.landing .carousel .button i {
+    font-size: 16px;
+}
+@media (max-width: 560px) {
+    .landing .landing-header {
+        top: 5%;
+    }
+    .landing .landing-header .buttons-wrap .button:last-child,
+    .landing .landing-header .buttons-wrap .button {
+        margin: 0px 20px 10px 20px;
+        display: block;
+    }
+    .landing .carousel {
+        top: 5%;
+    }
+}
+@media (max-width:375px) {
+    .landing .landing-header p {
+        padding-bottom: 20px;
+    }
+}
