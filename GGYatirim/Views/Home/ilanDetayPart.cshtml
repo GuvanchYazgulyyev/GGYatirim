@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<GGYatirim.Models.Sinif.Dbilan>
+@using GGYatirim.App_Code
 
 
 
@@ -9,10 +10,15 @@
     if (x.ilanDurumIDD == 1)
     {
         <div class="result">
-            <img src="@x.CokluResim" alt="search-img">
+            <img src="@x.VitrinResim" alt="search-img">
             <span class="name">
-                <a href="/Home/ilanDetay/@x.ilanID">@x.DbEmlakTipi.EmlakTipAd</a>
-                <span class="apartment-name">@x.EmlakTipi</span>
+                <a href="#">
+                    @Html.ActionLink(x.DbEmlakTipi.EmlakTipAd, "ilanDetay", new { id = x.ilanID, baslik1 = Seo.AdresDuzenle(x.EmlakTipi) })
+
+                </a>
+                <span class="apartment-name">
+                    @Html.ActionLink(x.EmlakTipi, "ilanDetay", new { id = x.ilanID, baslik1 = Seo.AdresDuzenle(x.EmlakTipi) })
+                </span>
             </span>
             <span class="wrapper">
                 <span class="info">
@@ -30,9 +36,7 @@
                         <span>İlan No </span>@x.ilanNo
                     </span>
                     <br />
-                    <span>
-                        <span>Oda Sayısı </span>@x.OdaSayisi
-                    </span>
+                   
                 </span>
 
                 @*<span class="buttons">

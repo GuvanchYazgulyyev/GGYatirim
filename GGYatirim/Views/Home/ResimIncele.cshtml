@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "ResimIncele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>ResimIncele</h2>
+
+@foreach (var x in Model)
+{
+    <img src="@x.id"></img>
+}

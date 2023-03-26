@@ -1,0 +1,374 @@
+﻿@model GGYatirim.Models.Sinif.Dbilan
+
+@{
+    ViewBag.Title = "MilanEkleTraktor";
+    Layout = "~/Views/Shared/_KullaniciLayout.cshtml";
+}
+
+
+
+<!doctype html>
+<html class="no-js " lang="en">
+
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+
+
+    <!-- Main Content -->
+    @using (Html.BeginForm("MilanEkleTraktor", "GGKPanel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12">
+                        <h2>
+                            İlan Ekle
+                            <small class="text-muted">Güner Group Yatırım</small>
+                        </h2>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row clearfix">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong>İlan</strong> Biğilerini <small>Buraya Giriniz...</small> </h2>
+
+                            </div>
+                            <div class="body">
+                                <div class="row clearfix">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <p class="input-header">İlan Başlık (Zorunlu)</p>
+
+                                            <input type="text" name="EmlakTipi" class="form-control" required="" placeholder="İlan Başlığı (Zorunlu!!!)">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <p class="input-header">Tam Adres (Zorunlu)</p>
+
+                                            <input type="text" class="form-control" name="TamAdres" required="" placeholder="Adresi Zorunlu!!!">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Tam Fiyat ₺</p>
+
+                                            <input type="number" class="form-control" name="TamFiyat" required="" placeholder="Fiyat Giriniz!!!">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Traktör Markası</p>
+
+                                            <input type="text" class="form-control" name="TraktorMarka" required="" placeholder="Traktör Markası Giriniz!!!">
+                                        </div>
+                                    </div>
+
+
+                                  <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Traktör Kabini</p>
+
+                                            <input type="text" class="form-control" name="TraktorKabin" required="" placeholder="Traktör Kabini Giriniz!!!">
+                                        </div>
+                                    </div>
+
+
+                                 
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Traktör Vitesi</p>
+
+                                            <input type="text" class="form-control" name="TraktorVites" required="" placeholder="Traktör Vitesini Giriniz!!!">
+                                        </div>
+                                    </div>
+
+
+
+                           
+
+
+
+
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Traktör Motor Gücü</p>
+
+                                            <input type="text" class="form-control" name="TraktorMotorGücü" placeholder="Traktör Motor Gücünü Giriniz!!!">
+                                        </div>
+                                    </div>
+
+                                     <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Traktör Slinder Sayısı</p>
+
+                                            <input type="text" class="form-control" name="TraktorSlinderSayisi" placeholder="Traktör Slinder Sayısını Giriniz!!!">
+                                        </div>
+                                    </div>
+
+                                     <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Traktör Çalışma Saati</p>
+
+                                            <input type="text" class="form-control" name="TraktorCalismaSaati" placeholder="Traktör Çalışma Saatini Giriniz!!!">
+                                        </div>
+                                    </div>
+
+
+
+                                
+                                     <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Traktör Ön Lastigi</p>
+
+                                            <input type="text" class="form-control" name="TraktorOnLastik" placeholder="Traktör Ön Lastigi !!!">
+                                        </div>
+                                    </div>
+
+
+                                     <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Traktör Arka Lastigi</p>
+
+                                            <input type="text" class="form-control" name="TraktorArkaLastik" placeholder="Traktör Arka Lastigi !!!">
+                                        </div>
+                                    </div>
+
+
+
+                                
+
+
+
+
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Kullanım Durumu</p>
+
+                                            <input type="text" class="form-control" name="KullanimDurumu" placeholder="Kullanım Durumu !!!">
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header"> Durumu</p>
+
+                                            <input type="text" class="form-control" name="YapininDurumu" placeholder="Yapının Durumu !!!">
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header"> Yakıt Tipi</p>
+
+                                            <input type="text" class="form-control" name="YakitTipi" placeholder="Yakıt Tipi !!!">
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Krediye Uygun</p>
+                                            <select name="KrediyeUygun" class="form-control">
+                                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                                <option value="Evet">Evet</option>
+                                                <option value="Hayır">Hayır</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Ön Yükleyici Kepçe</p>
+                                            <select name="TraktorOnYukleyiciKepce" class="form-control">
+                                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                                <option value="Evet">Evet</option>
+                                                <option value="Hayır">Hayır</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Takas</p>
+                                            <select name="Takasli" class="form-control">
+                                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                                <option value="Evet">Evet</option>
+                                                <option value="Hayır">Hayır</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <p class="submit-property__block-header">Açıklama</p>
+                                            <div class="form-line">
+                                                <textarea rows="4" class="form-control no-resize" name="Aciklama" placeholder="Açıklama Ekleyiniz"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="card">
+                            <div class="header">
+                                @*<h2><strong>General</strong> Amenities<small>Description text here...</small> </h2>*@
+
+                            </div>
+                            <div class="body">
+                                <div class="row">
+                                    @*<div class="col-sm-3">
+                                            <b>Emlak Tipi</b>
+                                            @Html.DropDownListFor(x => x.EmlakTipIDD, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+                                        </div>*@
+                                    <div class="col-sm-6">
+                                        <b>İlan Durumu</b>
+                                        @Html.DropDownListFor(x => x.ilanDurumIDD, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <b>Konum Şehir</b>
+                                        @Html.DropDownListFor(x => x.KonumIDD, (List<SelectListItem>)ViewBag.dgr5, new { @class = "form-control" })
+                                    </div>
+                                    @*<div class="col-sm-4">
+                                            <b>Özellikli</b>
+                                            @Html.DropDownListFor(x => x.ilanOzellikIDD, (List<SelectListItem>)ViewBag.dgr4, new { @class = "form-control" })
+                                        </div>*@
+
+                                </div>
+                                <div class="row clearfix">
+                                    <br />
+                                    <div class="col-sm-6">
+                                        <div class="fallback">
+                                            <b>İlan Vitrin Resimi</b>
+                                            <input type="file" id="File" name="File" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="fallback">
+                                            <b>Çoklu Resim Yükleyiniz!</b>
+                                            <input type="file" name="CokluResim" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" multiple="" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <p class="submit-property__block-header">Özel Not (İstege Bağlı)</p>
+
+                                            <div class="form-line">
+                                                <textarea rows="4" class="form-control no-resize" name="OzelNor" id="summernote" placeholder="Özel Not İstege Bağlı"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+                                    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+                                    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+                                    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+
+                                    <script>
+                                        $('#summernote').summernote({
+                                            placeholder: 'Özel Notunuzu Buraya Giriniz! Örnk:"Daha Fazla Özellik"',
+                                            tabsize: 2,
+                                            height: 140,
+                                            toolbar: [
+                                                ['style', ['style']],
+                                                ['font', ['bold', 'underline', 'clear']],
+                                                ['color', ['color']],
+                                                ['para', ['ul', 'ol', 'paragraph']],
+                                                ['table', ['table']],
+                                                ['insert', ['link', 'picture', 'video']],
+                                                ['view', ['fullscreen', 'codeview', 'help']]
+                                            ]
+                                        });
+                                    </script>
+
+
+
+
+
+
+                                    <input type="text" name="ilanNo" readonly hidden="hidden" value="@ViewBag.takipkod" />
+                                    <input type="text" name="KAdSoyad" readonly hidden="hidden" value="@ViewBag.adsoyad" />
+                                    <input type="text" name="KAdSoyad" readonly hidden="hidden" value="@ViewBag.adsoyadd" />
+                                    <input type="text" name="KEPosta" readonly hidden="hidden" value="@ViewBag.eposta" />
+                                    <input type="text" name="EPosta" readonly hidden="hidden" value="@ViewBag.eposta" />
+                                    <input type="text" name="KTel" readonly hidden="hidden" value="@ViewBag.tel" />
+                                    <input type="text" name="KProfil" readonly hidden="hidden" value="@ViewBag.profil" />
+                                    <input type="text" name="KullaniciNo" readonly hidden="hidden" value="@ViewBag.kno" />
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn btn-primary btn-round">İlanı Ekle</button>
+                                        @*<button type="submit" class="btn btn-default btn-round btn-simple">Cancel</button>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+    }
+</body>
+</html>

@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<GGYatirim.Models.Sinif.Dbilan>
+@using GGYatirim.App_Code
 @{
     ViewBag.Title = "Tumilanlar";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -51,10 +52,13 @@
                     {
                         <div class="col-md-4 col-sm-6 col-xs-12">
                             <div class="property-block">
-                                <a href="/Home/ilanDetay/@x.ilanID" style="text-decoration:none;">
-                                    <p class="property-type">@x.DbKonum.SehirAd</p>
-                                    <p class="property-title">@x.EmlakTipi</p>
-                                </a>
+
+                                <p class="property-type">
+                                    @Html.ActionLink(x.DbKonum.SehirAd, "ilanDetay", new { baslik1 = Seo.AdresDuzenle(x.EmlakTipi), @class = "property-title", id = x.ilanID, @style = "text-decoration:none_l.dk wedee_8486454_eFGWTYPOAM", @typeof = "property-title", x.TamAdres })
+                                </p>
+
+                                @Html.ActionLink(x.EmlakTipi, "ilanDetay", new { baslik1 = Seo.AdresDuzenle(x.EmlakTipi), @class = "property-title", id = x.ilanID, @style = "text-decoration:none_l.dk wedee_8486454_eFGWTYPOAM", @typeof = "property-title", x.TamAdres })
+
                                 <div class="apartment-address">
                                     <i class="fa fa-location-arrow"></i>
                                     <span class="address">@x.TamAdres</span>
@@ -70,28 +74,33 @@
 
                                 </div>
 
-                                <div class="apartment-values">
-                                    <span>Oda: @x.OdaSayisi</span>
-                                    <span>Banyo: @x.Banyo </span>
-                                    <span>Alan: @x.AlanBoyutu</span>
-                                </div>
+
                                 <div class="apartment-info">
                                     <div class="apartment-price">
-                                        <a href="/Home/ilanDetay/@x.ilanID" style="text-decoration:none;">
-                                            <p class="price-big">@x.TamFiyat ₺</p>
-                                            <p class="price-small">Metre Kare @x.MetreKareFiyat ₺</p>
-                                        </a>
+
+                                        <p class="price-big">@x.TamFiyat ₺</p>
+
+                                        <p class="price-small">Metre Kare @x.MetreKareFiyat ₺</p>
+
                                     </div>
 
                                 </div>
                                 <div class="apartment-manager">
                                     <div class="manager-wrap">
                                         <div class="manager-icon">
-                                            <a href="#chat"> <img src="@x.VitrinResims" alt="userpic"></a>
-                                            <div class="online-status"></div>
+                                            @if (x.KProfil != null)
+                                            {
+                                                <a href="#chat"> <img src="@x.KProfil" alt="kullanici profil"></a>
+                                                <div class="online-status"></div>
+                                            }
+                                            else
+                                            {
+                                                <img src="~/Content/Images/Logo Update-01.png" alt="kullanici profil">
+                                                <div class="online-status"></div>
+                                            }
                                         </div>
 
-                                        <span class="manager-name">Güner Group Yatırım</span>
+                                        <span class="manager-name">@x.KAdSoyad</span>
                                     </div>
                                     <div class="calendar">
                                         <i class="fa fa-calendar"></i>
@@ -147,10 +156,13 @@
 
                             <div class="property-block">
 
-                                <a href="/Home/ilanDetay/@x.ilanID" style="text-decoration:none;">
-                                    <p class="property-type">@x.DbKonum.SehirAd</p>
-                                    <p class="property-title">@x.EmlakTipi</p>
-                                </a>
+                                <p class="property-type">
+                                    @Html.ActionLink(x.DbKonum.SehirAd, "ilanDetay", new { baslik1 = Seo.AdresDuzenle(x.EmlakTipi), @class = "property-title", id = x.ilanID, @style = "text-decoration:none_l.dk wedee_8486454_eFGWTYPOAM", @typeof = "property-title", x.TamAdres })
+                                </p>
+                                <p class="property-title">
+                                    @Html.ActionLink(x.EmlakTipi, "ilanDetay", new { baslik1 = Seo.AdresDuzenle(x.EmlakTipi), @class = "property-title", id = x.ilanID, @style = "text-decoration:none_l.dk wedee_8486454_eFGWTYPOAM", @typeof = "property-title", x.TamAdres })
+                                </p>
+
                                 <div class="apartment-address">
                                     <i class="fa fa-location-arrow"></i>
                                     <span class="address">@x.TamAdres</span>
@@ -166,27 +178,30 @@
 
                                 </div>
 
-                                <div class="apartment-values">
-                                    <span>Oda: @x.OdaSayisi</span>
-                                    <span>Banyo: @x.Banyo </span>
-                                    <span>Alan: @x.AlanBoyutu</span>
-                                </div>
                                 <div class="apartment-info">
-                                    <a href="/Home/ilanDetay/@x.ilanID" style="text-decoration:none;">
+                                   
                                         <div class="apartment-price">
                                             <p class="price-big">@x.TamFiyat ₺</p>
                                             <p class="price-small">Metre Kare @x.MetreKareFiyat ₺</p>
                                         </div>
-                                    </a>
+                                   
                                 </div>
                                 <div class="apartment-manager">
                                     <div class="manager-wrap">
                                         <div class="manager-icon">
-                                            <a href="#chat"> <img src="@x.VitrinResim" alt="userpic"></a>
-                                            <div class="online-status"></div>
+                                            @if (x.KProfil != null)
+                                            {
+                                                <a href="#chat"> <img src="@x.KProfil" alt="kullanici profil"></a>
+                                                <div class="online-status"></div>
+                                            }
+                                            else
+                                            {
+                                                <img src="~/Content/Images/Logo Update-01.png" alt="kullanici profil">
+                                                <div class="online-status"></div>
+                                            }
                                         </div>
 
-                                        <span class="manager-name">Güner Group Yatırım</span>
+                                        <span class="manager-name">@x.KAdSoyad</span>
                                     </div>
                                     <div class="calendar">
                                         <i class="fa fa-calendar"></i>

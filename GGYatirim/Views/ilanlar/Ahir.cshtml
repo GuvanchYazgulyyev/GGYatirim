@@ -1,4 +1,10 @@
-﻿@model IEnumerable<GGYatirim.Models.Sinif.Dbilan>
+﻿@using GGYatirim.Models.Sinif
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Dbilan>
+@using GGYatirim.App_Code
+
+
 @{
     ViewBag.Title = "Ahir";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,19 +12,194 @@
 
 
 
-<div class="page-title-simple m-b-30">
+
+
+
+
+<div class="new-region-wrapper">
     <div class="container">
-        <ul>
-            <li>
-                <a href="/">Ana Sayfa</a>
-            </li>
-            <li>
-                <a href="/Home/Tumilanlar">Tüm İlanlar</a>
-            </li>
-        </ul>
-        <h1>Ahır</h1>
+        <!--For customize use html and less from home_bar.html and home_bar.less start-->
+        <!-- hidebutton - hide home-bar-btn block; hidelinks - hide links-block -->
+        <div class="new-region-home-bar-wrapper hidebutton hidelinks">
+            <form id="search-form-2" method="get">
+                <div class="property-search">
+                    <div class="main-apartment-search-options">
+
+                        @using (Html.BeginForm("Ahir", "ilanlar", FormMethod.Get))
+                        {
+
+
+                            <div class="options-wrapper-main">
+                                <div class="wrapper search-property">
+                                    <input type="text" class="property-searchinput" name="p" placeholder="İlan No Giriniz">
+                                </div>
+
+
+
+
+                                <div class="wrapper button-wrap">
+                                    <button class="property-button">Ara</button>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+
+
+                </div>
+            </form>
+
+        </div>
+
+        <!--For customize use html and less from home_bar.html and home_bar.less end-->
+        @*@Html.Action("YeniilanPart", "Home")*@
+
+
+        <div class="row">
+
+            <div class="col-md-3 region-table">
+                <div class="region-item">
+                    @Html.Action("DbilanFilter", "Home")
+                    @*@Html.Action("DbEmlakTipi")*@
+                </div>
+                <div class="region-item">
+                    @Html.Action("DbilanDurum", "Home")
+                    @*@Html.Action("DbEmlakTipi")*@
+                </div>
+
+                <div class="region-item">
+
+                    @Html.Action("DbEmlakTipi", "Home")
+                </div>
+            </div>
+
+            <!-- İlan Kısmı-->
+            @foreach (var x in Model)
+            {
+
+                <!--Traktor-->
+                if (x.EmlakTipIDD == 12)
+                {
+
+                    <div class="col-sm-3">
+                        <div class="property-block">
+
+                            <p class="property-type">
+                                @Html.ActionLink(x.DbEmlakTipi.EmlakTipAd, "ilanDetaylar", new { id = x.ilanID, baslik2 = Seo.AdresDuzenle(x.EmlakTipi) })
+
+                            </p>
+                            @if (x.EmlakTipi != null)
+                            {
+                                <p class="property-title" style="text-decoration:none;">
+                                    @Html.ActionLink(x.EmlakTipi, "ilanDetaylar", new { id = x.ilanID, baslik2 = Seo.AdresDuzenle(x.EmlakTipi) })
+                                </p>
+                            }
+
+                            <div class="apartment-address">
+                                <i class="fa fa-map-marker"></i>
+                                <span class="address">@x.DbKonum.SehirAd ,</span>
+                                <span class="address">@x.TamAdres</span>
+                            </div>
+
+                            <div class="apartment-image">
+                                @if (x.VitrinResim != null)
+                                {
+                                    <img src="@x.VitrinResim" alt="image">
+                                }
+                                <div class="badges">
+
+                                    <p class="featured">@x.DbEmlakTipi.EmlakTipAd</p>
+                                    <p class="rent">@x.DbilanOzellik.OzellikAd</p>
+
+                                    @if (x.DbilanDurum.ilanDurumAd == "Satılık")
+                                    {
+                                        <p class="sale">@x.DbilanDurum.ilanDurumAd</p>
+
+                                    }
+                                    @if (x.DbilanDurum.ilanDurumAd == "Kiralık")
+                                    {
+                                        <p class="rent" style="background-color: #24dd93;">@x.DbilanDurum.ilanDurumAd</p>
+                                    }
+
+
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="apartment-info">
+                                <div class="apartment-price">
+
+                                    <p class="price-big" style="font-weight:800">@x.TamFiyat ₺</p>
+
+                                    <p class="price-big">
+                                        İlan No:
+                                        @Html.ActionLink(x.ilanNo, "ilanDetaylar", new { id = x.ilanID, baslik2 = Seo.AdresDuzenle(x.EmlakTipi) })
+
+                                    </p>
+
+                                </div>
+
+
+                            </div>
+                            <div class="apartment-manager">
+                                <div class="manager-icon">
+                                    @if (x.KProfil != null)
+                                    {
+                                        <a href="#chat"> <img src="@x.KProfil" alt="kullanici profil"></a>
+                                        <div class="online-status"></div>
+                                    }
+                                    else
+                                    {
+                                        <img src="~/Content/Images/Logo Update-01.png" alt="kullanici profil">
+                                        <div class="online-status"></div>
+                                    }
+                                </div>
+                                <div class="manager-wrap">
+                                    <span class="manager-name">
+                                        @Html.ActionLink(x.KAdSoyad, "ilanDetaylar", new { id = x.ilanID, baslik2 = Seo.AdresDuzenle(x.EmlakTipi) })
+
+                                    </span>
+                                </div>
+                                <div class="calendar">
+                                    <i class="fa fa-calendar-check-o"></i>
+                                    <span>
+                                        @Html.ActionLink(Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy"), "ilanDetaylar", new { id = x.ilanID, baslik2 = Seo.AdresDuzenle(x.EmlakTipi) })
+
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+
+            @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Ahir", new { sayfa }))
+
+        </div>
+
+
+
     </div>
 </div>
+
+
+@*<div class="page-title-simple m-b-30">
+        <div class="container">
+            <ul>
+                <li>
+                    <a href="/">Ana Sayfa</a>
+                </li>
+                <li>
+                    <a href="/Home/Tumilanlar">Tüm İlanlar</a>
+                </li>
+            </ul>
+            <h1>Ahır</h1>
+        </div>
+    </div>*@
 
 
 
@@ -30,7 +211,7 @@
 @*Ahır İlanlar*@
 
 
-<div class="container apartment-grid-control-up for-sale">
+<!--<div class="container apartment-grid-control-up for-sale">
     <div class="arrow-block">
 
         <div class="arrow-wrapper">
@@ -52,7 +233,7 @@
         <div class="item">
             <div class="row">
 
-                @foreach (var x in Model)
+                foreach (var x in Model)
                 {
 
                     if (x.EmlakTipIDD == 12)
@@ -61,42 +242,42 @@
 
                             <div class="property-block">
 
-                                <a href="/Home/ilanDetay/@x.ilanID" style="text-decoration:none;">
-                                    <p class="property-type">@x.DbKonum.SehirAd</p>
-                                    <p class="property-title">@x.EmlakTipi</p>
+                                <a href="/Home/ilanDetay/x.ilanID" style="text-decoration:none;">
+                                    <p class="property-type">x.DbKonum.SehirAd</p>
+                                    <p class="property-title">x.EmlakTipi</p>
                                 </a>
                                 <div class="apartment-address">
                                     <i class="fa fa-location-arrow"></i>
-                                    <span class="address">@x.TamAdres</span>
+                                    <span class="address">x.TamAdres</span>
                                 </div>
 
                                 <div class="apartment-image">
-                                    <img src="@x.CokluResim" alt="image">
+                                    <img src="x.CokluResim" alt="image">
                                     <div class="badges">
-                                        <p class="featured">@x.DbilanDurum.ilanDurumAd</p>
-                                        <p class="rent">@x.DbEmlakTipi.EmlakTipAd</p>
-                                        @*<p class="sale">For Sale</p>*@
-                                    </div>
+                                        <p class="featured">x.DbilanDurum.ilanDurumAd</p>
+                                        <p class="rent">x.DbEmlakTipi.EmlakTipAd</p>-->
+@*<p class="sale">For Sale</p>*@
+<!--</div>
 
                                 </div>
 
                                 <div class="apartment-values">
-                                    <span>Oda: @x.OdaSayisi</span>
-                                    <span>Banyo: @x.Banyo </span>
-                                    <span>Alan: @x.AlanBoyutu</span>
+                                    <span>Oda: x.OdaSayisi</span>
+                                    <span>Banyo: x.Banyo </span>
+                                    <span>Alan: .AlanBoyutu</span>
                                 </div>
                                 <div class="apartment-info">
-                                    <a href="/Home/ilanDetay/@x.ilanID" style="text-decoration:none;">
+                                    <a href="/Home/ilanDetay/x.ilanID" style="text-decoration:none;">
                                         <div class="apartment-price">
-                                            <p class="price-big">@x.TamFiyat ₺</p>
-                                            <p class="price-small">Metre Kare @x.MetreKareFiyat ₺</p>
+                                            <p class="price-big">x.TamFiyat ₺</p>
+                                            <p class="price-small">Metre Kare x.MetreKareFiyat ₺</p>
                                         </div>
                                     </a>
                                 </div>
                                 <div class="apartment-manager">
                                     <div class="manager-wrap">
                                         <div class="manager-icon">
-                                            <a href="#chat"> <img src="@x.CokluResim" alt="userpic"></a>
+                                            <a href="#chat"> <img src="x.CokluResim" alt="userpic"></a>
                                             <div class="online-status"></div>
                                         </div>
 
@@ -104,7 +285,7 @@
                                     </div>
                                     <div class="calendar">
                                         <i class="fa fa-calendar"></i>
-                                        <span>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</span>
+                                        <span>Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</span>
                                     </div>
                                 </div>
 
@@ -119,5 +300,4 @@
         </div>
 
     </div>
-</div>
-
+</div>-->

@@ -17,6 +17,7 @@
           <Property Name="Durum" Type="bit" />
           <Property Name="RolId" Type="int" />
           <Property Name="Tarih" Type="datetime" />
+          <Property Name="KullaniciNo" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="DbBlog">
           <Key>
@@ -99,6 +100,39 @@
           <Property Name="KTel" Type="varchar" MaxLength="50" />
           <Property Name="KEPosta" Type="varchar" MaxLength="70" />
           <Property Name="VitrinResim" Type="varchar(max)" />
+          <Property Name="MOnay" Type="bit" />
+          <Property Name="EPosta" Type="varchar" MaxLength="90" />
+          <Property Name="KullaniciNo" Type="varchar(max)" />
+          <Property Name="ArsaImarDurum" Type="varchar" MaxLength="150" />
+          <Property Name="ArsaAdaNo" Type="varchar" MaxLength="150" />
+          <Property Name="ArsaParselNo" Type="varchar" MaxLength="150" />
+          <Property Name="ArsaPaftaNo" Type="varchar" MaxLength="150" />
+          <Property Name="ArsaKaks" Type="varchar" MaxLength="150" />
+          <Property Name="ArsaGabari" Type="varchar" MaxLength="150" />
+          <Property Name="PetrolAcilAlan" Type="varchar" MaxLength="50" />
+          <Property Name="PetrolKapaliAlan" Type="varchar" MaxLength="50" />
+          <Property Name="PetrolPompaSayisi" Type="varchar" MaxLength="50" />
+          <Property Name="ArabaSerisi" Type="varchar" MaxLength="250" />
+          <Property Name="ArabaModel" Type="varchar" MaxLength="250" />
+          <Property Name="ArabaYil" Type="varchar" MaxLength="50" />
+          <Property Name="ArabaVites" Type="varchar" MaxLength="150" />
+          <Property Name="ArabaKM" Type="varchar" MaxLength="50" />
+          <Property Name="ArabaKasaTipi" Type="varchar" MaxLength="150" />
+          <Property Name="ArabaMotorGucu" Type="varchar" MaxLength="250" />
+          <Property Name="ArabaMotorHacmi" Type="varchar" MaxLength="250" />
+          <Property Name="ArabaCekis" Type="varchar" MaxLength="50" />
+          <Property Name="ArabaRenk" Type="varchar" MaxLength="150" />
+          <Property Name="ArabaGarantili" Type="varchar" MaxLength="50" />
+          <Property Name="ArabaPlakaUyrugu" Type="varchar" MaxLength="150" />
+          <Property Name="TraktorMarka" Type="varchar" MaxLength="150" />
+          <Property Name="TraktorKabin" Type="varchar" MaxLength="50" />
+          <Property Name="TraktorVites" Type="varchar" MaxLength="150" />
+          <Property Name="TraktorMotorGücü" Type="varchar" MaxLength="150" />
+          <Property Name="TraktorSlinderSayisi" Type="varchar" MaxLength="50" />
+          <Property Name="TraktorCalismaSaati" Type="varchar" MaxLength="50" />
+          <Property Name="TraktorOnYukleyiciKepce" Type="varchar" MaxLength="50" />
+          <Property Name="TraktorOnLastik" Type="varchar" MaxLength="50" />
+          <Property Name="TraktorArkaLastik" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="DbilanDurum">
           <Key>
@@ -183,6 +217,8 @@
           <Property Name="Durum" Type="bit" />
           <Property Name="Resim" Type="varchar(max)" />
           <Property Name="Tarih" Type="datetime" />
+          <Property Name="Sehir" Type="varchar" MaxLength="500" />
+          <Property Name="TamAdres" Type="varchar" MaxLength="500" />
         </EntityType>
         <EntityType Name="DbSlider">
           <Key>
@@ -253,6 +289,38 @@
           <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tbl_il">
+          <Key>
+            <PropertyRef Name="il_id" />
+          </Key>
+          <Property Name="il_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="il_ad" Type="nvarchar" MaxLength="16" />
+        </EntityType>
+        <EntityType Name="tbl_ilce">
+          <Key>
+            <PropertyRef Name="ilce_id" />
+          </Key>
+          <Property Name="ilce_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="il_id" Type="int" Nullable="false" />
+          <Property Name="ilce_ad" Type="nvarchar" MaxLength="32" />
+        </EntityType>
+        <EntityType Name="tbl_mahalle">
+          <Key>
+            <PropertyRef Name="mahalle_id" />
+          </Key>
+          <Property Name="mahalle_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="semt_id" Type="int" Nullable="false" />
+          <Property Name="mahalle_ad" Type="nvarchar" MaxLength="40" />
+          <Property Name="pk_id" Type="smallint" />
+        </EntityType>
+        <EntityType Name="tbl_semt">
+          <Key>
+            <PropertyRef Name="semt_id" />
+          </Key>
+          <Property Name="semt_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ilce_id" Type="int" Nullable="false" />
+          <Property Name="semt_ad" Type="nvarchar" MaxLength="32" />
         </EntityType>
         <Association Name="FK_DbAdmin_DbYetki">
           <End Role="DbYetki" Type="Self.DbYetki" Multiplicity="0..1" />
@@ -394,6 +462,10 @@
           <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="ResimDeneme" EntityType="Self.ResimDeneme" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_il" EntityType="Self.tbl_il" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_ilce" EntityType="Self.tbl_ilce" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_mahalle" EntityType="Self.tbl_mahalle" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_semt" EntityType="Self.tbl_semt" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_DbAdmin_DbYetki" Association="Self.FK_DbAdmin_DbYetki">
             <End Role="DbYetki" EntitySet="DbYetki" />
             <End Role="DbAdmin" EntitySet="DbAdmin" />
@@ -452,6 +524,7 @@
           <Property Name="RolId" Type="Int32" />
           <NavigationProperty Name="DbYetki" Relationship="Self.FK_DbAdmin_DbYetki" FromRole="DbAdmin" ToRole="DbYetki" />
           <Property Name="Tarih" Type="DateTime" Precision="3" />
+          <Property Name="KullaniciNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="DbBlog">
           <Key>
@@ -532,6 +605,39 @@
           <Property Name="KEPosta" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="DbHareket" Relationship="GYatirimModel.FK_DbHareket_Dbilan" FromRole="Dbilan" ToRole="DbHareket" />
           <Property Name="VitrinResim" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="MOnay" Type="Boolean" />
+          <Property Name="EPosta" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="KullaniciNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ArsaImarDurum" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ArsaAdaNo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ArsaParselNo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ArsaPaftaNo" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ArsaKaks" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ArsaGabari" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="PetrolAcilAlan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PetrolKapaliAlan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PetrolPompaSayisi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ArabaSerisi" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ArabaModel" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ArabaYil" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ArabaVites" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ArabaKM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ArabaKasaTipi" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ArabaMotorGucu" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ArabaMotorHacmi" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ArabaCekis" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ArabaRenk" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="ArabaGarantili" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ArabaPlakaUyrugu" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="TraktorMarka" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="TraktorKabin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TraktorVites" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="TraktorMotorGücü" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="TraktorSlinderSayisi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TraktorCalismaSaati" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TraktorOnYukleyiciKepce" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TraktorOnLastik" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TraktorArkaLastik" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="DbilanDurum">
           <Key>
@@ -746,6 +852,10 @@
             <End Role="DbKullanici" EntitySet="DbKullanici" />
             <End Role="DbHareket" EntitySet="DbHareket" />
           </AssociationSet>
+          <EntitySet Name="tbl_il" EntityType="GYatirimModel.tbl_il" />
+          <EntitySet Name="tbl_ilce" EntityType="GYatirimModel.tbl_ilce" />
+          <EntitySet Name="tbl_mahalle" EntityType="GYatirimModel.tbl_mahalle" />
+          <EntitySet Name="tbl_semt" EntityType="GYatirimModel.tbl_semt" />
         </EntityContainer>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -779,6 +889,8 @@
           <Property Name="Tarih" Type="DateTime" Precision="3" />
           <NavigationProperty Name="DbYetki" Relationship="GYatirimModel.FK_DbKullanici_DbYetki" FromRole="DbKullanici" ToRole="DbYetki" />
           <NavigationProperty Name="DbHareket" Relationship="GYatirimModel.FK_DbHareket_DbKullanici" FromRole="DbKullanici" ToRole="DbHareket" />
+          <Property Name="Sehir" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="TamAdres" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_DbKullanici_DbYetki">
           <End Type="GYatirimModel.DbYetki" Role="DbYetki" Multiplicity="0..1" />
@@ -889,6 +1001,38 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="tbl_il">
+          <Key>
+            <PropertyRef Name="il_id" />
+          </Key>
+          <Property Name="il_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="il_ad" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_ilce">
+          <Key>
+            <PropertyRef Name="ilce_id" />
+          </Key>
+          <Property Name="ilce_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="il_id" Type="Int32" Nullable="false" />
+          <Property Name="ilce_ad" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_mahalle">
+          <Key>
+            <PropertyRef Name="mahalle_id" />
+          </Key>
+          <Property Name="mahalle_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="semt_id" Type="Int32" Nullable="false" />
+          <Property Name="mahalle_ad" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="pk_id" Type="Int16" />
+        </EntityType>
+        <EntityType Name="tbl_semt">
+          <Key>
+            <PropertyRef Name="semt_id" />
+          </Key>
+          <Property Name="semt_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ilce_id" Type="Int32" Nullable="false" />
+          <Property Name="semt_ad" Type="String" MaxLength="32" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -898,6 +1042,7 @@
           <EntitySetMapping Name="DbAdmin">
             <EntityTypeMapping TypeName="GYatirimModel.DbAdmin">
               <MappingFragment StoreEntitySet="DbAdmin">
+                <ScalarProperty Name="KullaniciNo" ColumnName="KullaniciNo" />
                 <ScalarProperty Name="Tarih" ColumnName="Tarih" />
                 <ScalarProperty Name="AdminID" ColumnName="AdminID" />
                 <ScalarProperty Name="AdSoyad" ColumnName="AdSoyad" />
@@ -938,6 +1083,39 @@
           <EntitySetMapping Name="Dbilan">
             <EntityTypeMapping TypeName="GYatirimModel.Dbilan">
               <MappingFragment StoreEntitySet="Dbilan">
+                <ScalarProperty Name="TraktorArkaLastik" ColumnName="TraktorArkaLastik" />
+                <ScalarProperty Name="TraktorOnLastik" ColumnName="TraktorOnLastik" />
+                <ScalarProperty Name="TraktorOnYukleyiciKepce" ColumnName="TraktorOnYukleyiciKepce" />
+                <ScalarProperty Name="TraktorCalismaSaati" ColumnName="TraktorCalismaSaati" />
+                <ScalarProperty Name="TraktorSlinderSayisi" ColumnName="TraktorSlinderSayisi" />
+                <ScalarProperty Name="TraktorMotorGücü" ColumnName="TraktorMotorGücü" />
+                <ScalarProperty Name="TraktorVites" ColumnName="TraktorVites" />
+                <ScalarProperty Name="TraktorKabin" ColumnName="TraktorKabin" />
+                <ScalarProperty Name="TraktorMarka" ColumnName="TraktorMarka" />
+                <ScalarProperty Name="ArabaPlakaUyrugu" ColumnName="ArabaPlakaUyrugu" />
+                <ScalarProperty Name="ArabaGarantili" ColumnName="ArabaGarantili" />
+                <ScalarProperty Name="ArabaRenk" ColumnName="ArabaRenk" />
+                <ScalarProperty Name="ArabaCekis" ColumnName="ArabaCekis" />
+                <ScalarProperty Name="ArabaMotorHacmi" ColumnName="ArabaMotorHacmi" />
+                <ScalarProperty Name="ArabaMotorGucu" ColumnName="ArabaMotorGucu" />
+                <ScalarProperty Name="ArabaKasaTipi" ColumnName="ArabaKasaTipi" />
+                <ScalarProperty Name="ArabaKM" ColumnName="ArabaKM" />
+                <ScalarProperty Name="ArabaVites" ColumnName="ArabaVites" />
+                <ScalarProperty Name="ArabaYil" ColumnName="ArabaYil" />
+                <ScalarProperty Name="ArabaModel" ColumnName="ArabaModel" />
+                <ScalarProperty Name="ArabaSerisi" ColumnName="ArabaSerisi" />
+                <ScalarProperty Name="PetrolPompaSayisi" ColumnName="PetrolPompaSayisi" />
+                <ScalarProperty Name="PetrolKapaliAlan" ColumnName="PetrolKapaliAlan" />
+                <ScalarProperty Name="PetrolAcilAlan" ColumnName="PetrolAcilAlan" />
+                <ScalarProperty Name="ArsaGabari" ColumnName="ArsaGabari" />
+                <ScalarProperty Name="ArsaKaks" ColumnName="ArsaKaks" />
+                <ScalarProperty Name="ArsaPaftaNo" ColumnName="ArsaPaftaNo" />
+                <ScalarProperty Name="ArsaParselNo" ColumnName="ArsaParselNo" />
+                <ScalarProperty Name="ArsaAdaNo" ColumnName="ArsaAdaNo" />
+                <ScalarProperty Name="ArsaImarDurum" ColumnName="ArsaImarDurum" />
+                <ScalarProperty Name="KullaniciNo" ColumnName="KullaniciNo" />
+                <ScalarProperty Name="EPosta" ColumnName="EPosta" />
+                <ScalarProperty Name="MOnay" ColumnName="MOnay" />
                 <ScalarProperty Name="VitrinResim" ColumnName="VitrinResim" />
                 <ScalarProperty Name="KEPosta" ColumnName="KEPosta" />
                 <ScalarProperty Name="KTel" ColumnName="KTel" />
@@ -1095,6 +1273,8 @@
           <EntitySetMapping Name="DbKullanici">
             <EntityTypeMapping TypeName="GYatirimModel.DbKullanici">
               <MappingFragment StoreEntitySet="DbKullanici">
+                <ScalarProperty Name="TamAdres" ColumnName="TamAdres" />
+                <ScalarProperty Name="Sehir" ColumnName="Sehir" />
                 <ScalarProperty Name="Tarih" ColumnName="Tarih" />
                 <ScalarProperty Name="Resim" ColumnName="Resim" />
                 <ScalarProperty Name="Durum" ColumnName="Durum" />
@@ -1160,6 +1340,42 @@
                 <ScalarProperty Name="KullaniciIDD" ColumnName="KullaniciIDD" />
                 <ScalarProperty Name="Tarih" ColumnName="Tarih" />
                 <ScalarProperty Name="HareketID" ColumnName="HareketID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_il">
+            <EntityTypeMapping TypeName="GYatirimModel.tbl_il">
+              <MappingFragment StoreEntitySet="tbl_il">
+                <ScalarProperty Name="il_ad" ColumnName="il_ad" />
+                <ScalarProperty Name="il_id" ColumnName="il_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_ilce">
+            <EntityTypeMapping TypeName="GYatirimModel.tbl_ilce">
+              <MappingFragment StoreEntitySet="tbl_ilce">
+                <ScalarProperty Name="ilce_ad" ColumnName="ilce_ad" />
+                <ScalarProperty Name="il_id" ColumnName="il_id" />
+                <ScalarProperty Name="ilce_id" ColumnName="ilce_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_mahalle">
+            <EntityTypeMapping TypeName="GYatirimModel.tbl_mahalle">
+              <MappingFragment StoreEntitySet="tbl_mahalle">
+                <ScalarProperty Name="pk_id" ColumnName="pk_id" />
+                <ScalarProperty Name="mahalle_ad" ColumnName="mahalle_ad" />
+                <ScalarProperty Name="semt_id" ColumnName="semt_id" />
+                <ScalarProperty Name="mahalle_id" ColumnName="mahalle_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_semt">
+            <EntityTypeMapping TypeName="GYatirimModel.tbl_semt">
+              <MappingFragment StoreEntitySet="tbl_semt">
+                <ScalarProperty Name="semt_ad" ColumnName="semt_ad" />
+                <ScalarProperty Name="ilce_id" ColumnName="ilce_id" />
+                <ScalarProperty Name="semt_id" ColumnName="semt_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

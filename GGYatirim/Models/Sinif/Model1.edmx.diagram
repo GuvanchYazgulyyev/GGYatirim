@@ -29,11 +29,15 @@
         <EntityTypeShape EntityType="GYatirimModel.Product" Width="1.5" PointX="12.375" PointY="0.75" />
         <EntityTypeShape EntityType="GYatirimModel.ResimDeneme" Width="1.5" PointX="12.625" PointY="9.875" />
         <AssociationConnector Association="GYatirimModel.FK_ResimDeneme_ialnlarDeneme" />
-        <EntityTypeShape EntityType="GYatirimModel.DbilanGallery" Width="1.5" PointX="5.25" PointY="12.75" />
+        <EntityTypeShape EntityType="GYatirimModel.DbilanGallery" Width="1.5" PointX="5.25" PointY="12.375" />
         <AssociationConnector Association="GYatirimModel.FK_DbilanGallery_Dbilan" />
         <EntityTypeShape EntityType="GYatirimModel.DbHareket" Width="1.5" PointX="12.25" PointY="6.75" />
         <AssociationConnector Association="GYatirimModel.FK_DbHareket_Dbilan" />
         <AssociationConnector Association="GYatirimModel.FK_DbHareket_DbKullanici" />
+        <EntityTypeShape EntityType="GYatirimModel.tbl_il" Width="1.5" PointX="12.75" PointY="3.75" />
+        <EntityTypeShape EntityType="GYatirimModel.tbl_ilce" Width="1.5" PointX="10.75" PointY="12.75" />
+        <EntityTypeShape EntityType="GYatirimModel.tbl_mahalle" Width="1.5" PointX="12.75" PointY="12.75" />
+        <EntityTypeShape EntityType="GYatirimModel.tbl_semt" Width="1.5" PointX="0.75" PointY="13.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

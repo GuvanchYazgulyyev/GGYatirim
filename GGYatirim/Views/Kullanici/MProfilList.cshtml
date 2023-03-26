@@ -1,0 +1,169 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.DbKullanici>
+@{
+    ViewBag.Title = "MProfilList";
+    Layout = "~/Views/Shared/_KullaniciLayout.cshtml";
+}
+
+
+
+
+
+
+<!doctype html>
+<html class="no-js " lang="en">
+
+<body class="theme-blue">
+
+
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+
+    <!-- Top Bar -->
+    <!-- Left Sidebar -->
+    <!-- Chat-launcher -->
+
+    <br /><br />
+    <section class="content profile-page">
+
+        @foreach (var x in Model)
+        {
+
+            <div class="container-fluid">
+                <div class="row clearfix">
+                    <div class="col-lg-4 col-md-12">
+
+
+                        <div class="card member-card">
+                            <div class="header l-cyan">
+                                <h4 class="m-t-10">@x.KisiAdi @x.KisiSoyadi </h4>
+                            </div>
+                            <div class="member-img">
+                                <a href="#" class="">
+
+                                    @if (x.Resim == null)
+                                    {
+                                        <img src="~/KProfil/assets/images/profile_av.jpg" class="rounded-circle" alt="profile-image">
+
+                                    }
+                                    else
+                                    {
+                                        <img src="@x.Resim" class="rounded-circle" alt="profile-image">
+
+                                    }
+                                </a>
+                            </div>
+                            <div class="body">
+                                <div class="col-12">
+                                    <ul class="social-links list-unstyled">
+                                        <li><a title="facebook" href="@x.Face"><i class="zmdi zmdi-facebook"></i></a></li>
+                                        @*<li><a title="twitter" href="#"><i class="zmdi zmdi-twitter"></i></a></li>*@
+                                        <li><a title="instagram" href="@x.instagram"><i class="zmdi zmdi-instagram"></i></a></li>
+                                    </ul>
+                                    <p class="text-muted">@x.Meslek</p>
+                                </div>
+                                <hr>
+                                <div class="row">
+                                    <div class="col-4">
+                                        <h5>@ViewBag.toplamilan</h5>
+                                        <small>İlan Sayisi</small>
+                                    </div>
+
+                                    <div class="col-8">
+                                        <h5>@ViewBag.onaybekleyenilan</h5>
+                                        <small>Onay Bekleyen İlan Sayısı</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#about">Bigilerim</a></li>
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#friends">Parola Şifre</a></li>
+                            </ul>
+                            <div class="tab-content">
+
+
+                                <div class="tab-pane body active" id="about">
+
+                                    <small class="text-muted">Adres: </small>
+                                    <p>@x.TamAdres</p>
+                                    <hr>
+                                    <small class="text-muted">Facebook: </small>
+                                    <p>@x.Face</p>
+                                    <hr>
+                                    <small class="text-muted">Instagram: </small>
+                                    <p>@x.instagram</p>
+                                    <hr>
+                                    <small class="text-muted">Kısa Açıklama: </small>
+                                    <p>@x.KisaAciklama</p>
+                                    <hr>
+                                    <small class="text-muted">Kayıt Tarihiniz: </small>
+                                    <p>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</p>
+                                    <hr>
+
+                                </div>
+
+
+
+                                <div class="tab-pane body" id="friends">
+
+                                    <small class="text-muted">Müşteri No: </small>
+                                    <p>@x.KullaniciNo</p>
+                                    <hr>
+                                    <small class="text-muted">E Posta: </small>
+                                    <p>@x.EPosta</p>
+                                    <hr>
+                                    <small class="text-muted">Şifre: </small>
+                                    <p>@x.Sifre</p>
+                                    <hr>
+                                    <small class="text-muted">Telefon: </small>
+                                    <p>@x.Telefon</p>
+                                    <hr>
+                                    <small class="text-muted">Şehir: </small>
+                                    <p>@x.Sehir</p>
+                                    <hr>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!--Dekldelkd ewşd wlkednw-->
+                    <div class="col-lg-8 col-md-12">
+                        <div class="card">
+                            <ul class="nav nav-tabs">
+
+                                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#usersettings">Profil Ayarları</a></li>
+                                <a class="btn btn-default btn-round btn-danger" onclick="return confirm('Hesabınız Kalıcı Olarak Silinecektir! Hesabınızı Silmek İstediginizden Emin misiniz? @x.KisiAdi @x.KisiSoyadi ')" data-toggle="~/Kullanici/HesabimiSil/@x.KullaniciID" href="~/Kullanici/HesabimiSil/@x.KullaniciID">Hesabımı Sil</a>
+
+                            </ul>
+                        </div>
+                        <div class="tab-content">
+
+                            <div role="tabpanel" class="tab-pane blog-page active" id="usersettings">
+                                <div class="card">
+                                    <div class="header">
+                                        <h2><strong>Hesap</strong> Ayarları</h2>
+                                    </div>
+                                    @Html.Action("MuteriGetr", "Kullanici")
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+        }
+    </section>
+
+</body>
+</html>
+

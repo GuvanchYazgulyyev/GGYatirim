@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login V11</title>
+    <title>Admin Girişi</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -44,8 +44,21 @@
                     </span>
                     @if (TempData["mesaj"] != null)
                     {
-                        <span class="alert alert-danger">@TempData["mesaj"]</span>
+                        <span class="alert alert-danger" style="font-size:12px;">@TempData["mesaj"]</span>
+                        <br />
+                        <br />
                     }
+
+
+                    @if (TempData["sifreyenile"] != null)
+                    {
+                        <span class="alert alert-success" style="font-size:12px;">@TempData["sifreyenile"]</span>
+                        <br />
+                        <br />
+                    }
+
+
+
 
                     <div class="wrap-input100 validate-input m-b-16" data-validate="E Posta Zorunlu: ex@abc.xyz">
                         <input class="input100" required="" type="email" name="EPosta" placeholder="E Posta Adresiniz">
@@ -63,24 +76,25 @@
                         </span>
                     </div>
 
-                    <div class="contact100-form-checkbox m-l-4">
-                        <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-                        <label class="label-checkbox100" for="ckb1">
-                            Beni Hatırla
-                        </label>
-                    </div>
+
 
                     <div class="container-login100-form-btn p-t-25">
                         <button class="login100-form-btn">
                             Giriş Yap
                         </button>
                     </div>
+                    <br />
+                    <div class="contact100-form-checkbox m-l-4">
+                        <a href="/GGYPanel/SifreResetA/">
+                            Şifremi Unuttum
+                        </a>
+                    </div>
 
                     <div style="margin:20px;">
 
-                        <a href="/GGKPanel/Index" class="btn-face m-b-10">
+                        <a href="/MGiris/Index" class="btn-face m-b-10">
                             <i class="fa fa-user"></i>
-                            Kullanıcı Girişi
+                            Müşteri Girişi
                         </a>
                     </div>
 

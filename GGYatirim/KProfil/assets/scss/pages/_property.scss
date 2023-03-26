@@ -1,0 +1,94 @@
+﻿.property_list{
+    h4{
+        font-size: 20px;
+    }
+    h5{
+        font-size: 18px;
+    }
+    .property_image {
+        position: relative;
+        overflow: hidden;
+        
+        .badge{
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            text-transform: uppercase;
+            background: $white;
+        }
+    }
+    .property-action {
+        padding: 10px 0px;
+        background:#f7f7f7;
+        
+        a{
+            padding:3px 15px;
+            margin-right:10px;
+            font-size: 16px;
+             @extend .inlineblock;
+            
+            span{
+                line-height: 20px;
+                vertical-align: top;
+                padding-left: 7px;
+            }
+        }
+    }
+}
+
+.proprerty-features{
+    li{
+        line-height:36px;
+    }
+}
+
+.member-card{
+    @extend .align-center;
+    
+    .header-dropdown{
+        @extend .inlineblock;
+        position: absolute;
+        right: 30px;
+        padding: 0;
+        margin: 0;
+        
+        li{
+            a{
+                padding: 10px 15px;
+            }
+        }
+    }
+    .text-pink{
+        @extend .displayblock;
+    }
+
+    .member-thumb{
+        
+        position:relative;
+         @extend .inlineblock;
+        
+        img{
+            padding:4px;
+            border:1px solid #ccc;            
+        }
+        i{
+            position:absolute;
+            bottom:0;
+            right:30px;
+        }
+    }
+    
+    .social-links{
+     
+        li{
+            a{
+                i{
+                    color:#999;
+                    &:hover{
+                        color:#444;
+                    }
+                }
+            }
+        }
+    }
+}

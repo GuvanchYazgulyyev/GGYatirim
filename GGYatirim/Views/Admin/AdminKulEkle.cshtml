@@ -4,45 +4,117 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div class="col-md-10 col-sm-12 col-xs-12">
+<!doctype html>
+<html class="no-js " lang="en">
 
-    <h2>Yeni (Yetkili) Kullanıcı Ekle</h2>
+<body class="theme-blue">
+    <!-- Main Content -->
+    <section class="content">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>
+                        Yeni Yetkili Ekleme Kısmı
+                        <small class="text-muted">Tekrar Hoş Geldiniz</small>
+                    </h2>
+                </div>
 
-    @using (Html.BeginForm("AdminKulEkle", "Admin", FormMethod.Post))
-    {
-        <form class="form-group" method="post">
-            <b>Ad Soyad</b>
-            @*@Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })*@
-            <input type="text" name="AdSoyad" maxlength="90" required="" class="form-control" />
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body">
+
+                            <h4>Yeni (Yetkili) Kullanıcı Ekle</h4>
+
+                            @using (Html.BeginForm("AdminKulEkle", "Admin", FormMethod.Post))
+                            {
+                                <form class="form-group" method="post">
+                                    <b>Ad Soyad</b>
+                                    @*@Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })*@
+                                    <input type="text" name="AdSoyad" maxlength="90" required="" class="form-control" />
 
 
-            <b>Telefon</b>
-            @*@Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })*@
-            <input type="text" name="Tel" required="" class="form-control" />
+                                    <b>Telefon</b>
+                                    @*@Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })*@
+                                    <input type="text" name="Tel" required="" class="form-control" />
 
-            <b>
-                E-Posta
-            </b>
-            @*</b>@Html.TextBoxFor(x => x.EPosta, new { @class = "form-control" })*@
-            <input type="text" name="EPosta" maxlength="50" required="" class="form-control" />
+                                    <b>
+                                        E-Posta
+                                    </b>
+                                    @*</b>@Html.TextBoxFor(x => x.EPosta, new { @class = "form-control" })*@
+                                    <input type="text" name="EPosta" maxlength="50" required="" class="form-control" />
 
-            <b>
-                Şifre
-            </b>
-            @*@Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })*@
-            <input type="text" name="Sifre" maxlength="50" required="" class="form-control" />
+                                    <b>
+                                        Şifre
+                                    </b>
+                                    @*@Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })*@
+                                    <input type="text" name="Sifre" maxlength="50" required="" class="form-control" />
+                                    <input type="text" name="KullaniciNo" readonly hidden="hidden" value="@ViewBag.takipkod" />
 
 
-            <b> Kullanıcı Yetkisi *</b>
-            @Html.DropDownListFor(x => x.RolId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+                                    <b> Kullanıcı Yetkisi *</b>
+                                    @Html.DropDownListFor(x => x.RolId, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
 
-            @Html.HiddenFor(x => x.AdminID)
-            <br />
-            @*@Html.MathCaptcha()*@
+                                    @Html.HiddenFor(x => x.AdminID)
+                                    <br />
+                                    @*@Html.MathCaptcha()*@
+                                    <br />
+                                    <button class="btn btn-raised btn-success btn-simple btn-round">Yeni Kullanıcı Ekle</button>
 
-            <button class="btn btn-success">Yeni Kullanıcı Ekle</button>
+                                </form>
+                            }
 
-        </form>
-    }
-</div>
+                            <div class="col-md-12 table table-hover">
+                                <h3>Yetkilerin Özellikleri</h3>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>Yetki Ad</th>
+                                        <th>Yetki Seviyeleri</th>
 
+                                    </tr>
+                                    <tr>
+                                        <td>Admin</td>
+                                        <td>Tüm Verilere Erişebilir (İlan Ekle, Silinmiş İlanlar, Silinmiş Müşteriler, Gelen Mesajlar,Onay Bekleyen İlanlar,Kullanıcı Yetkilendirme, Tüm Yetki)</td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>İçerik Yönetici</td>
+                                        <td>İlanları  - Detay Görebilir, İlan Ekleyebilir, Kayıtlı Müşterileri Görebilir Ama Silemez, Emlak Tipi , Özellik,Konum ,İlan Durum Ekleyip Düzenleyeniliri. Gelen mesajları Görebilir-Silebilir,Temsilcileri Görebilir-Sil Güncelleme Yapabilir, Yeni Temsilci Ekleyebilir.</td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>Yazar</td>
+                                        <td>İlanları  - Detay Görebilir, Kayıtlı Müşterileri Görebilir Ama Silemez, Emlak Tipi , Özellik,Konum ,İlan Durum Ekleyip Düzenleyeniliri. Blogları görebilir Sil- Ekle -Düzenleme Yapabilir.</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Pazarlama Elemanı</td>
+                                        <td>İlanları  - Detay Görebilir İlan Ekleyebilir.</td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>Kullanıcı</td>
+                                        <td>İlanları  - Detay Görebilir.</td>
+
+                                    </tr>
+
+
+                                </table>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

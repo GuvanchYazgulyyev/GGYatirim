@@ -9,62 +9,76 @@
 
 
 
+<!doctype html>
+<html class="no-js " lang="en">
 
-<div class="container m-b-30" style="margin-top:30px;">
-    <!--AGENT GRID FS BEGIN-->
-    <div class="agent-grid-fs">
-        @foreach (var x in Model)
-        {
-            <div class="agent-item">
-                <img src="@x.Resim" alt="Profil">
-                <h3 class="agent-name">@x.KisiAdi @x.KisiSoyadi</h3>
-                <span class="agent-district">@x.Meslek</span>
-                <span class="agent-district">Kullanıcı No:<b> @x.KullaniciNo</b></span>
-                <div class="phone-wrapper">
-                    <div class="phone1">
-                        <i class="fa fa-calendar" aria-hidden="true"></i>
-                        <span class="phone-type">Kayıt Tarihi:&emsp;</span>
-                    </div>
-                    <span class="phone-number office">@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</span> <br>
+<body class="theme-blue">
 
-                    <div class="phone2">
-                        <i class="fa fa-mobile" aria-hidden="true"></i>
-                        <span class="phone-type">Telefon:&emsp;</span>
+
+
+
+    <!-- Main Content -->
+    <section class="content agent">
+        <div class="block-header">
+            <div class="row">
+                <div class="card">
+                    <div class="header">
+                        <h2>Kayıtlı Müşteri Sayısı:  <b>@ViewBag.kulsay</b></h2>
                     </div>
-                    <span class="phone-number mobile">@x.Telefon</span> <br>
+                    @using (Html.BeginForm("AdmKayitliKullanici", "Admin", FormMethod.Get))
+                    {
+                        <div class="body">
+                            <div class="input-group">
+                                <input type="text" class="form-control" name="p" placeholder="AdSoyad, Kullanıcı No, Eposta, TelNo,  Şehir, Adres  Anahtar Kelime Giriniz...">
+                                <button class="input-group-addon"><i class="zmdi zmdi-search"></i></button>
+                            </div>
+
+                        </div>
+                    }
                 </div>
 
-                <div class="agent-social-icons">
-                    <a href="@x.Face">
-                        <i class="fa fa-facebook icons" aria-hidden="true"></i>
-                    </a>
-                    <a href="@x.instagram">
-                        <i class="fa fa-instagram icons" aria-hidden="true"></i>
-                    </a>
-
-
-                    <a href="/Admin/AdmKayitliKullaniciSil/@x.KullaniciID" alt="Sil(Sil)">
-                        <i class="fa fa-remove" aria-hidden="true"></i>
-                    </a>
-
-
-                    <a href="/Admin/AdmKayitliKullaniciGetr/@x.KullaniciID" alt="Düzenle(Detay)">
-                        <i class="fa fa-edit" aria-hidden="true"></i>
-                    </a>
-
-
-
-                </div>
             </div>
-        }
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                @foreach (var x in Model)
+                {
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card agent">
+                            <div class="agent-avatar"> <a href="#"> <img src="@x.Resim" class="img-fluid" alt=""> </a> </div>
+                            <div class="agent-content">
+                                <div class="agent-name">
+                                    <h4><a href="#">@x.KisiAdi @x.KisiSoyadi</a></h4>
+                                    <span>@x.Meslek</span>
+                                    <br />
+                                    <span>Müşteri No:<b> @x.KullaniciNo </b></span>
+                                    <br />
+                                    <span>Kayıt Tarihi:<b> @Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy") </b></span>
 
+                                </div>
+                                <ul class="agent-contact-details">
+                                    <li><i class="zmdi zmdi-phone"></i><span>@x.Telefon</span></li>
+                                    <li><i class="zmdi zmdi-email"></i>@x.EPosta</li>
+                                </ul>
+                                <ul class="social-icons">
+                                    <li><a class="facebook" href="@x.Face"><i class="zmdi zmdi-facebook"></i></a></li>
+                                    <li><a class="twitter" href="@x.instagram"><i class="zmdi zmdi-instagram"></i></a></li>
+                                    @if (User.IsInRole("Admin"))
+                                    {
+                                        <li><a class="linkedin" href="/Admin/AdmKayitliKullaniciGetr/@x.KullaniciID" alt="Düzenle(Detay)"><i class="zmdi zmdi-edit"></i></a></li>
 
+                                        <li><a class="gplus" href="/Admin/AdmKayitliKullaniciSil/@x.KullaniciID" alt="Sil"><i class="zmdi zmdi-delete"></i></a></li>
+                                    }
 
-    </div>
-    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("AdmKayitliKullanici", new { sayfa }))
-    <!--AGENT GRID FS END-->
-</div>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("AdmKayitliKullanici", new { sayfa }))
+        </div>
+    </section>
 
-
-
-
+</body>
+</html>

@@ -1,4 +1,5 @@
 ﻿@model IEnumerable<GGYatirim.Models.Sinif.DbBlog>
+@using GGYatirim.App_Code
 
 
 @foreach (var x in Model)
@@ -10,17 +11,23 @@
                 <a href="#chat"> <img src="@x.YazarResim" alt="Kullanıcı Resim"></a>
                 <div class="online-status"></div>
             </div>
-            <a href="/Home/BlogDetay/@x.BlogID" class="author">@x.YazarAdSoyad</a>
-            <a href="/Home/BlogDetay/@x.BlogID" class="category">
+            <p href="#" class="author">
+                @Html.ActionLink(x.YazarAdSoyad, "BlogDetay", new { id = x.BlogID, baslik3 = Seo.AdresDuzenle(x.Baslik) })
+
+            </p>
+            <a href="#" class="category">
                 <i class="fa fa-calendar"></i>
                 <span>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</span>
             </a>
 
 
-            <a href="/Home/BlogDetay/@x.BlogID" class="category">
+            <p href="#" class="category">
                 <i class="fa fa-list"></i>
-                <span>Blog Başlığı</span>
-            </a>
+                <span>
+                    @Html.ActionLink(x.Baslik, "BlogDetay", new { id = x.BlogID, baslik3 = Seo.AdresDuzenle(x.Baslik) })
+
+                </span>
+            </p>
 
 
         </div>
@@ -32,6 +39,7 @@
                 <p>
                     @x.icerik1.Substring(0, 300) ...
                 </p>
+
             }
             else
             {
@@ -40,8 +48,11 @@
                 </p>
             }
             <div>
-                <a href="/Home/BlogDetay/@x.BlogID" class="read-more">Detay</a>
-                <a href="#" class="share"><i class="fa fa-share">Paylaş</i></a>
+                <p href="#" class="read-more">
+                    @Html.ActionLink("Detay", "BlogDetay", new { id = x.BlogID, baslik3 = Seo.AdresDuzenle(x.Baslik) })
+
+                </p>
+                @*<a href="#" class="share"><i class="fa fa-share">Paylaş</i></a>*@
             </div>
         </div>
     </div>

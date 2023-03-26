@@ -1,4 +1,10 @@
-﻿@model IEnumerable<GGYatirim.Models.Sinif.Dbilan>
+﻿
+@using GGYatirim.Models.Sinif
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Dbilan>
+@using GGYatirim.App_Code
+
 @{
     ViewBag.Title = "Kiralikilan";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,119 +12,233 @@
 
 
 
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#2c2c2c">
+    <meta name="msapplication-navbutton-color" content="#2c2c2c">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#2c2c2c">
+    <title>Kiralık, Emlak, Apartman, Daire, Arsa, Otomobil| Tüm İlan Çeşitleri </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="robots" content="index, follow" />
+    <meta name="keywords" content="emlak fiyatları, 2.el oto, ikinci el araba fiyatları, ücretsiz ilan, apartman, daire, arsa, müstakil, dubleks, arazi, dükkan,işyeri, bahçe, petrol istasyonu, çiftlik, ahır, ücretsiz emlak ilan, ücretsiz oto ilan" />
+    <meta name="description" content="1992 yılında kurulan Güner Group Yatırım, satılık, kiralık, ikinci el, otomobil, apartman, daire, arsa, müstakil, dubleks, arazi, dükkan, işyeri, bahçe, petrol istasyonu, çiftlik, ahır ve her türlü ürün - ücretsiz ilan sitesi." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <meta name="publisher" content="gunergroupyatirim.com" />
+    <meta name="copyright" content="gunergroupyatirim ®" />
+    <meta name="date-creation-yyyy" content="2022" />
+    <meta name="classification" content="Machine" />
+    <meta name="author" content="Türkiye’nin önde gelen şirketlerinden biridir. 30 yıllık tecrübe ile Müşteri memnuniyeti odaklı hizmet politikası , her zaman güncel geniş portföyü,gayrimenkul,satılık, kiralık, ikinci el, otomobil, emlak ve her türlü ürün - ücretsiz ilan platformudur. Öncesi ve sonrası danışmanlığı ile emlak sektöründe güvenirliliği ve hizmet kalitesi ile isim yapmış bir firmadır." />
+    <meta name="rating" content="all" />
+    <meta name="expires" content="no" />
+    <meta name="language" content="TR" />
+    <meta name="distribution" content="global" />
+    <meta name="rating" content="all" />
+    <meta name="googlebot" content="NOODP" />
+    <meta http-equiv="cache-control" content="no-cache" />
+    <meta http-equiv="pragma" content="no-cache" />
+    <meta name="revisit-after" content="1 Day" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="GENERATOR" content="gunergroupyatirim.com" />
+    <meta name="RESOURCE-TYPE" content="DOCUMENT" />
+    <meta name="DISTRIBUTION" content="GLOBAL" />
+    <meta name="ROBOTS" content="INDEX, FOLLOW" />
+    <meta name="REVISIT-AFTER" content="1 DAYS" />
+    <meta name="RATING" content="GENERAL" />
+    <meta http-equiv="PAGE-ENTER" content="RevealTrans(Duration=0,Transition=1)" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Guner Group Yatirim for sale, rent, second hand, automobile, real estate and all kinds of products - post free ads San. Inc." />
+    <meta property="og:url" content="https://gunergroupyatirim.com/" />
+    <meta property="og:title" content="Güner Group &#8211; For Sale, Rent, Real Estate, Auto, Shopping Products| All Ad Types" />
+    <meta property="og:description" content="Güner Group Investment, founded in 1992, is a free classifieds and online shopping site for sale, rental, second hand, automobile, real estate and all kinds of products." />
+    <meta property="og:image" content="~/Content/Images/favicon-01.png" />
+    <link rel="canonical" href="https://gunergroupyatirim.com/" />
+    <link rel="icon" href="~/Content/Images/favicon-01.png" sizes="32x32" />
+    <link rel="icon" href="~/Content/Images/favicon-01.png" sizes="192x192" />
+    <link rel="apple-touch-icon-precomposed" href="~/Content/Images/favicon-01.png" />
+    <meta name="msapplication-TileImage" content="~/Content/Images/favicon-01.png" />
+    <link href="~/area/builds/area/css/style.min.css" rel="stylesheet" />
+    <link href="~/area/css-min/area.min.css" rel="stylesheet" />
+</head>
+<body>
 
 
-<div class="page-title-simple m-b-30">
-    <div class="container">
-        <ul>
-            <li>
-                <a href="/">Ana Sayfa</a>
-            </li>
-            <li>
-                <a href="#">İlanlar</a>
-            </li>
-        </ul>
-        <h1>Kiralık İlanlar</h1>
-    </div>
-</div>
+    @*Kiralık İlanlar*@
+
+    <div class="new-region-wrapper">
+        <div class="container">
+            <!--For customize use html and less from home_bar.html and home_bar.less start-->
+            <!-- hidebutton - hide home-bar-btn block; hidelinks - hide links-block -->
+            <div class="new-region-home-bar-wrapper hidebutton hidelinks">
+                <form id="search-form-2" method="get">
+                    <div class="property-search">
+                        <div class="main-apartment-search-options">
+
+                            @using (Html.BeginForm("Kiralikilan", "Home", FormMethod.Get))
+                            {
+
+
+                                <div class="options-wrapper-main">
+                                    <div class="wrapper search-property">
+                                        <input type="text" class="property-searchinput" name="p" placeholder="Gözle...">
+                                    </div>
 
 
 
 
+                                    <div class="wrapper button-wrap">
+                                        <button class="property-button">Gözle</button>
+                                    </div>
+                                </div>
+                            }
+
+                        </div>
 
 
 
+                    </div>
+                </form>
 
-@*Kiralık İlanlar*@
+            </div>
+
+            <!--For customize use html and less from home_bar.html and home_bar.less end-->
+            @*@Html.Action("YeniilanPart", "Home")*@
 
 
-<div class="container apartment-grid-control-up for-sale">
-    <div class="arrow-block">
-
-        <div class="arrow-wrapper">
-            <a href="#" class="arrow-prev">
-                <i class="fa fa-arrow-right"></i>
-            </a>
-            <a href="#" class="arrow-next">
-                <i class="fa fa-arrow-left"></i>
-            </a>
-        </div>
-        <div class="span-wrapper">
-            <span>Kiralık</span>
-        </div>
-
-    </div>
-
-    <div class="owl-carousel owl-theme">
-
-        <div class="item">
             <div class="row">
 
+                <div class="col-md-3 region-table">
+                    <div class="region-item">
+                        @Html.Action("DbilanFilter", "Home")
+                        @*@Html.Action("DbEmlakTipi")*@
+                    </div>
+                    <div class="region-item">
+                        @Html.Action("DbilanDurum", "Home")
+                        @*@Html.Action("DbEmlakTipi")*@
+                    </div>
+
+                    <div class="region-item">
+
+                        @Html.Action("DbEmlakTipi", "Home")
+                    </div>
+                </div>
+
+                <!-- İlan Kısmı-->
                 @foreach (var x in Model)
                 {
+                    <!--Traktor-->
                     if (x.ilanDurumIDD == 2)
                     {
-                        <div class="col-md-4 col-sm-6 col-xs-12">
 
+                        <div class="col-sm-3">
                             <div class="property-block">
 
-                                <a href="/Home/ilanDetay/@x.ilanID" style="text-decoration:none;">
-                                    <p class="property-type">@x.DbKonum.SehirAd</p>
-                                    <p class="property-title">@x.EmlakTipi</p>
-                                </a>
+                                <p class="property-type">
+                                    @Html.ActionLink(x.DbEmlakTipi.EmlakTipAd, "ilanDetay", new { id = x.ilanID, baslik1 = Seo.AdresDuzenle(x.EmlakTipi) })
+
+                                </p>
+                                @if (x.EmlakTipi != null)
+                                {
+                                    <p class="property-title" style="text-decoration:none;">
+                                        @Html.ActionLink(x.EmlakTipi, "ilanDetay", new { id = x.ilanID, baslik1 = Seo.AdresDuzenle(x.EmlakTipi) })
+                                    </p>
+                                }
+
                                 <div class="apartment-address">
-                                    <i class="fa fa-location-arrow"></i>
+                                    <i class="fa fa-map-marker"></i>
+                                    <span class="address">@x.DbKonum.SehirAd ,</span>
                                     <span class="address">@x.TamAdres</span>
                                 </div>
 
                                 <div class="apartment-image">
-                                    <img src="@x.CokluResim" alt="image">
+                                    @if (x.VitrinResim != null)
+                                    {
+                                        <img src="@x.VitrinResim" alt="image">
+                                    }
                                     <div class="badges">
-                                        <p class="featured">@x.DbilanDurum.ilanDurumAd</p>
-                                        <p class="rent">@x.DbEmlakTipi.EmlakTipAd</p>
-                                        @*<p class="sale">For Sale</p>*@
+
+                                        <p class="featured">@x.DbEmlakTipi.EmlakTipAd</p>
+                                        <p class="rent">@x.DbilanOzellik.OzellikAd</p>
+
+                                        @if (x.DbilanDurum.ilanDurumAd == "Satılık")
+                                        {
+                                            <p class="sale">@x.DbilanDurum.ilanDurumAd</p>
+
+                                        }
+                                        @if (x.DbilanDurum.ilanDurumAd == "Kiralık")
+                                        {
+                                            <p class="rent" style="background-color: #24dd93;">@x.DbilanDurum.ilanDurumAd</p>
+                                        }
+
+
+
                                     </div>
 
                                 </div>
 
-                                <div class="apartment-values">
-                                    <span>Oda: @x.OdaSayisi</span>
-                                    <span>Banyo: @x.Banyo </span>
-                                    <span>Alan: @x.AlanBoyutu</span>
-                                </div>
+
                                 <div class="apartment-info">
-                                    <a href="/Home/ilanDetay/@x.ilanID" style="text-decoration:none;">
-                                        <div class="apartment-price">
-                                            <p class="price-big">@x.TamFiyat ₺</p>
-                                            <p class="price-small">Metre Kare @x.MetreKareFiyat ₺</p>
-                                        </div>
-                                    </a>
+                                    <div class="apartment-price">
+
+                                        <p class="price-big" style="font-weight:800">@x.TamFiyat ₺</p>
+
+                                        <p class="price-big">
+                                            İlan No:
+                                            @Html.ActionLink(x.ilanNo, "ilanDetay", new { id = x.ilanID, baslik1 = Seo.AdresDuzenle(x.EmlakTipi) })
+
+                                        </p>
+
+                                    </div>
+
+
                                 </div>
                                 <div class="apartment-manager">
-                                    <div class="manager-wrap">
-                                        <div class="manager-icon">
-                                            <a href="#chat"> <img src="@x.CokluResim" alt="userpic"></a>
+                                    <div class="manager-icon">
+                                        @if (x.KProfil != null)
+                                        {
+                                            <a href="#chat"> <img src="@x.KProfil" alt="kullanici profil"></a>
                                             <div class="online-status"></div>
-                                        </div>
+                                        }
+                                        else
+                                        {
+                                            <img src="~/Content/Images/favicon-01.png" alt="kullanici profil">
+                                            <div class="online-status"></div>
+                                        }
+                                    </div>
+                                    <div class="manager-wrap">
+                                        <span class="manager-name">
+                                            @Html.ActionLink(x.KAdSoyad, "ilanDetay", new { id = x.ilanID, baslik1 = Seo.AdresDuzenle(x.EmlakTipi) })
 
-                                        <span class="manager-name">Güner Group Yatırım</span>
+                                        </span>
                                     </div>
                                     <div class="calendar">
-                                        <i class="fa fa-calendar"></i>
-                                        <span>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</span>
+                                        <i class="fa fa-calendar-check-o"></i>
+                                        <span>
+                                            @Html.ActionLink(Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy"), "ilanDetay", new { id = x.ilanID, baslik1 = Seo.AdresDuzenle(x.EmlakTipi) })
+
+                                        </span>
                                     </div>
                                 </div>
-
                             </div>
-
                         </div>
                     }
 
                 }
+                @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Kiralikilan", new { sayfa }))
+
+
             </div>
 
+
+
         </div>
-
     </div>
-</div>
 
+</body>
+</html>

@@ -9,37 +9,85 @@
 
 
 
-<div style="width:80%" class="col-md-12 table table-hover">
-    <h3>Yeni ilan Ekle</h3>
-    <table class="table table-bordered">
-        <tr>
-            <th>Kısa Başlık</th>
-            <th>Şehir</th>
-            <th>Adres</th>
-            <th>Tam Fiyat</th>
-            <th>İlan No</th>
-            <th>Tarih</th>
-            <th>Sil</th>
-            <th>Güncelle</th>
-        </tr>
+<!doctype html>
+<html class="no-js " lang="en">
 
-        @foreach (var x in Model)
-        {
-            <tr>
-                <td>@x.EmlakTipi</td>
-                <td>@x.DbKonum.SehirAd</td>
-                <td>@x.TamAdres</td>
-                <td>@x.TamFiyat</td>
-                <td>@x.ilanNo</td>
-                <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</td>
-                <td><a href="~/Admin/AdmilanSil/@x.ilanID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.EmlakTipi ')" class="btn btn-danger"> <i class="fas fa-trash"></i></a></td>
-                <td><a href="~/Admin/AdmilanGetir/@x.ilanID#submit" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
-            </tr>
-        }
-    </table>
-    @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Admilan", new { sayfa }))
+<body class="theme-blue">
+    <!-- Main Content -->
+    <section class="content">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>
+                        Admin Yetkili İlanları <b>@ViewBag.ilansayi</b>
+                        <small class="text-muted">Tekrar Hoş Geldiniz</small>
+                    </h2>
+                </div>
 
-    <br />
-    <a href="/Admin/AdmilanEkle/#submit" class="btn btn-success">Yeni İlan Ekle</a>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        @using (Html.BeginForm("Admilan", "Admin", FormMethod.Get))
+                        {
+                            <div class="body">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="p" placeholder="İlan No, AdSoyad, İlan No, Kullanıcı No, Eposta, TelNo, Emlak Tipi, Açıklama, İlan Durumu Anahtar Kelime Giriniz">
+                                    <button class="input-group-addon"><i class="zmdi zmdi-search"></i></button>
+                                </div>
 
-</div>
+                            </div>
+                        }
+                        <div class="body">
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Kısa Başlık</th>
+                                    <th>Şehir</th>
+                                    <th>Adres</th>
+                                    <th>Tam Fiyat</th>
+                                    <th>İlan No</th>
+                                    <th>Sahibi</th>
+                                    <th>Tel No</th>
+                                    <th>E Posta</th>
+                                    <th>Kullanıcı No</th>
+                                    <th>Tarih</th>
+                                    <th>Sil</th>
+                                    <th>Güncelle</th>
+                                </tr>
+
+                                @foreach (var x in Model)
+                                {
+                                    <tr>
+                                        <td>@x.EmlakTipi</td>
+                                        <td>@x.DbKonum.SehirAd</td>
+                                        <td>@x.TamAdres</td>
+                                        <td>@x.TamFiyat</td>
+                                        <td>@x.ilanNo</td>
+                                        <td>@x.KAdSoyad</td>
+                                        <td>@x.KTel</td>
+                                        <td>@x.EPosta</td>
+                                        <td>@x.KullaniciNo</td>
+                                        <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</td>
+                                        <td><a href="~/Admin/AdmilanSil/@x.ilanID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.EmlakTipi ')" class="btn btn-raised btn-danger btn-round">Sil</a></td>
+                                        <td><a href="~/Admin/AdmilanGetir/@x.ilanID#submit" class="btn btn-raised bg-orange btn-round">Güncelle</a></td>
+                                    </tr>
+                                }
+                            </table>
+                            @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Admilan", new { sayfa }))
+
+                            <br />
+                            @*<a href="/Admin/AdmilanEkle/" class="btn btn-raised btn-success btn-simple btn-round">Yeni İlan Ekle</a>*@
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

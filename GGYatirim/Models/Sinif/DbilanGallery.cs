@@ -11,7 +11,7 @@ namespace GGYatirim.Models.Sinif
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class DbilanGallery
     {
         public int ilanGalleryID { get; set; }
@@ -19,7 +19,8 @@ namespace GGYatirim.Models.Sinif
         public string Ad { get; set; }
         public string URL { get; set; }
         public Nullable<System.DateTime> EklenmeTarihi { get; set; }
-    
+
         public virtual Dbilan Dbilan { get; set; }
+        // public  Dbilan Dbilan { get; set; }
     }
 }

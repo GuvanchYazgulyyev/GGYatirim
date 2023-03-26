@@ -1,0 +1,21 @@
+.staff{
+    .member-card{
+        .header-dropdown{
+            z-index:999;
+            right: 20px;
+        }
+    }
+}
+
+.s-profile{
+    text-align:left;
+    h4{
+        margin-top:0;
+    }
+}
+
+@media only screen and (max-width:767px) {
+     .s-profile{
+        text-align:center;
+    }
+}

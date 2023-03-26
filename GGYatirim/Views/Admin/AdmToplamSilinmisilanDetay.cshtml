@@ -1,0 +1,678 @@
+﻿@model GGYatirim.Models.Sinif.Dbilan
+
+@{
+    ViewBag.Title = "AdmToplamSilinmisilanDetay";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@*@model IEnumerable<GGYatirim.Models.Sinif.Dbilan>*@
+
+<!doctype html>
+<html class="no-js " lang="tr">
+<head>
+    <link href="~/Content/Swiper/Swiper.css" rel="stylesheet" />
+</head>
+<body class="theme-blue">
+
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+
+
+    <!-- Main Content -->
+
+
+    <section class="content home">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>
+                        Silinmiş İlan Detayı
+                        <small class="text-muted"></small>
+                    </h2>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+
+                    <ul class="breadcrumb float-md-right">
+                        <li class="breadcrumb-item"><a href="/Admin/Index"><i class="zmdi zmdi-home"></i>Panelim</a></li>
+                        <li class="breadcrumb-item"><a href="/Admin/AdmKisiilan">İlanlar</a></li>
+                        <li class="breadcrumb-item active">Silinmiş İlanlar</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-8 col-md-12">
+                    <div class="card">
+                        <div class="body">
+                            <div class="wrapper">
+                                <!--в атрибуте data-height указать высоту, если высота не указана, то скрипт автоматически поставит 450 -->
+                                <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+                                     class="swiper mySwiper2">
+                                    <div class="swiper-wrapper">
+                                        @for (int i = 0; i < Model.DbilanGallery.Count(); i++)
+                                        {
+                                            foreach (var item in Model.DbilanGallery)
+                                            {
+                                                <div class="swiper-slide">
+
+                                                    <img src="@item.URL" />
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
+                                <div thumbsSlider="" class="swiper mySwiper">
+                                    <div class="swiper-wrapper">
+                                        @for (int i = 0; i < Model.DbilanGallery.Count(); i++)
+                                        {
+                                            foreach (var item in Model.DbilanGallery)
+                                            {
+                                                <div class="swiper-slide">
+                                                    <img src="@item.URL" style="height:105px" />
+                                                </div>
+                                            }
+                                        }
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    @*@foreach (var item in Model.DbilanGallery)
+                        {
+                            <img src="@item.URL" alt="@item.Ad" style="max-height:100px;" class="img-thumbnail" />
+
+                        }*@
+
+
+
+
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong>Özellikler</strong></h2>
+                            <ul class="header-dropdown">
+
+                                <li class="remove">
+                                    <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered m-b-0">
+                                    <tbody>
+                                        @if (Model.TamFiyat != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Fiyat:</th>
+                                                <td>@Html.DisplayFor(Model => Model.TamFiyat) ₺</td>
+                                            </tr>
+                                        }
+                                        @if (Model.MetreKareFiyat != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Metre Kare Fiyat:</th>
+                                                <td>@Html.DisplayFor(Model => Model.MetreKareFiyat) ₺</td>
+                                            </tr>
+                                        }
+                                        @if (Model.EmlakTipi != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">İlan Başlığı:</th>
+                                                <td>@Html.DisplayFor(Model => Model.EmlakTipi)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.ilanNo != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">İlan No:</th>
+                                                <td>@Html.DisplayFor(Model => Model.ilanNo)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.SiteAdi != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Site Adı:</th>
+                                                <td>@Html.DisplayFor(Model => Model.SiteAdi)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.Tarih != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">İlan Yayın Tarihi:</th>
+
+                                                <td>@Convert.ToDateTime(Model.Tarih).ToString("dd/MMM/yyyy")</td>
+                                            </tr>
+                                        }
+                                        @if (Model.DbilanOzellik.OzellikAd != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">İlan Özellegi: </th>
+                                                <td><span class="badge badge-primary">@Html.DisplayFor(Model => Model.DbilanOzellik.OzellikAd)</span></td>
+                                            </tr>
+                                        }
+                                        @if (Model.DbEmlakTipi.EmlakTipAd != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">İlan Tipi: </th>
+                                                <td><span class="badge badge-info">@Html.DisplayFor(Model => Model.DbEmlakTipi.EmlakTipAd)</span></td>
+                                            </tr>
+                                        }
+                                        @if (Model.DbilanDurum.ilanDurumAd != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">İlan Durumu: </th>
+                                                <td><span class="badge badge-success">@Html.DisplayFor(Model => Model.DbilanDurum.ilanDurumAd)</span></td>
+                                            </tr>
+                                        }
+                                        @if (Model.DbKonum.SehirAd != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">İlan Konum: </th>
+                                                <td><span class="badge badge-important">@Html.DisplayFor(Model => Model.DbKonum.SehirAd)</span></td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.TamAdres != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Adres: </th>
+                                                <td>@Html.DisplayFor(Model => Model.TamAdres)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.AlanBoyutu != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Alan Boyutu:</th>
+                                                <td>@Html.DisplayFor(Model => Model.AlanBoyutu)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.KurulusYili != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Binanın Kuruluş Yılı:</th>
+                                                <td>@Html.DisplayFor(Model => Model.KurulusYili)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.AraziAlanı != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Arazi Alanı:</th>
+                                                <td>@Html.DisplayFor(Model => Model.AraziAlanı)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.Banyo != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Banyo:</th>
+                                                <td>@Html.DisplayFor(Model => Model.Banyo)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.OdaSayisi != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Oda Sayısı:</th>
+                                                <td>@Html.DisplayFor(Model => Model.OdaSayisi)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.Garaj != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Garaj:</th>
+                                                <td>@Html.DisplayFor(Model => Model.Garaj)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.Aidat != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Aidat:</th>
+                                                <td>@Html.DisplayFor(Model => Model.Aidat)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.BulunduguKat != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Bulundugu Kat:</th>
+                                                <td>@Html.DisplayFor(Model => Model.BulunduguKat)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.KatSayisi != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Binanın Kat Sayısı:</th>
+                                                <td>@Html.DisplayFor(Model => Model.KatSayisi)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.isitma != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Isıtma:</th>
+                                                <td>@Html.DisplayFor(Model => Model.isitma)</td>
+                                            </tr>
+                                        }
+
+
+                                        @if (Model.KullanimDurumu != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Kullanım Durumu:</th>
+                                                <td>@Html.DisplayFor(Model => Model.KullanimDurumu)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.Siteicerisinde != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Site İçersinde:</th>
+                                                <td>@Html.DisplayFor(Model => Model.Siteicerisinde)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.Takasli != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Takas:</th>
+                                                <td>@Html.DisplayFor(Model => Model.Takasli)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.TapuDurumu != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Tapu Durumu:</th>
+                                                <td>@Html.DisplayFor(Model => Model.TapuDurumu)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.ZeminEtudu != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Zemin Etüdü:</th>
+                                                <td>@Html.DisplayFor(Model => Model.ZeminEtudu)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.YapininDurumu != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Yapının Durumu:</th>
+                                                <td>@Html.DisplayFor(Model => Model.YapininDurumu)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.YakitTipi != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Yakıt Tipi:</th>
+                                                <td>@Html.DisplayFor(Model => Model.YakitTipi)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.Balkon != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Balkon:</th>
+                                                <td>@Html.DisplayFor(Model => Model.Balkon)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.ArsaImarDurum != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">İmar Durumu:</th>
+                                                <td>@Html.DisplayFor(Model => Model.ArsaImarDurum)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.ArsaAdaNo != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Ada No:</th>
+                                                <td>@Html.DisplayFor(Model => Model.ArsaAdaNo)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.ArsaParselNo != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Parsel No:</th>
+                                                <td>@Html.DisplayFor(Model => Model.ArsaParselNo)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.ArsaPaftaNo != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Pafta No:</th>
+                                                <td>@Html.DisplayFor(Model => Model.ArsaPaftaNo)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.ArsaKaks != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Arsa Kaks:</th>
+                                                <td>@Html.DisplayFor(Model => Model.ArsaKaks)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.ArsaGabari != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Gabari: </th>
+                                                <td>@Html.DisplayFor(Model => Model.ArsaGabari)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.PetrolAcilAlan != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Açık Alan: </th>
+                                                <td>@Html.DisplayFor(Model => Model.PetrolAcilAlan)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.PetrolKapaliAlan != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Kapalı Alan: </th>
+                                                <td>@Html.DisplayFor(Model => Model.PetrolKapaliAlan)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.PetrolPompaSayisi != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Pompa Sayısı: </th>
+                                                <td>@Html.DisplayFor(Model => Model.PetrolPompaSayisi)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.ArabaSerisi != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Araba Serisi: </th>
+                                                <td>@Html.DisplayFor(Model => Model.ArabaSerisi)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.ArabaModel != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Araba Modeli: </th>
+                                                <td>@Html.DisplayFor(Model => Model.ArabaModel)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.ArabaYil != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Araba Yılı: </th>
+                                                <td>@Html.DisplayFor(Model => Model.ArabaYil)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.ArabaVites != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Vites: </th>
+                                                <td>@Html.DisplayFor(Model => Model.ArabaVites)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.ArabaKM != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">KM: </th>
+                                                <td>@Html.DisplayFor(Model => Model.ArabaKM)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.ArabaKasaTipi != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Kasa Tipi: </th>
+                                                <td>@Html.DisplayFor(Model => Model.ArabaKasaTipi)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.ArabaMotorGucu != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Motor Gücü: </th>
+                                                <td>@Html.DisplayFor(Model => Model.ArabaMotorGucu)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.ArabaMotorHacmi != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Motor Hacmi: </th>
+                                                <td>@Html.DisplayFor(Model => Model.ArabaMotorHacmi)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.ArabaCekis != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Çekiş: </th>
+                                                <td>@Html.DisplayFor(Model => Model.ArabaCekis)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.ArabaRenk != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Renk: </th>
+                                                <td>@Html.DisplayFor(Model => Model.ArabaRenk)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.ArabaGarantili != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Garanti: </th>
+                                                <td>@Html.DisplayFor(Model => Model.ArabaGarantili)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.ArabaPlakaUyrugu != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Araba Plaka Uyrugu: </th>
+                                                <td>@Html.DisplayFor(Model => Model.ArabaPlakaUyrugu)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.TraktorMarka != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Marka: </th>
+                                                <td>@Html.DisplayFor(Model => Model.TraktorMarka)</td>
+                                            </tr>
+                                        }
+                                        @if (Model.TraktorKabin != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Kabin: </th>
+                                                <td>@Html.DisplayFor(Model => Model.TraktorKabin)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.TraktorVites != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Vites: </th>
+                                                <td>@Html.DisplayFor(Model => Model.TraktorVites)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.TraktorMotorGücü != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Motor Gücü: </th>
+                                                <td>@Html.DisplayFor(Model => Model.TraktorMotorGücü)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.TraktorSlinderSayisi != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Slinder Sayısı: </th>
+                                                <td>@Html.DisplayFor(Model => Model.TraktorSlinderSayisi)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.TraktorCalismaSaati != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Çalışma Saati: </th>
+                                                <td>@Html.DisplayFor(Model => Model.TraktorCalismaSaati)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.TraktorOnYukleyiciKepce != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Önyükleyici Kepçe: </th>
+                                                <td>@Html.DisplayFor(Model => Model.TraktorOnYukleyiciKepce)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.TraktorOnLastik != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Ön Lastik: </th>
+                                                <td>@Html.DisplayFor(Model => Model.TraktorOnLastik)</td>
+                                            </tr>
+                                        }
+
+                                        @if (Model.TraktorArkaLastik != null)
+                                        {
+                                            <tr>
+                                                <th scope="row"> Arka Lastik: </th>
+                                                <td>@Html.DisplayFor(Model => Model.TraktorArkaLastik)</td>
+                                            </tr>
+                                        }
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="card member-card">
+                        <div class="header l-parpl">
+                            <h4 class="m-t-10">@Html.DisplayFor(Model => Model.KAdSoyad)</h4>
+                        </div>
+                        <div class="member-img">
+                            @if (@ViewBag.profil == null)
+                            {
+                                <img src="~/KProfil/assets/images/profile_av.jpg" class="rounded-circle" alt="profile-image">
+
+                            }
+                            else
+                            {
+                                <img src="@ViewBag.profil" class="rounded-circle" alt="profile-image">
+
+                            }
+                        </div>
+                        <br />
+                        <div class="agent-name">
+                            @Model.KAdSoyad
+
+                        </div>
+                        <div class="agent-contact-wrap">
+                            <p>@Model.KKisaAciklama </p>
+                            <div class="information-column">
+
+                                <span><i class="fa fa-mobile fa-lg" aria-hidden="true"></i>Telefon:</span>
+                                <a href="Tel:@Model.KTel">
+                                    <span class="values">@Model.KTel</span>
+                                </a>
+                                <br />
+                                <span><i class="fa fa-envelope" aria-hidden="true"></i>E-Posta:</span>
+                                <a href="MailTo:@Model.KEPosta" class="values">
+                                    <span class="values">@Model.KEPosta</span>
+
+                                </a>
+
+                                <div style="padding-top:20px;">
+                                    @if (Model.MOnay == false)
+                                    {
+                                        <a href="/Admin/MusteriilanOnayla/@Model.ilanID" class="btn btn-info">İlanı Onayla</a>
+                                    }
+                                    else
+                                    {
+                                        <span class="alert alert-danger">İlan Silindi</span>
+                                    }
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="body">
+                            <div class="col-12">
+                                <ul class="social-links list-unstyled">
+                                </ul>
+                                <p class="text-muted">@Html.DisplayFor(Model => Model.KMeslek)</p>
+                            </div>
+                            <hr>
+
+                        </div>
+                    </div>
+
+                    <div class="card property_list">
+                        <div class="body">
+                            <div class="property-content">
+                                <div class="detail">
+                                    <h5 class="text-success m-t-0 m-b-0">@Html.DisplayFor(Model => Model.TamFiyat) ₺</h5>
+                                    <h4 class="m-t-0"><a href="#" class="col-blue-grey">@Html.DisplayFor(Model => Model.EmlakTipi)</a></h4>
+                                    <p class="text-muted"><i class="zmdi zmdi-pin m-r-5"></i>@Html.DisplayFor(Model => Model.TamAdres)</p>
+                                    <p class="text-muted m-b-0">@Html.DisplayFor(Model => Model.Aciklama)</p>
+                                </div>
+                                <div class="property-action m-t-15">
+                                    <p class="text-muted m-b-0">@Html.Raw(Model.OzelNor)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="~/Content/Swiper/Swiper.js"></script>
+
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+            loop: true,
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+        });
+        var swiper2 = new Swiper(".mySwiper2", {
+            loop: true,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            thumbs: {
+                swiper: swiper,
+            },
+        });
+    </script>
+
+</body>
+</html>
+

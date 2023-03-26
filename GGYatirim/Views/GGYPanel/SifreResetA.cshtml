@@ -1,0 +1,104 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Girişi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="~/Content/GirisYap/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/GirisYap/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/GirisYap/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/GirisYap/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/GirisYap/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/GirisYap/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/GirisYap/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="~/Content/GirisYap/css/util.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/GirisYap/css/main.css">
+    <!--===============================================================================================-->
+</head>
+<body>
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-l-50 p-r-50 p-t-77 p-b-30">
+                @using (Html.BeginForm("SifreResetA", "GGYPanel", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    <form class="login100-form validate-form">
+                        <span class="login100-form-title p-b-55">
+                            Admin Panel Şifre İste
+
+
+                        </span>
+                        @if (TempData["sifreyenile"] != null)
+                        {
+                            <span class="alert alert-danger" style="font-size:12px;">@TempData["sifreyenile"]</span>
+                            <br />
+                            <br />
+                        }
+
+                        <div class="wrap-input100 validate-input m-b-16" data-validate="E Posta Zorunlu: ex@abc.xyz">
+                            <input class="input100" required="" type="email"  name="EPosta" placeholder="E Posta Adresiniz">
+                            <span class="focus-input100"></span>
+                            <span class="symbol-input100">
+                                <span class="lnr lnr-envelope"></span>
+                            </span>
+                        </div>
+
+
+
+                        <div class="container-login100-form-btn p-t-25">
+                            <button class="login100-form-btn">
+                                Yeni Şifre İste
+                            </button>
+                        </div>
+
+                        <div style="margin-top:20px;">
+
+                            <a href="/GGyPanel/Index" class="btn-face m-b-10">
+                                <i class="fa fa-backward"></i>
+                                Geri Dön
+                            </a>
+                           
+
+                                <a href="/" class="btn-face m-b-10">
+                                    <i class="fa fa-home"></i>
+                                    Ana Sayfaya Dön
+                                </a>
+                            
+                        </div>
+                        
+
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--===============================================================================================-->
+    <script src="~/Content/GirisYap/vendor/jquery/jquery-3.2.1.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/GirisYap/vendor/bootstrap/js/popper.js"></script>
+    <script src="~/Content/GirisYap/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/GirisYap/vendor/select2/select2.min.js"></script>
+    <!--===============================================================================================-->
+    <script src="~/Content/GirisYap/js/main.js"></script>
+
+</body>
+</html>

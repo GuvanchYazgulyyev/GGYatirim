@@ -1,4 +1,5 @@
-﻿@model IEnumerable<GGYatirim.Models.Sinif.Dbilan>
+﻿@*@model IEnumerable<GGYatirim.Models.Sinif.Dbilan>*@
+@model GGYatirim.Models.Sinif.Dbilan
 
 @{
     ViewBag.Title = "ilanDetay";
@@ -7,87 +8,8 @@
 
 
 
+<link href="~/Content/Swiper/Swiper.css" rel="stylesheet" />
 
-<div class="page-title-simple m-b-30">
-    <div class="container">
-        <ul>
-            <li>
-                <a href="/">Ana Sayfa</a>
-            </li>
-            <li>
-                <a href="#">İlan detay</a>
-            </li>
-        </ul>
-        <h1>İlan Detay</h1>
-    </div>
-</div>
-
-<!--<div class="container js-home-1-search m-b-30">-->
-<!--PROPERTY SEARCH FORM 1 BEGIN-->
-<!--<form id="search-form-1">
-    <div class="property-search">
-        <div class="main-apartment-search-options">
-            <div class="options-wrapper-main">
-                <div class="wrapper search-property">
-                    <h3>ID or Keyword</h3>
-                    <input type="search" class="property-searchinput" placeholder="ID or Keyworld">
-                </div>
-
-
-                <div class="wrapper">
-                    <h3>Konum</h3>
-                    <select form="search-form-1" name="KonumIDD" class="location-select big-input"
-                            data-placeholder="location">
-                        <option value="london">London</option>
-                        <option value="miami">Miami</option>
-                        <option value="new-york">New-York</option>
-                        <option value="houston">Houston</option>
-
-                    </select>
-                </div>
-
-                <div class="wrapper">
-                    <h3>Property type</h3>
-                    <select form="search-form-1" name="property" class="property-select big-input"
-                            data-placeholder="type">
-                        <option value="apartment">Apartment</option>
-                        <option value="farm">Farm</option>
-                        <option value="condo">Condo</option>
-                        <option value="multi-family-house">Multi Family House</option>
-                        <option value="townhouse">Townhouse</option>
-                    </select>
-                </div>
-
-                <div class="wrapper">
-                    <h3>Status</h3>
-                    <select form="search-form-1" name="status" class="status-select big-input badge-test"
-                            data-placeholder="status">
-                        <option value="sale" data-text="small-badge sale">For Sale</option>
-                        <option value="rent" data-text="small-badge rent">For Rent</option>
-                        <option value="new" data-text="small-badge new">New</option>
-                        <option value="featured" data-text="small-badge featured">Featured</option>
-                        <option value="reused" data-text="small-badge reused">Reused</option>
-                        <option value="hot" data-text="small-badge hot">Hot Offer</option>
-                    </select>
-                </div>
-
-                <div class="wrapper advanced-wrapper">
-                    <h3>Gelişmiş Mod</h3>
-                    <label class="switch">
-                        <input type="checkbox">
-                        <span class="slider round"></span>
-                    </label>
-                    <button class="property-button">Find Properties</button>
-                </div>
-            </div>
-
-        </div>
-
-
-    </div>
-</form>-->
-<!--PROPERTY SEARCH FORM 1 END-->
-<!--</div>-->
 
 <div class="container">
     <div class="row">
@@ -95,270 +17,603 @@
         <div class="col-lg-8 col-md-7">
 
 
-            @foreach (var x in Model)
-            {
-                <div class="property_gallery m-b-30">
-                    <div class="wrapper">
 
-                        <!--в атрибуте data-height указать высоту, если высота не указана, то скрипт автоматически поставит 450 -->
-                        <div class="slide" data-height="450">
-                            <div class="js-image-preloader">
-                                <div>
-                                    <canvas id='imagecircleback' height='100' width='100'></canvas>
-                                    @*<canvas id='imagecirclemain' height='100' width='100'></canvas>*@
+            <div class="property_gallery m-b-30">
+                <div class="wrapper">
 
-                                </div>
-                            </div>
-                            <div class="property-status">
-                                <span class="featured">@x.EmlakTipi</span>
-                                <span class="featured">@x.DbEmlakTipi.EmlakTipAd</span>
-                                <span class="rent">@x.DbilanDurum.ilanDurumAd</span>
-                            </div>
-                            <p class="js-fullscreen-message">Press <kbd>ESC</kbd> Çıkış Modu </p>
-                        </div>
-                        }
-                        <a href="#" class="js-fullscreen-btn fullscreen"> <i class="material-icons"></i></a>
+                    <!--в атрибуте data-height указать высоту, если высота не указана, то скрипт автоматически поставит 450 -->
 
-                        <div class="property-slides-list-wrapper">
-                            <div class="owl-carousel owl-theme">
-                                @*@foreach (var item in Model.DbilanGallery.Where(k => k.İlanIDD == Model.ilanID))*@
-                                @for (int i = 0; i < x.DbilanGallery.Count(); i++)
+                    <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff"
+                         class="swiper mySwiper2">
+                        <div class="swiper-wrapper">
+                            @for (int i = 0; i < Model.DbilanGallery.Count(); i++)
+                            {
+                                foreach (var item in Model.DbilanGallery)
                                 {
-                                    <div class="item">
-                                        <a href="#">
-                                            <img src="@x.DbilanGalleries[i].URL" alt="@x.DbilanGalleries[i].Ad">
-                                        </a>
+                                    <div class="swiper-slide">
+                                        <div class="property-status">
+                                            <span class="featured">@Model.EmlakTipi</span>
+                                            <span class="featured">@Model.DbEmlakTipi.EmlakTipAd</span>
+                                            <span class="rent">@Model.DbilanDurum.ilanDurumAd</span>
+                                        </div>
+                                        <img src="@item.URL" />
                                     </div>
-
                                 }
-
-                            </div>
+                            }
                         </div>
-                        <a href="#" class="nav-arrow left-arrow"><i class="fa fa-arrow-circle-right">İleri</i></a>
-                        <a href="#" class="nav-arrow right-arrow"><i class="fa fa-arrow-circle-left">Geri</i></a>
+                        <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div>
+                    </div>
+                    <div thumbsSlider="" class="swiper mySwiper">
+                        <div class="swiper-wrapper">
+                            @for (int i = 0; i < Model.DbilanGallery.Count(); i++)
+                            {
+                                foreach (var item in Model.DbilanGallery)
+                                {
+                                    <div class="swiper-slide">
+                                        <img src="@item.URL" style="height:105px" />
+                                    </div>
+                                }
+                            }
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="single-property-details m-b-30">
+                <div class="main-info">
+                    <span class="details">Detaylar</span>
+                    <span class="update">Bu Günün Tarihi: @DateTime.Today.ToString("dd/MMMM/yyyy")</span>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.ilanNo != null)
+                        {
+                            <div class="wrap">
+                                <span>İlan No: </span><b> @Model.ilanNo</b>
+                            </div>
+                        }
+                        <div class="wrap">
+                            <span>Yayınlanan Tarihi: </span>@Convert.ToDateTime(Model.Tarih).ToString("dd/MMM/yyyy")
+
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.DbKonum.SehirAd != null)
+                        {
+                            <div class="wrap">
+                                <span>Şehir: </span>@Model.DbKonum.SehirAd
+                            </div>
+                        }
+                        @if (Model.TamAdres != null)
+                        {
+                            <div class="wrap">
+                                <span>Adres:</span>@Model.TamAdres
+                            </div>
+                        }
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.TamFiyat != null)
+                        {
+                            <div class="wrap">
+                                <span>Tam Fiyatı: </span><b> @Model.TamFiyat ₺</b>
+                            </div>
+                        }
+                        @if (Model.MetreKareFiyat != null)
+                        {
+                            <div class="wrap">
+                                <span>Metre Kare Fiyatı: </span><b> @Model.MetreKareFiyat ₺</b>
+                            </div>
+                        }
                     </div>
                 </div>
-            }
+            </div>
 
-            @foreach (var x in Model)
-            {
-                <div class="single-property-details m-b-30">
-                    <div class="main-info">
-                        <span class="details">Detaylar</span>
-                        <span class="update">Bu Günün Tarihi: @DateTime.Today.ToString("dd/MMMM/yyyy")</span>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-4">
-                            <div class="wrap">
-                                <span>İlan No: </span>@x.ilanNo
-                            </div>
-                            <div class="wrap">
-                                <span>Yayınlanan Tarihi: </span>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")
-
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-4">
-                            <div class="wrap">
-                                <span>Şehir: </span>@x.DbKonum.SehirAd
-                            </div>
-                            <div class="wrap">
-                                <span>Adres:</span>@x.TamAdres
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-4">
-                            <div class="wrap">
-                                <span>Tam Fiyatı: </span>@x.TamFiyat
-                            </div>
-                            <div class="wrap">
-                                <span>Metre Kare Fiyatı: </span>@x.MetreKareFiyat
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            }
 
             <!--Özellikler-->
 
-            @foreach (var x in Model)
-            {
 
 
-                <div class="property_address m-b-30">
-                    <div class="main-info">
-                        <span class="details">Özellikler</span>
+            <div class="property_address m-b-30">
+                <div class="main-info">
+                    <span class="details">Özellikler</span>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.SiteAdi != null)
+                        {
+                            <div class="wrap">
+                                <span>Site Adı: </span>@Model.SiteAdi
+
+                            </div>
+                        }
+                        @if (Model.KurulusYili != null)
+                        {
+                            <div class="wrap">
+                                <span>Kuruluş Yılı: </span>@Model.KurulusYili
+                            </div>
+                        }
                     </div>
-
-
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-4">
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.AlanBoyutu != null)
+                        {
                             <div class="wrap">
-                                <span>Site Adı: </span>@x.SiteAdi
-
+                                <span>Alan Boyutu: </span>@Model.AlanBoyutu
                             </div>
+                        }
+                        @if (Model.AraziAlanı != null)
+                        {
                             <div class="wrap">
-                                <span>Kuruluş Yılı: </span>@x.KurulusYili
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-4">
-                            <div class="wrap">
-
-                                <span>Alan Boyutu: </span>@x.AlanBoyutu
-                            </div>
-                            <div class="wrap">
-                                <span>Arazi Alanı: </span>@x.AraziAlanı
+                                <span>Arazi Alanı: </span>@Model.AraziAlanı
 
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-4">
-                            <div class="wrap">
-                                <span>Oda Sayısı: </span>@x.OdaSayisi
-                            </div>
-                            <div class="wrap">
-                                <span>Garaj: </span>@x.Garaj
-                            </div>
-                        </div>
+                        }
                     </div>
-
-
-
-
-
-
-                    <div class="main-info">
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-4">
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.OdaSayisi != null)
+                        {
                             <div class="wrap">
-                                <span>Aidat: </span>@x.Aidat
+                                <span>Oda Sayısı: </span>@Model.OdaSayisi
                             </div>
+                        }
+                        @if (Model.Garaj != null)
+                        {
                             <div class="wrap">
-                                <span>Bulunduğu Kat: </span>@x.BulunduguKat
+                                <span>Garaj: </span>@Model.Garaj
                             </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-4">
-                            <div class="wrap">
-                                <span>Kat Sayısı: </span>@x.KatSayisi
-                            </div>
-                            <div class="wrap">
-                                <span>Isıtma: </span>@x.isitma
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-4">
-                            <div class="wrap">
-                                <span>Eşyalı: </span>@x.Esyali
-                            </div>
-                            <div class="wrap">
-                                <span>Kullanım Durumu: </span>@x.KullanimDurumu
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-
-                    <div class="main-info">
-
-                    </div>
-
-
-                    <div class="row">
-                        <div class="col-lg-4 col-md-6 col-sm-4">
-                            <div class="wrap">
-                                <span>Site İçerisinde: </span>@x.Siteicerisinde
-                            </div>
-                            <div class="wrap">
-                                <span>Krediye Uygun: </span>@x.KrediyeUygun
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-4">
-                            <div class="wrap">
-                                <span>Takas: </span>@x.Takasli
-                            </div>
-                            <div class="wrap">
-                                <span>Tapu Durumu: </span>@x.TapuDurumu
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-4">
-                            <div class="wrap">
-                                <span>Zemin Etüdü: </span>@x.ZeminEtudu
-                            </div>
-                            <div class="wrap">
-                                <span>Yapının Durumu: </span>@x.YapininDurumu
-                            </div>
-                        </div>
-
-                        <div class="col-lg-4 col-md-6 col-sm-4">
-                            <div class="wrap">
-                                <span>Yakıt Tipi: </span>@x.YakitTipi
-                            </div>
-                            <div class="wrap">
-                                <span>Balkon: </span>@x.Balkon
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-4">
-                            <div class="wrap">
-                                <span>Banyo: </span>@x.Banyo
-                            </div>
-                            <div class="wrap">
-                                <span>Google Map Haritası: </span>@x.GoogleMapAdres
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <div class="main-info">
-
-                    </div>
-
-
-                    <div class="row">
-
-
-                        <div class="col-lg-4 col-md-6 col-sm-4">
-                            <div class="wrap">
-                                <span>Yakıt Tipi: </span>@x.YakitTipi
-                            </div>
-                            <div class="wrap">
-                                <span>Balkon: </span>@x.Balkon
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-4">
-                            <div class="wrap">
-                                <span>Banyo: </span>@x.Banyo
-                            </div>
-                            <div class="wrap">
-                                <span>Google Map Haritası: </span>@x.GoogleMapAdres
-                            </div>
-                        </div>
+                        }
                     </div>
                 </div>
-            }
 
-            @foreach (var x in Model)
-            {
-                <div class="single-property-description m-b-30">
+
+
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.Aidat != null)
+                        {
+                            <div class="wrap">
+                                <span>Aidat: </span>@Model.Aidat
+                            </div>
+                        }
+                        @if (Model.BulunduguKat != null)
+                        {
+                            <div class="wrap">
+                                <span>Bulunduğu Kat: </span>@Model.BulunduguKat
+                            </div>
+                        }
+                    </div>
+
+
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.KatSayisi != null)
+                        {
+                            <div class="wrap">
+                                <span>Kat Sayısı: </span>@Model.KatSayisi
+                            </div>
+                        }
+                        @if (Model.isitma != null)
+                        {
+                            <div class="wrap">
+                                <span>Isıtma: </span>@Model.isitma
+                            </div>
+                        }
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.Esyali != null)
+                        {
+                            <div class="wrap">
+                                <span>Eşyalı: </span>@Model.Esyali
+                            </div>
+                        }
+                        @if (Model.KullanimDurumu != null)
+                        {
+                            <div class="wrap">
+                                <span>Kullanım Durumu: </span>@Model.KullanimDurumu
+                            </div>
+                        }
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.Siteicerisinde != null)
+                        {
+                            <div class="wrap">
+                                <span>Site İçerisinde: </span>@Model.Siteicerisinde
+                            </div>
+                        }
+                        @if (Model.KrediyeUygun != null)
+                        {
+                            <div class="wrap">
+                                <span>Krediye Uygun: </span>@Model.KrediyeUygun
+                            </div>
+                        }
+                    </div>
+
+
+
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.Takasli != null)
+                        {
+                            <div class="wrap">
+                                <span>Takas: </span>@Model.Takasli
+                            </div>
+                        }
+                        @if (Model.TapuDurumu != null)
+                        {
+                            <div class="wrap">
+                                <span>Tapu Durumu: </span>@Model.TapuDurumu
+                            </div>
+                        }
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.ZeminEtudu != null)
+                        {
+                            <div class="wrap">
+                                <span>Zemin Etüdü: </span>@Model.ZeminEtudu
+                            </div>
+                        }
+                        @if (Model.YapininDurumu != null)
+                        {
+                            <div class="wrap">
+                                <span>Yapının Durumu: </span>@Model.YapininDurumu
+                            </div>
+                        }
+                    </div>
+
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.YakitTipi != null)
+                        {
+                            <div class="wrap">
+                                <span>Yakıt Tipi: </span>@Model.YakitTipi
+                            </div>
+                        }
+                        @if (Model.Balkon != null)
+                        {
+                            <div class="wrap">
+                                <span>Balkon: </span>@Model.Balkon
+                            </div>
+                        }
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.Banyo != null)
+                        {
+                            <div class="wrap">
+                                <span>Banyo: </span>@Model.Banyo
+                            </div>
+                        }
+                        @if (Model.GoogleMapAdres != null)
+                        {
+                            <div class="wrap">
+                                <span>Google Map Haritası: </span>@Model.GoogleMapAdres
+                            </div>
+                        }
+                    </div>
+                </div>
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.ArsaImarDurum != null)
+                        {
+                            <div class="wrap">
+                                <span>İmar Durumu: </span>@Model.ArsaImarDurum
+
+                            </div>
+                        }
+                        @if (Model.ArsaAdaNo != null)
+                        {
+                            <div class="wrap">
+                                <span>Ada No: </span>@Model.ArsaAdaNo
+                            </div>
+                        }
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.ArsaParselNo != null)
+                        {
+                            <div class="wrap">
+                                <span>Parsel No: </span>@Model.ArsaParselNo
+                            </div>
+                        }
+                        @if (Model.ArsaPaftaNo != null)
+                        {
+                            <div class="wrap">
+                                <span>Pafta No: </span>@Model.ArsaPaftaNo
+
+                            </div>
+                        }
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.ArsaKaks != null)
+                        {
+                            <div class="wrap">
+                                <span>Kaks: </span>@Model.ArsaKaks
+                            </div>
+                        }
+                        @if (Model.ArsaGabari != null)
+                        {
+                            <div class="wrap">
+                                <span>Gabari: </span>@Model.ArsaGabari
+                            </div>
+                        }
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.PetrolAcilAlan != null)
+                        {
+                            <div class="wrap">
+                                <span>İç Alanı: </span>@Model.PetrolAcilAlan
+
+                            </div>
+                        }
+                        @if (Model.PetrolKapaliAlan != null)
+                        {
+                            <div class="wrap">
+                                <span>Kapalı Alan: </span>@Model.PetrolKapaliAlan
+                            </div>
+                        }
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.PetrolPompaSayisi != null)
+                        {
+                            <div class="wrap">
+                                <span>Pompa Sayısı: </span>@Model.PetrolPompaSayisi
+                            </div>
+                        }
+                        @if (Model.ArabaSerisi != null)
+                        {
+                            <div class="wrap">
+                                <span>Serisi: </span>@Model.ArabaSerisi
+
+                            </div>
+                        }
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.ArabaModel != null)
+                        {
+                            <div class="wrap">
+                                <span>Model: </span>@Model.ArabaModel
+                            </div>
+                        }
+                        @if (Model.ArabaYil != null)
+                        {
+                            <div class="wrap">
+                                <span>Yıl: </span>@Model.ArabaYil
+                            </div>
+                        }
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.ArabaVites != null)
+                        {
+                            <div class="wrap">
+                                <span>Vites: </span>@Model.ArabaVites
+
+                            </div>
+                        }
+                        @if (Model.ArabaKM != null)
+                        {
+                            <div class="wrap">
+                                <span>KM: </span>@Model.ArabaKM
+                            </div>
+                        }
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.ArabaKasaTipi != null)
+                        {
+                            <div class="wrap">
+                                <span>Kasa Tipi: </span>@Model.ArabaKasaTipi
+                            </div>
+                        }
+                        @if (Model.ArabaMotorGucu != null)
+                        {
+                            <div class="wrap">
+                                <span>Motor Gücü: </span>@Model.ArabaMotorGucu
+
+                            </div>
+                        }
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.ArabaMotorHacmi != null)
+                        {
+                            <div class="wrap">
+                                <span>Motor Hacmi: </span>@Model.ArabaMotorHacmi
+                            </div>
+                        }
+                        @if (Model.ArabaCekis != null)
+                        {
+                            <div class="wrap">
+                                <span>Çekiş: </span>@Model.ArabaCekis
+                            </div>
+                        }
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.ArabaRenk != null)
+                        {
+                            <div class="wrap">
+                                <span>Araba Rengi: </span>@Model.ArabaRenk
+
+                            </div>
+                        }
+                        @if (Model.ArabaGarantili != null)
+                        {
+                            <div class="wrap">
+                                <span>Garanti: </span>@Model.ArabaGarantili
+                            </div>
+                        }
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.ArabaPlakaUyrugu != null)
+                        {
+                            <div class="wrap">
+                                <span>Plaka Uyrugu: </span>@Model.ArabaPlakaUyrugu
+                            </div>
+                        }
+                        @if (Model.TraktorMarka != null)
+                        {
+                            <div class="wrap">
+                                <span>Marka: </span>@Model.TraktorMarka
+
+                            </div>
+                        }
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.TraktorKabin != null)
+                        {
+                            <div class="wrap">
+                                <span>Kabin: </span>@Model.TraktorKabin
+                            </div>
+                        }
+                        @if (Model.TraktorVites != null)
+                        {
+                            <div class="wrap">
+                                <span>Vites: </span>@Model.TraktorVites
+                            </div>
+                        }
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.TraktorMotorGücü != null)
+                        {
+                            <div class="wrap">
+                                <span>Motor Gücü: </span>@Model.TraktorMotorGücü
+
+                            </div>
+                        }
+                        @if (Model.TraktorSlinderSayisi != null)
+                        {
+                            <div class="wrap">
+                                <span>Slinder Sayısı: </span>@Model.TraktorSlinderSayisi
+                            </div>
+                        }
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.TraktorCalismaSaati != null)
+                        {
+                            <div class="wrap">
+                                <span>Çalışma Saati: </span>@Model.TraktorCalismaSaati
+                            </div>
+                        }
+                        @if (Model.TraktorOnYukleyiciKepce != null)
+                        {
+                            <div class="wrap">
+                                <span>Ön Yükleyici Kepçe: </span>@Model.TraktorOnYukleyiciKepce
+
+                            </div>
+                        }
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-4">
+                        @if (Model.TraktorOnLastik != null)
+                        {
+                            <div class="wrap">
+                                <span>Ön Lastik: </span>@Model.TraktorOnLastik
+                            </div>
+                        }
+                        @if (Model.TraktorArkaLastik != null)
+                        {
+                            <div class="wrap">
+                                <span>Arka Lastik: </span>@Model.TraktorArkaLastik
+                            </div>
+                        }
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div class="single-property-description m-b-30">
+                @if (Model.Aciklama != null)
+                {
                     <h3>Açıklama</h3>
                     <p>
-                        @x.Aciklama
+                        @Model.Aciklama
                     </p>
 
+                }
 
+                @if (Model.OzelNor != null)
+                {
 
                     <h3>Özel Not</h3>
                     <p style="font-style:italic">
-                        @x.OzelNor
+                        @Html.Raw(Model.OzelNor)
                     </p>
-                </div>
+                }
+            </div>
 
-            }
+
 
 
 
@@ -369,70 +624,90 @@
 
         <!--İlanı Veren Kişi-->
         <div class="col-lg-4 col-md-5">
-            @*<div class="sidebar-agent m-b-30">
-                    <div class="agent-info-wrap">
-                        <div class="agent-img online">
-                            <img src="./images/mask.png" alt="agent-img">
-                        </div>
-                        <div class="agent-name">
-                            Pauline Saunders
-                            <span>41 property listings</span>
-                        </div>
-                        <div class="buttons-wrap">
-                            <div class="buttons-left-wrap">
-                                <a href="#"><i class="material-icons">&#xE0BF;</i> start chat</a>
-                            </div>
-                            <div class="buttons-right-wrap">
-                                <a href="#">
-                                    <i class="fa fa-facebook icons" aria-hidden="true"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-twitter icons" aria-hidden="true"></i>
-                                </a>
-                                <a href="#">
-                                    <i class="fa fa-google icons" aria-hidden="true"></i>
-                                </a>
-                            </div>
-                        </div>
+
+            <div class="sidebar-agent m-b-30">
+                <div class="agent-info-wrap">
+                    <div class="agent-img online">
+                        @if (Model.KProfil == null)
+                        {
+                            <img src="~/Content/Images/Logo Update-01.png" alt="agent-img">
+                        }
+                        else
+                        {
+                            <img src="@Model.KProfil" alt="agent-img">
+
+                        }
                     </div>
-                    <div class="agent-contact-wrap">
-                        <p>Has ex maisonette persecuti. Nulla luxury ea est, eu high ceilings volutpat sit. </p>
-                        <div class="information-column">
-                            <span><i class="fa fa-phone" aria-hidden="true"></i>Office:</span>
-                            <span class="values">083-501-2427</span>
-                            <span><i class="fa fa-mobile fa-lg" aria-hidden="true"></i>Mobile:</span>
-                            <span class="values">686-986-7249</span>
-                            <span><i class="fa fa-skype" aria-hidden="true"></i>Skype:</span>
-                            <a href="#" class="values">Lillie Martin</a>
-                            <span><i class="fa fa-envelope" aria-hidden="true"></i>E-mail:</span>
-                            <a href="#" class="values">jacynthe_labadie@friesen.info</a>
-                        </div>
-                        <form>
-                            <input type="text" placeholder="Your name">
-                            <input type="text" placeholder="Phone">
-                            <input type="text" placeholder="E-mail">
-                            <textarea placeholder="Message"></textarea>
+                    <div class="agent-name">
+                        @Model.KAdSoyad
+
+                    </div>
+
+                </div>
+                <div class="agent-contact-wrap">
+                    <p>@Model.KKisaAciklama </p>
+                    <div class="information-column">
+
+                        <span><i class="fa fa-mobile fa-lg" aria-hidden="true"></i>Telefon:</span>
+                        <a href="Tel:@Model.KTel">
+                            <span class="values">@Model.KTel</span>
+                        </a>
+
+                        <span><i class="fa fa-envelope" aria-hidden="true"></i>E-mail:</span>
+                        <a href="MailTo:@Model.KEPosta" class="values">@Model.KEPosta</a>
+                    </div>
+                    @*<form>
+                            <input type="teModelt" placeholder="Adınız">
+                            <input type="teModelt" placeholder="Telefon No">
+                            <input type="teModelt" placeholder="E-Posta">
+                            <teModeltarea placeholder="Mesajınız"></teModeltarea>
                         </form>
-                        <button type="submit">send message</button>
-                    </div>
-                </div>*@
+                        <button type="submit">Mesaj Gönder</button>*@
+                </div>
+            </div>
+
+
 
 
 
             <div class="sidebar-search-results m-b-30">
                 <h3>Yeni Satılık İlanlar</h3>
+                @Html.Action("ilanDetayPart", "Home")
 
-                @Html.Action("ilanDetayPart")
+                @*@Html.Action("ilanDetayPart")*@
 
 
             </div>
 
             <div class="sidebar-featured">
                 <h3>Yeni Kiralık İlanlar</h3>
-                @Html.Action("ilanDetayKiralikPart")
+                @*@Html.Action("ilanDetayKiralikPart")*@
+                @Html.Action("ilanDetayKiralikPart", "Home")
 
 
             </div>
         </div>
     </div>
 </div>
+<script src="~/Content/Swiper/Swiper.js"></script>
+
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesProgress: true,
+    });
+    var swiper2 = new Swiper(".mySwiper2", {
+        loop: true,
+        spaceBetween: 10,
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        thumbs: {
+            swiper: swiper,
+        },
+    });
+</script>

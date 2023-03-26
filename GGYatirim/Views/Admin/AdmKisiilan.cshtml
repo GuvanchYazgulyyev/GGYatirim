@@ -7,68 +7,97 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<div style="padding:0px;">
-    <h1 class="account-header-top">İlanlar</h1>
-    <div class="row">
-        @foreach (var x in Model)
-        {
-            <div class="col-md-4 col-sm-6 col-xs-12">
-
-                <div class="property-block">
-                    <p class="property-type">@x.DbKonum.SehirAd</p>
-                    <p class="property-title">@x.EmlakTipi</p>
-                    <div class="apartment-address">
-                        <i class="fa fa-location-arrow"></i>
-                        <span class="address">@x.TamAdres</span>
-                    </div>
-
-                    <div class="apartment-image">
-                        <img src="@x.VitrinResim" alt="image">
-                        <div class="badges">
-                            <p class="featured">@x.DbEmlakTipi.EmlakTipAd</p>
-                            <p class="rent">@x.DbilanDurum.ilanDurumAd</p>
-
-                        </div>
-
-                    </div>
-
-                    <div class="apartment-values">
-                        <span>İlan No: @x.ilanNo</span>
-
-                        <span>Alan Boyutu: @x.AlanBoyutu</span>
-                    </div>
-                    <div class="apartment-info">
-                        <div class="apartment-price">
-                            <p class="price-big">@x.TamFiyat ₺</p>
-                            <p class="price-small">@x.MetreKareFiyat ₺ Metre.K</p>
-                        </div>
-
-                    </div>
-                    <div class="apartment-manager">
-                        <div class="manager-wrap">
-                            <div class="manager-icon">
-                                <a href="#chat"> <img src="~/Content/Images/Logo Update-01.png" alt="admin"></a>
-                                <div class="online-status"></div>
-                            </div>
-
-                            <span class="manager-name">Güner Group Yatırım</span>
-                        </div>
-                        <div class="calendar">
-                            <i class="material-icons">insert_invitation</i>
-                            <span>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</span>
-                        </div>
-                    </div>
-                </div>
-               
-            </div>
-        }
-
-            @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("AdmKisiilan", new { sayfa }))
 
 
 
+<!doctype html>
+<html class="no-js " lang="tr">
 
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+
+    <section class="content home">
+        <div class="block-header">
 
         </div>
-</div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="header">
+                            <h2>Tüm Onaylı İlanlar <b>@ViewBag.tumonayliilan</b></h2>
+                        </div>
+                        @using (Html.BeginForm("AdmKisiilan", "Admin", FormMethod.Get))
+                        {
+                            <div class="body">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" name="p" placeholder="İlan No, AdSoyad, İlan No, Kullanıcı No, Eposta, TelNo, Emlak Tipi, Açıklama, İlan Durumu Anahtar Kelime Giriniz">
+                                    <button class="input-group-addon"><i class="zmdi zmdi-search"></i></button>
+                                </div>
 
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="row clearfix">
+                @foreach (var x in Model)
+                {
+
+                    <div class="col-lg-4 col-md-12">
+
+                        <div class="card property_list">
+                            @if (x.MOnay == false)
+                            {
+                                <span class="badge badge-danger">Onay Bekleniyor</span>
+                            }
+                            else
+                            {
+                                <span class="badge badge-success">Onaylı</span>
+                            }
+
+                            <div class="property_image">
+                                <img class="img-thumbnail img-fluid" src="@x.VitrinResim" alt="img">
+                                <span class="badge badge-info">@x.DbilanDurum.ilanDurumAd</span>
+                            </div>
+                            <div class="body">
+                                <div class="property-content">
+                                    <div class="detail">
+                                        <h5 class="text-success m-t-0 m-b-0">@x.TamFiyat ₺</h5>
+                                        <h4 class="m-t-0"><a href="#" class="col-blue-grey">@x.EmlakTipi</a></h4>
+                                        <p class="text-muted"><i class="zmdi zmdi-pin m-r-5"></i>@x.TamAdres</p>
+                                        <p class="text-muted"><i class="zmdi zmdi-calendar m-r-5"></i>Yayınlanan Tarihi <b> @Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</b></p>
+
+                                        @*<p class="text-muted m-b-0">@x.OzelNor</p>*@
+                                    </div>
+                                    <div class="property-action m-t-15">
+                                        <a href="/Admin/AdmSilinmisilanDetay/@x.ilanID" title="Square Feet"><i class="zmdi zmdi-portable-wifi-changes"></i><span>Takas @x.Takasli</span></a>
+                                        <a href="/Admin/AdmSilinmisilanDetay/@x.ilanID" title="Bedroom"><i class="zmdi zmdi-format-clear-all"></i><span>Banyo @x.Banyo</span></a>
+                                        <a href="/Admin/AdmSilinmisilanDetay/@x.ilanID" title="Parking space"><i class="zmdi zmdi-car-taxi"></i><span>Garaj @x.Garaj</span></a>
+                                        <a href="/Admin/AdmSilinmisilanDetay/@x.ilanID" title="Garages"><i class="zmdi zmdi-home"></i><span>Oda Sayısı @x.OdaSayisi</span></a>
+                                    </div>
+                                    @*<br />
+                                        <a class="btn btn-default btn-round btn-danger" onclick="return confirm('İlanınız Kalıcı Olarak Silinecektir! İlanınızı Silmek İstediginizden Emin misiniz? @x.EmlakTipi @x.KAdSoyad ')" data-toggle="~/GGKPanel/MilanSil/@x.ilanID" href="~/Admin/AdmilanSil/@x.ilanID">İlanımı Sil</a>
+
+                                        <a class="btn btn-default btn-round btn-info" href="~/Admin/AdmilanGetir/@x.ilanID">Güncelle</a>*@
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+
+                }
+
+            </div>
+
+        </div>
+        @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("AdmKisiilan", new { sayfa }))
+    </section>
+</body>
+</html>

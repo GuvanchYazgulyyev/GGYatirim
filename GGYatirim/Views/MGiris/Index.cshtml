@@ -1,0 +1,169 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+
+<!doctype html>
+<html class="no-js " lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="Responsive Bootstrap 4 and web Application ui kit.">
+
+    <title>:: Güner Group Yatırım Müşteri Giriş Paneli ::</title>
+    <!-- Favicon-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="~/KProfil/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/KProfil/assets/css/main.css">
+    <link rel="stylesheet" href="~/KProfil/assets/css/authentication.css">
+    <link rel="stylesheet" href="~/KProfil/assets/css/color_skins.css">
+</head>
+
+<body class="theme-purple authentication sidebar-collapse">
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top navbar-transparent">
+        <div class="container">
+            <div class="navbar-translate n_logo">
+                <a class="navbar-brand" href="#" title="" target="_blank"><h4 class="text-light mt-0">Webigem Satmak we Satyn Almak</h4></a>
+                <button class="navbar-toggler" type="button">
+                    <span class="navbar-toggler-bar bar1"></span>
+                    <span class="navbar-toggler-bar bar2"></span>
+                    <span class="navbar-toggler-bar bar3"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Baş Sahypa</a>
+                    </li>
+             
+                    <li class="nav-item">
+                        <a class="nav-link" title="Bizi Twitter'da takip edin" href="#" target="_blank">
+                            <i class="zmdi zmdi-twitter"></i>
+                            <p class="d-lg-none d-xl-none">Twitter</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" title="Facebook'ta bizi beğenin" href="#" target="_blank">
+                            <i class="zmdi zmdi-facebook"></i>
+                            <p class="d-lg-none d-xl-none">Facebook</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" title="Bizi instagramda takip et" href="#" target="_blank">
+                            <i class="zmdi zmdi-instagram"></i>
+                            <p class="d-lg-none d-xl-none">Instagram</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link btn btn-primary btn-round" href="/MGiris/MEkle">Hasap Aç</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="page-header">
+        <div class="page-header-image" style="background-image: url(/KProfil/assets/images/login.jpg)"></div>
+        <div class="container">
+            <div class="col-md-12 content-center">
+                @if (TempData["sifreyenile"] != null)
+                {
+                    <span class="alert alert-success">@TempData["sifreyenile"]</span>
+                    <br /><br />
+                }
+
+                 @if (TempData["uyari"] != null)
+                {
+                    <span class="alert alert-success">@TempData["uyari"]</span>
+                    <br /><br />
+                }
+
+
+
+                <div class="card-plain">
+                    @using (Html.BeginForm("MLogin", "MGiris", FormMethod.Post))
+                    {
+
+                        <form class="form" method="post">
+                            <div class="header">
+
+                                <img src="~/Content/Images/Logo Update-01.png" width="250px" alt="">
+
+
+                            </div>
+
+                            @if (TempData["mesaj"] != null)
+                            {
+                                <span class="alert alert-danger">@TempData["mesaj"]</span>
+                                <br />
+                                <br />
+                            }
+
+                            <div class="content">
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="input-group input-lg">
+                                    <input type="text" class="form-control" name="EPosta" required="" placeholder="E-poçta salgyňyzy giriziň!">
+                                    <span class="input-group-addon">
+                                        <i class="zmdi zmdi-account-circle"></i>
+                                    </span>
+                                </div>
+                                <div class="input-group input-lg">
+                                    <input type="password" name="Sifre" required="" placeholder="Parolyňyzy giriziň!!!" class="form-control" />
+                                    <span class="input-group-addon">
+                                        <i class="zmdi zmdi-lock"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="footer text-center">
+                                <button class="btn l-cyan btn-round btn-lg btn-block waves-effect waves-light">Ulgama Gir</button>
+                                <h6 class="m-t-20"><a href="/MGiris/SifreResetM" class="link">Parolymy Unuttym</a></h6>
+                            </div>
+                        </form>
+                    }
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <nav>
+                    <ul>
+                        <li><a href="/" target="_blank">Baş Sahypa</a></li>
+                        <li><a href="/Home/Tumilanlar" target="_blank">Alym Satym</a></li>
+                       
+                    </ul>
+                </nav>
+                <div class="copyright">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script>,
+                    <span>Webigem.com Tarapyndan Ýazyldy <a href="https://webigem.com" target="_blank">Webigem Al we Sat</a></span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Jquery Core Js -->
+    <script src="~/KProfil/assets/bundles/libscripts.bundle.js"></script>
+    <script src="~/KProfil/assets/bundles/vendorscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js -->
+
+    <script>
+        $(".navbar-toggler").on('click', function () {
+            $("html").toggleClass("nav-open");
+        });
+        //=============================================================================
+        $('.form-control').on("focus", function () {
+            $(this).parent('.input-group').addClass("input-group-focus");
+        }).on("blur", function () {
+            $(this).parent(".input-group").removeClass("input-group-focus");
+        });
+    </script>
+</body>
+</html>

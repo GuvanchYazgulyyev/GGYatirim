@@ -6,35 +6,63 @@
 
 
 
-<div class="col-md-10 col-sm-12 col-xs-12">
-    <h3>Temsilciler</h3>
-    <table class="table table-bordered">
-        <tr>
-            <th>Ad Soyad</th>
-            <th>E Posta</th>
-            <th>Makam</th>
-            <th>Tel</th>
-            <th>Resim</th>
-            <th>Kayıt Tarihi</th>
+<!doctype html>
+<html class="no-js " lang="en">
 
-            <th>Sil</th>
-            <th>Güncelle</th>
-        </tr>
-        @foreach (var x in Model)
-        {
-            <tr>
-                <td>@x.AdSoyad</td>
-                <td>@x.EPosta</td>
-                <td>@x.Makam</td>
-                <td>@x.Tel</td>
-                <td><img src="@x.ProfilResim" width="90px;" /></td>
-                <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</td>
-                <td><a href="~/Admin/AdmTemsilciSil/@x.TemsilciID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.AdSoyad ')" class="btn btn-danger"> <i class="fas fa-trash"></i></a></td>
-                <td><a href="~/Admin/AdmTemsilciGetr/@x.TemsilciID" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
-            </tr>
-        }
-    </table>
-    <a href="/Admin/AdmTemsilciEkle/" class="btn btn-success">Yeni Temsilci Ekle</a>
+<body class="theme-blue">
+    <!-- Main Content -->
+    <section class="content">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>
+                        Temsilciler
+                        <small class="text-muted">Tekrar Hoş Geldiniz</small>
+                    </h2>
+                </div>
 
-</div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body">
+                  
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Ad Soyad</th>
+                                    <th>E Posta</th>
+                                    <th>Makam</th>
+                                    <th>Tel</th>
+                                    <th>Resim</th>
+                                    <th>Kayıt Tarihi</th>
 
+                                    <th>Sil</th>
+                                    <th>Güncelle</th>
+                                </tr>
+                                @foreach (var x in Model)
+                                {
+                                    <tr>
+                                        <td>@x.AdSoyad</td>
+                                        <td>@x.EPosta</td>
+                                        <td>@x.Makam</td>
+                                        <td>@x.Tel</td>
+                                        <td><img src="@x.ProfilResim" width="90px;" /></td>
+                                        <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</td>
+                                        <td><a href="~/Admin/AdmTemsilciSil/@x.TemsilciID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.AdSoyad ')" class="btn btn-raised btn-danger btn-simple btn-round"> Sil </a></td>
+                                        <td><a href="~/Admin/AdmTemsilciGetr/@x.TemsilciID" class="btn btn-raised btn-info btn-simple btn-round">Güncelle</a></td>
+                                    </tr>
+                                }
+                            </table>
+                            <a href="/Admin/AdmTemsilciEkle/" class="btn btn-raised btn-success btn-simple btn-round">Yeni Temsilci Ekle</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

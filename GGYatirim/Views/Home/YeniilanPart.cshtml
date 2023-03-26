@@ -25,7 +25,7 @@
         <div class="col-md-8">
             <div class="region-apartment">
                 <div class="apartment-image">
-                    <img src="@x.CokluResim" alt="apartment">
+                    <img src="@x.VitrinResim" alt="Resim">
                     <div class="badge-wrapper">
                         <div class="small-badge badge-sale"></div>
                         <div class="small-badge badge-rent"></div>
@@ -33,23 +33,24 @@
                     </div>
                 </div>
                 <div class="apartment-description">
+                    <p>@x.TamFiyat ₺</p>
                     <p>@x.DbEmlakTipi.EmlakTipAd</p>
                     <h2>@x.EmlakTipi</h2>
-                    <div class="apartment-property-wrapper">
+                     <div class="apartment-property-wrapper">
                         <div class="apartment-table">
                             <table>
                                 <tr>
                                     <th>Oda Sayısı.</th>
                                     <th>Banyo.</th>
                                     <th>Arazi Alanı.</th>
-                                    <th>Fiyatı ₺</th>
+                                    @*<th>Fiyatı ₺</th>*@
                                     <th>Metre Kare Fiyatı</th>
                                 </tr>
                                 <tr>
                                     <td>@x.OdaSayisi</td>
                                     <td>@x.Banyo</td>
                                     <td>@x.AraziAlanı</td>
-                                    <td>@x.TamFiyat m</td>
+                                    @*<td>@x.TamFiyat </td>*@
                                     <td>@x.MetreKareFiyat</td>
                                 </tr>
                             </table>

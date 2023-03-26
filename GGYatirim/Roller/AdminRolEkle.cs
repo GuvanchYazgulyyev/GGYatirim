@@ -41,6 +41,7 @@ namespace GGYatirim.Roller
         public override string[] GetRolesForUser(string username)
         {
             GYatirimEntities dr = new GYatirimEntities();
+        
             var k = dr.DbAdmin.FirstOrDefault(f => f.EPosta == username);
             return new string[] { k.DbYetki.YetkiAd };
             //throw new NotImplementedException();
@@ -48,6 +49,12 @@ namespace GGYatirim.Roller
 
         public override string[] GetUsersInRole(string roleName)
         {
+
+            // Kullanıcı Yetkili Kısmı
+            //GYatirimEntities dr = new GYatirimEntities();
+
+            //var k = dr.DbKullanici.FirstOrDefault(f => f.EPosta == roleName);
+            //return new string[] { k.DbYetki.YetkiAd };
             throw new NotImplementedException();
         }
 

@@ -11,34 +11,124 @@
 
 
 
+<!doctype html>
+<html class="no-js " lang="en">
 
-<div style="width:80%" class="col-md-12 table table-hover">
-    <h3>Yeni Yetkili Ekle</h3>
-    <table class="table table-bordered">
-        <tr>
-            <th>Ad Soyad</th>
-            <th>E Posta</th>
-            <th>Tel</th>
-            <th>Şifre</th>
-            <th>Kayıt Tarihi</th>
-            <th>Yetki</th>
-            <th>Sil</th>
-            <th>Güncelle</th>
-        </tr>
-        @foreach (var x in Model)
-        {
-            <tr>
-                <td>@x.AdSoyad</td>
-                <td>@x.EPosta</td>
-                <td>@x.Tel</td>
-                <td>@x.Sifre</td>
-                <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</td>
-                <td>@x.DbYetki.YetkiAd</td>
-                <td><a href="~/Admin/AdminKulSil/@x.AdminID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.AdSoyad ')" class="btn btn-danger"> <i class="fas fa-trash"></i></a></td>
-                <td><a href="~/Admin/AdminKulGetr/@x.AdminID" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
-            </tr>
-        }
-    </table>
-    <a href="/Admin/AdminKulEkle/" class="btn btn-success">Yeni Yetkili Ekle</a>
+<body class="theme-blue">
+    <!-- Main Content -->
+    <section class="content">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>
+                        Yeni Yetkili Ekleme Kısmı
+                        <small class="text-muted">Tekrar Hoş Geldiniz</small>
+                    </h2>
+                </div>
 
-</div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body">
+                            <h4>Yeni Yetkili Ekle</h4>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Ad Soyad</th>
+                                    <th>E Posta</th>
+                                    <th>Tel</th>
+                                    <th>Admin No</th>
+                                    <th>Şifre</th>
+                                    <th>Kayıt Tarihi</th>
+                                    <th>Yetki</th>
+                                    <th>Sil</th>
+                                    <th>Güncelle</th>
+                                </tr>
+                                @foreach (var x in Model)
+                                {
+                                    <tr>
+                                        <td>@x.AdSoyad</td>
+                                        <td>@x.EPosta</td>
+                                        <td>@x.Tel</td>
+                                        <td>@x.KullaniciNo</td>
+                                        <td>@x.Sifre</td>
+                                        <td>@Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy")</td>
+                                        <td>@x.DbYetki.YetkiAd</td>
+                                        <td><a href="~/Admin/AdminKulSil/@x.AdminID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.AdSoyad ')" class="btn btn-raised bg-danger btn-round">Sil</a></td>
+                                        <td><a href="~/Admin/AdminKulGetr/@x.AdminID" class="btn btn-raised bg-indigo btn-round">Düzenle</a></td>
+                                    </tr>
+                                }
+                            </table>
+                            <a href="/Admin/AdminKulEkle/" class="btn btn-raised btn-success btn-simple btn-round">Yeni Yetkili Ekle</a>
+                            <br />
+                            <br />
+
+                            <div class="col-md-12 table table-hover">
+                                <h3>Yetkilerin Özellikleri</h3>
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>Yetki Ad</th>
+                                        <th>Yetki Seviyeleri</th>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Admin</td>
+                                        <td>Tüm Verilere Erişebilir (İlan Ekle, Silinmiş İlanlar, Silinmiş Müşteriler, Gelen Mesajlar,Onay Bekleyen İlanlar,Kullanıcı Yetkilendirme, Tüm Yetki)</td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>İçerik Yönetici</td>
+                                        <td>İlanları  - Detay Görebilir, İlan Ekleyebilir, Kayıtlı Müşterileri Görebilir Ama Silemez, Emlak Tipi , Özellik,Konum ,İlan Durum Ekleyip Düzenleyeniliri. Gelen mesajları Görebilir-Silebilir,Temsilcileri Görebilir-Sil Güncelleme Yapabilir, Yeni Temsilci Ekleyebilir.</td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>Yazar</td>
+                                        <td>İlanları  - Detay Görebilir, Kayıtlı Müşterileri Görebilir Ama Silemez, Emlak Tipi , Özellik,Konum ,İlan Durum Ekleyip Düzenleyeniliri. Blogları görebilir Sil- Ekle -Düzenleme Yapabilir.</td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Pazarlama Elemanı</td>
+                                        <td>İlanları  - Detay Görebilir İlan Ekleyebilir.</td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>Kullanıcı</td>
+                                        <td>İlanları  - Detay Görebilir.</td>
+
+                                    </tr>
+
+
+                                </table>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

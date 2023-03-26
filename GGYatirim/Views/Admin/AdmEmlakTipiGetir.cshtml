@@ -5,28 +5,61 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h3>Güncelle</h3>
+<!doctype html>
+<html class="no-js " lang="en">
 
-@using (Html.BeginForm("AdmEmlakTipiGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
-{
+<body class="theme-blue">
+    <!-- Main Content -->
+    <section class="content">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>
+                        Emlak Tipi
+                        <small class="text-muted">Tekrar Hoş Geldiniz</small>
+                    </h2>
+                </div>
+
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body">
+
+                            <h4>Güncelle</h4>
+
+                            @using (Html.BeginForm("AdmEmlakTipiGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
 
 
-    <form class="form-group" method="post">
+                                <form class="form-group" method="post">
 
-        Hizmet Ad
-        @Html.TextBoxFor(x => x.EmlakTipAd, new { @class = "form-control" })
+                                    Hizmet Ad
+                                    @Html.TextBoxFor(x => x.EmlakTipAd, new { @class = "form-control" })
 
+                                    <br />
 
+                                    @Html.HiddenFor(x => x.EmlakTipiID)
 
-        @Html.HiddenFor(x => x.EmlakTipiID)
+                                    <button class="btn btn-raised btn-success  btn-round">Değişikliği Kaydet</button>
 
-        <button class="btn btn-success">Değişikliği Kaydet</button>
-
-    </form>
-
-
+                                </form>
 
 
 
-}
+
+
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
 

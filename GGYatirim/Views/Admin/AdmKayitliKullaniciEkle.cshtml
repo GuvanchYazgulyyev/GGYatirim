@@ -6,71 +6,101 @@
 
 
 
-<div class="col-md-10 col-sm-12 col-xs-12">
+<!doctype html>
+<html class="no-js " lang="en">
 
-    <h2>Yeni Müşteri Ekle</h2>
+<body class="theme-blue">
+    <!-- Main Content -->
+    <section class="content">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>
+                        Yeni Müşteri Kısmı
+                        <small class="text-muted">Tekrar Hoş Geldiniz</small>
+                    </h2>
+                </div>
 
-    @using (Html.BeginForm("AdmKayitliKullaniciEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body">
 
-        <form class="form-group" method="post">
-            <b>Profil Resim</b>
-            @*@Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })*@
-            <input type="file" id="File" name="File" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" class="form-control" />
+                            <h4>Yeni Müşteri Ekle</h4>
 
-            <b>Ad</b>
-            @*@Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })*@
-            <input type="text" name="KisiAdi" maxlength="90" required="" class="form-control" />
+                            @using (Html.BeginForm("AdmKayitliKullaniciEkle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
 
+                                <form class="form-group" method="post">
+                                    <b>Profil Resim Boyut: 1000 X 1500 PX Formatında olmalıdır</b>
+                                    @*@Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })*@
+                                    <input type="file" id="File" name="File" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" class="form-control" />
 
-            <b>Soyad</b>
-            @Html.TextBoxFor(l => l.KisiSoyadi, new { @class = "form-control" })
-
-            <b>Meslek</b>
-            @Html.TextBoxFor(l => l.Meslek, new { @class = "form-control" })
-            <b>Telefon</b>
-            @*@Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })*@
-            <input type="text" name="Telefon" required="" class="form-control" />
-
-            <b>Kısa Açıklama</b>
-            @Html.TextAreaFor(l => l.KisaAciklama, new { @class = "form-control" })
-
-
-            <b>
-                E-Posta
-            </b>
-            @*</b>@Html.TextBoxFor(x => x.EPosta, new { @class = "form-control" })*@
-            <input type="text" name="EPosta" maxlength="50" required="" class="form-control" />
-
-            <b>
-                Şifre
-            </b>
-            @*@Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })*@
-            <input type="text" name="Sifre" maxlength="50" required="" class="form-control" />
+                                    <b>Ad</b>
+                                    @*@Html.TextBoxFor(x => x.AdSoyad, new { @class = "form-control" })*@
+                                    <input type="text" name="KisiAdi" maxlength="90" required="" class="form-control" />
 
 
-            <b>Facebook</b>
-            @Html.TextBoxFor(l => l.Face, new { @class = "form-control" })
+                                    <b>Soyad</b>
+                                    @Html.TextBoxFor(l => l.KisiSoyadi, new { @class = "form-control" })
 
-            <b>Instagram</b>
-            @Html.TextBoxFor(l => l.instagram, new { @class = "form-control" })
+                                    <b>Meslek</b>
+                                    @Html.TextBoxFor(l => l.Meslek, new { @class = "form-control" })
+                                    <b>Telefon</b>
+                                    @*@Html.TextBoxFor(x => x.Telefon, new { @class = "form-control" })*@
+                                    <input type="text" name="Telefon" required="" class="form-control" />
 
-
-            <b> Kullanıcı Yetkisi *</b>
-            @Html.DropDownListFor(x => x.KullaniciRolid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
-
-
-            <input type="text" name="KullaniciNo" readonly hidden="" value="@ViewBag.takipkod" /> <br />
-
+                                    <b>Kısa Açıklama</b>
+                                    @Html.TextAreaFor(l => l.KisaAciklama, new { @class = "form-control" })
 
 
-            @Html.HiddenFor(x => x.KullaniciID)
-            <br />
-            @*@Html.MathCaptcha()*@
+                                    <b>
+                                        E-Posta
+                                    </b>
+                                    @*</b>@Html.TextBoxFor(x => x.EPosta, new { @class = "form-control" })*@
+                                    <input type="text" name="EPosta" maxlength="50" required="" class="form-control" />
 
-            <button class="btn btn-success">Yeni Müşteri Ekle</button>
+                                    <b>
+                                        Şifre
+                                    </b>
+                                    @*@Html.TextBoxFor(x => x.Sifre, new { @class = "form-control" })*@
+                                    <input type="text" name="Sifre" maxlength="50" required="" class="form-control" />
 
-        </form>
-    }
-</div>
+
+                                    <b>Facebook</b>
+                                    @Html.TextBoxFor(l => l.Face, new { @class = "form-control" })
+
+                                    <b>Instagram</b>
+                                    @Html.TextBoxFor(l => l.instagram, new { @class = "form-control" })
+
+
+                                    <b> Kullanıcı Yetkisi *</b>
+                                    @Html.DropDownListFor(x => x.KullaniciRolid, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+
+
+                                    <input type="text" name="KullaniciNo" readonly hidden="" value="@ViewBag.takipkod" /> <br />
+
+
+
+                                    @Html.HiddenFor(x => x.KullaniciID)
+                                    <br />
+                                    @*@Html.MathCaptcha()*@
+
+                                    <button class="btn btn-success">Yeni Müşteri Ekle</button>
+
+                                </form>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+</body>
+</html>
 

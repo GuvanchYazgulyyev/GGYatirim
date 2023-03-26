@@ -1,0 +1,55 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.Dbilan>
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
+
+<button class="region-element btn btn-success" id="toggle">Gizle</button>
+
+
+<div class="region-element deneme">
+    <span class="city">Filtrele</span>
+</div>
+
+
+
+<script>
+
+    $(document).ready(function () {
+        $("#hide").click(function () {
+            $("a").hide(1000);
+        });
+        $("#show").click(function () {
+            $("a").show(1000, function () {
+                alert("paragraf gösterildi");
+            });
+        });
+        $("#toggle").click(function () {
+            $(".deneme").toggle("slow");
+        });
+    });
+</script>
+
+
+<a href="/ilanlar/FiyatArtan/">
+    <div class="region-element deneme">
+        <span class="city">Bahasy boýunça tertipläň (ýokarlan)</span>
+    </div>
+</a>
+
+
+<a href="/ilanlar/FiyatAzalan/">
+    <div class="region-element deneme">
+        <span class="city">Bahasy boýunça tertipläň (azalýan)</span>
+    </div>
+</a>
+
+
+<a href="/ilanlar/Tarih/">
+    <div class="region-element deneme">
+        <span class="city">Sene boýunça tertipläň</span>
+    </div>
+</a>
+

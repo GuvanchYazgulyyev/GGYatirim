@@ -30011,7 +30011,7 @@ div > .tss {
 }
 
 .counters-wrapper.light-counters {
-    background: url(../images/counters-bg-light.png) 100% 0 no-repeat
+    background: url('../../content/images/counters-bg-light.png') 100% 0 no-repeat
 }
 
     .counters-wrapper.light-counters .counter-element .i i {
@@ -30028,7 +30028,7 @@ div > .tss {
     }
 
 .counters-wrapper {
-    background: url(../images/counters-bg.png) 100% 0 no-repeat;
+    background: url('../../content/images/counters-bg-light.png') 100% 0 no-repeat;
     padding: 124px 0 84px;
     background-size: cover
 }
@@ -30102,7 +30102,7 @@ div > .tss {
 }
 
     .slider-text-section .bg {
-        background: url(../images/text-slider-bg.png) no-repeat;
+        background: url('../../content/images/slider1.png') no-repeat;
         background-size: cover
     }
 
@@ -30166,7 +30166,7 @@ div > .tss {
         }
 
     .slider-text-section .slide1 {
-        background: url(../images/text-slider-bg-1.png) no-repeat 50% 0;
+        background: url('../../content/images/slider2.png') no-repeat 50% 0;
         background-size: cover
     }
 
@@ -32650,7 +32650,7 @@ div > .tss {
     }
 
         .form-slider .slider-text-section .bg {
-            background: url(../images/slider-form-bg.png) no-repeat;
+            background: url('../../content/images/slider1.png') no-repeat;
             background-size: cover
         }
 

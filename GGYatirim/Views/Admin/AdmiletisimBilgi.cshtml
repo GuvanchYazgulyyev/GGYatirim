@@ -1,35 +1,63 @@
 ﻿@using GGYatirim.Models.Sinif
-@model List<DbiletisimBilgi> 
+@model List<DbiletisimBilgi>
 @{
     ViewBag.Title = "AdmiletisimBilgi";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
 
-<div style="width:50%" ; class="col-md-4 table table-hover">
-    <h3>İletişim Bilgiler  (Harita, İnst,Face,Twet) Detay Butonuna Tıklayarak Görebilirsiniz! </h3>
-    <table class="table table-bordered">
-        <tr>
-            <th>Sube</th>
-            <th>Adres</th>
-            <th>Tel</th>
-            <th>E Posta</th>           
-            <th>Sil</th>
-            <th>Güncelle</th>
-        </tr>
-        @foreach (var x in Model)
-        {
-            <tr>
-                <td>@x.Sube</td>
-                <td>@x.Adres</td>
-                <td>@x.Tel</td>
-                <td>@x.EPosta</td>
-                <td><a href="~/Admin/AdmiletisimBilgiSil/@x.iletisimBilgiID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.Sube ')" class="btn btn-danger"> <i class="fas fa-trash"></i></a></td>
-                <td><a href="~/Admin/AdmiletisimBilgiGetir/@x.iletisimBilgiID" class="btn btn-info"><i class="fas fa-edit"></i></a></td>
-            </tr>
-        }
-    </table>
-    <a href="/Admin/AdmiletisimBilgiEkle/" class="btn btn-success">Yeni İletişim Bilgi Ekle</a>
+<!doctype html>
+<html class="no-js " lang="en">
 
-</div>
+<body class="theme-blue">
+    <!-- Main Content -->
+    <section class="content">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>
+                        İletişim Bilgiler
+                        <small class="text-muted">Tekrar Hoş Geldiniz</small>
+                    </h2>
+                </div>
 
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body">
+                            <h4>İletişim Bilgiler  (Harita, İnst,Face,Twet) Detay Butonuna Tıklayarak Görebilirsiniz! </h4>
+                            <table class="table table-bordered">
+                                <tr>
+                                    <th>Sube</th>
+                                    <th>Adres</th>
+                                    <th>Tel</th>
+                                    <th>E Posta</th>
+                                    <th>Sil</th>
+                                    <th>Güncelle</th>
+                                </tr>
+                                @foreach (var x in Model)
+                                {
+                                    <tr>
+                                        <td>@x.Sube</td>
+                                        <td>@x.Adres</td>
+                                        <td>@x.Tel</td>
+                                        <td>@x.EPosta</td>
+                                        <td><a href="~/Admin/AdmiletisimBilgiSil/@x.iletisimBilgiID" onclick="return confirm('Bunu Silmek İstediginizden Emin misin? @x.Sube ')" class="btn btn-raised bg-danger btn-round"> Sil </a></td>
+                                        <td><a href="~/Admin/AdmiletisimBilgiGetir/@x.iletisimBilgiID" class="btn btn-raised bg-orange btn-round">Güncelle</a></td>
+                                    </tr>
+                                }
+                            </table>
+                            <a href="/Admin/AdmiletisimBilgiEkle/" class="btn btn-raised btn-success btn-simple btn-round">Yeni İletişim Bilgi Ekle</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>

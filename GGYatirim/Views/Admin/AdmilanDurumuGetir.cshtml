@@ -4,33 +4,63 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
+<!doctype html>
+<html class="no-js " lang="en">
 
-<h3>İlan Durum Güncelle</h3>
+<body class="theme-blue">
+    <!-- Main Content -->
+    <section class="content">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>
+                        İlan Durumunu Belirt
+                        <small class="text-muted">Tekrar Hoş Geldiniz</small>
+                    </h2>
+                </div>
 
-<div style="width:50%" ; class="col-md-4 table table-hover">
-    @using (Html.BeginForm("AdmilanDurumuGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
-    {
-
-
-        <form class="form-group" method="post">
-
-            İlan Durum Ad
-            @Html.TextBoxFor(x => x.ilanDurumAd, new { @class = "form-control" })
-
-
-
-            @Html.HiddenFor(x => x.ilanDurumID)
-            <br />
-
-            <button class="btn btn-success">Değişikliği Kaydet</button>
-
-        </form>
-
-
-
-
-
-    }
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="body">
+                            <h4>İlan Durum Güncelle</h4>
 
 
-    </div>
+                            @using (Html.BeginForm("AdmilanDurumuGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+
+
+                                <form class="form-group" method="post">
+
+                                    İlan Durum Ad
+                                    @Html.TextBoxFor(x => x.ilanDurumAd, new { @class = "form-control" })
+
+
+
+                                    @Html.HiddenFor(x => x.ilanDurumID)
+                                    <br />
+
+                                    <button class="btn btn-raised btn-success btn-simple btn-round">Değişikliği Kaydet</button>
+
+                                </form>
+
+
+
+
+
+                            }
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+

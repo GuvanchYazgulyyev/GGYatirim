@@ -11,7 +11,8 @@ namespace GGYatirim.Models.Sinif
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Web.Mvc;
+
     public partial class Dbilan
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -54,6 +55,8 @@ namespace GGYatirim.Models.Sinif
         public string ZeminEtudu { get; set; }
         public string YapininDurumu { get; set; }
         public string YakitTipi { get; set; }
+
+        [AllowHtml]
         public string OzelNor { get; set; }
         public string Balkon { get; set; }
         public string SiteAdi { get; set; }
@@ -65,15 +68,53 @@ namespace GGYatirim.Models.Sinif
         public string KTel { get; set; }
         public string KEPosta { get; set; }
         public string VitrinResim { get; set; }
-
-        // Yeni Eklendi
-        public List<DbilanGallery> DbilanGalleries { get; set; }
-
-
+        public Nullable<bool> MOnay { get; set; }
+        public string EPosta { get; set; }
+        public string KullaniciNo { get; set; }
+        public string ArsaImarDurum { get; set; }
+        public string ArsaAdaNo { get; set; }
+        public string ArsaParselNo { get; set; }
+        public string ArsaPaftaNo { get; set; }
+        public string ArsaKaks { get; set; }
+        public string ArsaGabari { get; set; }
+        public string PetrolAcilAlan { get; set; }
+        public string PetrolKapaliAlan { get; set; }
+        public string PetrolPompaSayisi { get; set; }
+        public string ArabaSerisi { get; set; }
+        public string ArabaModel { get; set; }
+        public string ArabaYil { get; set; }
+        public string ArabaVites { get; set; }
+        public string ArabaKM { get; set; }
+        public string ArabaKasaTipi { get; set; }
+        public string ArabaMotorGucu { get; set; }
+        public string ArabaMotorHacmi { get; set; }
+        public string ArabaCekis { get; set; }
+        public string ArabaRenk { get; set; }
+        public string ArabaGarantili { get; set; }
+        public string ArabaPlakaUyrugu { get; set; }
+        public string TraktorMarka { get; set; }
+        public string TraktorKabin { get; set; }
+        public string TraktorVites { get; set; }
+        public string TraktorMotorGücü { get; set; }
+        public string TraktorSlinderSayisi { get; set; }
+        public string TraktorCalismaSaati { get; set; }
+        public string TraktorOnYukleyiciKepce { get; set; }
+        public string TraktorOnLastik { get; set; }
+        public string TraktorArkaLastik { get; set; }
+    
         public virtual DbEmlakTipi DbEmlakTipi { get; set; }
         public virtual DbilanDurum DbilanDurum { get; set; }
         public virtual DbilanOzellik DbilanOzellik { get; set; }
         public virtual DbKonum DbKonum { get; set; }
+
+
+
+
+
+      //  public List<DbilanGallery> ResimTablosu { get; set; } = new List<DbilanGallery>(); // Null Referans Hatasına düşmemek için
+
+
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<DbilanGallery> DbilanGallery { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

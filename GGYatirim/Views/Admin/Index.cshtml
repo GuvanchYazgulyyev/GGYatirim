@@ -1,4 +1,5 @@
-﻿
+﻿@model IEnumerable<GGYatirim.Models.Sinif.DbAdmin>
+
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -6,673 +7,511 @@
 
 
 
-<div class="account-page-wild_block">
-    <!--  Mesaj Gönderme Kısmı-->
-    
-    <!--  Mesaj Gönderme Kısmı-->
-    <!--Dashboard Kısmı-->
-    @*<div id="dashboard" class="js-content-blocks">*@
-    <div>
-
-
-        <div class="dashboard-wrapper">
-            <h1 class="account-header-top">
-                Gösterge Paneli
-            </h1>
-            <div class="row m-b-10">
-             
-                <div class="col-md-12 col-sm-12">
-                    <div class="acoount-donat-chart">
-                        <h3>Analytics</h3>
-                        <div class="wrapper-circle">
-                            <div class="circle-item">
-                                <div class="circle-bar" id="circle_1" data-percent="@ViewBag.d1"></div>
-                                <div class="circle-bar-background"></div>
-                                <div class="text">Toplam İlan Sayısı</div>
-                            </div>
-                        </div>
-                        <div class="wrapper-circle right">
-                            <div class="circle-item">
-                                <div class="circle-bar" id="circle_2" data-percent="@ViewBag.d2"></div>
-                                <div class="circle-bar-background"></div>
-                                <div class="text">İlan Durumu Seçenegi</div>
-                            </div>
-                        </div>
-                        <div class="wrapper-circle">
-                            <div class="circle-item">
-                                <div class="circle-bar" id="circle_3" data-percent="@ViewBag.d3"></div>
-                                <div class="circle-bar-background"></div>
-                                <div class="text">Aktif Konumlar</div>
-                            </div>
-                        </div>
-                        <div class="wrapper-circle right">
-                            <div class="circle-item">
-                                <div class="circle-bar" id="circle_4" data-percent="@ViewBag.d4"></div>
-                                <div class="circle-bar-background"></div>
-                                <div class="text">Temsilci Sayısı</div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="wrapper-circle">
-                            <div class="circle-item">
-                                <div class="circle-bar" id="circle_5" data-percent="@ViewBag.d5"></div>
-                                <div class="circle-bar-background"></div>
-                                <div class="text">Gelen Mesaj Sayısı</div>
-                            </div>
-                        </div>
-                      
-                    </div>
-                </div>
-            </div>
-            <!--İlanlar-->
-            <div class="row">
-                @*<div class="col-md-7 col-sm-12">
-                    <div class="property-similar">
-                        <h3>Similar properties</h3>
-                        <div class="table-property-listing">
-                            <div class="item">
-                                <div class="apartment-image">
-                                    <img src="~/Content/Images/Logo Update-01.png" width="90px;" alt="apartment">
-                                    <div class="badge-wrapper">
-                                        <div class="small-badge sale"></div>
-                                        <div class="small-badge rent"></div>
-                                        <div class="small-badge featured"></div>
-                                    </div>
-                                </div>
-                                <div class="property-info-wrapper">
-                                    <div class="name-wrap">
-                                        <a href="#">Single Family Home</a>
-                                        <h2>Comfortable Villa in Green</h2>
-                                    </div>
-                                    <div class="property-info body">
-                                        <div class="bad">Bad.<span>2</span></div>
-                                        <div class="bath">Bath.<span>7</span></div>
-                                        <div class="sq">Sq.<span>4700</span></div>
-                                        <div class="price">Price,£<span>6.900m</span></div>
-                                        <div class="perweek">Per week<span>7.200</span></div>
-                                    </div>
-                                </div>
-                                <div class="apartment-details-btn">
-                                    <a href="#" class="details-button first">Details</a>
-                                </div>
-                            </div>
-                          
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="col-md-5 col-sm-12">
-                    <div class="account-block-wrapper">
-                        <h2 class="account-block-header">Duyuru</h2>
-                        <div class="accordion accordion-margin-bottom">
-                            <div class="accordion-header">
-                                <i class="material-icons"></i>
-                                <h3>What is the difference between being prequalified and preapproved?</h3>
-                            </div>
-                            <div class="accordion-content">
-                                <p>
-                                    This I have produced as a scantling of Jack’s great eloquence and the force of
-                                    his
-                                    reasoning
-                                    upon such abstruse matters.
-                                    It is true I should be very loth the bright example of your Lordship’s virtues
-                                    should be
-                                    lost to
-                                    after-ages, both for their sake and your own; but chiefly because they will be
-                                    so
-                                    very
-                                    necessary
-                                    to adorn the history of a late reign.
-                                </p>
-                            </div>
-
-                        </div>
-                        <div class="accordion ">
-                            <div class="accordion-header">
-                                <i class="material-icons"></i>
-                                <h3>Can a home depreciate in value?</h3>
-                            </div>
-                            <div class="accordion-content">
-                                <p>
-                                    This I have produced as a scantling of Jack’s great eloquence and the force of
-                                    his
-                                    reasoning
-                                    upon such abstruse matters.
-                                    It is true I should be very loth the bright example of your Lordship’s virtues
-                                    should be
-                                    lost to
-                                    after-ages, both for their sake and your own; but chiefly because they will be
-                                    so
-                                    very
-                                    necessary
-                                    to adorn the history of a late reign.
-                                </p>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>*@
-            </div>
-
-
-        </div>
-
-
-    </div>
-    <!--Dashboard Kısmı-->
-
-    <!--İlanlar-->
-    <div id="property" class="js-content-blocks">
-        <h1 class="account-header-top">My Property</h1>
+<section class="content home">
+    <div class="block-header">
         <div class="row">
-            <div class="col-md-9">
-
-                <div class="account-property m-b-30">
-                    <div class="selector-wrap">
-                        <div class="left wrap">
-                            <input type="checkbox" name="conditioning" id="ch1" class="css-checkbox">
-                            <label for="ch1" class="css-label">Select all property</label>
-                        </div>
-                        <div class="right wrap">
-                            <div class="wrapper">
-                                <select form="search-form-price" name="property-price" class="choose-option" data-placeholder="Remove selected">
-                                    <option value="price">Sellect all</option>
-                                    <option value="remove">Remove selected</option>
-                                </select>
-                            </div>
-                            <button type="submit" class="apply-button">apply</button>
-                        </div>
-                    </div>
-                    <div class="table-property-listing">
-                        <div class="item">
-                            <div class="single-property-checkbox">
-                                <input type="checkbox" name="conditioning" id="ch2" class="css-checkbox">
-                                <label for="ch2" class="css-label"></label>
-                            </div>
-                            <div class="apartment-image">
-                                <img src="./images/property-img.png" alt="apartment">
-                                <div class="badge-wrapper">
-                                    <div class="small-badge sale"></div>
-                                    <div class="small-badge rent"></div>
-                                    <div class="small-badge featured"></div>
-                                </div>
-                            </div>
-                            <div class="property-info-wrapper">
-                                <div class="name-wrap">
-                                    <a href="#">Single Family Home</a>
-                                    <h2>Comfortable Villa in Green</h2>
-                                </div>
-                                <div class="property-info body">
-                                    <div class="bad">Bad.<span>2</span></div>
-                                    <div class="bath">Bath.<span>7</span></div>
-                                    <div class="sq">Sq.<span>4700</span></div>
-                                    <div class="price">Price,£<span>6.900m</span></div>
-                                    <div class="perweek">Per week<span>7.200</span></div>
-                                </div>
-                            </div>
-                            <div class="apartment-details-btn">
-                                <a href="#" class="clone"><i class="material-icons icons-style"></i></a>
-                                <a href="#" class="details-button first">Details</a>
-                                <a href="#" class="details-button">Promote</a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="single-property-checkbox">
-                                <input type="checkbox" name="conditioning" id="ch3" class="css-checkbox">
-                                <label for="ch3" class="css-label"></label>
-                            </div>
-                            <div class="apartment-image">
-                                <img src="./images/property-img.png" alt="apartment">
-                                <div class="badge-wrapper">
-                                    <div class="small-badge sale"></div>
-                                    <div class="small-badge rent"></div>
-                                    <div class="small-badge featured"></div>
-                                </div>
-                            </div>
-                            <div class="property-info-wrapper">
-                                <div class="name-wrap">
-                                    <a href="#">Single Family Home</a>
-                                    <h2>Comfortable Villa in Green</h2>
-                                </div>
-                                <div class="property-info body">
-                                    <div class="bad">Bad.<span>2</span></div>
-                                    <div class="bath">Bath.<span>7</span></div>
-                                    <div class="sq">Sq.<span>4700</span></div>
-                                    <div class="price">Price,£<span>6.900m</span></div>
-                                    <div class="perweek">Per week<span>7.200</span></div>
-                                </div>
-                            </div>
-                            <div class="apartment-details-btn">
-                                <a href="#" class="clone"><i class="material-icons icons-style"></i></a>
-                                <a href="#" class="details-button first">Details</a>
-                                <a href="#" class="details-button">Promote</a>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="single-property-checkbox">
-                                <input type="checkbox" name="conditioning" id="ch4" class="css-checkbox">
-                                <label for="ch4" class="css-label"></label>
-                            </div>
-                            <div class="apartment-image">
-                                <img src="./images/property-img.png" alt="apartment">
-                                <div class="badge-wrapper">
-                                    <div class="small-badge sale"></div>
-                                    <div class="small-badge rent"></div>
-                                    <div class="small-badge featured"></div>
-                                </div>
-                            </div>
-                            <div class="property-info-wrapper">
-                                <div class="name-wrap">
-                                    <a href="#">Single Family Home</a>
-                                    <h2>Comfortable Villa in Green</h2>
-                                </div>
-                                <div class="property-info body">
-                                    <div class="bad">Bad.<span>2</span></div>
-                                    <div class="bath">Bath.<span>7</span></div>
-                                    <div class="sq">Sq.<span>4700</span></div>
-                                    <div class="price">Price,£<span>6.900m</span></div>
-                                    <div class="perweek">Per week<span>7.200</span></div>
-                                </div>
-                            </div>
-                            <div class="apartment-details-btn">
-                                <a href="#" class="clone"><i class="material-icons icons-style"></i></a>
-                                <a href="#" class="details-button first">Details</a>
-                                <a href="#" class="details-button">Promote</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>
+                    Gösterge Paneli
+                    <small class="text-muted">Goşgeldiniz: <b> @ViewBag.ad </b></small>
+                </h2>
             </div>
-            <div class="col-md-3">
-                <div class="account_properties_counters_list">
-                    <a href="#" class="item">
-                        <span class="badge hot"></span> hot offer
-                        <span class="count">21</span>
-                    </a>
-                    <a href="#" class="item">
-                        <span class="badge featured"></span> featured
-                        <span class="count">33</span>
-                    </a>
-                    <a href="#" class="item">
-                        <span class="badge rent"></span> for rent
-                        <span class="count">17</span>
-                    </a>
-                    <a href="#" class="item">
-                        <span class="badge sale"></span> for sale
-                        <span class="count">121</span>
-                    </a>
-                    <a href="#" class="item">
-                        <span class="badge open"></span> open house
-                        <span class="count">11</span>
-                    </a>
-                    <a href="#" class="item">
-                        <span class="badge closures"></span> foreclosures
-                        <span class="count">2</span>
-                    </a>
-                    <a href="#" class="item">
-                        <span class="badge resale"></span> resale
-                        <span class="count">121</span>
-                    </a>
-                    <a href="#" class="item">
-                        <span class="badge new"></span> new building
-                        <span class="count">8</span>
-                    </a>
-                    <a href="#" class="item">
-                        <span class="badge reduced"></span> reduced price
-                        <span class="count">85</span>
-                    </a>
-                    <a href="#" class="item">
-                        <span class="badge sold"></span> sold
-                        <span class="count">49</span>
-                    </a>
-                </div>
-            </div>
-        </div>
 
-    </div>
-    <!--İlanlar-->
-
-    <!--İaln Ekleme Kımsı Alındı-->
-
-    <div id="submit" class="js-content-blocks">
-        <div class="submit-wrapper">
-            <h1 class="account-header-top">Submit new property</h1>
-            <div class="submit-content">
-                <div class="property-block">
-                    <p class="property-type">Farm</p>
-                    <p class="property-title">Luxury Apartment ocean view</p>
-                    <div class="apartment-address">
-                        <i class="material-icons">place</i>
-                        <span class="address">153 Adriana Mews Suite 247</span>
-                    </div>
-
-                    <div class="apartment-image">
-                        <img src="./images/image.png" alt="image">
-                        <div class="badges">
-                            <p class="featured">Featured</p>
-                            <p class="rent">For Rent</p>
-                            <p class="sale">For Sale</p>
-                        </div>
-
-                    </div>
-
-                    <div class="apartment-values">
-                        <span>Beds: 4</span>
-                        <span>Bath: 4 </span>
-                        <span>Sq Ft: 2100</span>
-                    </div>
-                    <div class="apartment-info">
-                        <div class="apartment-price">
-                            <p class="price-big">&#163;1.245.000</p>
-                            <p class="price-small">&#163;1,800/sq ft</p>
-                        </div>
-                        <div class="icons">
-                            <a href="#" class="clone"> <i class="material-icons icons-style"></i></a>
-                            <a href="#" class="heart"><i class="material-icons icons-style"></i></a>
-                        </div>
-                    </div>
-                    <div class="apartment-manager">
-                        <div class="manager-wrap">
-                            <div class="manager-icon">
-                                <a href="#chat"> <img src="./images/userpic.png" alt="userpic"></a>
-                                <div class="online-status"></div>
-                            </div>
-                            <span class="manager-name">Eleanor French</span>
-                        </div>
-                        <div class="calendar">
-                            <i class="material-icons">insert_invitation</i>
-                            <span> 2 days ago</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="submit-property-wild-block">
-                    <div class="general-property-info">
-                        <h2 class="submit-property__block-header">General property info</h2>
-                        <div class="prop-type">
-                            <p class="input-header">Property type</p>
-                            <input type="text">
-                        </div>
-                        <div class="select-type">
-                            <p class="input-header">Type</p>
-                            <select name="property" class="property-select big-input"
-                                    data-placeholder="type">
-                                <option value="apartment">Apartment</option>
-                                <option value="farm">Farm</option>
-                                <option value="condo">Condo</option>
-                                <option value="multi-family-house">Multi Family House</option>
-                                <option value="townhouse">Townhouse</option>
-                            </select>
-                        </div>
-                        <div class="select-status">
-                            <p class="input-header">Status</p>
-                            <select name="status" class="status-select big-input badge-test"
-                                    data-placeholder="status">
-                                <option value="sale" data-text="small-badge sale">For Sale</option>
-                                <option value="rent" data-text="small-badge rent">For Rent</option>
-                                <option value="new" data-text="small-badge new">New</option>
-                                <option value="featured" data-text="small-badge featured">Featured</option>
-                                <option value="reused" data-text="small-badge reused">Reused</option>
-                                <option value="hot" data-text="small-badge hot">Hot Offer</option>
-                            </select>
-                        </div>
-                        <div class="select-label">
-                            <p class="input-header">Label</p>
-                            <select name="label" class="label-select big-input"
-                                    data-placeholder="type">
-                                <option value="label1">label1</option>
-                                <option value="label2">label2</option>
-                                <option value="label3">label4</option>
-                                <option value="label4">label4</option>
-                                <option value="label5">label5</option>
-                            </select>
-                        </div>
-
-                        <div class="location">
-                            <p class="input-header">Location</p>
-                            <input type="text">
-                        </div>
-
-                        <div class="map-btn">
-                            <button class="button-secondary">Select on google map</button>
-                        </div>
-
-                        <div class="price-full">
-                            <p class="input-header">Full price</p>
-                            <select name="price" class="price-select big-input"
-                                    data-placeholder="type">
-                                <option value="price1">price1</option>
-                                <option value="price2">price2</option>
-                                <option value="price3">price4</option>
-                                <option value="price4">price4</option>
-                                <option value="price5">price5</option>
-                            </select>
-                        </div>
-
-                        <div class="price-value">
-                            <p class="input-header">Price per sq.ft</p>
-                            <select name="value" class="value-select big-input"
-                                    data-placeholder="type">
-                                <option value="value1">value1</option>
-                                <option value="value2">value2</option>
-                                <option value="value3">value4</option>
-                                <option value="value4">value4</option>
-                                <option value="value5">value5</option>
-                            </select>
-                        </div>
-
-                    </div>
-
-                    <!--property img drag and drop start-->
-                    <div class="property-img-drag-drop">
-                        <h2 class="submit-property__block-header">Property images</h2>
-                        <div class="styling-file-input">
-                            <label>
-                                <span class="drag-span"> Drag and drop images here or</span>
-                                <span class="select-span">Select Image</span>
-                                <input class="style-file-input" type="file">
-                            </label>
-                        </div>
-                        <div class="image-miniatures-grid">
-
-                            <div class="image-miniature">
-                                <img src="./images/mask.png" alt="image">
-                                <div class="mask">
-                                    <i class="material-icons mask-controls">done</i>
-                                    <i class="material-icons mask-controls">close</i>
-                                </div>
-                            </div>
-                            <div class="image-miniature">
-                                <img src="./images/mask.png" alt="image">
-                                <div class="mask">
-                                    <i class="material-icons mask-controls">done</i>
-                                    <i class="material-icons mask-controls">close</i>
-                                </div>
-                            </div>
-                            <div class="image-miniature">
-                                <img src="./images/mask.png" alt="image">
-                                <div class="mask">
-                                    <i class="material-icons mask-controls">done</i>
-                                    <i class="material-icons mask-controls">close</i>
-                                </div>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <!--property img drag and drop end-->
-                    <!--property description textarea start-->
-                    <div class="description-textarea">
-                        <h2 class="submit-property__block-header">Description</h2>
-                        <textarea id="editor" placeholder="Description" autofocus></textarea>
-
-                    </div>
-                    <!--property description textarea end-->
-                    <!--property details start-->
-
-                    <div class="property-details-block">
-                        <h2 class="submit-property__block-header">Details</h2>
-                        <div class="prop-id">
-                            <p class="input-header">Property id</p>
-                            <input type="text">
-                        </div>
-                        <div class="prop-size">
-                            <p class="input-header">Area size (only digits)</p>
-                            <input type="text">
-                        </div>
-                        <div class="prop-year">
-                            <p class="input-header">Year Built</p>
-                            <input type="text">
-                        </div>
-                        <div class="prop-land-area">
-                            <p class="input-header">Land Area (only digits)</p>
-                            <input type="text">
-                        </div>
-                        <div class="prop-add-size">
-                            <p class="input-header">Additional area size</p>
-                            <input type="text">
-                        </div>
-                        <div class="prop-bathrooms">
-                            <div class="options-wrapper bathrooms">
-                                <div class="prop-wrapper">
-                                    <span class="properties">Bathrooms: </span>
-                                    <span class="js-first-number">200k</span>
-                                </div>
-                                <input type="text" id="bathrooms" name="bathrooms" value="" data-type="single" data-min="0"
-                                       data-max="10" data-from="5" />
-                            </div>
-                        </div>
-                        <div class="prop-bedrooms">
-                            <div class="options-wrapper bedrooms">
-                                <div class="prop-wrapper">
-                                    <span class="properties">Bedrooms: </span>
-                                    <span class="js-first-number">200k</span>
-                                </div>
-                                <input type="text" id="bedrooms" name="bathrooms" value="" data-type="single" data-min="0"
-                                       data-max="10" data-from="3" />
-                            </div>
-                        </div>
-                        <div class="prop-garages">
-                            <div class="options-wrapper garages">
-                                <div class="prop-wrapper">
-                                    <span class="properties">Garages: </span>
-                                    <span class="js-first-number">200k</span>
-                                </div>
-                                <input type="text" id="garages" name="bathrooms" value="" data-type="single" data-min="0"
-                                       data-max="10" data-from="2" />
-                            </div>
-                        </div>
-
-                        <div class="additional-details">
-
-                            <h2 class="submit-property__block-header">Additional details</h2>
-                            <div class="additional-details_components">
-                                <i class="material-icons">delete</i>
-                                <input type="text" placeholder="Title">
-                                <input type="text" placeholder="Value">
-
-                            </div>
-                            <button class="button-secondary"> Add one More</button>
-
-                        </div>
-                    </div>
-
-                    <!--property details end-->
-
-                    <div class="property-features-block">
-                        <h2 class="submit-property__block-header">Property features</h2>
-                        <div class="checkboxes-block">
-                            <div>
-                                <input type="checkbox" name="conditioning" id="c-h1" class="css-checkbox">
-                                <label for="c-h1" class="css-label">Air Conditioning</label> <br>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="refrigerator" id="c-h2" class="css-checkbox">
-                                <label for="c-h2" class="css-label">Refrigerator</label> <br>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="barbeque" id="c-h3" class="css-checkbox">
-                                <label for="c-h3" class="css-label">Barbeque</label> <br>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="sauna" id="c-h4" class="css-checkbox">
-                                <label for="c-h4" class="css-label">Sauna</label> <br>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="dryer" id="c-h5" class="css-checkbox">
-                                <label for="c-h5" class="css-label">Dryer</label> <br>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="pool" id="c-h6" class="css-checkbox">
-                                <label for="c-h6" class="css-label">Swimming Pool</label> <br>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="gym" id="c-h7" class="css-checkbox">
-                                <label for="c-h7" class="css-label">Gym</label> <br>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="tv" id="c-h8" class="css-checkbox">
-                                <label for="c-h8" class="css-label">TV Cable</label> <br>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="laundry" id="c-h9" class="css-checkbox">
-                                <label for="c-h9" class="css-label">Laundry</label> <br>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="washer" id="c-h10" class="css-checkbox">
-                                <label for="c-h10" class="css-label">Washer</label> <br>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="microwave" id="c-h11" class="css-checkbox">
-                                <label for="c-h11" class="css-label">Microwave</label> <br>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="wifi" id="c-h12" class="css-checkbox">
-                                <label for="c-h12" class="css-label">WI FI</label> <br>
-                            </div>
-
-
-                        </div>
-                    </div>
-
-                    <div class="private-note">
-                        <h2 class="submit-property__block-header">Private note</h2>
-                        <textarea placeholder="Placeholder"></textarea>
-                    </div>
-
-                    <div class="submit-property-btns">
-                        <div>
-                            <a href="#" class="button-link-normal button-link-normal__single-icon">
-                                <i class="material-icons">flag</i>
-                            </a>
-
-                            <a href="#" class="button-link-normal">
-                                Property page preview
-                            </a>
-                        </div>
-
-                        <a href="#" class="button-link-primary-icon">
-                            <i class="material-icons">done_all</i>
-                            <span>Submit property</span>
-                        </a>
-
-                    </div>
-
-                </div>
-            </div>
         </div>
     </div>
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="body">
+                        <h3 class="number count-to" data-from="0" data-to="128" data-speed="2000" data-fresh-interval="700"> @ViewBag.onayilan</h3>
+                        <p class="text-muted">Onaylı İlanlarım</p>
+                        <div class="progress">
+                            <div class="progress-bar l-blue" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.onayilan%;"></div>
+                        </div>
+                        <small>Onaylı İlanlarım @ViewBag.onayilan</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="body">
+                        <h3 class="number count-to" data-from="0" data-to="758" data-speed="2000" data-fresh-interval="700">@ViewBag.onaysiz</h3>
+                        <p class="text-muted">Onay Bekleyen İlanlarım</p>
+                        <div class="progress">
+                            <div class="progress-bar l-green" role="progressbar" aria-valuenow="@ViewBag.onaysiz" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.onaysiz%;"></div>
+                        </div>
+                        <small>Onay Bekleyen İlanlarım @ViewBag.onaysiz</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="body">
+                        <h3 class="number count-to" data-from="0" data-to="2521" data-speed="2000" data-fresh-interval="700">@ViewBag.toplamilan</h3>
+                        <p class="text-muted">Toplam İlanlarım</p>
+                        <div class="progress">
+                            <div class="progress-bar l-amber" role="progressbar" aria-valuenow="@ViewBag.toplamilan" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.toplamilan%;"></div>
+                        </div>
+                        <small>Toplam İlanlarım @ViewBag.toplamilan</small>
+                    </div>
+                </div>
+            </div>
 
-    <div id="empty" class="js-content-blocks">
-        <div class="wrapper-empty">
-            <img src="images/error_page.svg" alt="background">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            @foreach (var l in Model)
+            {
+                if (l.AdSoyad != null && l.EPosta != null && l.Tel != null && l.Sifre != null)
+                {
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="body">
+                                <h3>100%</h3>
+                                <p class="text-muted">Profil Gücü</p>
+                                <div class="progress">
+                                    <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                </div>
+                                <small>Profilinizi Doldurdukça İnsanların Güvencesi Artar</small>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+
+                if (l.AdSoyad == null && l.EPosta == null && l.Tel == null && l.Sifre == null)
+                {
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="body">
+                                <h3>1%</h3>
+                                <p class="text-muted">Profil Gücü</p>
+                                <div class="progress">
+                                    <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%;"></div>
+                                </div>
+                                <small>Profilinizi Doldurdukça İnsanların Güvencesi Artar</small>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+                if (l.AdSoyad == null || l.EPosta == null)
+                {
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="body">
+                                <h3>30%</h3>
+                                <p class="text-muted">Profil Gücü</p>
+                                <div class="progress">
+                                    <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="1" aria-valuemin="30" aria-valuemax="100" style="width: 30%;"></div>
+                                </div>
+                                <small>Profilinizi Doldurdukça İnsanların Güvencesi Artar</small>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+                if (l.Tel == null)
+                {
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="body">
+                                <h3>60%</h3>
+                                <p class="text-muted">Profil Gücü</p>
+                                <div class="progress">
+                                    <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="1" aria-valuemin="60" aria-valuemax="100" style="width: 60%;"></div>
+                                </div>
+                                <small>Profilinizi Doldurdukça İnsanların Güvencesi Artar</small>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+
+
+                    if (l.EPosta == null)
+                    {
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="body">
+                                    <h3>80%</h3>
+                                    <p class="text-muted">Profil Gücü</p>
+                                    <div class="progress">
+                                        <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="1" aria-valuemin="85" aria-valuemax="100" style="width: 85%;"></div>
+                                    </div>
+                                    <small>Profilinizi Doldurdukça İnsanların Güvencesi Artar</small>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+
+
+
+
+
+            }
+
+
+            @if (User.IsInRole("Admin"))
+            {
+
+                <!--Sadece Admin Görebilcek-->
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="128" data-speed="2000" data-fresh-interval="700"> @ViewBag.musterisay</h3>
+                            <p class="text-muted">Toplam Müşteri Sayısı</p>
+                            <div class="progress">
+                                <div class="progress-bar l-blue" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.musterisay%;"></div>
+                            </div>
+                            <small>Toplam Müşteri Sayısı @ViewBag.musterisay</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="758" data-speed="2000" data-fresh-interval="700">@ViewBag.musterisay2</h3>
+                            <p class="text-muted">Silinmiş Müşteri Sayısı</p>
+                            <div class="progress">
+                                <div class="progress-bar l-green" role="progressbar" aria-valuenow="@ViewBag.musterisay2" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.musterisay2%;"></div>
+                            </div>
+                            <small>Silinmiş Müşteri Sayısı @ViewBag.musterisay2</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="2521" data-speed="2000" data-fresh-interval="700">@ViewBag.aktifilan</h3>
+                            <p class="text-muted">Toplam İlan Sayısı</p>
+                            <div class="progress">
+                                <div class="progress-bar l-amber" role="progressbar" aria-valuenow="@ViewBag.aktifilan" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.aktifilan%;"></div>
+                            </div>
+                            <small>Toplam İlan Sayısı @ViewBag.aktifilan</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="2521" data-speed="2000" data-fresh-interval="700">@ViewBag.pasifilan</h3>
+                            <p class="text-muted">Silinmiş İlanlar</p>
+                            <div class="progress">
+                                <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="100" aria-valuemin="@ViewBag.pasifilan" aria-valuemax="100" style="width: @ViewBag.pasifilan%;"></div>
+                            </div>
+                            <small>Silinmiş İlanlar: @ViewBag.pasifilan</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Sadece Admin Görebilcek-->
+
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="128" data-speed="2000" data-fresh-interval="700"> @ViewBag.onaybekleyenilan</h3>
+                            <p class="text-muted">Toplam Onay Bekleyen İlanlar</p>
+                            <div class="progress">
+                                <div class="progress-bar l-blue" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.onaybekleyenilan%;"></div>
+                            </div>
+                            <small>Toplam Onay Bekleyen İlanlar @ViewBag.onaybekleyenilan</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="758" data-speed="2000" data-fresh-interval="700"> @ViewBag.gelenmesaj</h3>
+                            <p class="text-muted">Gelen Mesajlar</p>
+                            <div class="progress">
+                                <div class="progress-bar l-green" role="progressbar" aria-valuenow="@ViewBag.gelenmesaj" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.gelenmesaj%;"></div>
+                            </div>
+                            <small>Gelen Mesajlar @ViewBag.gelenmesaj</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="2521" data-speed="2000" data-fresh-interval="700">@ViewBag.temsilci</h3>
+                            <p class="text-muted">Toplam Temsilci Sayısı</p>
+                            <div class="progress">
+                                <div class="progress-bar l-amber" role="progressbar" aria-valuenow="@ViewBag.temsilci" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.temsilci%;"></div>
+                            </div>
+                            <small>Toplam Temsilci Sayısı @ViewBag.temsilci</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="2521" data-speed="2000" data-fresh-interval="700">@ViewBag.blogsayisi</h3>
+                            <p class="text-muted">Bloglar</p>
+                            <div class="progress">
+                                <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="100" aria-valuemin="@ViewBag.blogsayisi" aria-valuemax="100" style="width: @ViewBag.blogsayisi%;"></div>
+                            </div>
+                            <small>Bloglar: @ViewBag.blogsayisi</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!--Sadece Admin Görebilcek-->
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="128" data-speed="2000" data-fresh-interval="700"> @ViewBag.satilik</h3>
+                            <p class="text-muted">Toplam Satılık İlanlar</p>
+                            <div class="progress">
+                                <div class="progress-bar l-blue" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.satilik%;"></div>
+                            </div>
+                            <small>Toplam Satılık İlanlar @ViewBag.satilik</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="758" data-speed="2000" data-fresh-interval="700"> @ViewBag.kiralik</h3>
+                            <p class="text-muted">Toplam Kiralık İlanlar</p>
+                            <div class="progress">
+                                <div class="progress-bar l-green" role="progressbar" aria-valuenow="@ViewBag.kiralik" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.kiralik%;"></div>
+                            </div>
+                            <small>Toplam Kiralık İlanlar @ViewBag.kiralik</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="2521" data-speed="2000" data-fresh-interval="700">@ViewBag.d1</h3>
+                            <p class="text-muted">Apartman</p>
+                            <div class="progress">
+                                <div class="progress-bar l-amber" role="progressbar" aria-valuenow="@ViewBag.d1" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.d1%;"></div>
+                            </div>
+                            <small>Apartman @ViewBag.d1</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="2521" data-speed="2000" data-fresh-interval="700">@ViewBag.d2</h3>
+                            <p class="text-muted">Daire</p>
+                            <div class="progress">
+                                <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="100" aria-valuemin="@ViewBag.d2" aria-valuemax="100" style="width: @ViewBag.d2%;"></div>
+                            </div>
+                            <small>Daire: @ViewBag.d2</small>
+                        </div>
+                    </div>
+                </div>
+
+                <!--Sadece Admin Görebilcek-->
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="128" data-speed="2000" data-fresh-interval="700"> @ViewBag.d3</h3>
+                            <p class="text-muted">Arsa</p>
+                            <div class="progress">
+                                <div class="progress-bar l-blue" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.d3%;"></div>
+                            </div>
+                            <small>Arsa @ViewBag.d3</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="758" data-speed="2000" data-fresh-interval="700"> @ViewBag.d4</h3>
+                            <p class="text-muted">Müstakil</p>
+                            <div class="progress">
+                                <div class="progress-bar l-green" role="progressbar" aria-valuenow="@ViewBag.d4" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.d4%;"></div>
+                            </div>
+                            <small>Müstakil @ViewBag.d4</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="2521" data-speed="2000" data-fresh-interval="700">@ViewBag.d5</h3>
+                            <p class="text-muted">Dubleks</p>
+                            <div class="progress">
+                                <div class="progress-bar l-amber" role="progressbar" aria-valuenow="@ViewBag.d5" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.d5%;"></div>
+                            </div>
+                            <small>Dubleks @ViewBag.d5</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="2521" data-speed="2000" data-fresh-interval="700">@ViewBag.d6</h3>
+                            <p class="text-muted">Arazi</p>
+                            <div class="progress">
+                                <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="100" aria-valuemin="@ViewBag.d6" aria-valuemax="100" style="width: @ViewBag.d6%;"></div>
+                            </div>
+                            <small>Arazi: @ViewBag.d6</small>
+                        </div>
+                    </div>
+                </div>
+                <!--Sadece Admin Görebilcek-->
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="128" data-speed="2000" data-fresh-interval="700"> @ViewBag.d7</h3>
+                            <p class="text-muted">Dükkan</p>
+                            <div class="progress">
+                                <div class="progress-bar l-blue" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.d7%;"></div>
+                            </div>
+                            <small>Dükkan @ViewBag.d7</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="758" data-speed="2000" data-fresh-interval="700"> @ViewBag.d8</h3>
+                            <p class="text-muted">İş Yeri</p>
+                            <div class="progress">
+                                <div class="progress-bar l-green" role="progressbar" aria-valuenow="@ViewBag.d8" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.d8%;"></div>
+                            </div>
+                            <small>İş Yeri @ViewBag.d8</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="2521" data-speed="2000" data-fresh-interval="700">@ViewBag.d9</h3>
+                            <p class="text-muted">Bahçe</p>
+                            <div class="progress">
+                                <div class="progress-bar l-amber" role="progressbar" aria-valuenow="@ViewBag.d9" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.d9%;"></div>
+                            </div>
+                            <small>Bahçe @ViewBag.d9</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="2521" data-speed="2000" data-fresh-interval="700">@ViewBag.d10</h3>
+                            <p class="text-muted">Petrol İstasyonu</p>
+                            <div class="progress">
+                                <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="100" aria-valuemin="@ViewBag.d10" aria-valuemax="100" style="width: @ViewBag.d10%;"></div>
+                            </div>
+                            <small>Petrol İstasyonu: @ViewBag.d10</small>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="128" data-speed="2000" data-fresh-interval="700"> @ViewBag.d11</h3>
+                            <p class="text-muted">Çiftlik</p>
+                            <div class="progress">
+                                <div class="progress-bar l-blue" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.d11%;"></div>
+                            </div>
+                            <small>Çiftlik @ViewBag.d11</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="758" data-speed="2000" data-fresh-interval="700"> @ViewBag.d12</h3>
+                            <p class="text-muted">Ahır</p>
+                            <div class="progress">
+                                <div class="progress-bar l-green" role="progressbar" aria-valuenow="@ViewBag.d12" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.d12%;"></div>
+                            </div>
+                            <small>Ahır @ViewBag.d12</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="2521" data-speed="2000" data-fresh-interval="700">@ViewBag.d13</h3>
+                            <p class="text-muted">Otomobil</p>
+                            <div class="progress">
+                                <div class="progress-bar l-amber" role="progressbar" aria-valuenow="@ViewBag.d13" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.d13%;"></div>
+                            </div>
+                            <small>Otomobil @ViewBag.d13</small>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-2 col-md-6">
+                    <div class="card">
+                        <div class="body">
+                            <h3 class="number count-to" data-from="0" data-to="2521" data-speed="2000" data-fresh-interval="700">@ViewBag.d14</h3>
+                            <p class="text-muted">Traktör</p>
+                            <div class="progress">
+                                <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="100" aria-valuemin="@ViewBag.d14" aria-valuemax="100" style="width: @ViewBag.d14%;"></div>
+                            </div>
+                            <small>Traktör: @ViewBag.d14</small>
+                        </div>
+                    </div>
+                </div>
+
+
+            }
+
+
+
         </div>
+
+
+
+
     </div>
 
 
-</div>
-
+</section>

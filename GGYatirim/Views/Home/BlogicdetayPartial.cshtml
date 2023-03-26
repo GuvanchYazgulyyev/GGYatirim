@@ -1,13 +1,20 @@
 ﻿@model IEnumerable<GGYatirim.Models.Sinif.DbBlog>
+@using GGYatirim.App_Code
 
 
 
 @foreach (var x in Model)
 {
 <div class="item">
-    <a href="#" class="name">@x.Baslik </a>
+    <p href="#" class="name">
+        @Html.ActionLink(x.Baslik, "BlogDetay", new { id = x.BlogID, baslik3 = Seo.AdresDuzenle(x.Baslik) })
+
+    </p>
     <div class="buttons-wrap">
-        <a href="/Home/BlogDetay/@x.BlogID" class="more">read more</a>
+        <p href="/Home/BlogDetay/@x.BlogID" class="more">
+            @Html.ActionLink("Daha Fazla Oku", "BlogDetay", new { id = x.BlogID, baslik3 = Seo.AdresDuzenle(x.Baslik) })
+
+        </p>
     </div>
 </div>
 }

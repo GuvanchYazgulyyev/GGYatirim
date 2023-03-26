@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<GGYatirim.Models.Sinif.Dbilan>
-
+@using GGYatirim.App_Code
 
 
 @foreach (var k in Model)
@@ -8,20 +8,25 @@
     if (k.ilanDurumIDD == 2)
     {
         <div class="item">
-            <img src="@k.CokluResim" alt="property-image">
+            <img src="@k.VitrinResim" alt="property-image">
             <div class="info">
-                <a href="/Home/ilanDetay/@k.ilanID" class="name">Design place apartment</a>
-                <a href="/Home/ilanDetay/@k.ilanID" class="name">İlan No: @k.ilanNo</a>
+                <p href="#" class="name" style="font-size:large;">
+                    @Html.ActionLink(k.EmlakTipi, "ilanDetay", new { id = k.ilanID, baslik1 = Seo.AdresDuzenle(k.EmlakTipi) })
+                    <br />
+                    İlan No:  @Html.ActionLink(k.ilanNo, "ilanDetay", new { id = k.ilanID, baslik1 = Seo.AdresDuzenle(k.EmlakTipi) })
+                </p>
+                @*<p href="#" class="name">
+                    İlan No:  @Html.ActionLink(k.ilanNo, "ilanDetay", new { id = k.ilanID, baslik1 = Seo.AdresDuzenle(k.EmlakTipi) })
+
+                </p>*@
 
                 <div class="wrapper">
                     <div class="left-wrap" style="text-align:center;">
-                        <span><span>Bulunduğu Kat</span>@k.BulunduguKat</span>
                         <span><span>Fiyat ₺</span>@k.TamFiyat</span>
 
                     </div>
 
                     <div class="left-wrap" style="text-align:center;">
-                        <span><span>Oda Sayısı</span>@k.OdaSayisi</span>
                         <span><span>Tarih </span>@Convert.ToDateTime(k.Tarih).ToString("dd/MMM/yyyy")</span>
                     </div>
 

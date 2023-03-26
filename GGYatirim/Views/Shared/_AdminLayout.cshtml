@@ -3,306 +3,425 @@
     Layout = null;
 }
 
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html class="no-js " lang="tr">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>PRODUCTION BUILD Area HTML</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat%7COpen+Sans:700,400%7CRaleway:400,800,900" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="~/area/css-min/area.min.css" rel="stylesheet" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="description" content="1992 yılında kurulan Güner Group Yatırım, satılık, kiralık, ikinci el, otomobil, apartman, daire, arsa, müstakil, dubleks, arazi, dükkan, işyeri, bahçe, petrol istasyonu, çiftlik, ahır ve her türlü ürün - ücretsiz ilan sitesi.">
+    <title> Admin Panel </title>
+    <link rel="icon" href="~/Content/Images/favicon-01.png" type="image/x-icon"> <!-- Favicon-->
+    <link rel="stylesheet" href="~/KProfil/assets/plugins/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/KProfil/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.css" />
+    <link rel="stylesheet" href="~/KProfil/assets/plugins/morrisjs/morris.min.css" />
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="~/KProfil/assets/css/main.css">
+    <link rel="stylesheet" href="~/KProfil/assets/css/color_skins.css">
+    @*Pagedlİst*@
+<link href="~/Content/PagedList.css" rel="stylesheet" />
 </head>
-
-<body>
-    <div id="preloader">
-        <div>
-            <canvas id='circleback' height='100' width='100'></canvas>
-            <canvas id='circlemain' height='100' width='100'></canvas>
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <div class="page-loader-wrapper">
+        <div class="loader">
+            <div class="m-t-30"><img class="zmdi-hc-spin" src="~/Content/Images/favicon-01.png" width="48" height="48" alt="Compass"></div>
+            <p>Lütfen Bekleyiniz...</p>
         </div>
     </div>
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+
+    <!-- Top Bar -->
+    <nav class="navbar">
+        <div class="col-12">
+            <div class="navbar-header">
+                <a href="javascript:void(0);" class="bars"></a>
+                <a class="navbar-brand" href="/"><img src="~/Content/Images/favicon-01.png" width="30" alt="Yetkili Panili"><span class="m-l-10">Admin Paneli</span></a>
+            </div>
+            <ul class="nav navbar-nav navbar-left">
+                <li><a href="javascript:void(0);" class="ls-toggle-btn" data-close="true"><i class="zmdi zmdi-swap"></i></a></li>
+                <li class="hidden-sm-down">
+                    @*<div class="input-group">
+                        <input type="text" class="form-control" placeholder="Ara...">
+                        <span class="input-group-addon">
+                            <i class="zmdi zmdi-search"></i>
+                        </span>
+                    </div>*@
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown">
+
+                </li>
+                <li class="dropdown">
 
 
-    <div class="header">
-        <div class="container">
-            <div class="wrapper">
-                <a href="#" class="logo">
-                    <img src="~/Content/Images/Logo Update-01.png" alt="logo">
-                </a>
-                <button type="button" data-toggle="collapse" data-target="#header" aria-expanded="false"
-                        class="navbar-toggle">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                </button>
-                <div class="menu-list">
-                    <div id="header" class="navbar-collapse collapse">
-                        <ul>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" class="fullscreen hidden-sm-down" data-provide="fullscreen" data-close="true"><i class="zmdi zmdi-fullscreen"></i></a>
+                </li>
+                <li><a href="/Admin/LogOut" class="mega-menu" data-close="true"><i class="zmdi zmdi-power"></i></a></li>
+                <li class=""><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Left Sidebar -->
+    <aside id="leftsidebar" class="sidebar">
+        <div class="menu">
+            <ul class="list">
+                <li>
+                    <div class="user-info">
+                        <div class="image"><a href="#"><img src="~/KProfil/assets/images/profile_av.jpg" alt="User"></a></div>
+                        <div class="detail">
+
+                            <h4>@TempData["adsoyad"]</h4>
+
+                        </div>
+
+                        <a href="/Admin/LogOut" title="Çıkış Yap"><i class="zmdi zmdi-power"></i></a>
+                    </div>
+                </li>
+
+                <li class="active open"><a href="/Admin/Index"><i class="zmdi zmdi-home"></i><span>Gösterge Paneli</span></a></li>
+
+
+
+
+
+
+                @if (User.IsInRole("Admin"))
+                {
+
+
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-city"></i><span>İlanlar</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="/Admin/AdmKisiilan">Tüm İlanlar</a></li>
+                            <li><a href="/Admin/Admilanlarim">İlanlarım</a></li>
+                            <li><a href="/Admin/Admilan">İlanlar(Admin Yetkili)</a></li>
+                            <li><a href="/Admin/OnayBekleyenilan">Onay Bekleyen İlanlar</a></li>
+                            <li><a href="/Admin/AdmSilinmisilan">Silinmiş İlanlar</a></li>
+
+                        </ul>
+                    </li>
+
+
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-add"></i><span>İlan Ekle</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="/Admin/AdmilanEkle">Apartman</a></li>
+                            <li><a href="/Admin/AdmilanEkleDaire">Daire</a></li>
+                            <li><a href="/Admin/AdmilanEkleArsa">Arsa</a></li>
+                            <li><a href="~/Admin/AdmilanEkleMustakil">Müstakil</a></li>
+                            <li><a href="~/Admin/AdmilanEkleDubleks">Dubleks</a></li>
+                            <li><a href="~/Admin/AdmilanEkleArazi">Arazi</a></li>
+                            <li><a href="~/Admin/AdmilanEkleDukkan">Dükkan</a></li>
+                            <li><a href="~/Admin/AdmilanEkleisteri">İşyeri</a></li>
+                            <li><a href="~/Admin/AdmilanEkleBahce">Bahçe</a></li>
+                            <li><a href="~/Admin/AdmilanEklePetrolistasyon">Petrol İstasyonu</a></li>
+                            <li><a href="~/Admin/AdmilanEkleCiftlik">Çiftlik</a></li>
+                            <li><a href="~/Admin/AdmilanEkleAhir">Ahır</a></li>
+                            <li><a href="~/Admin/AdmilanEkleOtomobil">Otomobil</a></li>
+                            <li><a href="~/Admin/AdmilanEkleTraktor">Traktör</a></li>
+                            @*<li><a href="property-detail.html">İlan Detay</a></li>*@
+                        </ul>
+                    </li>
+
+
+
+                }
+
+
+                @if (User.IsInRole("İçerik Yönetici"))
+                {
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-city"></i><span>İlanlar</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="/Admin/AdmKisiilan">Tüm İlanlar</a></li>
+                            <li><a href="/Admin/Admilanlarim">İlanlarım</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-add"></i><span>İlan Ekle</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="/Admin/AdmilanEkle">Apartman</a></li>
+                            <li><a href="/Admin/AdmilanEkleDaire">Daire</a></li>
+                            <li><a href="/Admin/AdmilanEkleArsa">Arsa</a></li>
+                            <li><a href="~/Admin/AdmilanEkleMustakil">Müstakil</a></li>
+                            <li><a href="~/Admin/AdmilanEkleDubleks">Dubleks</a></li>
+                            <li><a href="~/Admin/AdmilanEkleArazi">Arazi</a></li>
+                            <li><a href="~/Admin/AdmilanEkleDukkan">Dükkan</a></li>
+                            <li><a href="~/Admin/AdmilanEkleisteri">İşyeri</a></li>
+                            <li><a href="~/Admin/AdmilanEkleBahce">Bahçe</a></li>
+                            <li><a href="~/Admin/AdmilanEklePetrolistasyon">Petrol İstasyonu</a></li>
+                            <li><a href="~/Admin/AdmilanEkleCiftlik">Çiftlik</a></li>
+                            <li><a href="~/Admin/AdmilanEkleAhir">Ahır</a></li>
+                            <li><a href="~/Admin/AdmilanEkleOtomobil">Otomobil</a></li>
+                            <li><a href="~/Admin/AdmilanEkleTraktor">Traktör</a></li>
+                            @*<li><a href="property-detail.html">İlan Detay</a></li>*@
+                        </ul>
+                    </li>
+
+                    <li><a href="/Admin/AdmKayitliKullanici"><i class="zmdi zmdi-save"></i><span>Kayıtlı Müşteriler</span></a></li>
+
+                }
+
+
+
+
+                @if (User.IsInRole("Admin"))
+                {
+
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-city"></i><span>Müşteriler</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="/Admin/AdmKayitliKullanici">Kayıtlı Müşteriler</a></li>
+                            <li><a href="/Admin/AdmSilinmisMusteriler">Silinmiş Müşteriler</a></li>
+
+                        </ul>
+                    </li>
+
+
+                    <li><a href="/Admin/AdmBlog"><i class="zmdi zmdi-leak"></i><span>Bloglar</span></a></li>
+
+                }
+
+
+
+
+                <!--Yazar-->
+                @if (User.IsInRole("Yazar"))
+                {
+
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-city"></i><span>İlanlar</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="/Admin/AdmKisiilan">Tüm İlanlar</a></li>
+                            @*<li><a href="/Admin/Admilanlarim">İlanlarım</a></li>*@
+
+                        </ul>
+                    </li>
+                    <li><a href="/Admin/AdmKayitliKullanici"><i class="zmdi zmdi-save"></i><span>Kayıtlı Müşteriler</span></a></li>
+
+                    <li><a href="/Admin/AdmBlog"><i class="zmdi zmdi-leak"></i><span>Bloglar</span></a></li>
+
+                }
+
+
+
+
+
+
+
+                <!--Pazarlama Elemanı-->
+                @if (User.IsInRole("Pazarlama Elemanı"))
+                {
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-city"></i><span>İlanlar</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="/Admin/AdmKisiilan">Tüm İlanlar</a></li>
+                            <li><a href="/Admin/Admilanlarim">İlanlarım</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-collection-add"></i><span>İlan Ekle</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="/Admin/AdmilanEkle">Apartman</a></li>
+                            <li><a href="/Admin/AdmilanEkleDaire">Daire</a></li>
+                            <li><a href="/Admin/AdmilanEkleArsa">Arsa</a></li>
+                            <li><a href="~/Admin/AdmilanEkleMustakil">Müstakil</a></li>
+                            <li><a href="~/Admin/AdmilanEkleDubleks">Dubleks</a></li>
+                            <li><a href="~/Admin/AdmilanEkleArazi">Arazi</a></li>
+                            <li><a href="~/Admin/AdmilanEkleDukkan">Dükkan</a></li>
+                            <li><a href="~/Admin/AdmilanEkleisteri">İşyeri</a></li>
+                            <li><a href="~/Admin/AdmilanEkleBahce">Bahçe</a></li>
+                            <li><a href="~/Admin/AdmilanEklePetrolistasyon">Petrol İstasyonu</a></li>
+                            <li><a href="~/Admin/AdmilanEkleCiftlik">Çiftlik</a></li>
+                            <li><a href="~/Admin/AdmilanEkleAhir">Ahır</a></li>
+                            <li><a href="~/Admin/AdmilanEkleOtomobil">Otomobil</a></li>
+                            <li><a href="~/Admin/AdmilanEkleTraktor">Traktör</a></li>
+                            @*<li><a href="property-detail.html">İlan Detay</a></li>*@
+                        </ul>
+                    </li>
+
+
+                }
+                @*Herhes Görebilir*@
+                @*<li><a href="/Admin/AdmKisiilan"><i class="zmdi zmdi-library"></i><span>İlanlar</span></a></li>*@
+
+
+
+
+
+
+
+                @*İletişim Bilgiler*@
+
+                @if (User.IsInRole("Admin"))
+                {
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-remote-control"></i><span>İletişim Bilgiler</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="/Admin/AdmiletisimBilgi/">İletişim Bilgi</a></li>
+                            <li><a href="/Admin/AdmiletsmGMesaj/"> Gelen Mesajlar</a></li>
+                        </ul>
+                    </li>
+
+                }
+
+
+
+                @*İletişim Bilgiler*@
+
+                @if (User.IsInRole("İçerik Yönetici"))
+                {
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-remote-control"></i><span>İletişim Bilgiler</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="/Admin/AdmiletisimBilgi/">İletişim Bilgi</a></li>
+                            <li><a href="/Admin/AdmiletsmGMesaj/"> Gelen Mesajlar</a></li>
+                        </ul>
+                    </li>
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+                <!--Admin-->
+                @*Yetkili Kullanıcılar*@
+
+
+                @if (User.IsInRole("Admin"))
+                {
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-looks"></i><span>Yetkili Kullanıcılar</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="/Admin/Adminkullanici/">(Yetkili) Kullanıcılar</a></li>
+                            <li><a href="/Admin/AdmTemsilci/"> Temsilciler</a></li>
+                        </ul>
+                    </li>
+
+
+
+                }
+
+
+
+
+                @*Yetkili Kullanıcılar*@
+
+                @if (User.IsInRole("İçerik Yönetici"))
+                {
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-looks"></i><span>Yetkili Kullanıcılar</span> </a>
+                        <ul class="ml-menu">
+                            <li><a href="/Admin/AdmTemsilci/"> Temsilciler</a></li>
+                        </ul>
+                    </li>
+
+
+                }
+
+
+
+
+
+
+                <!---Admin Yetkili-->
+                @if (User.IsInRole("Admin"))
+                {
+
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-comment-alt-text"></i><span>Emlak Kategoprileri</span> </a>
+                        <ul class="ml-menu">
 
                             <li>
-                                <a href="#">
-                                    Emlak Kategoprileri
+                                <a href="/Admin/AdmEmlakTipi/">
+                                    Emlak Tipi
                                 </a>
-                                <ul class="sub-menu small">
-                                    <li>
-                                        <ul>
-                                            <li>
-                                                Emlak Kategorilerini Belirle
-                                            </li>
-                                            <li>
-                                                <a href="/Admin/AdmEmlakTipi/#submit">
-                                                    Emlak Tipi
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/Admin/AdmilanDurumu/#submit">
-                                                    İlan Durumu
-                                                </a>
-                                            </li>
-                                            <li>
-                                                <a href="/Admin/AdmilanOzellik/#submit">
-                                                    İlan Özellikleri
-                                                </a>
-                                            </li>
-
-                                            <li>
-                                                <a href="/Admin/AdmKonum/#submit">
-                                                    İlan Konumu(Şehir)
-                                                </a>
-                                            </li>
-
-
-
-                                        </ul>
-                                    </li>
-                                </ul>
                             </li>
-                            @if (User.IsInRole("Admin"))
-                            {
-                                <li>
-                                    <a href="#">
-                                        İlanlar
-                                    </a>
-                                    <ul class="sub-menu small">
-                                        <li>
-                                            <ul>
-                                                <li>
-                                                    İlan Ekle Sil
-                                                </li>
-                                                <li>
-                                                    <a href="/Admin/Admilan">
-                                                        İlan Ekle Sil (Yetkili Kişi)
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="/Admin/AdmilanEkle">
-                                                        İlan Ekle
-                                                    </a>
-                                                </li>
+                            <li>
+                                <a href="/Admin/AdmilanDurumu/">
+                                    İlan Durumu
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Admin/AdmilanOzellik/">
+                                    İlan Özellikleri
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/Admin/AdmKonum/">
+                                    İlan Konumu(Şehir)
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+                }
 
 
 
-
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-
-
-                            }
-
-
-
-
-
-                                <li>
-                                    <a href="#">
-                                        İletişim Bilgiler
-                                    </a>
-                                    <ul class="sub-menu small">
-                                        <li>
-                                            <ul>
-                                                <li>
-                                                    İletişim Bilgi
-                                                </li>
-                                                <li>
-                                                    <a href="/Admin/AdmiletisimBilgi/#submit">
-                                                        İletişim Bilgi
-                                                    </a>
-                                                </li>
-                                                <li>
-                                                    <a href="/Admin/AdmiletsmGMesaj/#submit">
-                                                        Gelen Mesajlar
-                                                    </a>
-                                                </li>
-
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-
-
-
-
-
-                                <li>
-                                    <a href="#">
-                                        Yetkili Kullanıcılar
-                                    </a>
-                                    <ul class="sub-menu small">
-                                        <li>
-                                            <ul>
-                                                <li>
-                                                    Kullanıcılar
-                                                </li>
-                                                @if (User.IsInRole("Admin"))
-                                                {
-                                                    <li>
-                                                        <a href="/Admin/Adminkullanici/#submit">
-                                                            (Yetkili) Kullanıcılar
-                                                        </a>
-                                                    </li>
-                                                }
-                                                <li>
-                                                    <a href="/Admin/AdmTemsilci/#submit">
-                                                        Temsilciler
-                                                    </a>
-                                                </li>
-
-
-                                            </ul>
-                                        </li>
-                                    </ul>
-                                </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                            </ul>
-                    </div>
-                </div>
-                @*<div class="subscribe-buttons">
-                    <button class="sign-in js-sign-in">
-                        <i class="fa fa-sign-in" aria-hidden="true"></i>
-                        <span>sign in</span>
-                    </button>
-                    <button class="registration">
-                        <i class="fa fa-user" aria-hidden="true"></i>
-                        <span>registration</span>
-                    </button>
-                </div>*@
-            </div>
-        </div>
-    </div>
-    <div id="signin-wrap">
-        <div class="sign-in-form">
-            <div class="wrap">
-                <h3>Sign in</h3>
-                <button type="button" class="js-button-close"><i class="material-icons">&#xE5C9;</i></button>
-            </div>
-            <div class="left-wrap">
-                <p>Use your email address and password to sign in to your account, or use it with social networks</p>
-                <input type="email" placeholder="E-mail">
-                <input type="password" placeholder="Password">
-                <div class="buttons-wrap">
-                    <a href="#" class="sign">sign in</a>
-                    <a href="#" class="create">create account</a>
-                </div>
-                <a href="#">restore password</a>
-            </div>
-            <div class="right-wrap">
-                <img src="./images/sign-in.png" alt="img">
-            </div>
-        </div>
-    </div>
-
-    <div class="account-page">
-        <div class="account_menu account_menu__normal">
-            <a href="#" class="js-toggle-menu">
-                <div class="account_menu_agent">
-                    <div class="agent-avatar">
-                        <img src="https://media.istockphoto.com/vectors/avatar-businessman-user-icon-vector-id1249867015" width="60px;" alt="user">
-                        <div class="agent-status status-online"></div>
-                    </div>
-                    <h2>Agent Name</h2>
-                    <i class="material-icons js-test-toggle sm-visible"></i>
-
-                </div>
-            </a>
-            <div class="account_menu_categories">
-                @*<a href="#dashboard" class="js-menu-link" data-display-id="dashboard">
-            <div class="category_item">
-                <div class="category_item__category-name">
-                    <i class="material-icons">insert_chart</i>
-                    <div class="new-notification"></div>
-                    <span>İstatistikler</span>
-                </div>
-            </div>
-        </a>*@
-
-
-                <a href="/Admin/Index">
-                    <div class="category_item">
-                        <div class="category_item__category-name">
-                            <i class="material-icons">insert_chart</i>
-                            <div class="new-notification"></div>
-                            <span>İstatistikler</span>
-                        </div>
-                    </div>
-                </a>
-                @if (User.IsInRole("Admin"))
+                <!---İçerik Yöneticisi Yetkili-->
+                @if (User.IsInRole("İçerik Yönetici"))
                 {
-                    <a href="/Admin/AdmilanEkle">
-                        <div class="category_item">
-                            <div class="category_item__category-name">
-                                <i class="fa fa-plus"></i>
-                                <div class="new-notification"></div>
-                                <span>İlan Ekle</span>
-                            </div>
-                        </div>
-                    </a>
 
 
 
 
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-comment-alt-text"></i><span>Emlak Kategoprileri</span> </a>
+                        <ul class="ml-menu">
 
-                    <a href="/Admin/AdmSilinmisilan">
-                        <div class="category_item">
-                            <div class="category_item__category-name">
-                                <i class="fa fa-remove"></i>
-                                <div class="new-notification"></div>
-                                <span>Silinmiş İlanlar</span>
-                            </div>
-                        </div>
-                    </a>
+                            <li>
+                                <a href="/Admin/AdmEmlakTipi/">
+                                    Emlak Tipi
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Admin/AdmilanDurumu/">
+                                    İlan Durumu
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Admin/AdmilanOzellik/">
+                                    İlan Özellikleri
+                                </a>
+                            </li>
 
-                    <a href="/Admin/AdmSilinmisMusteriler">
-                        <div class="category_item">
-                            <div class="category_item__category-name">
-                                <i class="fa fa-trash"></i>
-                                <div class="new-notification"></div>
-                                <span>Silinmiş Müşteriler</span>
-                            </div>
-                        </div>
-                    </a>
+                            <li>
+                                <a href="/Admin/AdmKonum/">
+                                    İlan Konumu(Şehir)
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
 
                 }
 
@@ -310,141 +429,137 @@
 
 
 
-                <a href="/Admin/AdmKisiilan">
-                    <div class="category_item">
-                        <div class="category_item__category-name">
-                            <i class="fa fa-save"></i>
-                            <div class="new-notification"></div>
-                            <span>İlanlar</span>
-                        </div>
-                    </div>
-                </a>
 
-                <a href="/Admin/AdmKayitliKullanici">
-                    <div class="category_item">
-                        <div class="category_item__category-name">
-                            <i class="fa fa-user-times"></i>
-                            <div class="new-notification"></div>
-                            <span>Kayıtlı Müşteriler</span>
-                        </div>
-                    </div>
-                </a>
 
-                @if (User.IsInRole("Admin"))
+                <!---Yazar Yetkili-->
+                @if (User.IsInRole("Yazar"))
                 {
-                    <a href="/Admin/Admilan">
-                        <div class="category_item">
-                            <div class="category_item__category-name">
-                                <i class="fa fa-print"></i>
-                                <div class="new-notification"></div>
-                                <span>İlanlar(Admin Yetkili)</span>
-                            </div>
-                        </div>
-                    </a>
+                    <li>
+                        <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-comment-alt-text"></i><span>Emlak Kategoprileri</span> </a>
+                        <ul class="ml-menu">
+
+                            <li>
+                                <a href="/Admin/AdmEmlakTipi/">
+                                    Emlak Tipi
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Admin/AdmilanDurumu/">
+                                    İlan Durumu
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/Admin/AdmilanOzellik/">
+                                    İlan Özellikleri
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="/Admin/AdmKonum/">
+                                    İlan Konumu(Şehir)
+                                </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
                 }
-                    <a href="/Admin/AdmBlog">
-                        <div class="category_item">
-                            <div class="category_item__category-name">
-                                <i class="fa fa-paper-plane"></i>
-                                <div class="new-notification"></div>
-                                <span>Bloglar</span>
-                            </div>
-                        </div>
-                    </a>
 
 
 
-                    <a href="#settings" class="js-menu-link" data-display-id="settings">
-                        <div class="category_item">
-                            <div class="category_item__category-name">
-                                <i class="material-icons">settings</i>
-                                <div class="new-notification"></div>
-                                <span>Ayarlar</span>
-                            </div>
-                        </div>
-                    </a>
-
-                    <a href="/Admin/LogOut">
-                        <div class="category_item">
-                            <div class="category_item__category-name">
-                                <i class="fas fa-user"></i>
-                                <div class="new-notification"></div>
-                                <span>Çıkış</span>
-                            </div>
-                        </div>
-                    </a>
 
 
 
-                    <i class="material-icons js-test-toggle lg-visible"></i>
-                </div>
+
+
+
+
+
+
+
+
+
+                @*<li><a href="map.html"><i class="zmdi zmdi-pin"></i><span>Harita</span></a></li>*@
+                <!--<li>
+                    <a href="javascript:void(0);" class="menu-toggle"><i class="zmdi zmdi-settings"></i><span>Ayarlar</span></a>
+
+                    <ul class="ml-menu">
+                        <li><a href="/Kullanici/MProfilList">Profil Güncelle</a></li>-->
+                        @*<li><a href="add-agent.html">Profil Güncelle</a></li>*@
+
+                    <!--</ul>
+
+                </li>-->
+
+            </ul>
         </div>
+    </aside>
 
-        @RenderBody()
-        
-    </div>
-
-
-    <script type="text/javascript" src="~/area/js/library/jquery.js"></script>
-    <script type="text/javascript" src="~/area/js/library/bootstrap.js"></script>
-    <script type="text/javascript" src="~/area/js/library/owl.carousel.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBBGotOna22MxxiHpaGPV1aEOYTMx428-g"></script>
-    <script type="text/javascript" src="~/area/js/library/markerclusterer.js"></script>
-    <script type="text/javascript" src="~/area/js/library/ion.rangeSlider.min.js"></script>
-    <script type="text/javascript" src="~/area/js/library/jquery.mousewheel.js"></script>
-    <script type="text/javascript" src="~/area/js/library/chartist.min.js"></script>
-    <script type="text/javascript" src="~/area/js/library/microplugin.js"></script>
-    <script type="text/javascript" src="~/area/js/library/sifter.js"></script>
-    <script type="text/javascript" src="~/area/js/library/selectize.js"></script>
-    <script type="text/javascript" src="~/area/js/library/progressbar.js"></script>
-    <script type="text/javascript" src="~/area/js/library/module.js"></script>
-    <script type="text/javascript" src="~/area/js/library/hotkeys.js"></script>
-    <script type="text/javascript" src="~/area/js/library/uploader.js"></script>
-    <script type="text/javascript" src="~/area/js/library/simditor.js"></script>
-
-    <script type="text/javascript" src="~/area/js/rangeslider.js"></script>
-    <script type="text/javascript" src="~/area/js/agent_slider.js"></script>
-    <script type="text/javascript" src="~/area/js/post_slider.js"></script>
-    <script type="text/javascript" src="~/area/js/property_carousel.js"></script>
-    <script type="text/javascript" src="~/area/js/partner_carousel.js"></script>
-    <script type="text/javascript" src="~/area/js/agents_carousel.js"></script>
-    <script type="text/javascript" src="~/area/js/counters.js"></script>
-    <script type="text/javascript" src="~/area/js/slider_text.js"></script>
-    <script type="text/javascript" src="~/area/js/pageviews_chart.js"></script>
-    <script type="text/javascript" src="~/area/js/search_form.js"></script>
-    <script type="text/javascript" src="~/area/js/search_form_slider.js"></script>
-    <script type="text/javascript" src="~/area/js/count_checker.js"></script>
-    <script type="text/javascript" src="~/area/js/form_toggle.js"></script>
-    <script type="text/javascript" src="~/area/js/featured_carousel.js"></script>
-    <script type="text/javascript" src="~/area/js/one_element_slider.js"></script>
-    <script type="text/javascript" src="~/area/js/accordion.js"></script>
-    <script type="text/javascript" src="~/area/js/partners_small.js"></script>
-    <script type="text/javascript" src="~/area/js/pageviews_chart.js"></script>
-    <script type="text/javascript" src="~/area/js/intro_page.js"></script>
-    <script type="text/javascript" src="~/area/js/map_component.js"></script>
-    <script type="text/javascript" src="~/area/js/header.js"></script>
-    <script type="text/javascript" src="~/area/js/property_slider.js"></script>
-    <script type="text/javascript" src="~/area/js/visible.js"></script>
-    <script type="text/javascript" src="~/area/js/coming-soon.js"></script>
-    <script type="text/javascript" src="~/area/js/rate_article.js"></script>
-    <script type="text/javascript" src="~/area/js/service-page-size.js"></script>
-    <script type="text/javascript" src="~/area/js/preloader.js"></script>
-    <script type="text/javascript" src="~/area/js/clear_form.js"></script>
-    <script type="text/javascript" src="~/area/js/property_gallery.js"></script>
-    <script type="text/javascript" src="~/area/js/area_tabs.js"></script>
-    <script type="text/javascript" src="~/area/js/testimonials.js"></script>
-    <script type="text/javascript" src="~/area/js/sign_in.js"></script>
-    <script type="text/javascript" src="~/area/js/account_page.js"></script>
-    <script type="text/javascript" src="~/area/js/chat_component.js"></script>
-    <script type="text/javascript" src="~/area/js/account_chart.js"></script>
-    <script type="text/javascript" src="~/area/js/account_component.js"></script>
-    <script type="text/javascript" src="~/area/js/text_editor.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!-- Right Sidebar -->
+    <aside id="rightsidebar" class="right-sidebar">
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#setting"><i class="zmdi zmdi-settings zmdi-hc-spin"></i></a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active slideRight" id="setting">
+                <div class="slim_scroll">
+                    <div class="card">
+                        <h6>Kaplamalar</h6>
+                        <ul class="choose-skin list-unstyled">
+                            <li data-theme="purple">
+                                <div class="purple"></div>
+                            </li>
+                            <li data-theme="blue" class="active">
+                                <div class="blue"></div>
+                            </li>
+                            <li data-theme="cyan">
+                                <div class="cyan"></div>
+                            </li>
+                            <li data-theme="green">
+                                <div class="green"></div>
+                            </li>
+                            <li data-theme="orange">
+                                <div class="orange"></div>
+                            </li>
+                            <li data-theme="blush">
+                                <div class="blush"></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <h6>Aydınlık</h6>
+                        <ul class="list-unstyled theme-light-dark">
+                            <li>
+                                <div class="t-light btn btn-default btn-simple btn-round">Gündüz</div>
+                            </li>
+                            <li>
+                                <div class="t-dark btn btn-default btn-round">Gece</div>
+                            </li>
+                        </ul>
+                    </div>
 
 
-    <script type="text/javascript" src="~/area/js/main.js"></script>
-    <!--<script type="text/javascript" src="js-min/min.js"></script>-->
+                </div>
+            </div>
 
+
+        </div>
+    </aside>
+
+    <!-- Chat-launcher -->
+    <!-- Main Content -->
+    @RenderBody()
+    <!-- Jquery Core Js -->
+    <script src="~/KProfil/assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
+    <script src="~/KProfil/assets/bundles/vendorscripts.bundle.js"></script> <!-- slimscroll, waves Scripts Plugin Js -->
+
+    <script src="~/KProfil/assets/bundles/morrisscripts.bundle.js"></script><!-- Morris Plugin Js -->
+    <script src="~/KProfil/assets/bundles/jvectormap.bundle.js"></script> <!-- JVectorMap Plugin Js -->
+    <script src="~/KProfil/assets/bundles/knob.bundle.js"></script> <!-- Jquery Knob Plugin Js -->
+    <script src="~/KProfil/assets/bundles/countTo.bundle.js"></script> <!-- Jquery CountTo Plugin Js -->
+    <script src="~/KProfil/assets/bundles/sparkline.bundle.js"></script> <!-- Sparkline Plugin Js -->
+
+    <script src="~/KProfil/assets/bundles/mainscripts.bundle.js"></script>
+    <script src="~/KProfil/assets/js/pages/index.js"></script>
 </body>
-
 </html>

@@ -1,0 +1,133 @@
+﻿@model GGYatirim.Models.Sinif.DbKullanici
+@{
+    //ViewBag.Title = "MuteriGetr";
+    Layout = "~/Views/Shared/_KullaniciLayout.cshtml";
+}
+
+
+
+
+
+
+@using (Html.BeginForm("MusteriGuncelle", "Kullanici", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="body">
+
+        <div class="row clearfix">
+            <div class="col-lg-6 col-md-12">
+                <a href="#">Adınız</a>
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.KisiAdi, new { @class = "form-control" })
+                    @*<input type="text" name="" class="form-control" placeholder="First Name">*@
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <a href="#">Soyadınız</a>
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.KisiSoyadi, new { @class = "form-control" })
+
+                    @*<input type="text" class="form-control" placeholder="Last Name">*@
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <a href="#">Mesleğiniz</a>
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Meslek, new { @class = "form-control" })
+
+                    @*<input type="text" class="form-control" placeholder="City">*@
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <a href="#">Şifre</a>
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Sifre, new { @class = "form-control", type = "password" })
+
+                    @*<input type="text" class="form-control" placeholder="E-mail">*@
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+                <a href="#">Telefon No</a>
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Telefon, new { @class = "form-control", type = "tel" })
+
+                    @*<input type="text" class="form-control" placeholder="Country">*@
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+                <a href="#">Şehir</a>
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Sehir, new { @class = "form-control" })
+
+                    @*<input type="text" class="form-control" placeholder="E-mail">*@
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+                <a href="#">Tam Adres</a>
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.TamAdres, new { @class = "form-control" })
+
+                    @*<input type="text" class="form-control" placeholder="E-mail">*@
+                </div>
+            </div>
+
+
+
+
+
+            <div class="col-lg-6 col-md-12">
+                <a href="#">Facebook</a>
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.Face, new { @class = "form-control" })
+
+                    @*<input type="text" class="form-control" placeholder="E-mail">*@
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+                <a href="#">Instagram</a>
+                <div class="form-group">
+                    @Html.TextBoxFor(x => x.instagram, new { @class = "form-control" })
+
+                    @*<input type="text" class="form-control" placeholder="E-mail">*@
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12">
+                <a href="#">Profilinizi Seçiniz</a>
+                <div class="form-group">
+                    <input type="file" id="File" name="File" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" class="form-control" />
+
+                    @*<input type="text" class="form-control" placeholder="E-mail">*@
+                </div>
+            </div>
+
+
+
+            <div class="col-md-12">
+                <div class="form-group">
+                    <a href="#">Kısaca Kendinden Bahset</a>
+                    @Html.TextAreaFor(x => x.KisaAciklama, new { @class = "form-control no-resize" })
+
+                    @*<textarea rows="4" class="form-control no-resize" placeholder="Address Line 1"></textarea>*@
+                </div>
+            </div>
+            @Html.HiddenFor(x => x.KullaniciID)
+            <div class="col-md-12">
+                <button class="btn btn-primary btn-round">Değişiklikleri Kaydet</button>
+            </div>
+        </div>
+
+    </div>
+}
+
+
+<script src="~/KProfil/assets/bundles/libscripts.bundle.js"></script> <!-- Lib Scripts Plugin Js ( jquery.v3.2.1, Bootstrap4 js) -->
+
+
+
+
+<script src="~/KProfil/assets/bundles/mainscripts.bundle.js"></script>
+
+

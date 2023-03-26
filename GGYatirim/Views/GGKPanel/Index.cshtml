@@ -1,0 +1,182 @@
+﻿@model IEnumerable<GGYatirim.Models.Sinif.DbKullanici>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_KullaniciLayout.cshtml";
+}
+
+
+
+
+@if (TempData["bilgiguncelle"] != null)
+{
+    <link href="~/Content/Alert/package/dist/sweetalert2.min.css" rel="stylesheet" />
+    <script src="~/Content/Alert/package/dist/sweetalert2.min.js"></script>
+    <script>
+        Swal.fire("Webigem Alym Satym", "Gadyrly ulanyjy, profiliňiz täzelendi!!", 'success');
+    </script>
+}
+
+
+
+
+
+
+
+<section class="content home">
+    <div class="block-header">
+        <div class="row">
+            <div class="col-lg-7 col-md-6 col-sm-12">
+                <h2>
+                    Şahsy Panelim
+                    <small class="text-muted">Goşgeldiňiz <b> @ViewBag.ad @ViewBag.soyad </b></small>
+                </h2>
+            </div>
+            <div class="col-lg-5 col-md-6 col-sm-12">
+                <a href="#">
+                    <button class="btn btn-primary btn-icon btn-round hidden-sm-down float-right m-l-10" type="button">
+
+                        <i class="zmdi zmdi-plus"></i>
+
+                    </button>
+                </a>
+                <ul class="breadcrumb float-md-right">
+                    <li class="breadcrumb-item"><a href="#"><i class="zmdi zmdi-home"></i> Panelim</a></li>
+                    <li class="breadcrumb-item active">Şahsy Panelim</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row clearfix">
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="body">
+                        <h3 class="number count-to" data-from="0" data-to="128" data-speed="2000" data-fresh-interval="700"> @ViewBag.onayilan</h3>
+                        <p class="text-muted">Makullanan (Dogrylanan)</p>
+                        <div class="progress">
+                            <div class="progress-bar l-blue" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.onayilan%;"></div>
+                        </div>
+                        <small>Makullanan (Dogrylanan) @ViewBag.onayilan</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="body">
+                        <h3 class="number count-to" data-from="0" data-to="758" data-speed="2000" data-fresh-interval="700">@ViewBag.onaysiz</h3>
+                        <p class="text-muted">Adminiň Makullamasyna Garaşylýar</p>
+                        <div class="progress">
+                            <div class="progress-bar l-green" role="progressbar" aria-valuenow="@ViewBag.onaysiz" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.onaysiz%;"></div>
+                        </div>
+                        <small>Adminiň Makullamasyna Garaşylýar @ViewBag.onaysiz</small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card">
+                    <div class="body">
+                        <h3 class="number count-to" data-from="0" data-to="2521" data-speed="2000" data-fresh-interval="700">@ViewBag.toplamilan</h3>
+                        <p class="text-muted">Mahabatyň umumy sany</p>
+                        <div class="progress">
+                            <div class="progress-bar l-amber" role="progressbar" aria-valuenow="@ViewBag.toplamilan" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.toplamilan%;"></div>
+                        </div>
+                        <small>Mahabatyň umumy sany @ViewBag.toplamilan</small>
+                    </div>
+                </div>
+            </div>
+            @foreach (var l in Model)
+            {
+                if (l.TamAdres != null && l.Sehir != null && l.Meslek != null && l.Telefon != null && l.KisaAciklama != null && l.Resim != null && l.KisiAdi != null && l.KisiSoyadi != null)
+                {
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="body">
+                                <h3>100%</h3>
+                                <p class="text-muted">Profiliň güýji</p>
+                                <div class="progress">
+                                    <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;"></div>
+                                </div>
+                                <small>Profiliňizi dolduranyňyzda adamlaryň ynamy size garşy has da artýar.</small>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+
+                if (l.TamAdres == null && l.Sehir == null && l.Meslek == null && l.Telefon == null && l.KisaAciklama == null && l.Resim == null && l.KisiAdi == null && l.KisiSoyadi == null)
+                {
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="body">
+                                <h3>1%</h3>
+                                <p class="text-muted">Profiliň güýji</p>
+                                <div class="progress">
+                                    <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%;"></div>
+                                </div>
+                                <small>Profiliňizi dolduranyňyzda adamlaryň ynamy size garşy has da artýar.</small>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+                if (l.KisiAdi == null || l.KisiSoyadi == null)
+                {
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="body">
+                                <h3>30%</h3>
+                                <p class="text-muted">Profiliň güýji</p>
+                                <div class="progress">
+                                    <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="1" aria-valuemin="30" aria-valuemax="100" style="width: 30%;"></div>
+                                </div>
+                                <small>Profiliňizi dolduranyňyzda adamlaryň ynamy size garşy has da artýar.</small>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+
+                if (l.Telefon == null || l.Resim == null || l.Meslek == null)
+                {
+                    <div class="col-lg-3 col-md-6">
+                        <div class="card">
+                            <div class="body">
+                                <h3>60%</h3>
+                                <p class="text-muted">Profiliň güýji</p>
+                                <div class="progress">
+                                    <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="1" aria-valuemin="60" aria-valuemax="100" style="width: 60%;"></div>
+                                </div>
+                                <small>Profiliňizi dolduranyňyzda adamlaryň ynamy size garşy has da artýar.</small>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+
+
+                    if (l.TamAdres == null || l.Sehir == null || l.KisaAciklama == null)
+                    {
+                        <div class="col-lg-3 col-md-6">
+                            <div class="card">
+                                <div class="body">
+                                    <h3>80%</h3>
+                                    <p class="text-muted">Profiliň güýji</p>
+                                    <div class="progress">
+                                        <div class="progress-bar l-parpl" role="progressbar" aria-valuenow="1" aria-valuemin="85" aria-valuemax="100" style="width: 85%;"></div>
+                                    </div>
+                                    <small>Profiliňizi dolduranyňyzda adamlaryň ynamy size garşy has da artýar.</small>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+            }
+        </div>
+    </div>
+</section>

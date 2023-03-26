@@ -1,0 +1,199 @@
+﻿@*@model IEnumerable<GGYatirim.Models.Sinif.Dbilan>*@
+@model GGYatirim.Models.Sinif.Dbilan
+@{
+    ViewBag.Title = "ResimIncele2";
+    Layout = "~/Views/Shared/_KullaniciLayout.cshtml";
+}
+
+
+
+<!doctype html>
+<html class="no-js " lang="en">
+
+<body class="theme-blue">
+
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+
+
+    <!-- Main Content -->
+
+
+    <section class="content home">
+        <div class="block-header">
+            <div class="row">
+                <div class="col-lg-7 col-md-6 col-sm-12">
+                    <h2>
+                        İlan Detayı
+                        <small class="text-muted"></small>
+                    </h2>
+                </div>
+                <div class="col-lg-5 col-md-6 col-sm-12">
+                    <a href="~/GGKPanel/MilanEkle">
+                        <button class="btn btn-primary btn-icon btn-round hidden-sm-down float-right m-l-10" type="button">
+
+                            <i class="zmdi zmdi-plus"></i>
+
+                        </button>
+                    </a>
+                    <ul class="breadcrumb float-md-right">
+                        <li class="breadcrumb-item"><a href="/GGKPanel/Index"><i class="zmdi zmdi-home"></i>Panelim</a></li>
+                        <li class="breadcrumb-item"><a href="javascript:void(0);">İlanlar</a></li>
+                        <li class="breadcrumb-item active">İlan Detay</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row clearfix">
+                <div class="col-lg-8 col-md-12">
+                    <div class="card">
+                        <div class="body">
+                            <div id="demo2" class="carousel slide" data-ride="carousel">
+                                <ul class="carousel-indicators">
+
+
+                                    @for (int i = 0; i < Model.DbilanGallery.Count(); i++)
+                                    {
+                                        <li data-target="#demo2" data-slide-to="@i" class="@(i==0 ? "active":"")"></li>
+                                    }
+
+                                    @*<li data-target="#demo2" data-slide-to="1" class=""></li>
+                                        <li data-target="#demo2" data-slide-to="2" class=""></li>*@
+                                </ul>
+                                <div class="carousel-inner">
+
+                                    @*@for (int i = 0; i < Model.DbilanGallery.Count(); i++)
+                                    {
+                                        <div class="@(i==0 ? "carousel-item active" : "carousel-item")">
+                                            <img src="@Model.DbilanGallery[i].URL" class="img-fluid" alt="@Model.DbilanGallery[i].Ad">
+
+                                        </div>
+                                    }*@
+
+
+                                    @*<div class="carousel-item">
+                                            <img src="assets/images/image-gallery/6.jpg" class="img-fluid" alt="">
+                                            <div class="carousel-caption">
+                                                <h3>New York</h3>
+                                                <p>We love the Big Apple!</p>
+                                            </div>
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img src="assets/images/image-gallery/12.jpg" class="img-fluid" alt="">
+                                            <div class="carousel-caption">
+                                                <h3>Los Angeles</h3>
+                                                <p>We had such a great time in LA!</p>
+                                            </div>
+                                        </div>*@
+                                </div>
+                                <!-- Left and right controls -->
+                                <a class="carousel-control-prev" href="#demo2" data-slide="prev"><span class="carousel-control-prev-icon"></span></a>
+                                <a class="carousel-control-next" href="#demo2" data-slide="next"><span class="carousel-control-next-icon"></span></a>
+                            </div>
+                        </div>
+                    </div>
+                    @foreach (var item in Model.DbilanGallery)
+                    {
+                        <img src="@item.URL" alt="@item.Ad" style="max-height:100px;" class="img-thumbnail" />
+
+                    }
+
+
+
+                    <div class="card">
+                        <div class="header">
+                            <h2><strong>Özellikler</strong></h2>
+                            <ul class="header-dropdown">
+
+                                <li class="remove">
+                                    <a role="button" class="boxs-close"><i class="zmdi zmdi-close"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered m-b-0">
+                                    <tbody>
+                                        @if (Model.TamFiyat != null)
+                                        {
+                                            <tr>
+                                                <th scope="row">Fiyat:</th>
+
+                                                <td>@Html.DisplayFor(Model => Model.TamFiyat) ₺</td>
+                                            </tr>
+                                        }
+
+
+
+                                        <tr>
+                                            <th scope="row">Araba Serisi: </th>
+                                            <td>@Html.DisplayFor(Model => Model.ArabaSerisi)</td>
+                                        </tr>
+
+
+
+                                        <tr>
+                                            <th scope="row">Araba Modeli: </th>
+                                            <td>@Html.DisplayFor(Model => Model.ArabaModel)</td>
+                                        </tr>
+                                         <tr>
+                                            <th scope="row">Araba dsfdsfsdf: </th>
+                                            <td>@Html.DisplayFor(Model => Model.KatSayisi)</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">Araba Yılı: </th>
+                                            <td>@Html.DisplayFor(Model => Model.ArabaYil)</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">Vites: </th>
+                                            <td>@Html.DisplayFor(Model => Model.ArabaVites)</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">KM: </th>
+                                            <td>@Html.DisplayFor(Model => Model.ArabaKM)</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">Kasa Tipi: </th>
+                                            <td>@Html.DisplayFor(Model => Model.ArabaKasaTipi)</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">Çekiş: </th>
+                                            <td>@Html.DisplayFor(Model => Model.ArabaCekis)</td>
+                                        </tr>
+
+                                        <tr>
+                                            <th scope="row">Renk: </th>
+                                            <td>@Html.DisplayFor(Model => Model.ArabaRenk)</td>
+                                        </tr>
+
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+

@@ -11,17 +11,22 @@ namespace GGYatirim.Models.Sinif
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class DbAdmin
     {
         public int AdminID { get; set; }
         public string AdSoyad { get; set; }
         public string EPosta { get; set; }
         public string Tel { get; set; }
+
         public string Sifre { get; set; }
         public Nullable<bool> Durum { get; set; }
         public Nullable<int> RolId { get; set; }
         public Nullable<System.DateTime> Tarih { get; set; }
+
+       
+        public string KullaniciNo { get; set; }
     
         public virtual DbYetki DbYetki { get; set; }
     }

@@ -1,0 +1,399 @@
+﻿@model GGYatirim.Models.Sinif.Dbilan
+
+@{
+    ViewBag.Title = "MilanEkleDukkan";
+    Layout = "~/Views/Shared/_KullaniciLayout.cshtml";
+}
+
+
+<!doctype html>
+<html class="no-js " lang="en">
+
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
+
+
+
+
+
+
+
+
+    <!-- Main Content -->
+    @using (Html.BeginForm("MilanEkleDukkan", "GGKPanel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12">
+                        <h2>
+                            İlan Ekle
+                            <small class="text-muted">Güner Group Yatırım</small>
+                        </h2>
+                    </div>
+
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row clearfix">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong>İlan</strong> Biğilerini <small>Buraya Giriniz...</small> </h2>
+
+                            </div>
+                            <div class="body">
+                                <div class="row clearfix">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <p class="input-header">İlan Başlık (Zorunlu)</p>
+
+                                            <input type="text" name="EmlakTipi" class="form-control" required="" placeholder="İlan Başlığı (Zorunlu!!!)">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Tam Adres (Zorunlu)</p>
+
+                                            <input type="text" class="form-control" name="TamAdres" required="" placeholder="Adresi Zorunlu!!!">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Tam Fiyat ₺</p>
+
+                                            <input type="number" class="form-control" name="TamFiyat" required="" placeholder="Fiyat Giriniz!!!">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Metre Kare Fiyatı ₺</p>
+
+                                            <input type="number" class="form-control" name="MetreKareFiyat" placeholder="Metre Kare Fiyatını Giriniz!!!">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Kuruluş Yılı (Bina Yaşı)</p>
+
+                                            <input type="text" class="form-control" name="KurulusYili" placeholder="Binanin Yaşını (Kuruluş Yılı) Giriniz!!!">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Aidat Fiyatını Giriniz Var ise!!!</p>
+
+                                            <input type="number" class="form-control" name="Aidat" placeholder="Aidat Fiyatını Giriniz Var ise!!!">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Arazi Alanı</p>
+
+                                            <input type="number" class="form-control" name="AraziAlanı" placeholder="Arazi Alanını Giriniz!!!">
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Ek Alan Boyutu</p>
+
+                                            <input type="number" class="form-control" name="AlanBoyutu" placeholder="Ek Alan Boyutunu Giriniz!!">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Bulunduğu Kat</p>
+
+                                            <input type="text" class="form-control" name="BulunduguKat" placeholder="Dairenin Bulunduğu Kat !!!">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Isıtma</p>
+
+                                            <input type="text" class="form-control" name="isitma" placeholder="Isıtma !!!">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Kullanım Durumu</p>
+
+                                            <input type="text" class="form-control" name="KullanimDurumu" placeholder="Kullanım Durumu !!!">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Tapu Durumu</p>
+
+                                            <input type="text" class="form-control" name="TapuDurumu" placeholder="Tapu Durumu !!!">
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="col-sm-4">
+                                        <div class="form-group">
+                                            <p class="input-header">Yapının Durumu</p>
+
+                                            <input type="text" class="form-control" name="YapininDurumu" placeholder="Yapının Durumu !!!">
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <p class="input-header">Site İçersinde</p>
+                                            <select name="Siteicerisinde" class="form-control">
+                                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                                <option value="Evet">Evet</option>
+                                                <option value="Hayır">Hayır</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <p class="input-header">Krediye Uygun</p>
+                                            <select name="KrediyeUygun" class="form-control">
+                                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                                <option value="Evet">Evet</option>
+                                                <option value="Hayır">Hayır</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <p class="input-header">Takas</p>
+                                            <select name="Takasli" class="form-control">
+                                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                                <option value="Evet">Evet</option>
+                                                <option value="Hayır">Hayır</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <p class="input-header">Balkon</p>
+                                            <select name="Balkon" class="form-control">
+                                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                                <option value="Var">Var</option>
+                                                <option value="Yok">Yok</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <p class="input-header">Banyo</p>
+                                            <select name="Banyo" class="form-control">
+                                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                                <option value="Var">Var</option>
+                                                <option value="Yok">Yok</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <p class="input-header">Garaj</p>
+                                            <select name="Garaj" class="form-control">
+                                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                                <option value="Var">Var</option>
+                                                <option value="Yok">Yok</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <p class="input-header">Oda Sayısı</p>
+                                            <select name="OdaSayisi" class="form-control">
+                                                <option value="Belirtilmemiş">Belirtilmemiş</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5">5</option>
+                                                <option value="6">6</option>
+                                                <option value="7">7</option>
+                                                <option value="8">8</option>
+                                                <option value="10">10</option>
+
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <p class="submit-property__block-header">Açıklama</p>
+                                            <div class="form-line">
+                                                <textarea rows="4" class="form-control no-resize" name="Aciklama" placeholder="Açıklama Ekleyiniz"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="card">
+                            <div class="header">
+                                @*<h2><strong>General</strong> Amenities<small>Description text here...</small> </h2>*@
+
+                            </div>
+                            <div class="body">
+                                <div class="row">
+                                    @*<div class="col-sm-3">
+                                            <b>Emlak Tipi</b>
+                                            @Html.DropDownListFor(x => x.EmlakTipIDD, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+                                        </div>*@
+                                    <div class="col-sm-4">
+                                        <b>İlan Durumu</b>
+                                        @Html.DropDownListFor(x => x.ilanDurumIDD, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <b>Konum Şehir</b>
+                                        @Html.DropDownListFor(x => x.KonumIDD, (List<SelectListItem>)ViewBag.dgr5, new { @class = "form-control" })
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <b>Özellikli</b>
+                                        @Html.DropDownListFor(x => x.ilanOzellikIDD, (List<SelectListItem>)ViewBag.dgr4, new { @class = "form-control" })
+                                    </div>
+
+                                </div>
+                                <div class="row clearfix">
+                                    <br />
+                                    <div class="col-sm-6">
+                                        <div class="fallback">
+                                            <b>İlan Vitrin Resimi</b>
+                                            <input type="file" id="File" name="File" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col-sm-6">
+                                        <div class="fallback">
+                                            <b>Çoklu Resim Yükleyiniz!</b>
+                                            <input type="file" name="CokluResim" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" multiple="" class="form-control" />
+                                        </div>
+                                    </div>
+
+                                    <br />
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <p class="submit-property__block-header">Özel Not (İstege Bağlı)</p>
+
+                                            <div class="form-line">
+                                                <textarea rows="4" class="form-control no-resize" name="OzelNor" id="summernote" placeholder="Özel Not İstege Bağlı"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+                                    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+                                    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+                                    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+
+                                    <script>
+                                        $('#summernote').summernote({
+                                            placeholder: 'Özel Notunuzu Buraya Giriniz! Örnk:"Daha Fazla Özellik"',
+                                            tabsize: 2,
+                                            height: 140,
+                                            toolbar: [
+                                                ['style', ['style']],
+                                                ['font', ['bold', 'underline', 'clear']],
+                                                ['color', ['color']],
+                                                ['para', ['ul', 'ol', 'paragraph']],
+                                                ['table', ['table']],
+                                                ['insert', ['link', 'picture', 'video']],
+                                                ['view', ['fullscreen', 'codeview', 'help']]
+                                            ]
+                                        });
+                                    </script>
+
+
+
+
+
+
+                                    <input type="text" name="ilanNo" readonly hidden="hidden" value="@ViewBag.takipkod" />
+                                    <input type="text" name="KAdSoyad" readonly hidden="hidden" value="@ViewBag.adsoyad" />
+                                    <input type="text" name="KAdSoyad" readonly hidden="hidden" value="@ViewBag.adsoyadd" />
+                                    <input type="text" name="KEPosta" readonly hidden="hidden" value="@ViewBag.eposta" />
+                                    <input type="text" name="EPosta" readonly hidden="hidden" value="@ViewBag.eposta" />
+                                    <input type="text" name="KTel" readonly hidden="hidden" value="@ViewBag.tel" />
+                                    <input type="text" name="KProfil" readonly hidden="hidden" value="@ViewBag.profil" />
+                                    <input type="text" name="KullaniciNo" readonly hidden="hidden" value="@ViewBag.kno" />
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn btn-primary btn-round">İlanı Ekle</button>
+                                        @*<button type="submit" class="btn btn-default btn-round btn-simple">Cancel</button>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </section>
+    }
+</body>
+</html>

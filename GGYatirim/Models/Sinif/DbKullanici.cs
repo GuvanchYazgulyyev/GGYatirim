@@ -36,6 +36,8 @@ namespace GGYatirim.Models.Sinif
         public Nullable<bool> Durum { get; set; }
         public string Resim { get; set; }
         public Nullable<System.DateTime> Tarih { get; set; }
+        public string Sehir { get; set; }
+        public string TamAdres { get; set; }
     
         public virtual DbYetki DbYetki { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

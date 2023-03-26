@@ -8,283 +8,785 @@
 <!--İaln Getir Kımsı Alındı     id="submit" class="js-content-blocks"-->
 
 
-<div style="padding:50px;">
-    <div class="submit-wrapper">
-        <h1 class="account-header-top">Yeni İlan Ekle</h1>
-        @*<div class="submit-content">
-            @Html.Action("AdmYeniilanPart", "Admin")*@
+<!doctype html>
+<html class="no-js " lang="tr">
 
-
-            @using (Html.BeginForm("AdmilanGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
-            {
-                <div class="submit-property-wild-block">
-                    <div class="general-property-info">
-                        <h2 class="submit-property__block-header">Genel ilan bilgisi</h2>
-                        <div class="prop-type">
-                            <p class="input-header">Kısa Başlık (Zorunlu)</p>
-                            @Html.TextBoxFor(x => x.EmlakTipi, new { @class = "form-control" })
-
-
-                        </div>
-
-
-                        <div class="select-type">
-                            <p class="input-header">Tip</p>
-                            @Html.DropDownListFor(x => x.EmlakTipIDD, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control", @style = "background: #fff; border-bottom: 1px solid #ebc858;  margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height:50px;" })
-
-                        </div>
-                        <div class="select-status">
-                            <p class="input-header">Durum</p>
-                            @Html.DropDownListFor(x => x.ilanDurumIDD, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control", @style = "background: #fff; border-bottom: 1px solid #ebc858;  margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height:50px;" })
-
-                        </div>
-                        <div class="select-label">
-                            <p class="input-header">Konum (Şehir)</p>
-                            @Html.DropDownListFor(x => x.KonumIDD, (List<SelectListItem>)ViewBag.dgr5, new { @class = "form-control", @style = "background: #fff; border-bottom: 1px solid #ebc858;  margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height:50px;" })
-                            <input type="text" name="ilanNo" readonly hidden="" value="@ViewBag.takipkod" /> <br />
-
-                        </div>
-                        <div class="prop-type">
-                            <p class="input-header">Site Adı</p>
-                            @Html.TextBoxFor(x => x.SiteAdi, new { @class = "form-control" })
-
-                        </div>
-
-
-                        <div class="location">
-                            <p class="input-header">Google Map Adresi</p>
-                            @Html.TextBoxFor(x => x.GoogleMapAdres, new { @class = "form-control" })
-
-                        </div>
-
-                        <div class="map-btn">
-                            <button class="button-secondary">Google Map Adresini Seçiniz</button>
-                        </div>
-
-                        <div class="price-full">
-                            <div class="select-label">
-                                <p class="input-header">Özellik</p>
-                                @Html.DropDownListFor(x => x.ilanOzellikIDD, (List<SelectListItem>)ViewBag.dgr4, new { @class = "form-control", @style = "background: #fff; border-bottom: 1px solid #ebc858;  margin-bottom: 15px; font-size: 16px; border: 1px #ebc858 solid; height:50px;" })
-
-                            </div>
-                        </div>
-                        <div class="prop-type">
-                            <p class="input-header">Tam Adres (Zorunlu)</p>
-                            @Html.TextBoxFor(x => x.TamAdres, new { @class = "form-control" })
-                        </div>
+<body class="theme-blue">
+    <!-- Page Loader -->
+    <!-- Overlay For Sidebars -->
+    <div class="overlay"></div>
 
 
 
+
+    <!-- Main Content -->
+    @using (Html.BeginForm("AdmilanGuncelle", "Admin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <section class="content home">
+            <div class="block-header">
+                <div class="row">
+                    <div class="col-lg-7 col-md-6 col-sm-12">
+                        <h2>
+                            İlan Güncelle
+                            <small class="text-muted">Güner Group Yatırım</small>
+                        </h2>
                     </div>
-
-                    <!--property img drag and drop start-->
-                    <div class="property-img-drag-drop">
-                        <h2 class="submit-property__block-header">İlan resimleri</h2>
-                        <div class="styling-file-input">
-                            <label>
-                                <span class="drag-span">(Vitrin Resim) Resimleri buraya sürükleyip bırakın veya</span>
-                                <span class="select-span">Fotograf Seçiniz</span>
-                                <input class="style-file-input" id="File" name="File" type="file">
-                            </label>
-                        </div>
-
-
-                        <div class="styling-file-input">
-                            <label>
-                                <span class="drag-span"> Resimleri buraya sürükleyip bırakın veya</span>
-                                <span class="select-span">Fotograf Seçiniz</span>
-                                <input class="style-file-input" name="CokluResim" multiple="true" type="file">
-                            </label>
-                        </div>
-
-
-
-
-
-
-                        <div class="image-miniatures-grid">
-                            @foreach (var item in Model.DbilanGallery.Where(k => k.İlanIDD == Model.ilanID))
-                            {
-                                <div class="image-miniature">
-                                    <img src="@item.URL" name="File" alt="image">
-                                    @*<div class="mask">
-                                            <i class="material-icons mask-controls">done</i>
-                                            <i class="material-icons mask-controls">close</i>
-                                        </div>*@
-                                </div>
-                            }
-
-
-
-                        </div>
-                    </div>
-
-                    <!--property img drag and drop end-->
-                    <!--property description textarea start-->
-                    <div class="description-textarea">
-                        <h2 class="submit-property__block-header">Açıklama</h2>
-                        @Html.TextAreaFor(x => x.Aciklama, 10, 10, new { @class = "form-control" })
-
-                        @*<textarea id="editor" name="Aciklama" rows="8" placeholder="Açıklama Ekleyiniz!" autofocus></textarea>*@
-
-                    </div>
-                    <!--property description textarea end-->
-                    <!--property details start-->
-
-                    <div class="property-details-block">
-                        <h2 class="submit-property__block-header">Detaylar</h2>
-                        <div class="prop-id">
-                            <p class="input-header">Tam Fiyat ₺</p>
-                            @Html.TextBoxFor(x => x.TamFiyat, new { @class = "form-control", type = "number" })
-
-
-                        </div>
-                        <div class="prop-size">
-                            <p class="input-header">Metre Kare Fiyatı ₺</p>
-                            @Html.TextBoxFor(x => x.MetreKareFiyat, new { @class = "form-control", type = "number" })
-
-
-                        </div>
-                        <div class="prop-year">
-                            <p class="input-header">Kuruluş Yılı (Bina Yaşı)</p>
-                            @Html.TextBoxFor(x => x.KurulusYili, new { @class = "form-control", type = "number" })
-                        </div>
-                        <div class="prop-land-area">
-                            <p class="input-header">Arazi Alanı</p>
-                            @Html.TextBoxFor(x => x.AraziAlanı, new { @class = "form-control", type = "number" })
-                        </div>
-                        <div class="">
-                            <p class="input-header">Aidat</p>
-                            @Html.TextBoxFor(x => x.Aidat, new { @class = "form-control", type = "number" })
-                        </div>
-
-                        <div class="prop-add-size">
-                            <p class="input-header">Ek Alan Boyutu</p>
-                            @Html.TextBoxFor(x => x.AlanBoyutu, new { @class = "form-control" })
-                        </div>
-
-                        <div>
-                            <p class="input-header">Bulunduğu Kat</p>
-                            @Html.TextBoxFor(x => x.BulunduguKat, new { @class = "form-control" })
-                        </div>
-
-                        <div>
-                            <p class="input-header">Isıtma</p>
-                            @Html.TextBoxFor(x => x.isitma, new { @class = "form-control" })
-                        </div>
-
-                        <div>
-                            <p class="input-header">Kullanım Durumu</p>
-                            @Html.TextBoxFor(x => x.KullanimDurumu, new { @class = "form-control" })
-                        </div>
-
-                        <div>
-                            <p class="input-header">Tapu Durumu</p>
-                            @Html.TextBoxFor(x => x.TapuDurumu, new { @class = "form-control" })
-                        </div>
-                        <div>
-                            <p class="input-header">Zemin Etüdü</p>
-                            @Html.TextBoxFor(x => x.ZeminEtudu, new { @class = "form-control" })
-                        </div>
-                        <div>
-                            <p class="input-header">Yapının Durumu</p>
-                            @Html.TextBoxFor(x => x.YapininDurumu, new { @class = "form-control" })
-                        </div>
-                        <div>
-                            <p class="input-header">Kat Sayısı</p>
-                            @Html.TextBoxFor(x => x.KatSayisi, new { @class = "form-control" })
-                        </div>
-
-
-                        <div class="select-type">
-                            <p class="input-header">Eşyalı</p>
-                            @Html.TextBoxFor(x => x.Esyali, new { @class = "form-control" })
-
-                        </div>
-
-
-
-                        <div class="select-type">
-                            <p class="input-header">Site İçersinde</p>
-                            @Html.TextBoxFor(x => x.Siteicerisinde, new { @class = "form-control" })
-
-                        </div>
-
-                        <div class="select-type">
-                            <p class="input-header">Krediye Uygun</p>
-                            @Html.TextBoxFor(x => x.KrediyeUygun, new { @class = "form-control" })
-
-                        </div>
-
-                        <div class="select-type">
-                            <p class="input-header">Takas</p>
-                            @Html.TextBoxFor(x => x.Takasli, new { @class = "form-control" })
-
-                        </div>
-
-                        <div class="select-type">
-                            <p class="input-header">Yakıt Tipi</p>
-                            @Html.TextBoxFor(x => x.YakitTipi, new { @class = "form-control" })
-
-                        </div>
-
-                        <div class="select-type">
-                            <p class="input-header">Balkon</p>
-                            @Html.TextBoxFor(x => x.Balkon, new { @class = "form-control" })
-
-                        </div>
-
-                        <div class="select-type">
-                            <p class="input-header">Banyo</p>
-                            @Html.TextBoxFor(x => x.Banyo, new { @class = "form-control" })
-
-                        </div>
-
-                        <div class="select-type">
-                            <p class="input-header">Garaj</p>
-                            @Html.TextBoxFor(x => x.Garaj, new { @class = "form-control" })
-
-                        </div>
-
-
-
-                        <div class="select-type">
-                            <p class="input-header">Oda Sayısı</p>
-                            @Html.TextBoxFor(x => x.OdaSayisi, new { @class = "form-control" })
-
-                        </div>
-
-
-
-                    </div>
-
-
-
-
-                    <div class="private-note">
-                        <h2 class="submit-property__block-header">Özel Not (İstege Bağlı)</h2>
-                        @Html.TextAreaFor(x => x.OzelNor, 6, 6, new { @class = "form-control" })
-                    </div>
-
-                    @*<div class="submit-property-btns">
-                            <div>
-                                <a href="#" class="button-link-normal button-link-normal__single-icon">
-                                    <i class="material-icons">flag</i>
-                                </a>
-
-                                <a href="#" class="button-link-normal">
-                                    Önizlem Yap
-                                </a>
-                            </div>
-
-                        </div>*@
-                    @Html.HiddenFor(x => x.ilanID)
-                    <input type="submit" class="button-link-normal" style="background-color:springgreen; color:black;" value="İlanı Ekle" />
 
                 </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row clearfix">
+                    <!--Apartman-->
 
-            }
-        @*</div>*@
-    </div>
-</div>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="header">
+                                <h2><strong>İlan</strong> Biğilerini <small>Buraya Giriniz...</small> </h2>
 
+                            </div>
+                            <div class="body">
+
+                                <div class="row clearfix">
+                                    @if (Model.EmlakTipi != null)
+                                    {
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <p class="input-header">İlan Başlık (Zorunlu)</p>
+
+                                                @Html.TextBoxFor(x => x.EmlakTipi, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.SiteAdi != null)
+                                    {
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <p class="input-header">Site Adı</p>
+
+                                                @Html.TextBoxFor(x => x.SiteAdi, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.GoogleMapAdres != null)
+                                    {
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <p class="input-header">Google Haritaları</p>
+
+                                                @Html.TextBoxFor(x => x.GoogleMapAdres, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.TamAdres != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Tam Adres (Zorunlu)</p>
+
+                                                @Html.TextBoxFor(x => x.TamAdres, new { @class = "form-control", required = "" })
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.TamFiyat != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Tam Fiyat ₺</p>
+
+                                                @Html.TextBoxFor(x => x.TamFiyat, new { @class = "form-control"})
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.MetreKareFiyat != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Metre Kare Fiyatı ₺</p>
+
+                                                @Html.TextBoxFor(x => x.MetreKareFiyat, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.KurulusYili != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Kuruluş Yılı (Bina Yaşı)</p>
+
+                                                @Html.TextBoxFor(x => x.KurulusYili, new { @class = "form-control", type = "number" })
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.AraziAlanı != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Arazi Alanı</p>
+
+                                                @Html.TextBoxFor(x => x.AraziAlanı, new { @class = "form-control", type = "number" })
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.Aidat != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Aidat Fiyatını Giriniz Var ise!!!</p>
+
+                                                @Html.TextBoxFor(x => x.Aidat, new { @class = "form-control", type = "number" })
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.AlanBoyutu != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Ek Alan Boyutu</p>
+
+                                                @Html.TextBoxFor(x => x.AlanBoyutu, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.BulunduguKat != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Bulunduğu Kat</p>
+
+                                                @Html.TextBoxFor(x => x.BulunduguKat, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.isitma != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Isıtma</p>
+
+                                                @Html.TextBoxFor(x => x.isitma, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.KullanimDurumu != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Kullanım Durumu</p>
+
+                                                @Html.TextBoxFor(x => x.KullanimDurumu, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.TapuDurumu != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Tapu Durumu</p>
+
+                                                @Html.TextBoxFor(x => x.TapuDurumu, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.ZeminEtudu != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Zemin Etüdü</p>
+
+                                                @Html.TextBoxFor(x => x.ZeminEtudu, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+
+                                    }
+                                    @if (Model.YapininDurumu != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Yapının Durumu</p>
+
+                                                @Html.TextBoxFor(x => x.YapininDurumu, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.KatSayisi != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Binanın Kat Sayısı !!!</p>
+
+                                                @Html.TextBoxFor(x => x.KatSayisi, new { @class = "form-control" })
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.Esyali != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Eşyalı</p>
+                                                @Html.TextBoxFor(x => x.Esyali, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.Siteicerisinde != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Site İçersinde</p>
+                                                @Html.TextBoxFor(x => x.Siteicerisinde, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.KrediyeUygun != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Krediye Uygun</p>
+                                                @Html.TextBoxFor(x => x.KrediyeUygun, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.Takasli != null)
+                                    {
+
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Takas</p>
+                                                @Html.TextBoxFor(x => x.Takasli, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.YakitTipi != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Yakıt Tipi</p>
+                                                @Html.TextBoxFor(x => x.YakitTipi, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.Balkon != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Balkon</p>
+                                                @Html.TextBoxFor(x => x.Balkon, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.Banyo != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Banyo</p>
+                                                @Html.TextBoxFor(x => x.Banyo, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.Garaj != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Garaj</p>
+                                                @Html.TextBoxFor(x => x.Garaj, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.OdaSayisi != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Oda Sayısı</p>
+                                                @Html.TextBoxFor(x => x.OdaSayisi, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+
+                                    }
+
+                                    @if (Model.ArsaImarDurum != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">İmar Durumu</p>
+                                                @Html.TextBoxFor(x => x.ArsaImarDurum, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+
+                                    }
+
+                                    @if (Model.ArsaAdaNo != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Ada No</p>
+                                                @Html.TextBoxFor(x => x.ArsaAdaNo, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.ArsaParselNo != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Parsel No</p>
+                                                @Html.TextBoxFor(x => x.ArsaParselNo, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.ArsaPaftaNo != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Pafta No</p>
+                                                @Html.TextBoxFor(x => x.ArsaPaftaNo, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.ArsaKaks != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Arsa Kaks</p>
+                                                @Html.TextBoxFor(x => x.ArsaKaks, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.ArsaGabari != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Gabari</p>
+                                                @Html.TextBoxFor(x => x.ArsaGabari, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.PetrolAcilAlan != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Açık Alan</p>
+                                                @Html.TextBoxFor(x => x.PetrolAcilAlan, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+
+
+                                    @if (Model.PetrolKapaliAlan != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Kapalı Alan</p>
+                                                @Html.TextBoxFor(x => x.PetrolKapaliAlan, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.PetrolPompaSayisi != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Pompa Sayısı</p>
+                                                @Html.TextBoxFor(x => x.PetrolPompaSayisi, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.ArabaSerisi != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Araba Serisi</p>
+                                                @Html.TextBoxFor(x => x.ArabaSerisi, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.ArabaModel != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Araba Modeli</p>
+                                                @Html.TextBoxFor(x => x.ArabaModel, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.ArabaYil != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Araba Yılı</p>
+                                                @Html.TextBoxFor(x => x.ArabaYil, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.ArabaVites != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Araba Vitesi</p>
+                                                @Html.TextBoxFor(x => x.ArabaVites, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.ArabaKM != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Araba KM</p>
+                                                @Html.TextBoxFor(x => x.ArabaKM, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.ArabaKasaTipi != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Araba Kasa Tipi</p>
+                                                @Html.TextBoxFor(x => x.ArabaKasaTipi, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.ArabaMotorGucu != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Araba Motor Gücü</p>
+                                                @Html.TextBoxFor(x => x.ArabaMotorGucu, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.ArabaMotorHacmi != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Araba Motor Hacmi</p>
+                                                @Html.TextBoxFor(x => x.ArabaMotorHacmi, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.ArabaCekis != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Araba Çekiş Tipi</p>
+                                                @Html.TextBoxFor(x => x.ArabaCekis, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.ArabaRenk != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Araba Renk</p>
+                                                @Html.TextBoxFor(x => x.ArabaRenk, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.ArabaGarantili != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Araba Garantisi</p>
+                                                @Html.TextBoxFor(x => x.ArabaGarantili, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+
+                                    @if (Model.ArabaPlakaUyrugu != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Araba Plaka Uyruğu</p>
+                                                @Html.TextBoxFor(x => x.ArabaPlakaUyrugu, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.TraktorMarka != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Traktör Markası</p>
+                                                @Html.TextBoxFor(x => x.TraktorMarka, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.TraktorKabin != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Traktör Kabini</p>
+                                                @Html.TextBoxFor(x => x.TraktorKabin, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.TraktorVites != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Traktör Vitesi</p>
+                                                @Html.TextBoxFor(x => x.TraktorVites, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.TraktorMotorGücü != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Traktör Motor Gücü</p>
+                                                @Html.TextBoxFor(x => x.TraktorMotorGücü, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.TraktorSlinderSayisi != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Traktör Slinder Sayısı</p>
+                                                @Html.TextBoxFor(x => x.TraktorSlinderSayisi, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.TraktorCalismaSaati != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Traktör Çalışma Saati</p>
+                                                @Html.TextBoxFor(x => x.TraktorCalismaSaati, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+                                    @if (Model.TraktorOnYukleyiciKepce != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Traktör Ön Yükleyici Kepçe</p>
+                                                @Html.TextBoxFor(x => x.TraktorOnYukleyiciKepce, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.TraktorOnLastik != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Traktör Ön Lastik</p>
+                                                @Html.TextBoxFor(x => x.TraktorOnLastik, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    @if (Model.TraktorArkaLastik != null)
+                                    {
+                                        <div class="col-sm-4">
+                                            <div class="form-group">
+                                                <p class="input-header">Traktör Arka Lastik</p>
+                                                @Html.TextBoxFor(x => x.TraktorArkaLastik, new { @class = "form-control" })
+
+                                            </div>
+                                        </div>
+                                    }
+
+
+
+
+
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <p class="submit-property__block-header">Açıklama</p>
+                                            <div class="form-line">
+                                                @Html.TextAreaFor(x => x.Aciklama, new { @class = "form-control no-resize" })
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                        <div class="card">
+                            <div class="header">
+                                @*<h2><strong>General</strong> Amenities<small>Description text here...</small> </h2>*@
+
+                            </div>
+                            <div class="body">
+                                <div class="row">
+                                        @*<div class="col-sm-3">
+                                            <b>Emlak Tipi</b>
+                                            @Html.DropDownListFor(x => x.EmlakTipIDD, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+                                        </div>*@
+                                        <div class="col-sm-4">
+                                            <b>İlan Durumu</b>
+                                            @Html.DropDownListFor(x => x.ilanDurumIDD, (List<SelectListItem>)ViewBag.dgr3, new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <b>Konum Şehir</b>
+                                            @Html.DropDownListFor(x => x.KonumIDD, (List<SelectListItem>)ViewBag.dgr5, new { @class = "form-control" })
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <b>Özellikli</b>
+                                            @Html.DropDownListFor(x => x.ilanOzellikIDD, (List<SelectListItem>)ViewBag.dgr4, new { @class = "form-control" })
+                                        </div>
+
+                                    </div>
+                                <div class="row clearfix">
+                                    <br />
+                                    <div class="col-sm-6">
+                                        <div class="fallback">
+                                            <b>İlan Vitrin Resimi</b>
+                                            <input type="file" id="File" name="File" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" class="form-control" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-sm-6">
+                                        <div class="fallback">
+                                            <b>Çoklu Resim Yükleyiniz!</b>
+                                            <input type="file" name="CokluResim" accept=".jpg,.JPG,.PNG,.png,.jpeg,.JPEG" multiple="" class="form-control" />
+                                        </div>
+                                    </div>
+
+
+
+                                    @foreach (var item in Model.DbilanGallery.Where(k => k.İlanIDD == Model.ilanID))
+                                    {
+                                        <div class="col-sm-6">
+                                            <div class="form-group">
+                                                <img src="@item.URL" style="width:90px;" name="CokluResim" alt="image">
+
+                                            </div>
+                                        </div>
+                                    }
+
+                                    <br />
+
+                                    <div class="col-sm-12">
+                                        <div class="form-group">
+                                            <p class="submit-property__block-header">Özel Not (İstege Bağlı)</p>
+
+                                            <div class="form-line">
+                                                @Html.TextAreaFor(x => x.OzelNor, new { @class = "form-control no-resize", id = "summernote" })
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <!--Eklenti-->
+                                    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+                                    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+                                    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
+
+                                    <script>
+                                        $('#summernote').summernote({
+                                            placeholder: 'Özel Notunuzu Buraya Giriniz! Örnk:"Daha Fazla Özellik',
+                                            tabsize: 2,
+                                            height: 180,
+                                            toolbar: [
+                                                ['style', ['style']],
+                                                ['font', ['bold', 'underline', 'clear']],
+                                                ['color', ['color']],
+                                                ['para', ['ul', 'ol', 'paragraph']],
+                                                ['table', ['table']],
+                                                ['insert', ['link', 'picture', 'video']],
+                                                ['view', ['fullscreen', 'codeview', 'help']]
+                                            ]
+                                        });
+                                    </script>
+                                    <!--Eklenti-->
+
+
+
+
+
+
+                                    @Html.HiddenFor(x => x.ilanID)
+
+                                    <input type="text" name="KAdSoyad" readonly hidden="" value="@ViewBag.adsoyad" />
+                                    <input type="text" name="KEPosta" readonly hidden="" value="@ViewBag.eposta" />
+                                    <input type="text" name="EPosta" readonly hidden="" value="@ViewBag.eposta" />
+                                    <input type="text" name="KTel" readonly hidden="" value="@ViewBag.tel" />
+                                    <input type="text" name="KullaniciNo" readonly hidden="" value="@ViewBag.kno" />
+                                    <div class="col-sm-12">
+                                        <button type="submit" class="btn btn-primary btn-round">Değişiklikleri Kaydet</button>
+                                        @*<button type="submit" class="btn btn-default btn-round btn-simple">Cancel</button>*@
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+
+        </section>
+    }
+</body>
+</html>

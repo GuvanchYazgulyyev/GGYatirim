@@ -1,4 +1,8 @@
-﻿
+﻿@using GGYatirim.Models.Sinif
+@using PagedList
+@using PagedList.Mvc
+@model PagedList.IPagedList<Dbilan>
+@using GGYatirim.App_Code
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,12 +10,56 @@
 
 
 
+<!--Slider -->
+<div class="slider-text-section">
+    <div class="owl-theme owl-carousel">
+        <div class="item bg">
+            <div class="slider-caption">
+                <div class="container">
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="title" >Döwletimiziň her ýerinden kaşaň emläk</div>
+                        <div class="sub-title">Döwletimiziň her ýerinden Satuw we Kärende Awtomobiller we Kaşaň Jaylar</div>
+                        <div class="sign-up">Hasaba giriň we arzuw edýän emlägiňizi gözläp başlaň</div>
+                        <div class="buttons">
+                            <a href="/Home/Tumilanlar" class="start-btn">Ähli Bildirişler</a>
+                            <a href="MGiris/" class="sign-in">Girmek</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <div class="item bg slide1">
+            <div class="slider-caption">
+                <div class="container">
+                    <div class="col-md-6 col-sm-12 col-xs-12">
+                        <div class="title">
+                            Ygtybarly we ýokary hilli iş ediň we arzuwyňyza ýetiň.
+                        </div>
+                        <div class="sub-title">Islegiňize Görä Kategorýa Saýlaň</div>
+                        <div class="buttons">
+                            <a href="/Home/Satilikilan/" class="start-btn">Satuw</a>
+                            <a href="/Home/Kiralikilan/" class="start-btn">Kärende</a>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
+        </div>
 
+    </div>
+    <div class="progress-bar-line">
+        <div class="bar-line"></div>
+    </div>
 
+    <!--controls start-->
 
+    <a href="#" class="arrow-prev"><i class="fa fa-arrow-left"></i> </a>
+    <a href="#" class="arrow-next"><i class="fa fa-arrow-right"></i> </a>
 
+    <!--controls end-->
+</div>
+<!--Slider -->
 
 
 <!--PROPERTY GROUP LARGE END-->
@@ -22,84 +70,237 @@
         <!--For customize use html and less from home_bar.html and home_bar.less start-->
         <!-- hidebutton - hide home-bar-btn block; hidelinks - hide links-block -->
         <div class="new-region-home-bar-wrapper hidebutton hidelinks">
-         
-            <div class="home-bar-btn">
-                <a href="#">Watch More</a>
+            <form id="search-form-2" method="get">
+                <div class="property-search">
+                    <div class="main-apartment-search-options">
 
-            </div>
-            <div class="links-block">
-                <div>
-                    <a href="#">Commercial</a>
-                    <a href="#">Furnished Homes</a>
-                    <a href="#">Land & Plot</a>
-                    <a href="#">Paying Guest</a>
-                    <a href="#">Residential</a>
+                        @using (Html.BeginForm("Index", "Home", FormMethod.Get))
+                        {
+
+
+                            <div class="options-wrapper-main">
+                                <div class="wrapper search-property">
+                                    <input type="text" class="property-searchinput" name="p" placeholder="Gözle...">
+                                </div>
+                                <div class="wrapper button-wrap">
+                                    <button class="property-button">Gözle</button>
+                                </div>
+                            </div>
+                        }
+
+                    </div>
+
+
+
                 </div>
+            </form>
 
-            </div>
         </div>
 
         <!--For customize use html and less from home_bar.html and home_bar.less end-->
+        @*@Html.Action("YeniilanPart", "Home")*@
 
-        @Html.Action("YeniilanPart", "Home")
-        
-    </div>
-</div>
 
-<!--NEW REGIONS END-->
-<div class="container">
-    <!--PROPERTY STANDART GRID BEGIN-->
 
-    <div class="standart-grid-container">
-        <!--For customize use html and less from home_bar.html and home_bar.less start-->
-        <!-- hidebutton - hide home-bar-btn block; hidelinks - hide links-block -->
-        <div class="standart-grid-home-bar-wrapper hidelinks">
-            @*<div class="home-bar-info">
-                <i class="fa fa-file-word-o"></i>
+        <div class="col-md-12">
+            <div class="col-md-3 region-table">
+                <!--Filter-->
+                <div class="region-item">
+                    @Html.Action("DbilanFilter")
+                    @*@Html.Action("DbEmlakTipi")*@
+                </div>
+                <div class="region-item">
+                    @Html.Action("DbilanDurum")
+                    @*@Html.Action("DbEmlakTipi")*@
+                </div>
 
-                <span>
-                    @ViewBag.d2 EMLAK İLANI SİZİ BEKLİYOR</span>
+                <div class="region-item sidemenu" id="sidemenu">
+
+                    @Html.Action("DbEmlakTipi")
+                </div>
+                @*<div class="region-item">
+
+                    @Html.Action("GuncelDovuz")
+                </div>*@
+
             </div>
-            <div class="home-bar-btn">
-                <a href="/Home/Tumilanlar">Tüm İlanlara Göz Atın</a>
 
-            </div>*@
-    
+            @foreach (var x in Model)
+            {
+
+                <div class="col-sm-4">
+                    <div class="property-block">
+                        <a href="~/Home/ilanDetay/@x.ilanID" style="text-decoration:none;">
+                            <p class="property-type">@x.DbEmlakTipi.EmlakTipAd</p>
+                            @if (x.EmlakTipi != null)
+                            {
+                                <p class="property-title" style="text-decoration:none;">
+                                    @Html.ActionLink(x.EmlakTipi, "ilanDetay", new { id = x.ilanID, baslik1 = Seo.AdresDuzenle(x.EmlakTipi) })
+                                </p>
+                            }
+                        </a>
+                        <div class="apartment-address">
+                            <i class="fa fa-map-marker"></i>
+                            <span class="address">@x.DbKonum.SehirAd ,</span>
+                            <span class="address">@x.TamAdres</span>
+                        </div>
+
+                        <div class="apartment-image">
+                            @if (x.VitrinResim != null)
+                            {
+                                <img src="@x.VitrinResim" alt="image">
+                            }
+                            <div class="badges">
+
+                                <p class="featured">@x.DbEmlakTipi.EmlakTipAd</p>
+                                <p class="rent">@x.DbilanOzellik.OzellikAd</p>
+
+                                @if (x.DbilanDurum.ilanDurumAd == "Satılık")
+                                {
+                                    <p class="sale">@x.DbilanDurum.ilanDurumAd</p>
+
+                                }
+                                @if (x.DbilanDurum.ilanDurumAd == "Kiralık")
+                                {
+                                    <p class="rent" style="background-color: #24dd93;">@x.DbilanDurum.ilanDurumAd</p>
+                                }
+
+
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="apartment-info">
+                            <div class="apartment-price">
+
+                                <p class="price-big" style="font-weight:800">@x.TamFiyat TMT</p>
+
+                                <p class="price-big">
+                                    İlan No:
+                                    @Html.ActionLink(x.ilanNo, "ilanDetay", new { id = x.ilanID, baslik1 = Seo.AdresDuzenle(x.EmlakTipi) })
+
+                                </p>
+
+                            </div>
+
+
+                        </div>
+                        <div class="apartment-manager">
+                            <div class="manager-icon">
+                                @if (x.KProfil != null)
+                                {
+                                    <a href="#chat"> <img src="@x.KProfil"></a>
+                                    <div class="online-status"></div>
+                                }
+                                else
+                                {
+                                    <img src="~/Content/Images/favicon-01.png">
+                                    <div class="online-status"></div>
+                                }
+                            </div>
+                            <div class="manager-wrap">
+                                <span class="manager-name">
+                                    @Html.ActionLink(x.KAdSoyad, "ilanDetay", new { id = x.ilanID, baslik1 = Seo.AdresDuzenle(x.EmlakTipi) })
+
+                                </span>
+                            </div>
+                            <div class="calendar">
+                                <i class="fa fa-calendar-check-o"></i>
+                                <span>
+                                    @Html.ActionLink(Convert.ToDateTime(x.Tarih).ToString("dd/MMM/yyyy"), "ilanDetay", new { id = x.ilanID, baslik1 = Seo.AdresDuzenle(x.EmlakTipi) })
+
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- İlan Kısmı-->
+            }
+
         </div>
-        <!--An sayfa Kiralık ilanları Top 5 kısmı-->
-        @*@Html.Action("AnasayfaKiralikilanPart")*@
-
-        
+        <div>
+            @Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }))
+        </div>
 
 
 
     </div>
-
-    <!--PROPERTY STANDART GRID END-->
 </div>
-<!--AGENT CAROUSEL BEGIN-->
+
+<!--AGENT CAROUSEL BEGIN Temsilciler-->
 
 <div class="container-fluid agents-carousel-container">
     <div class="container">
-     
+
         <div class="row">
             <div class="col-md-8">
                 <div class="owl-carousel owl-theme">
 
                     @Html.Action("Temsilci")
-                    
+
 
                 </div>
             </div>
         </div>
         <div class="link-wrapper">
-          
+
         </div>
 
     </div>
 </div>
 
 <!--AGENT CAROUSEL END-->
+<!--AGENT CAROUSEL END Mavi Kartlar-->
+<div class="counters-wrapper" data-visible="">
+    <!--COUNTERS BLOCK BEGIN-->
+    <!--класс counters-wrapper и light-counters нужны, последний влияет на цветовую схему -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 counter-element">
+                <div class="i">
+                    <i class="fa fa-star"></i>
+                </div>
+                <div class="data">
+                    <p class="number" data-number="@ViewBag.aktifilan">@ViewBag.aktifilan</p><!--Akrif İlanlar-->
+                    <span>Ähli bildirişler</span>
+                </div>
+            </div>
+            <div class="col-md-3  col-sm-6 counter-element">
+                <div class="i">
+                    <i class="fa fa-sellsy"></i>
+                </div>
+                <div class="data">
+                    <p class="number" data-number="@ViewBag.satilik">@ViewBag.satilik</p><!--Satılık İlanlar-->
+                    <span>Satlyk bildirişler</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 counter-element">
+                <div class="i">
+                    <i class="fa fa-hourglass-start"></i>
+                </div>
+                <div class="data">
+                    <p class="number" data-number="@ViewBag.kiralik">@ViewBag.kiralik</p><!--Kiralık İlanlar-->
+                    <span>Kärende Bildirişler</span>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 counter-element">
+                <div class="i">
+                    <i class="fa fa-car"></i>
+                </div>
+                <div class="data">
+                    <p class="number" data-number="@ViewBag.d13">@ViewBag.d13</p><!--Otomobil İlanlar-->
+                    <span>Hemme Awtomobil Bildirişleri</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--COUNTERS BLOCK END-->
+</div>
+
+
+
 
 <div class="container m-b-60">
     <!--Post Grid Begin-->
@@ -108,14 +309,14 @@
         <!-- class hidebutton hide button-wrapper block, class hidespan hide span-wrapper -->
         <div class="post-grid-arrow-block">
 
-      
+
             <div class="span-wrapper">
                 <span>
-                    SON GÖNDERİ
+                    Iň soňky ýüklenen
                 </span>
             </div>
             <div class="button-wrapper">
-                <a href="/Home/Blog">Daha Fazla Oku </a>
+                <a href="/Home/Blog">Köprak oka...</a>
             </div>
         </div>
 
@@ -123,7 +324,7 @@
 
         <!-- Blog Kısmı-->
         <div class="owl-carousel owl-theme">
-          
+
             @Html.Action("PartialBlog")
 
         </div>
