@@ -860,17 +860,17 @@ namespace GGYatirim.Controllers
                 if (u != null)
                 {
 
-                    SmtpClient client = new SmtpClient("webmail.wesigo.com", 587);
-                    client.EnableSsl = true;
-                    MailMessage mail = new MailMessage();
-                    mail.From = new MailAddress("talep@wesigo.com", "İlan Yayınlama İsteği");
-                    mail.To.Add(u.EPosta);
-                    mail.IsBodyHtml = true;
-                    mail.Subject = "Güner Group İlan Yayınlama Bildirimi";
-                    mail.Body = "Merhaba Sayın: <b> " + u.KAdSoyad + " </b> <br/> Telefon Numaranız: <b> " + u.KTel + " </b> <br/> Kullanıcı Numaranız: <b> " + u.KullaniciNo + " </b> <br/> Yayınladıgınız  <b> " + u.ilanNo + " </b> No lu İlanınız Yayınlanmıştır, saygılarımızla Güner Group Yatırım Ailesi.";
-                    NetworkCredential net = new NetworkCredential("talep@wesigo.com", "Wesigo2021.");
-                    client.Credentials = net;
-                    client.Send(mail);
+                    //SmtpClient client = new SmtpClient("webmail.wesigo.com", 587);
+                    //client.EnableSsl = true;
+                    //MailMessage mail = new MailMessage();
+                    //mail.From = new MailAddress("talep@wesigo.com", "İlan Yayınlama İsteği");
+                    //mail.To.Add(u.EPosta);
+                    //mail.IsBodyHtml = true;
+                    //mail.Subject = "Güner Group İlan Yayınlama Bildirimi";
+                    //mail.Body = "Merhaba Sayın: <b> " + u.KAdSoyad + " </b> <br/> Telefon Numaranız: <b> " + u.KTel + " </b> <br/> Kullanıcı Numaranız: <b> " + u.KullaniciNo + " </b> <br/> Yayınladıgınız  <b> " + u.ilanNo + " </b> No lu İlanınız Yayınlanmıştır, saygılarımızla Güner Group Yatırım Ailesi.";
+                    //NetworkCredential net = new NetworkCredential("talep@wesigo.com", "Wesigo2021.");
+                    //client.Credentials = net;
+                    //client.Send(mail);
                     //  TempData["sifreyenile"] = "Yeni Şifreniz E Posta Adresinize Gönderilmiştir!!!";
 
 
@@ -1279,17 +1279,17 @@ namespace GGYatirim.Controllers
                 if (u != null)
                 {
 
-                    SmtpClient client = new SmtpClient("webmail.wesigo.com", 587);
-                    client.EnableSsl = true;
-                    MailMessage mail = new MailMessage();
-                    mail.From = new MailAddress("talep@wesigo.com", "İlan Yayınlama İsteği");
-                    mail.To.Add(u.EPosta);
-                    mail.IsBodyHtml = true;
-                    mail.Subject = "Güner Group İlan Yayınlama Bildirimi";
-                    mail.Body = "Merhaba Sayın: <b> " + u.KAdSoyad + " </b> <br/> Telefon Numaranız: <b> " + u.KTel + " </b> <br/> Kullanıcı Numaranız: <b> " + u.KullaniciNo + " </b> <br/> Yayınladıgınız  <b> " + u.ilanNo + " </b> No lu İlanınız Yayınlanmıştır, saygılarımızla Güner Group Yatırım Ailesi.";
-                    NetworkCredential net = new NetworkCredential("talep@wesigo.com", "Wesigo2021.");
-                    client.Credentials = net;
-                    client.Send(mail);
+                    //SmtpClient client = new SmtpClient("webmail.wesigo.com", 587);
+                    //client.EnableSsl = true;
+                    //MailMessage mail = new MailMessage();
+                    //mail.From = new MailAddress("talep@wesigo.com", "İlan Yayınlama İsteği");
+                    //mail.To.Add(u.EPosta);
+                    //mail.IsBodyHtml = true;
+                    //mail.Subject = "Güner Group İlan Yayınlama Bildirimi";
+                    //mail.Body = "Merhaba Sayın: <b> " + u.KAdSoyad + " </b> <br/> Telefon Numaranız: <b> " + u.KTel + " </b> <br/> Kullanıcı Numaranız: <b> " + u.KullaniciNo + " </b> <br/> Yayınladıgınız  <b> " + u.ilanNo + " </b> No lu İlanınız Yayınlanmıştır, saygılarımızla Güner Group Yatırım Ailesi.";
+                    //NetworkCredential net = new NetworkCredential("talep@wesigo.com", "Wesigo2021.");
+                    //client.Credentials = net;
+                    //client.Send(mail);
                     //  TempData["sifreyenile"] = "Yeni Şifreniz E Posta Adresinize Gönderilmiştir!!!";
 
 
