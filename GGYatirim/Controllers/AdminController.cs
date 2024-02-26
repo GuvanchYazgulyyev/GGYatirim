@@ -565,7 +565,6 @@ namespace GGYatirim.Controllers
 
         /////////////////////////////////---------------------------------------------- Admilan Kişilere Ozel ilan
         /////
-
         public ActionResult AdmKisiilan(string p, int sayfa = 1)
         {
             // saydır
